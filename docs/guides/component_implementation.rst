@@ -92,6 +92,7 @@ runtime. The following simple class shows how to specify the required submodels.
 
 The property created for ``"ground"`` will be like the following: ::
 
+    @property
     def ground(self) -> GroundBase:
         """Submodel of the ground."""
         return self._ground
@@ -106,7 +107,7 @@ The property created for ``"ground"`` will be like the following: ::
             )
         self._ground = model
 
-Connections should be specified similarly using the class property
+Connections should be specified similarly with the class property
 ``required_connections``, using :class:`brim.core.requirement.ConnectionRequirement`. ::
 
     class MyModel(ModelBase):
@@ -136,19 +137,27 @@ adding a load group to a component. An example is shown below. ::
     model.add_load_group(load_group)
     assert load_group.parent is model
 
+    class MyModel2(ModelBase):
+        """Some other model."""
+
+    model2 = MyModel2("my_model2")
+    load_group = MyLoadGroup("my_load_group")
+    model2.add_load_group(load_group)  # Raises an error.
+
 Implementation Define Steps
 ---------------------------
 
 To implement the "define" steps in a model, connection, or load group, a leading
 underscore is added to the method name. For example, ``_define_<step>``. These methods
 solely implement the "define" step for the component itself without traversing the
-submodels and load groups. :class:`brim.core.base_classes.BrimBase` contains the
-implementation of the "define" methods, including traversal, which should be called
-by the user. These methods follow the format ``define_<step>``.
+submodels and load groups. The base classes, like
+:class:`brim.core.base_classes.BrimBase`, contain the implementation of the "define"
+methods, including traversal, which should be called by the user. These methods follow
+the format ``define_<step>``.
 
-We have established several helping guidelines for each define steps. The subsections
-below discuss each of these per define step, and provide general code examples of the
-expected implementation.
+We have established several helping guidelines for each of the define steps. The
+subsections below discuss each of these per define step, and provide general coding
+examples of the expected implementation.
 
 Define Connections
 ~~~~~~~~~~~~~~~~~~
@@ -161,7 +170,6 @@ Define Connections
         super()._define_connections()
         self.connection.submodel = self.submodel
 
-
 Define Objects
 ~~~~~~~~~~~~~~
 
@@ -172,6 +180,7 @@ Define Objects
   with a string as key and the (dynamic)symbol as value.
 - Generalized coordinates must be set/added to the mutable ``self.q`` matrix.
 - Generalized speeds must be set/added to the mutable ``self.u`` matrix.
+- Auxiliary speeds must be set/added to the mutable ``self.uaux`` matrix.
 - The name of each symbol, generalized coordinate, and generalized speed must be created
   using :meth:`brim.core.base_classes.BrimBase._add_prefix`. This method puts the name
   of the component in front of the symbol name, such that the symbol name is unique.
@@ -179,7 +188,7 @@ Define Objects
   the :meth:`brim.core.base_classes.BrimBase.descriptions` property.
 - The define objects step for each connection should be called manually because there
   could be dependencies between the define step of a connection and its parent model,
-  since it is utility after all.
+  it is utility after all.
 - Other component specific objects, such as bodies and reference frames, must be defined
   in this stage, but they should not be oriented or positioned yet. ::
 
@@ -189,10 +198,12 @@ Define Objects
         return {
             **super().descriptions,
             self.symbols["symbol_name"]: "Description of the symbol.",
+            self.symbols["f_noncontrib"]: "Description of the noncontributing force.",
             self.q[0]: f"First generalized coordinate of {self.name}.",
             self.q[1]: f"Second generalized coordinate of {self.name}.",
             self.u[0]: f"First generalized speed of {self.name}.",
             self.u[1]: f"Second generalized speed of {self.name}.",
+            self.uaux[0]: f"Auxiliary speed of {self.name}.",
         }
 
     def _define_objects(self) -> None:
@@ -200,8 +211,10 @@ Define Objects
         super()._define_objects()
         # Create symbols and generalized coordinates and speeds.
         self.symbols["symbol_name"] = symbols(self._add_prefix("symbol"))
+        self.symbols["f_noncontrib"] = symbols(self._add_prefix("f_noncontrib"))
         self.q = MutableMatrix([dynamicsymbols(self._add_prefix("q1:3"))])
         self.u = MutableMatrix([dynamicsymbols(self._add_prefix("u1:3"))])
+        self.uaux = MutableMatrix([dynamicsymbols(self._add_prefix("uaux"))])
         # Instantiate system.
         self._system = System()
         # Call define objects of connections.
@@ -213,14 +226,17 @@ Define Kinematics
 ~~~~~~~~~~~~~~~~~
 
 - It is generally best to first orient the reference frames in this step, and the
-  position the reference frames. Next, one can optimize the definition of the
-  velocities. Parent models must do this between their submodels.
+  position of the points. Next, one can optimize the definition of the velocities. With
+  the introduction of the auxiliary data handler it is best practise to define the
+  velocity of a point based on the point w.r.t. which it has been positioned.
+  Parent models have to orient and define the submodels w.r.t. each other.
 - The kinematical differential equations, generalized coordinates, and generalized
   speeds must be added to ``self.system``.
 - Possibly one can also use joints for the above.
 - Again the define kinematics step of each connection should be called manually.
 - Generally, make sure to define the velocity of at least one point in the model's or
-  connection's system. ::
+  connection's system.
+- Noncontributing forces can be added to the auxiliary data handler. ::
 
     def _define_kinematics(self) -> None:
         """Define the kinematics of the system."""
@@ -238,6 +254,9 @@ Define Kinematics
         self.system.add_joints(...)
         # Call define kinematics of connections.
         self.connection.define_kinematics()  # Without leading underscore!
+        # Add noncontributing force to the auxiliary data handler.
+        self.auxiliary_data_handler.add_noncontributing_force(
+          self.point, self.frame.x, self.uaux[0], self.symbols["f_noncontrib"])
 
 Define Loads
 ~~~~~~~~~~~~
@@ -245,8 +264,7 @@ Define Loads
 - As all points and reference frames have already been defined and positioned, this step
   only requires computation of the forces and torques and adding the to the
   ``self.system``.
-- In case non-contributing should be computed, one ought to define and use the auxiliary
-  speeds already in the define objects and define kinematics step.
+- Noncontributing forces are fully handled by the auxiliary data handler.
 - Again the define loads step of each connection should be called manually. ::
 
     def _define_loads(self) -> None:
@@ -274,12 +292,58 @@ Define Constraints
   susceptible to have multiple possible velocity definitions. Therefore, it is advised
   to compute the velocity based on the position graph of the points and the orientation
   and angular velocity graph of the reference frames. A good example of this is in the
-  :class:`brim.bicycle.tires.NonHolonomicTire` class.  ::
+  :class:`brim.bicycle.tires.NonHolonomicTire` class.
+- To support usage of the object in a system with noncontributing forces it is also
+  necessary to account for the auxiliary speeds. This can be done by specifically
+  requesting the auxiliary velocity of a point and adding that to the constraint. Do
+  also note that the ``velocity_constraints`` attribute is set to modify the velocity
+  constraint resulting from the holonomic constraint. ::
 
     def _define_constraints(self) -> None:
         """Define the constraints of the system."""
         super()._define_constraints()
-        self.add_holonomic_constraints(...)
-        self.add_nonholonomic_constraints(...)
+        self.system.add_holonomic_constraints(...)
+        self.system.add_nonholonomic_constraints(...)
+        # Overwrite the velocity constraints to include the auxiliary velocity.
+        self.system.velocity_constraints = [
+          self.system.holonomic_constraints[0].diff(dynamicsymbols._t) +
+          self.auxiliary_handler.get_auxiliary_velocity(self.point).dot(...),
+          *self.system.nonholonomic_constraints
+        ]
         # Call define constraints of connections.
         self.connection.define_constraints()  # Without leading underscore!
+
+Auxiliary Data Handler
+----------------------
+
+The :class:`brim.core.auxiliary.AuxiliaryDataHandler` is a utility class that is used to
+compute noncontributing forces and optimize the computation of the velocity of points.
+An instance of the auxiliary data handler is automatically created at the end of the
+``define_objects`` step. This instance is shared by the root model, i.e. the uppermost
+parent model, with all submodels, connections, and load groups. This makes the auxiliary
+data handler accessible from all components through the ``self.auxiliary_handler``
+attribute.
+
+In the ``define_kinematics`` step modelers can register noncontributing forces that
+should be computed using the
+:meth:`brim.core.auxiliary.AuxiliaryDataHandler.add_noncontributing_force` method. This
+method requires the point, the axis of the force, the auxiliary speed, and the force
+symbol as arguments. From this information the auxiliary data handler can do the rest.
+When defining the other kinematics it is best practise to define the velocity of a point
+based on the point w.r.t. which it has been positioned. This is because the auxiliary
+data handler propagates the auxiliary velocities of points to other points based on how
+points are defined w.r.t. to each other.
+
+At the end of the ``define_kinematics`` step the auxiliary data handler automatically
+computes the velocity of each point in the inertial frame, while adding the auxiliary
+velocity. The auxiliary speed is also automatically added to the root model's system
+instance.
+At the end of the ``define_loads`` step the noncontributing forces are automatically
+added to the root model's system instance.
+
+When computing the constraints in the ``define_constraints`` step it is important to
+take the auxiliary speeds into account, even if you didn't define any in you component.
+In many cases it is possible that other components may have defined auxiliary speeds
+that do affect your constraints. To get the auxiliary velocity of a point of intereset
+you can use the :meth:`brim.core.auxiliary.AuxiliaryDataHandler.get_auxiliary_velocity`
+method.

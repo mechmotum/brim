@@ -1,10 +1,7 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-
 import pytest
-from brim.core import ConnectionRequirement, ModelBase, ModelRequirement
-from brim.rider.base_connections import HipBase, LeftHipBase, RightHipBase
+from brim.rider.base_connections import LeftHipBase, RightHipBase
 from brim.rider.hip_joints import (
     PinLeftHip,
     PinRightHip,
@@ -13,46 +10,10 @@ from brim.rider.hip_joints import (
     SphericalLeftHip,
     SphericalRightHip,
 )
-from brim.rider.legs import LegBase, TwoPinStickLeftLeg, TwoPinStickRightLeg
-from brim.rider.pelvis import PelvisBase, PlanarPelvis
-from brim.utilities.testing import _test_descriptions
+from brim.rider.legs import TwoPinStickLeftLeg, TwoPinStickRightLeg
+from brim.rider.pelvis import PlanarPelvis
+from brim.utilities.testing import _test_descriptions, create_model_of_connection
 from brim.utilities.utilities import check_zero
-
-if TYPE_CHECKING:
-    from sympy.physics.mechanics import System
-
-
-class HipModel(ModelBase):
-    required_models = (
-        ModelRequirement("pelvis", PelvisBase, "Pelvis of the rider."),
-        ModelRequirement("leg", LegBase, "Leg of the rider."),
-    )
-    required_connections = (
-        ConnectionRequirement("hip", HipBase, "Hip joint of the rider."),
-    )
-    pelvis: PelvisBase
-    leg: LegBase
-    hip: HipBase
-
-    @property
-    def system(self) -> System | None:
-        return self.hip.system
-
-    def define_connections(self) -> None:
-        self.hip.pelvis = self.pelvis
-        self.hip.leg = self.leg
-
-    def define_objects(self) -> None:
-        super().define_objects()
-        self.hip.define_objects()
-
-    def define_kinematics(self) -> None:
-        super().define_kinematics()
-        self.hip.define_kinematics()
-
-    def define_loads(self) -> None:
-        super().define_loads()
-        self.hip.define_loads()
 
 
 @pytest.mark.parametrize("hip_cls, leg_cls, base_cls", [
@@ -78,13 +39,13 @@ class TestHipJointBase:
 class TestSphericalLeftHipJoint:
     @pytest.fixture(autouse=True)
     def _setup(self) -> None:
-        self.model = HipModel("model")
-        self.model.hip = SphericalLeftHip("hip")
+        self.model = create_model_of_connection(SphericalLeftHip)("hip_model")
+        self.model.conn = SphericalLeftHip("hip")
         self.model.pelvis = PlanarPelvis("pelvis")
         self.model.leg = TwoPinStickLeftLeg("leg")
         self.model.define_all()
         self.hip, self.pelvis, self.leg = (
-            self.model.hip, self.model.pelvis, self.model.leg)
+            self.model.conn, self.model.pelvis, self.model.leg)
 
     def test_kinematics(self):
         w = self.leg.hip_interframe.ang_vel_in(self.pelvis.frame)
@@ -99,13 +60,13 @@ class TestSphericalLeftHipJoint:
 class TestSphericalRightHipJoint:
     @pytest.fixture(autouse=True)
     def _setup(self) -> None:
-        self.model = HipModel("model")
-        self.model.hip = SphericalRightHip("hip")
+        self.model = create_model_of_connection(SphericalRightHip)("hip_model")
+        self.model.conn = SphericalRightHip("hip")
         self.model.pelvis = PlanarPelvis("pelvis")
         self.model.leg = TwoPinStickRightLeg("leg")
         self.model.define_all()
         self.hip, self.pelvis, self.leg = (
-            self.model.hip, self.model.pelvis, self.model.leg)
+            self.model.conn, self.model.pelvis, self.model.leg)
 
     def test_kinematics(self):
         w = self.leg.hip_interframe.ang_vel_in(self.pelvis.frame)
@@ -122,13 +83,13 @@ class TestSphericalRightHipJoint:
 class TestPinLeftHipJoint:
     @pytest.fixture(autouse=True)
     def _setup(self, hip_cls, leg_cls) -> None:
-        self.model = HipModel("model")
-        self.model.hip = hip_cls("hip")
+        self.model = create_model_of_connection(hip_cls)("hip_model")
+        self.model.conn = hip_cls("hip")
         self.model.pelvis = PlanarPelvis("pelvis")
         self.model.leg = leg_cls("leg")
         self.model.define_all()
         self.hip, self.pelvis, self.leg = (
-            self.model.hip, self.model.pelvis, self.model.leg)
+            self.model.conn, self.model.pelvis, self.model.leg)
 
     def test_kinematics(self):
         w = self.leg.hip_interframe.ang_vel_in(self.pelvis.frame)
@@ -150,18 +111,18 @@ class TestSphericalHipTorque:
     @staticmethod
     def _get_test_torques_info(hip_cls: type, leg_cls: type, load_group_cls: type
                                ) -> tuple:
-        model = HipModel("model")
-        model.hip = hip_cls("hip")
+        model = create_model_of_connection(hip_cls)("hip_model")
+        model.conn = hip_cls("hip")
         model.pelvis = PlanarPelvis("pelvis")
         model.leg = leg_cls("leg")
         load_group = load_group_cls("hip")
-        model.hip.add_load_groups(load_group)
+        model.conn.add_load_groups(load_group)
         model.define_all()
         assert len(load_group.system.loads) == 2
         w = model.leg.hip_interframe.ang_vel_in(model.pelvis.frame)
-        flex_axis = w.xreplace({model.hip.u[1]: 0, model.hip.u[2]: 0}).normalize()
-        add_axis = w.xreplace({model.hip.u[0]: 0, model.hip.u[2]: 0}).normalize()
-        rot_axis = w.xreplace({model.hip.u[0]: 0, model.hip.u[1]: 0}).normalize()
+        flex_axis = w.xreplace({model.conn.u[1]: 0, model.conn.u[2]: 0}).normalize()
+        add_axis = w.xreplace({model.conn.u[0]: 0, model.conn.u[2]: 0}).normalize()
+        rot_axis = w.xreplace({model.conn.u[0]: 0, model.conn.u[1]: 0}).normalize()
         return model, load_group, flex_axis, add_axis, rot_axis
 
     @pytest.mark.parametrize("hip_cls, leg_cls", [
@@ -206,21 +167,21 @@ class TestSphericalHipTorque:
             if load.frame == model.leg.thigh.frame:
                 assert check_zero(
                     load.torque.xreplace({**zero[1], **zero[2]}).dot(flex_axis) -
-                    torque(syms[0], model.hip.q[0], model.hip.u[0]))
+                    torque(syms[0], model.conn.q[0], model.conn.u[0]))
                 assert check_zero(
                     load.torque.xreplace({**zero[0], **zero[2]}).dot(add_axis) -
-                    torque(syms[1], model.hip.q[1], model.hip.u[1]))
+                    torque(syms[1], model.conn.q[1], model.conn.u[1]))
                 assert check_zero(
                     load.torque.xreplace({**zero[0], **zero[1]}).dot(rot_axis) -
-                    torque(syms[2], model.hip.q[2], model.hip.u[2]))
+                    torque(syms[2], model.conn.q[2], model.conn.u[2]))
             else:
                 assert load.frame == model.pelvis.frame
                 assert check_zero(
                     load.torque.xreplace({**zero[1], **zero[2]}).dot(flex_axis) +
-                    torque(syms[0], model.hip.q[0], model.hip.u[0]))
+                    torque(syms[0], model.conn.q[0], model.conn.u[0]))
                 assert check_zero(
                     load.torque.xreplace({**zero[0], **zero[2]}).dot(add_axis) +
-                    torque(syms[1], model.hip.q[1], model.hip.u[1]))
+                    torque(syms[1], model.conn.q[1], model.conn.u[1]))
                 assert check_zero(
                     load.torque.xreplace({**zero[0], **zero[1]}).dot(rot_axis) +
-                    torque(syms[2], model.hip.q[2], model.hip.u[2]))
+                    torque(syms[2], model.conn.q[2], model.conn.u[2]))

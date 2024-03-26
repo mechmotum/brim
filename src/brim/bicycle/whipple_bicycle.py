@@ -108,9 +108,9 @@ class WhippleBicycleMoore(WhippleBicycle):
             self.ground.frame,
             self.rear_tire.contact_point.vel(self.ground.frame).xreplace(qd_repl))
         # Define the orientation of the rear frame.
-        int_frame = ReferenceFrame("int_frame")
-        int_frame.orient_body_fixed(self.ground.frame, (*self.q[2:4], 0), "zxy")
-        self.rear_frame.wheel_hub.frame.orient_axis(int_frame, int_frame.y, self.q[4])
+        roll_frame = ReferenceFrame("roll_frame")
+        roll_frame.orient_body_fixed(self.ground.frame, (*self.q[2:4], 0), "zxy")
+        self.rear_frame.wheel_hub.frame.orient_axis(roll_frame, roll_frame.y, self.q[4])
         self.rear_frame.wheel_hub.frame.set_ang_vel(
             self.ground.frame,
             self.rear_frame.wheel_hub.frame.ang_vel_in(
@@ -137,9 +137,18 @@ class WhippleBicycleMoore(WhippleBicycle):
         )
         # Define contact points.
         with contextlib.suppress(ValueError):
-            self.rear_tire.upward_radial_axis = Vector(
-                {int_frame: self.ground.get_normal(
-                    self.rear_tire.contact_point).to_matrix(self.ground.frame)})
+            normal = self.ground.get_normal(self.rear_tire.contact_point)
+            direction = normal.dot(-self.ground.frame.z)
+            self.rear_tire.upward_radial_axis = direction * -roll_frame.z
+            self.rear_tire.longitudinal_axis = direction * roll_frame.x
+            # It is for some reason highly inefficient to define a yaw frame between the
+            # ground and roll frame. Instead, we define two disconnected frames to get
+            # the y axis of the yaw frame efficiently expressed in the roll frame.
+            fake_roll = ReferenceFrame("fake_roll")
+            fake_yaw = ReferenceFrame("fake_yaw")
+            fake_roll.orient_axis(fake_yaw, fake_yaw.x, self.q[3])
+            self.rear_tire.lateral_axis = Vector({
+                roll_frame: fake_yaw.y.to_matrix(fake_roll)})
         self.rear_tire.define_kinematics()
         self.front_tire.define_kinematics()
         # Add the coordinates and speeds to the system.

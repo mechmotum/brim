@@ -12,8 +12,9 @@ from brim import (
     RigidRearFrame,
 )
 from brim.bicycle import MasslessCranks, WhippleBicycle, WhippleBicycleMoore
-from sympy import Symbol, lambdify
-from sympy.physics.mechanics import dynamicsymbols
+from brim.utilities.testing import ignore_point_warnings
+from sympy import Matrix, Symbol, count_ops, lambdify, linear_eq_to_matrix
+from sympy.physics.mechanics import dynamicsymbols, msubs
 
 if TYPE_CHECKING:
     from sympy import Basic
@@ -101,7 +102,8 @@ class TestWhippleBicycleMoore:
         system.q_dep = [self.bike.q[4]]
         system.u_ind = [self.bike.u[3], *self.bike.u[5:7]]
         system.u_dep = [*self.bike.u[:3], self.bike.u[4], self.bike.u[7]]
-        system.form_eoms(constraint_solver="CRAMER")
+        with ignore_point_warnings():
+            system.form_eoms(constraint_solver="CRAMER")
 
         constants, initial_state = self._get_basu_mandal_values(self.bike)
         p, p_vals = zip(*constants.items())
@@ -139,3 +141,62 @@ class TestWhippleBicycleMoore:
             dynamicsymbols._t, rf) == 0
         assert (self.bike.cranks.frame.ang_vel_in(rf).dot(rf.y) ==
                 self.bike.u[7] / self.bike.symbols["gear_ratio"])
+
+    @pytest.mark.parametrize("normal, upward, longitudinal, lateral", [
+        ("+z", Matrix([0, 0, 1]), Matrix([-1, 0, 0]), Matrix([0, 1, 0])),
+        ("-z", Matrix([0, 0, -1]), Matrix([1, 0, 0]), Matrix([0, 1, 0]))])
+    def test_define_tire_axes(self, _setup_default, normal, upward, longitudinal,
+                              lateral) -> None:
+        self.bike.ground = FlatGround("ground", normal=normal)
+        self.bike.define_all()
+        tire = self.bike.rear_tire
+        assert count_ops(tire.upward_radial_axis.to_matrix(self.bike.ground.frame)) < 30
+        assert count_ops(tire.longitudinal_axis.to_matrix(self.bike.ground.frame)) < 30
+        assert count_ops(tire.lateral_axis.to_matrix(self.bike.ground.frame)) < 30
+
+    @pytest.mark.parametrize("normal", ["+x", "-x", "+y", "-y"])
+    def test_do_not_define_upward_radial_axis(self, _setup_default, normal) -> None:
+        self.bike.ground = FlatGround("ground", normal=normal)
+        self.bike.define_all()
+        tire = self.bike.rear_tire
+        assert count_ops(tire.upward_radial_axis.to_matrix(self.bike.ground.frame)) > 30
+        assert count_ops(tire.longitudinal_axis.to_matrix(self.bike.ground.frame)) > 30
+        assert count_ops(tire.lateral_axis.to_matrix(self.bike.ground.frame)) > 30
+
+    @pytest.mark.parametrize("compute_rear", [True, False])
+    @pytest.mark.parametrize("compute_front", [True, False])
+    def test_computation_normal_force_nominal_config(self, _setup_default, compute_rear,
+                                                     compute_front) -> None:
+        if not compute_rear and not compute_front:
+            return
+        self.bike.rear_tire.compute_normal_force = compute_rear
+        self.bike.front_tire.compute_normal_force = compute_front
+        self.bike.define_all()
+        system = self.bike.to_system()
+        system.apply_uniform_gravity(-Symbol("g") * self.bike.ground.get_normal(
+            self.bike.ground.origin))
+        system.q_ind = [*self.bike.q[:4], *self.bike.q[5:]]
+        system.q_dep = [self.bike.q[4]]
+        system.u_ind = [self.bike.u[3], *self.bike.u[5:7]]
+        system.u_dep = [*self.bike.u[:3], self.bike.u[4], self.bike.u[7]]
+        assert len(system.u_aux) == int(compute_rear) + int(compute_front)
+        with ignore_point_warnings():
+            system.form_eoms(constraint_solver="CRAMER")
+        constants, _ = self._get_basu_mandal_values(self.bike)
+        aux_eqs = system.eom_method.auxiliary_eqs
+        fn_syms = []
+        if compute_rear:
+            fn_syms.extend([self.bike.rear_tire.symbols["Fz"]])
+        if compute_front:
+            fn_syms.extend([self.bike.front_tire.symbols["Fz"]])
+        fn_eqs = Matrix.cramer_solve(*linear_eq_to_matrix(aux_eqs, fn_syms))
+        zero = 1e-10
+        zero_config = {ui.diff(): zero for ui in system.u}
+        zero_config.update({ui: zero for ui in system.u})
+        zero_config.update({qi: zero for qi in system.q})
+        zero_config[self.bike.q[4]] = np.pi / 10
+        fn_vals = [float(val) for val in msubs(fn_eqs, zero_config, constants)]
+        if compute_rear:
+            np.testing.assert_allclose([fn_vals[0]], [612.836470588236])
+        if compute_front:
+            np.testing.assert_allclose([fn_vals[-1]], [309.303529411765])

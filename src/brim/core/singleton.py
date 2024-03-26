@@ -1,13 +1,15 @@
 """Singleton class."""
 from __future__ import annotations
 
+from typing import ClassVar
+
 __all__ = ["SingletonMeta", "Singleton"]
 
 
 class SingletonMeta(type):
     """Metaclass for Singleton."""
 
-    _instances = {}
+    _instances: ClassVar[dict[type, object]] = {}
 
     def __call__(cls, *args, **kwargs):
         """Create a new instance of the class."""

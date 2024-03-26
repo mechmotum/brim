@@ -47,12 +47,15 @@ class TestCompleteRider:
         assert self.rider.right_shoulder is not None
         self.rider.define_all()
 
-    def test_minimal(self) -> None:
+    @pytest.mark.parametrize("define_required", [True, False])
+    def test_minimal(self, define_required) -> None:
         rider = Rider("rider")
-        with pytest.raises(Exception):
+        if define_required:
+            rider.pelvis = PlanarPelvis("pelvis")
             rider.define_all()
-        rider.pelvis = PlanarPelvis("pelvis")
-        rider.define_all()
+        else:
+            with pytest.raises((ValueError, AttributeError)):
+                rider.define_all()
 
     def test_form_eoms(self, _setup) -> None:
         self.rider.define_all()

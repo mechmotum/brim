@@ -31,6 +31,7 @@ from brim.rider import (
     TwoPinStickLeftLeg,
     TwoPinStickRightLeg,
 )
+from brim.utilities.testing import ignore_point_warnings
 
 
 class TestCompleteBicycleRider:
@@ -132,4 +133,5 @@ class TestCompleteBicycleRider:
                         *self.rider.right_hip.u[1:], self.rider.right_leg.u[1],
                         *self.rider.left_shoulder.u, *self.rider.right_shoulder.u]
         system.validate_system()
-        system.form_eoms()
+        with ignore_point_warnings():
+            system.form_eoms()

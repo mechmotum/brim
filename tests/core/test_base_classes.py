@@ -4,7 +4,13 @@ from typing import Any
 
 import pytest
 from brim.bicycle import FlatGround, KnifeEdgeWheel, NonHolonomicTire
-from brim.core import LoadGroupBase, ModelBase, Registry, set_default_convention
+from brim.core import (
+    LoadGroupBase,
+    ModelBase,
+    ModelRequirement,
+    Registry,
+    set_default_convention,
+)
 from brim.other.rolling_disc import RollingDisc
 from sympy import S, Symbol
 from sympy.physics.mechanics import System, Torque, dynamicsymbols
@@ -218,6 +224,30 @@ class TestModelBase:
         assert system.loads == (
             Torque(self.disc.disc.frame,
                    self.load_group.symbols["T"] * self.disc.disc.rotation_axis),)
+
+    def test_is_root(self, _create_model) -> None:
+        class MyModel(ModelBase):
+            required_models: tuple[ModelRequirement, ...] = (
+                ModelRequirement("rolling_disc", RollingDisc, "Rolling disc model."),
+            )
+
+            def _define_objects(self) -> None:
+                super()._define_objects()
+                self._system = System(self.rolling_disc.system.frame,
+                                      self.rolling_disc.system.fixed_point)
+
+        root = MyModel("root")
+        root.rolling_disc = self.disc
+        for obj in (root, self.disc, self.disc.disc, self.disc.ground):
+            assert obj.is_root is None
+        root.define_connections()
+        root.define_objects()
+        assert root.is_root
+        for obj in (self.disc, self.disc.disc, self.disc.ground):
+            assert not obj.is_root
+        root.define_kinematics()
+        root.define_loads()
+        root.define_constraints()
 
 
 class TestFromConvention:

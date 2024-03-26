@@ -15,7 +15,7 @@ BICYCLE_PARAMETERS_ZIP_URL = (
 TUTORIALS_DIR = os.path.dirname(__file__)
 
 
-def download_parametrization_data(data_dir: str = None) -> None:
+def download_parametrization_data(data_dir: str | None = None) -> None:
     """Download the bicycle and rider data from the BicycleParameters repository."""
     if data_dir is None:
         data_dir = os.path.join(TUTORIALS_DIR, "data")

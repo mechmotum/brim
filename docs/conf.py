@@ -10,7 +10,7 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 sys.path.insert(0, os.path.abspath("../src"))
 
-from process_tutorials import main as process_tutorials  # noqa: E402
+from process_tutorials import main as process_tutorials
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information

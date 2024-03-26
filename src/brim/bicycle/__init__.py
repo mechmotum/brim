@@ -8,7 +8,7 @@ __all__ = [
     "SuspensionRigidFrontFrame", "SuspensionRigidFrontFrameMoore",
     "FrontFrameBase", "RigidFrontFrame", "RigidFrontFrameMoore",
     "WheelBase", "KnifeEdgeWheel", "ToroidalWheel",
-    "TireBase", "NonHolonomicTire",
+    "TireBase", "InContactTire", "NonHolonomicTire",
     "CranksBase", "MasslessCranks",
 ]
 
@@ -24,6 +24,6 @@ from brim.bicycle.front_frames import (
 from brim.bicycle.grounds import FlatGround, GroundBase
 from brim.bicycle.rear_frames import RearFrameBase, RigidRearFrame, RigidRearFrameMoore
 from brim.bicycle.stationary_bicycle import StationaryBicycle
-from brim.bicycle.tires import NonHolonomicTire, TireBase
+from brim.bicycle.tires import InContactTire, NonHolonomicTire, TireBase
 from brim.bicycle.wheels import KnifeEdgeWheel, ToroidalWheel, WheelBase
 from brim.bicycle.whipple_bicycle import WhippleBicycle, WhippleBicycleMoore

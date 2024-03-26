@@ -61,8 +61,7 @@ def check_zero(expr: Expr, n_evaluations: int = 10, atol: float = 1e-8) -> bool:
         expr = msubs(expr, dummy_map)
     f = lambdify(free, expr, cse=True)
     # The comparison is to zero, so the relative tolerance is not used.
+    rng = np.random.default_rng()
     return np.allclose(
-        np.fromfunction(lambda i: f(*np.random.random(len(free))), (n_evaluations,)),
-        np.zeros(n_evaluations),
-        0, atol
-    )
+        np.fromfunction(lambda i: f(*rng.random(len(free))), (n_evaluations,)),
+        np.zeros(n_evaluations), 0, atol)

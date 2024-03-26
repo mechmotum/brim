@@ -9,7 +9,6 @@ from sympy.physics.mechanics import (
     ReferenceFrame,
     RigidBody,
     System,
-    Vector,
     cross,
     dynamicsymbols,
     inertia,
@@ -71,9 +70,11 @@ class RollingDisc(ModelBase):
         """Define the kinematics of the rolling disc."""
         super()._define_kinematics()
         qd_repl = dict(zip(self.q.diff(dynamicsymbols._t), self.u))
-        int_frame = ReferenceFrame("int_frame")
-        int_frame.orient_body_fixed(self.ground.frame, (*self.q[2:-1], 0), "zxy")
-        self.disc.frame.orient_axis(int_frame, int_frame.y, self.q[-1])
+        yaw_frame = ReferenceFrame("yaw_frame")
+        roll_frame = ReferenceFrame("roll_frame")
+        yaw_frame.orient_axis(self.ground.frame, self.ground.frame.z, self.q[2])
+        roll_frame.orient_axis(yaw_frame, yaw_frame.x, self.q[3])
+        self.disc.frame.orient_axis(roll_frame, roll_frame.y, self.q[4])
         self.disc.frame.set_ang_vel(
             self.ground.frame, self.disc.frame.ang_vel_in(self.ground.frame).xreplace(
                 qd_repl))
@@ -82,9 +83,11 @@ class RollingDisc(ModelBase):
             self.ground.frame,
             self.tire.contact_point.vel(self.ground.frame).xreplace(qd_repl))
         with contextlib.suppress(ValueError):
-            self.tire.upward_radial_axis = Vector(
-                {int_frame: self.ground.get_normal(self.tire.contact_point).to_matrix(
-                    self.ground.frame)})
+            normal = self.ground.get_normal(self.tire.contact_point)
+            direction = normal.dot(-self.ground.frame.z)
+            self.tire.upward_radial_axis = direction * -roll_frame.z
+            self.tire.longitudinal_axis = direction * yaw_frame.x
+            self.tire.lateral_axis = yaw_frame.y
 
         self.tire.define_kinematics()
         self.system.q_ind = self.q

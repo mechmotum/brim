@@ -9,9 +9,11 @@ __all__ = [
     "ConnectionBase", "LoadGroupBase", "ModelBase",
     "set_default_convention",
     "NewtonianBodyMixin",
+    "AuxiliaryDataHandler", "AuxiliaryData",
 ]
 
 from brim.core.attachment import Attachment, Hub
+from brim.core.auxiliary import AuxiliaryData, AuxiliaryDataHandler
 from brim.core.base_classes import (
     ConnectionBase,
     ConnectionMeta,

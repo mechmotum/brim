@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING, Any, Callable
 from sympy import Basic, MutableDenseMatrix, Symbol, symbols
 from sympy.physics.mechanics import System, dynamicsymbols, find_dynamicsymbols
 
+from brim.core.auxiliary import AuxiliaryDataHandler
 from brim.core.registry import Registry
 
 try:  # pragma: no cover
@@ -133,9 +134,11 @@ class BrimBase:
             raise ValueError("The name of an object should be a valid identifier.")
         self._name = str(name)
         self._system = None
+        self._auxiliary_handler = None
         self.symbols: dict[str, Any] = {}
         self.q: MutableDenseMatrix = MutableDenseMatrix()
         self.u: MutableDenseMatrix = MutableDenseMatrix()
+        self.u_aux: MutableDenseMatrix = MutableDenseMatrix()
 
     def _add_prefix(self, names: str) -> str:
         """Add the name of the object as a prefix to a set of names.
@@ -223,6 +226,11 @@ class BrimBase:
         """
         return self._system
 
+    @property
+    def auxiliary_handler(self) -> AuxiliaryDataHandler | None:
+        """Auxiliary data handler of the model."""
+        return self._auxiliary_handler
+
     def get_param_values(self, bicycle_parameters: Bicycle) -> dict[Symbol, float]:
         """Get a parameters mapping of a model based on a bicycle parameters object."""
         if Bicycle is None:
@@ -279,6 +287,7 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
             Name of the model.
         """
         super().__init__(name)
+        self.is_root: bool | None = None  # None means that it is not defined.
         self._load_groups = []
         for req in self.required_models:
             setattr(self, f"_{req.attribute_name}", None)
@@ -327,6 +336,14 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
                              f"of type {cls}: {set(possible_models)}.")
         return possible_models[0](name, *args, **kwargs)
 
+    def _set_auxiliary_handler(self, auxiliary_handler: AuxiliaryDataHandler) -> None:
+        """Set the auxiliary data handler of the model."""
+        self._auxiliary_handler = auxiliary_handler
+        for submodel in self.submodels:
+            submodel._set_auxiliary_handler(auxiliary_handler)
+        for child in self.connections + self.load_groups:
+            child._auxiliary_handler = auxiliary_handler
+
     def _define_connections(self) -> None:
         """Define the submodels used by connections in the model."""
 
@@ -338,11 +355,20 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
 
     def define_objects(self) -> None:
         """Initialize the objects belonging to the model."""
+        if self.is_root is None:
+            self.is_root = True
+            queue = list(self.submodels)
+            while queue:
+                submodel = queue.pop(0)
+                submodel.is_root = False
+                queue.extend(submodel.submodels)
         for submodel in self.submodels:
             submodel.define_objects()
         self._define_objects()
         for load_group in self._load_groups:
             load_group.define_objects()
+        if self.is_root:
+            self._set_auxiliary_handler(AuxiliaryDataHandler.from_system(self.system))
 
     def define_kinematics(self) -> None:
         """Establish the kinematics of the objects belonging to the model."""
@@ -351,6 +377,9 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
         self._define_kinematics()
         for load_group in self._load_groups:
             load_group.define_kinematics()
+        if self.is_root:
+            self.auxiliary_handler.apply_speeds()
+            self.system.add_auxiliary_speeds(*self.auxiliary_handler.auxiliary_speeds)
 
     def define_loads(self) -> None:
         """Define the loads that are acting upon the model."""
@@ -359,6 +388,8 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
         self._define_loads()
         for load_group in self._load_groups:
             load_group.define_loads()
+        if self.is_root:
+            self.system.add_loads(*self.auxiliary_handler.create_loads())
 
     def define_constraints(self) -> None:
         """Define the constraints on the model."""
@@ -534,6 +565,7 @@ def _merge_systems(*systems: System) -> System:
             ("q_dep", "q", "add_coordinates", {"independent": False}),
             ("u_ind", "u", "add_speeds", {"independent": True}),
             ("u_dep", "u", "add_speeds", {"independent": False}),
+            ("u_aux", "u", "add_auxiliary_speeds", {}),
             ("bodies", "bodies", "add_bodies", {}),
             ("joints", "joints", "add_joints", {}),
             ("loads", "loads", "add_loads", {}),
@@ -548,4 +580,6 @@ def _merge_systems(*systems: System) -> System:
             for item in getattr(s, attr_to_add):
                 if item not in getattr(system, attr_existing):
                     getattr(system, add_method)(item, **kwargs)
+        system.velocity_constraints = (
+            system.velocity_constraints[:] + s.velocity_constraints[:])
     return system
