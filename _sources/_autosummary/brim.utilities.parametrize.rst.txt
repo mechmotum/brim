@@ -1,0 +1,36 @@
+..
+  module.rst
+
+brim.utilities.parametrize
+==========================
+
+.. automodule:: brim.utilities.parametrize
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Functions
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/base.rst
+                
+                    get_inertia_vals
+                    get_inertia_vals_from_yeadon
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="whippleConfig" version="1.1" viewBox="0 0 231.0395 70.457903" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="EmptyDiamondLend" overflow="visible" orient="auto">
+   <path transform="matrix(.8 0 0 .8 -5.6 0)" d="M 0,-7.0710768 -7.0710894,0 0,7.0710589 7.0710462,0 Z" stroke="currentColor" fill="#FFFFFF" stroke-width="1pt"/>
+  </marker>
+  <marker id="EmptyTriangleLend" overflow="visible" orient="auto">
+   <path transform="matrix(.8 0 0 .8 -4.8 0)" d="m5.77 0-8.65 5v-10z" stroke="currentColor" fill="#FFFFFF" stroke-width="1pt"/>
+  </marker>
+ </defs>
+ <g transform="translate(-17.10613,-121.1316)" fill="none" stroke="currentColor" stroke-width=".5">
+  <path d="m100.73634 171.0848a15.417147 15.417147 0 0 1-18.434441 11.6418 15.417147 15.417147 0 0 1-11.64245-18.43403 15.417147 15.417147 0 0 1 18.433615-11.6431 15.417147 15.417147 0 0 1 11.643756 18.43321"/>
+  <path d="m166.48281 171.0848a15.417147 15.417147 0 0 1-18.43444 11.6418 15.417147 15.417147 0 0 1-11.64245-18.43403 15.417147 15.417147 0 0 1 18.43362-11.6431 15.417147 15.417147 0 0 1 11.64375 18.43321"/>
+  <path d="m85.698002 167.68815 29.484358 3.15315 20.8571-26.0302h-35.78888z" stroke-linecap="round" stroke-linejoin="round" style="paint-order:stroke fill markers"/>
+  <path d="m115.18236 170.8413-14.93178-26.0302-4.55065-8.33662" stroke-linecap="round" stroke-linejoin="round" style="paint-order:stroke fill markers"/>
+  <path d="m91.718129 136.35653 11.755821 0.0705" stroke-linecap="round" stroke-linejoin="round" style="paint-order:stroke fill markers"/>
+  <path d="m124.33105 134.86455h6.96817l4.74024 9.94655c4.27897 8.97862 9.63773 18.02412 15.40502 22.87705" stroke-linecap="round" stroke-linejoin="round" style="paint-order:stroke fill markers"/>
+  <path d="m115.182 170.841 2-8"/>
+  <path d="m115.182 170.841-2 8"/>
+  <path d="m115.182 162.841h4"/>
+  <path d="m111.182 178.841h4"/>
+  <g transform="translate(0,-1.0583333)">
+   <path d="m64.517038 184.46082h109.999982"/>
+   <path d="m68.517038 184.46082-4 7"/>
+   <path d="m71.936391 184.46082-4 7"/>
+   <path d="m75.355748 184.46082-4 7"/>
+   <path d="m78.7751 184.46082-4 7"/>
+   <path d="m82.194457 184.46082-4 7"/>
+   <path d="m85.61381 184.46082-4 7"/>
+   <path d="m89.033167 184.46082-4 7"/>
+   <path d="m92.45252 184.46082-4 7"/>
+   <path d="m95.871873 184.46082-4 7"/>
+   <path d="m99.291216 184.46082-3.999986 7"/>
+   <path d="m102.71056 184.46082-3.999991 7"/>
+   <path d="m106.12993 184.46082-4 7"/>
+   <path d="m109.54927 184.46082-4 7"/>
+   <path d="m112.96863 184.46082-4 7"/>
+   <path d="m116.38799 184.46082-4 7"/>
+   <path d="m119.80734 184.46082-4 7"/>
+   <path d="m123.22669 184.46082-4 7"/>
+   <path d="m126.64605 184.46082-4 7"/>
+   <path d="m130.0654 184.46082-4 7"/>
+   <path d="m133.48476 184.46082-4 7"/>
+   <path d="m136.90411 184.46082-4 7"/>
+   <path d="m140.32346 184.46082-4 7"/>
+   <path d="m143.74282 184.46082-4 7"/>
+   <path d="m147.16217 184.46082-4 7"/>
+   <path d="m150.58152 184.46082-4 7"/>
+   <path d="m154.00088 184.46082-4 7"/>
+   <path d="m157.42023 184.46082-4 7"/>
+   <path d="m160.83958 184.46082-4 7"/>
+   <path d="m164.25895 184.46082-4 7"/>
+   <path d="m167.6783 184.46082-4 7"/>
+   <path d="m171.09766 184.46082-4 7"/>
+   <path d="m174.51702 184.46082-4 7"/>
+  </g>
+ </g>
+ <g transform="translate(10.585911,-16.670778)" fill="#0000ff">
+  <path transform="translate(-27.69204,-104.46082)" d="m87.069245 183.67427a1.5 1.5 0 0 1-1.793565 1.13268 1.5 1.5 0 0 1-1.132744-1.79352 1.5 1.5 0 0 1 1.793485-1.13281 1.5 1.5 0 0 1 1.13287 1.79344" style="paint-order:markers stroke fill"/>
+  <path transform="translate(-27.69204,-104.46082)" d="m153.11796 183.34483a1.5 1.5 0 0 1-1.79357 1.13268 1.5 1.5 0 0 1-1.13274-1.79352 1.5 1.5 0 0 1 1.79348-1.13281 1.5 1.5 0 0 1 1.13288 1.79345" style="paint-order:markers stroke fill"/>
+ </g>
+ <g transform="translate(-17.10613,-121.1316)">
+  <g transform="translate(62.32456,-14.616488)">
+   <text x="48.165203" y="141.78894" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.165203" y="141.78894" stroke-width=".264583" text-align="center" text-anchor="middle">RigidRearFrame</tspan></text>
+   <rect x="30.928167" y="136.21553" width="35.231998" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(117.93297,1.734639)">
+   <text x="48.827206" y="141.78894" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.827206" y="141.78894" stroke-width=".264583" text-align="center" text-anchor="middle">RigidFrontFrame</tspan></text>
+   <rect x="30.928167" y="136.21553" width="36.556" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(71.453663,-30.486699)">
+   <g transform="translate(46.648803,15.870211)">
+    <text x="48.657703" y="142.09685" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.657703" y="142.09685" stroke-width=".264583" text-align="center" text-anchor="middle">FrontFrameBase</tspan></text>
+    <rect x="30.928167" y="136.21553" width="36.216999" height="9" fill="none" stroke="currentColor" stroke-dasharray="2, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(17.668789 .00124882)">
+   <text x="47.43409" y="127.4791" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="47.43409" y="127.4791" stroke-width=".264583" text-align="center" text-anchor="middle">RearFrameBase</tspan></text>
+   <rect x="30.367048" y="121.59779" width="34.891998" height="9" fill="none" stroke="currentColor" stroke-dasharray="2, 1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(145.56087,31.629735)">
+   <text x="47.840614" y="127.18067" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="47.840614" y="127.18067" stroke-width=".264583" text-align="center" text-anchor="middle">KnifeEdgeWheel</tspan></text>
+   <rect x="30.367048" y="121.59779" width="35.723999" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(23.230906,15.12464)">
+   <text x="47.840614" y="127.18067" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="47.840614" y="127.18067" stroke-width=".264583" text-align="center" text-anchor="middle">KnifeEdgeWheel</tspan></text>
+   <rect x="30.367048" y="121.59779" width="35.723999" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(154.29875,60.74171)">
+   <text x="43.352837" y="127.18067" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="43.352837" y="127.18067" stroke-width=".264583" text-align="center" text-anchor="middle">FlatGround</tspan></text>
+   <rect x="30.367048" y="121.59779" width="26" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(-13.010919,15.12464)">
+   <text x="43.163227" y="127.54258" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="43.163227" y="127.54258" stroke-width=".264583" text-align="center" text-anchor="middle">WheelBase</tspan></text>
+   <rect x="30.367048" y="121.59779" width="25.941" height="9" fill="none" stroke="currentColor" stroke-dasharray="2.99999, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(150.45237,16.659215)">
+   <text x="84.480347" y="143.18527" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="84.480347" y="143.18527" stroke-width=".264583" text-align="center" text-anchor="middle">WheelBase</tspan></text>
+   <rect x="71.502266" y="137.24048" width="25.941" height="9" fill="none" stroke="currentColor" stroke-dasharray="2.99999, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(149.17133,45.099025)">
+   <text x="84.480347" y="143.18527" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="84.480347" y="143.18527" stroke-width=".264583" text-align="center" text-anchor="middle">GroundBase</tspan></text>
+   <rect x="71.502266" y="137.24048" width="25.941" height="9" fill="none" stroke="currentColor" stroke-dasharray="2.99999, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <path d="m47.305828 168.05904v-6.60218" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m167.13913 137.57509v-6.60218" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m211.81287 158.39968h10" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m93.218631 126.09904h-9.829" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m53.367581 141.22243h-9.829" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m110.86873 130.80488v13.60672" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m71.240441 145.88008 5.240469 8.87448" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m66.874063 172.61888 17.280035 9.68681" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m175.7557 157.92497-9.34046 4.39286" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m184.90769 186.88111-10.56256-0.0488" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <g transform="translate(145.56087,46.185722)">
+   <text x="49.957283" y="127.18067" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="49.957283" y="127.18067" stroke-width=".264583" text-align="center" text-anchor="middle">NonHolonomicTire</tspan></text>
+   <rect x="30.367048" y="121.59779" width="39" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(-2.5612205,46.58396)">
+   <text x="49.957283" y="127.18067" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="49.957283" y="127.18067" stroke-width=".264583" text-align="center" text-anchor="middle">NonHolonomicTire</tspan></text>
+   <rect x="30.367048" y="121.59779" width="39" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(150.77992,30.543037)">
+   <text x="84.480347" y="143.18527" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="84.480347" y="143.18527" stroke-width=".264583" text-align="center" text-anchor="middle">TireBase</tspan></text>
+   <rect x="74.677269" y="137.24048" width="20" height="9" fill="none" stroke="currentColor" stroke-dasharray="2.99999, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(-37.371441,14.860386)">
+   <text x="84.480347" y="143.18527" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="84.480347" y="143.18527" stroke-width=".264583" text-align="center" text-anchor="middle">TireBase</tspan></text>
+   <rect x="74.677269" y="137.24048" width="20" height="9" fill="none" stroke="currentColor" stroke-dasharray="2.99999, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <path d="m215.12633 172.28352h10" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m210.73359 186.8395h10" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m175.79465 172.22715-22.61683 9.9974" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m148.8469 142.30331-10.76183 5.61086" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+ </g>
+ <g transform="translate(10.585911,-16.670778)">
+  <g transform="translate(-27.69204,-88.585786)">
+   <path transform="translate(27.69204,104.46082)" d="m172.44585 28.189481a1.5 1.5 0 0 1-1.79356 1.13268 1.5 1.5 0 0 1-1.13274-1.793525 1.5 1.5 0 0 1 1.79348-1.132807 1.5 1.5 0 0 1 1.13287 1.793445" fill="#0000ff" style="paint-order:markers stroke fill"/>
+   <rect x="193.67476" y="117.53996" width="10" height="4" fill="none" stroke="currentColor" stroke-dasharray="2, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   <rect x="193.67476" y="123.92989" width="10" height="4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   <path d="m193.55785 106.76009h10" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+   <path d="m193.56703 113.15003h10" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+   <text x="207.88339" y="108.20488" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="207.88339" y="108.20488" stroke-width=".264583">Inheritance</tspan></text>
+   <text x="208.09372" y="114.16943" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="208.09372" y="114.16943" stroke-width=".264583">Aggregation</tspan></text>
+   <text x="208.09372" y="120.98474" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="208.09372" y="120.98474" stroke-width=".264583">Abstract class</tspan></text>
+   <text x="207.76402" y="127.37468" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="207.76402" y="127.37468">Model or Connection</tspan><tspan x="207.76402" y="132.22537"/></text>
+   <text x="207.92508" y="133.72672" font-family="sans-serif" font-size="3.88056px" fill="currentColor" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="207.92508" y="133.72672" stroke-width=".264583">Connection</tspan></text>
+  </g>
+ </g>
+</svg>

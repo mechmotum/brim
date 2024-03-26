@@ -1,0 +1,40 @@
+﻿..
+  module.rst
+
+brim.core
+=========
+
+.. automodule:: brim.core
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                brim.core.attachment
+                brim.core.base_classes
+                brim.core.mixins
+                brim.core.registry
+                brim.core.requirement
+                brim.core.singleton
+    

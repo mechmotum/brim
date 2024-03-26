@@ -1,0 +1,42 @@
+..
+  class.rst
+
+brim.brim.seats.SideLeanSeatTorque
+==================================
+
+.. currentmodule:: brim.brim.seats
+
+.. autoclass:: SideLeanSeatTorque
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SideLeanSeatTorque.descriptions
+                    ~SideLeanSeatTorque.name
+                    ~SideLeanSeatTorque.parent
+                    ~SideLeanSeatTorque.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SideLeanSeatTorque.__init__
+                    ~SideLeanSeatTorque.define_constraints
+                    ~SideLeanSeatTorque.define_kinematics
+                    ~SideLeanSeatTorque.define_loads
+                    ~SideLeanSeatTorque.define_objects
+                    ~SideLeanSeatTorque.get_all_symbols
+                    ~SideLeanSeatTorque.get_description
+                    ~SideLeanSeatTorque.get_param_values
+                    ~SideLeanSeatTorque.set_plot_objects
+        
+    

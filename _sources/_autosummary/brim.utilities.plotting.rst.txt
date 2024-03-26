@@ -1,0 +1,39 @@
+..
+  module.rst
+
+brim.utilities.plotting
+=======================
+
+.. automodule:: brim.utilities.plotting
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    PlotBrimMixin
+                    PlotConnection
+                    PlotLoadGroup
+                    PlotModel
+                    Plotter
+        
+    
+
+    
+        
+    
+
+
+    

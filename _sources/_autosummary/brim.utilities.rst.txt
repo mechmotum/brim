@@ -1,0 +1,39 @@
+﻿..
+  module.rst
+
+brim.utilities
+==============
+
+.. automodule:: brim.utilities
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                brim.utilities.benchmarking
+                brim.utilities.parametrize
+                brim.utilities.plotting
+                brim.utilities.testing
+                brim.utilities.utilities
+    

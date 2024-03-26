@@ -1,0 +1,35 @@
+..
+  module.rst
+
+brim.utilities.benchmarking
+===========================
+
+.. automodule:: brim.utilities.benchmarking
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Functions
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/base.rst
+                
+                    benchmark
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    

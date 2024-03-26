@@ -1,0 +1,675 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Guidelines on Implementing Components" href="component_implementation.html" /><link rel="prev" title="Installation" href="installation.html" />
+
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.09.10 -->
+        <title>Introduction to BRiM - BRiM documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=369552022d0b975c8e74270ce6eabe0fb7978f24" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">BRiM  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">BRiM  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">User Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of User Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Introduction to BRiM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_implementation.html">Guidelines on Implementing Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/four_bar_linkage.html">Four-bar Linkage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/my_first_bicycle.html">Building Bicycle-Rider Models with BRiM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/rolling_disc_from_scratch.html">Rolling Disc From Scratch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/brim.brim.html">brim.brim</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of brim.brim</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.brim.base_connections.html">brim.brim.base_connections</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of brim.brim.base_connections</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.base_connections.HandGripsBase.html">brim.brim.base_connections.HandGripsBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.base_connections.PedalsBase.html">brim.brim.base_connections.PedalsBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.base_connections.SeatBase.html">brim.brim.base_connections.SeatBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.brim.bicycle_rider.html">brim.brim.bicycle_rider</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of brim.brim.bicycle_rider</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.bicycle_rider.BicycleRider.html">brim.brim.bicycle_rider.BicycleRider</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.brim.hand_grips.html">brim.brim.hand_grips</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of brim.brim.hand_grips</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.hand_grips.HolonomicHandGrips.html">brim.brim.hand_grips.HolonomicHandGrips</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.hand_grips.SpringDamperHandGrips.html">brim.brim.hand_grips.SpringDamperHandGrips</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.brim.pedals.html">brim.brim.pedals</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of brim.brim.pedals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.pedals.HolonomicPedals.html">brim.brim.pedals.HolonomicPedals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.pedals.SpringDamperPedals.html">brim.brim.pedals.SpringDamperPedals</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.brim.seats.html">brim.brim.seats</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of brim.brim.seats</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.seats.FixedSeat.html">brim.brim.seats.FixedSeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.seats.PelvisInterPointMixin.html">brim.brim.seats.PelvisInterPointMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.seats.SideLeanSeat.html">brim.brim.seats.SideLeanSeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.seats.SideLeanSeatSpringDamper.html">brim.brim.seats.SideLeanSeatSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.brim.seats.SideLeanSeatTorque.html">brim.brim.seats.SideLeanSeatTorque</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.html">brim.bicycle</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of brim.bicycle</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.bicycle_base.html">brim.bicycle.bicycle_base</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of brim.bicycle.bicycle_base</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.bicycle_base.BicycleBase.html">brim.bicycle.bicycle_base.BicycleBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.cranks.html">brim.bicycle.cranks</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of brim.bicycle.cranks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.cranks.CranksBase.html">brim.bicycle.cranks.CranksBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.cranks.MasslessCranks.html">brim.bicycle.cranks.MasslessCranks</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.front_frames.html">brim.bicycle.front_frames</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of brim.bicycle.front_frames</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.front_frames.FrontFrameBase.html">brim.bicycle.front_frames.FrontFrameBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.front_frames.RigidFrontFrame.html">brim.bicycle.front_frames.RigidFrontFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.front_frames.RigidFrontFrameMoore.html">brim.bicycle.front_frames.RigidFrontFrameMoore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.front_frames.SuspensionRigidFrontFrame.html">brim.bicycle.front_frames.SuspensionRigidFrontFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.front_frames.SuspensionRigidFrontFrameMoore.html">brim.bicycle.front_frames.SuspensionRigidFrontFrameMoore</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.grounds.html">brim.bicycle.grounds</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of brim.bicycle.grounds</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.grounds.FlatGround.html">brim.bicycle.grounds.FlatGround</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.grounds.GroundBase.html">brim.bicycle.grounds.GroundBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.rear_frames.html">brim.bicycle.rear_frames</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of brim.bicycle.rear_frames</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.rear_frames.RearFrameBase.html">brim.bicycle.rear_frames.RearFrameBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.rear_frames.RigidRearFrame.html">brim.bicycle.rear_frames.RigidRearFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.rear_frames.RigidRearFrameMoore.html">brim.bicycle.rear_frames.RigidRearFrameMoore</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.stationary_bicycle.html">brim.bicycle.stationary_bicycle</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of brim.bicycle.stationary_bicycle</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.stationary_bicycle.StationaryBicycle.html">brim.bicycle.stationary_bicycle.StationaryBicycle</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.tires.html">brim.bicycle.tires</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of brim.bicycle.tires</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.tires.NonHolonomicTire.html">brim.bicycle.tires.NonHolonomicTire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.tires.TireBase.html">brim.bicycle.tires.TireBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.wheels.html">brim.bicycle.wheels</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of brim.bicycle.wheels</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.wheels.KnifeEdgeWheel.html">brim.bicycle.wheels.KnifeEdgeWheel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.wheels.ToroidalWheel.html">brim.bicycle.wheels.ToroidalWheel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.wheels.WheelBase.html">brim.bicycle.wheels.WheelBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.bicycle.whipple_bicycle.html">brim.bicycle.whipple_bicycle</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of brim.bicycle.whipple_bicycle</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.whipple_bicycle.WhippleBicycle.html">brim.bicycle.whipple_bicycle.WhippleBicycle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.bicycle.whipple_bicycle.WhippleBicycleMoore.html">brim.bicycle.whipple_bicycle.WhippleBicycleMoore</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/brim.rider.html">brim.rider</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of brim.rider</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.arms.html">brim.rider.arms</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of brim.rider.arms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.arms.ArmBase.html">brim.rider.arms.ArmBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.arms.LeftArmBase.html">brim.rider.arms.LeftArmBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.arms.PinElbowSpringDamper.html">brim.rider.arms.PinElbowSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.arms.PinElbowStickArmMixin.html">brim.rider.arms.PinElbowStickArmMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.arms.PinElbowStickLeftArm.html">brim.rider.arms.PinElbowStickLeftArm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.arms.PinElbowStickRightArm.html">brim.rider.arms.PinElbowStickRightArm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.arms.PinElbowTorque.html">brim.rider.arms.PinElbowTorque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.arms.RightArmBase.html">brim.rider.arms.RightArmBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.base_connections.html">brim.rider.base_connections</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of brim.rider.base_connections</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.base_connections.HipBase.html">brim.rider.base_connections.HipBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.base_connections.LeftHipBase.html">brim.rider.base_connections.LeftHipBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.base_connections.LeftShoulderBase.html">brim.rider.base_connections.LeftShoulderBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.base_connections.RightHipBase.html">brim.rider.base_connections.RightHipBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.base_connections.RightShoulderBase.html">brim.rider.base_connections.RightShoulderBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.base_connections.SacrumBase.html">brim.rider.base_connections.SacrumBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.base_connections.ShoulderBase.html">brim.rider.base_connections.ShoulderBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.hip_joints.html">brim.rider.hip_joints</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of brim.rider.hip_joints</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.hip_joints.PinHipMixin.html">brim.rider.hip_joints.PinHipMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.hip_joints.PinLeftHip.html">brim.rider.hip_joints.PinLeftHip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.hip_joints.PinRightHip.html">brim.rider.hip_joints.PinRightHip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.hip_joints.SphericalHipMixin.html">brim.rider.hip_joints.SphericalHipMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.hip_joints.SphericalHipSpringDamper.html">brim.rider.hip_joints.SphericalHipSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.hip_joints.SphericalHipTorque.html">brim.rider.hip_joints.SphericalHipTorque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.hip_joints.SphericalLeftHip.html">brim.rider.hip_joints.SphericalLeftHip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.hip_joints.SphericalRightHip.html">brim.rider.hip_joints.SphericalRightHip</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.legs.html">brim.rider.legs</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of brim.rider.legs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.legs.LeftLegBase.html">brim.rider.legs.LeftLegBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.legs.LegBase.html">brim.rider.legs.LegBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.legs.RightLegBase.html">brim.rider.legs.RightLegBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.legs.TwoPinLegSpringDamper.html">brim.rider.legs.TwoPinLegSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.legs.TwoPinLegTorque.html">brim.rider.legs.TwoPinLegTorque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.legs.TwoPinStickLeftLeg.html">brim.rider.legs.TwoPinStickLeftLeg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.legs.TwoPinStickLegMixin.html">brim.rider.legs.TwoPinStickLegMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.legs.TwoPinStickRightLeg.html">brim.rider.legs.TwoPinStickRightLeg</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.pelvis.html">brim.rider.pelvis</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of brim.rider.pelvis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.pelvis.PelvisBase.html">brim.rider.pelvis.PelvisBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.pelvis.PlanarPelvis.html">brim.rider.pelvis.PlanarPelvis</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.rider.html">brim.rider.rider</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of brim.rider.rider</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.rider.Rider.html">brim.rider.rider.Rider</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.rider_lean.html">brim.rider.rider_lean</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of brim.rider.rider_lean</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.rider_lean.RiderLean.html">brim.rider.rider_lean.RiderLean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.rider_lean.RiderLeanConnection.html">brim.rider.rider_lean.RiderLeanConnection</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.sacrums.html">brim.rider.sacrums</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of brim.rider.sacrums</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.sacrums.FixedSacrum.html">brim.rider.sacrums.FixedSacrum</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.html">brim.rider.shoulder_joints</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of brim.rider.shoulder_joints</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.FlexAddLeftShoulder.html">brim.rider.shoulder_joints.FlexAddLeftShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.FlexAddRightShoulder.html">brim.rider.shoulder_joints.FlexAddRightShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.FlexAddShoulderMixin.html">brim.rider.shoulder_joints.FlexAddShoulderMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.FlexRotLeftShoulder.html">brim.rider.shoulder_joints.FlexRotLeftShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.FlexRotRightShoulder.html">brim.rider.shoulder_joints.FlexRotRightShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.FlexRotShoulderMixin.html">brim.rider.shoulder_joints.FlexRotShoulderMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.SphericalLeftShoulder.html">brim.rider.shoulder_joints.SphericalLeftShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.SphericalRightShoulder.html">brim.rider.shoulder_joints.SphericalRightShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.SphericalShoulderMixin.html">brim.rider.shoulder_joints.SphericalShoulderMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.SphericalShoulderSpringDamper.html">brim.rider.shoulder_joints.SphericalShoulderSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.shoulder_joints.SphericalShoulderTorque.html">brim.rider.shoulder_joints.SphericalShoulderTorque</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.rider.torso.html">brim.rider.torso</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of brim.rider.torso</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.torso.PlanarTorso.html">brim.rider.torso.PlanarTorso</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.rider.torso.TorsoBase.html">brim.rider.torso.TorsoBase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/brim.core.html">brim.core</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of brim.core</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.core.attachment.html">brim.core.attachment</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of brim.core.attachment</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.attachment.Attachment.html">brim.core.attachment.Attachment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.attachment.Hub.html">brim.core.attachment.Hub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.attachment.MasslessBody.html">brim.core.attachment.MasslessBody</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.core.base_classes.html">brim.core.base_classes</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of brim.core.base_classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.base_classes.set_default_convention.html">brim.core.base_classes.set_default_convention</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.base_classes.BrimBase.html">brim.core.base_classes.BrimBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.base_classes.ConnectionBase.html">brim.core.base_classes.ConnectionBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.base_classes.ConnectionMeta.html">brim.core.base_classes.ConnectionMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.base_classes.LoadGroupBase.html">brim.core.base_classes.LoadGroupBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.base_classes.LoadGroupMeta.html">brim.core.base_classes.LoadGroupMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.base_classes.ModelBase.html">brim.core.base_classes.ModelBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.base_classes.ModelMeta.html">brim.core.base_classes.ModelMeta</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.core.mixins.html">brim.core.mixins</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of brim.core.mixins</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.mixins.NewtonianBodyMixin.html">brim.core.mixins.NewtonianBodyMixin</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.core.registry.html">brim.core.registry</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of brim.core.registry</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.registry.Registry.html">brim.core.registry.Registry</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.core.requirement.html">brim.core.requirement</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of brim.core.requirement</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.requirement.ConnectionRequirement.html">brim.core.requirement.ConnectionRequirement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.requirement.ModelRequirement.html">brim.core.requirement.ModelRequirement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.requirement.RequirementBase.html">brim.core.requirement.RequirementBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.core.singleton.html">brim.core.singleton</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of brim.core.singleton</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.singleton.Singleton.html">brim.core.singleton.Singleton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.core.singleton.SingletonMeta.html">brim.core.singleton.SingletonMeta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/brim.other.html">brim.other</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of brim.other</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.other.rolling_disc.html">brim.other.rolling_disc</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of brim.other.rolling_disc</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.other.rolling_disc.rolling_disc_manual.html">brim.other.rolling_disc.rolling_disc_manual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.other.rolling_disc.RollingDisc.html">brim.other.rolling_disc.RollingDisc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/brim.utilities.html">brim.utilities</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of brim.utilities</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.utilities.benchmarking.html">brim.utilities.benchmarking</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of brim.utilities.benchmarking</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.benchmarking.benchmark.html">brim.utilities.benchmarking.benchmark</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.utilities.parametrize.html">brim.utilities.parametrize</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" role="switch" type="checkbox"/><label for="toctree-checkbox-42"><div class="visually-hidden">Toggle navigation of brim.utilities.parametrize</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.parametrize.get_inertia_vals.html">brim.utilities.parametrize.get_inertia_vals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.parametrize.get_inertia_vals_from_yeadon.html">brim.utilities.parametrize.get_inertia_vals_from_yeadon</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.utilities.plotting.html">brim.utilities.plotting</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" role="switch" type="checkbox"/><label for="toctree-checkbox-43"><div class="visually-hidden">Toggle navigation of brim.utilities.plotting</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.plotting.PlotBrimMixin.html">brim.utilities.plotting.PlotBrimMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.plotting.PlotConnection.html">brim.utilities.plotting.PlotConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.plotting.PlotLoadGroup.html">brim.utilities.plotting.PlotLoadGroup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.plotting.PlotModel.html">brim.utilities.plotting.PlotModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.plotting.Plotter.html">brim.utilities.plotting.Plotter</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.utilities.testing.html">brim.utilities.testing</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" role="switch" type="checkbox"/><label for="toctree-checkbox-44"><div class="visually-hidden">Toggle navigation of brim.utilities.testing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.testing.create_model_of_connection.html">brim.utilities.testing.create_model_of_connection</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/brim.utilities.utilities.html">brim.utilities.utilities</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" role="switch" type="checkbox"/><label for="toctree-checkbox-45"><div class="visually-hidden">Toggle navigation of brim.utilities.utilities</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.utilities.check_zero.html">brim.utilities.utilities.check_zero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/brim.utilities.utilities.random_eval.html">brim.utilities.utilities.random_eval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="introduction-to-brim">
+<span id="id1"></span><h1>Introduction to BRiM<a class="headerlink" href="#introduction-to-brim" title="Permalink to this heading">#</a></h1>
+<p>BRiM <span id="id2">[<a class="reference internal" href="#id11" title="Timótheüs J. Stienstra, Samuel G. Brockie, and Jason K. Moore. Brim: a modular bicycle-rider modeling framework. In The Evolving Scholar - BMD 2023, 5th Edition. 2023. doi:10.59490/6504c5a765e8118fc7b106c3.">SBM23</a>]</span> is a Python package to model bicycle-riders
+symbolically. It offers a modular and extendable framework that empowers users to easily
+compose a custom bicycle-rider model. These models are build from a library of
+components, such as knife-edge wheels or toroidal-shaped wheels. The components serve as
+the building blocks of the system. Leveraging the open-source Python package
+<a class="reference external" href="https://docs.sympy.org/dev/index.html#module-sympy" title="(in SymPy v1.13.dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy</span></code></a> <span id="id3">[<a class="reference internal" href="#id12" title="Aaron Meurer, Christopher P. Smith, Mateusz Paprocki, Ondřej Čertík, Sergey B. Kirpichev, Matthew Rocklin, Amit Kumar, Sergiu Ivanov, Jason K. Moore, Sartaj Singh, Thilina Rathnayake, Sean Vig, Brian E. Granger, Richard P. Muller, Francesco Bonazzi, Shivam Gupta, Harsh andVats, Fredrik Johansson, Fabian Pedregosa, Matthew J. Curry, Andy R. Terrel, Štěpán Roučka, Ashutosh Saboo, Isuru Fernando, Sumith Kulal, Robert Cimrman, and Anthony Scopatz. SymPy: symbolic computing in python. PeerJ Computer Science, 3:e103, January 2017. URL: https://doi.org/10.7717/peerj-cs.103, doi:10.7717/peerj-cs.103.">MSP+17</a>]</span>, a computer algebra system, BRiM allows the usage of
+<a class="reference external" href="https://docs.sympy.org/dev/index.html#module-sympy" title="(in SymPy v1.13.dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy</span></code></a>’s bodies and joints interface to modify the model and other tools to
+manipulate the equations. The equations of motion (EOMs) for the system are derived
+using Kane’s method <span id="id4">[<a class="reference internal" href="#id15" title="Thomas R. Kane and David A. Levinson. Dynamics, Theory and Applications. McGraw Hill, 1985. ISBN 978-0-07-037846-9. URL: https://ecommons.cornell.edu/handle/1813/638 (visited on 2023-01-26).">KL85</a>]</span>, which can be further analysed and used
+in simulation and optimization tasks.</p>
+<p>For a more in-depth academic introduction to BRiM and its application in trajectory
+tracking problems, refer to <span id="id5">[<a class="reference internal" href="#id11" title="Timótheüs J. Stienstra, Samuel G. Brockie, and Jason K. Moore. Brim: a modular bicycle-rider modeling framework. In The Evolving Scholar - BMD 2023, 5th Edition. 2023. doi:10.59490/6504c5a765e8118fc7b106c3.">SBM23</a>]</span>. The rest of this page will
+focus on the practical usage of BRiM.</p>
+<section id="defining-a-model-using-sympy">
+<h2>Defining a Model Using SymPy<a class="headerlink" href="#defining-a-model-using-sympy" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://docs.sympy.org/dev/index.html#module-sympy" title="(in SymPy v1.13.dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy</span></code></a> is a Python library for symbolic mathematics, which has a separate module,
+<a class="reference external" href="https://docs.sympy.org/dev/modules/physics/mechanics/index.html#module-sympy.physics.mechanics" title="(in SymPy v1.13.dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy.physics.mechanics</span></code></a>, for working with dynamical systems. This module provides
+an interface for defining systems and deriving their EOMs. It has an interface that uses
+reference frames, points, bodies and joints to describe a system. For a comprehensive
+guide on the low-level interface to describe dynamical systems, refer to
+<span id="id6">[<a class="reference internal" href="#id16" title="Jason K. Moore. Learn multibody dynamics. 2022. URL: https://moorepants.github.io/learn-multibody-dynamics/index.html.">Moo22</a>]</span>. An example of defining a simple system, which follows a
+similar workflow as BRiM, can be found in the docstring of
+<a class="reference external" href="https://docs.sympy.org/dev/modules/physics/mechanics/api/system.html#sympy.physics.mechanics.system.System" title="(in SymPy v1.13.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.physics.mechanics.system.System</span></code></a>.</p>
+</section>
+<section id="composing-a-model">
+<h2>Composing a Model<a class="headerlink" href="#composing-a-model" title="Permalink to this heading">#</a></h2>
+<p>BRiM divides the bicycle-rider system into smaller subsystems called submodels. Each
+submodel is modeled separately and aggregated to create the complete bicycle-rider. This
+results in a tree structure, where the root is the entire bicycle-rider system, and the
+bicycle and rider are its children. The bicycle model can be further divided as
+illustrated in the image below. This graphical representation shows the division of
+the bicycle model into a ground, rear frame, front frame, rear wheel, front wheel and
+two tire models.</p>
+<svg class="align-center" viewBox="0 0 231.0395 70.457903" width="800px">
+    <use xlink:href="../_static/configuration_overview_whipple_default.svg#whippleConfig"></use>
+</svg></section>
+<section id="core-components">
+<h2>Core Components<a class="headerlink" href="#core-components" title="Permalink to this heading">#</a></h2>
+<p>BRiM makes use of three core components: models, connections and loads groups. The
+models are the main components, where each model describes a (sub)system following a
+tree structure. The connections can be seen as an utility of parent models to describe a
+modular and reusable interaction between submodels. The load groups are predefined sets
+of actuators and loads, which are commonly associated with a specific model or
+connection.</p>
+</section>
+<section id="defining-a-model-using-brim">
+<h2>Defining a Model Using BRiM<a class="headerlink" href="#defining-a-model-using-brim" title="Permalink to this heading">#</a></h2>
+<p>The default Whipple bicycle model <span id="id7">[<a class="reference internal" href="#id13" title="Francis JW Whipple. The stability of the motion of a bicycle. Quarterly Journal of Pure and Applied Mathematics, 30(120):312–348, 1899.">Whi99</a>]</span>, also visualized as a
+tree in the image above, can be constructed as follows. The first step is to configure
+the model by choosing the components.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.mechanics._actuator</span> <span class="kn">import</span> <span class="n">TorqueActuator</span>
+<span class="kn">from</span> <span class="nn">sympy.physics.mechanics</span> <span class="kn">import</span> <span class="n">dynamicsymbols</span>
+<span class="kn">from</span> <span class="nn">brim</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">bicycle</span> <span class="o">=</span> <span class="n">WhippleBicycle</span><span class="p">(</span><span class="s2">&quot;bicycle&quot;</span><span class="p">)</span>
+<span class="n">bicycle</span><span class="o">.</span><span class="n">rear_frame</span> <span class="o">=</span> <span class="n">RigidRearFrame</span><span class="p">(</span><span class="s2">&quot;rear_frame&quot;</span><span class="p">)</span>
+<span class="n">bicycle</span><span class="o">.</span><span class="n">front_frame</span> <span class="o">=</span> <span class="n">RigidFrontFrame</span><span class="p">(</span><span class="s2">&quot;front_frame&quot;</span><span class="p">)</span>
+<span class="n">bicycle</span><span class="o">.</span><span class="n">rear_wheel</span> <span class="o">=</span> <span class="n">KnifeEdgeWheel</span><span class="p">(</span><span class="s2">&quot;rear_wheel&quot;</span><span class="p">)</span>
+<span class="n">bicycle</span><span class="o">.</span><span class="n">front_wheel</span> <span class="o">=</span> <span class="n">KnifeEdgeWheel</span><span class="p">(</span><span class="s2">&quot;front_wheel&quot;</span><span class="p">)</span>
+<span class="n">bicycle</span><span class="o">.</span><span class="n">rear_tire</span> <span class="o">=</span> <span class="n">NonHolonomicTire</span><span class="p">(</span><span class="s2">&quot;rear_tire&quot;</span><span class="p">)</span>
+<span class="n">bicycle</span><span class="o">.</span><span class="n">front_tire</span> <span class="o">=</span> <span class="n">NonHolonomicTire</span><span class="p">(</span><span class="s2">&quot;front_tire&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With the model configured, the next step is to let BRiM construct all the relationships
+in the model by calling <a class="reference internal" href="../_autosummary/brim.core.base_classes.ModelBase.html#brim.core.base_classes.ModelBase.define_all" title="brim.core.base_classes.ModelBase.define_all"><code class="xref py py-meth docutils literal notranslate"><span class="pre">define_all()</span></code></a>. After this, the model can be
+exported to a single <a class="reference external" href="https://docs.sympy.org/dev/modules/physics/mechanics/api/system.html#sympy.physics.mechanics.system.System" title="(in SymPy v1.13.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.physics.mechanics.system.System</span></code></a> object.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bicycle</span><span class="o">.</span><span class="n">define_all</span><span class="p">()</span>
+<span class="n">system</span> <span class="o">=</span> <span class="n">bicycle</span><span class="o">.</span><span class="n">to_system</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The model can be extended by adding an actuator for steering and applying gravity:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">dynamicsymbols</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+<span class="n">normal</span> <span class="o">=</span> <span class="n">bicycle</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">get_normal</span><span class="p">(</span><span class="n">bicycle</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">add_actuators</span><span class="p">(</span><span class="n">TorqueActuator</span><span class="p">(</span>
+    <span class="n">T</span><span class="p">,</span> <span class="n">bicycle</span><span class="o">.</span><span class="n">rear_frame</span><span class="o">.</span><span class="n">steer_axis</span><span class="p">,</span>
+    <span class="n">bicycle</span><span class="o">.</span><span class="n">front_frame</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="n">bicycle</span><span class="o">.</span><span class="n">rear_frame</span><span class="o">.</span><span class="n">frame</span><span class="p">))</span>
+<span class="n">system</span><span class="o">.</span><span class="n">apply_uniform_gravity</span><span class="p">(</span><span class="o">-</span><span class="n">g</span> <span class="o">*</span> <span class="n">normal</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The last step before forming the EOMs is to define which generalized coordinates and
+speeds are independent and which are dependent. In this case the generalized coordinate
+for the pitch of the rear frame is chosen to be dependent. As dependent generalized
+speeds we choose the velocities for the contact point of the rear wheel, the rotation
+rate of the rear wheel, and the yaw and pitch rate of the rear frame.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system</span><span class="o">.</span><span class="n">q_ind</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">bicycle</span><span class="o">.</span><span class="n">q</span><span class="p">[:</span><span class="mi">4</span><span class="p">],</span> <span class="o">*</span><span class="n">bicycle</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">5</span><span class="p">:]]</span>
+<span class="n">system</span><span class="o">.</span><span class="n">q_dep</span> <span class="o">=</span> <span class="p">[</span><span class="n">bicycle</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+<span class="n">system</span><span class="o">.</span><span class="n">u_ind</span> <span class="o">=</span> <span class="p">[</span><span class="n">bicycle</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="o">*</span><span class="n">bicycle</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]]</span>
+<span class="n">system</span><span class="o">.</span><span class="n">u_dep</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">bicycle</span><span class="o">.</span><span class="n">u</span><span class="p">[:</span><span class="mi">3</span><span class="p">],</span> <span class="n">bicycle</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">bicycle</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">7</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>The following code validates the system on its consistency using
+<a class="reference external" href="https://docs.sympy.org/dev/modules/physics/mechanics/api/system.html#sympy.physics.mechanics.system.System.validate_system" title="(in SymPy v1.13.dev)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">sympy.physics.mechanics.system.System.validate_system()</span></code></a> and forms the EOMs with
+Kane’s method. <code class="docutils literal notranslate"><span class="pre">CRAMER</span></code> is chosen as the constraint solver, as it provides better
+numeric stability.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">system</span><span class="o">.</span><span class="n">validate_system</span><span class="p">()</span>
+<span class="n">system</span><span class="o">.</span><span class="n">form_eoms</span><span class="p">(</span><span class="n">constraint_solver</span><span class="o">=</span><span class="s2">&quot;CRAMER&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">#</a></h2>
+<p>Here are some useful reference to get started:</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="../tutorials/index.html#tutorials"><span class="std std-ref">Tutorials</span></a> page contains a collection of tutorials to get started with BRiM.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/TJStienstra/brim-bmd-2023-paper">brim-bmd-2023-paper</a>
+repository contains a <code class="docutils literal notranslate"><span class="pre">src</span></code> directory with various trajectory tracking examples
+discussed in <span id="id8">[<a class="reference internal" href="#id11" title="Timótheüs J. Stienstra, Samuel G. Brockie, and Jason K. Moore. Brim: a modular bicycle-rider modeling framework. In The Evolving Scholar - BMD 2023, 5th Edition. 2023. doi:10.59490/6504c5a765e8118fc7b106c3.">SBM23</a>]</span>.</p></li>
+<li><p><span id="id9">[<a class="reference internal" href="#id16" title="Jason K. Moore. Learn multibody dynamics. 2022. URL: https://moorepants.github.io/learn-multibody-dynamics/index.html.">Moo22</a>]</span> is a great place to learn more about the fundamental modeling
+concepts when using <a class="reference external" href="https://docs.sympy.org/dev/modules/physics/mechanics/index.html#module-sympy.physics.mechanics" title="(in SymPy v1.13.dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy.physics.mechanics</span></code></a>.</p></li>
+<li><p>The <a class="reference external" href="https://docs.sympy.org/dev/modules/physics/mechanics/index.html#module-sympy.physics.mechanics" title="(in SymPy v1.13.dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy.physics.mechanics</span></code></a> module contains several examples and tutorials to
+get familiar with using <a class="reference external" href="https://docs.sympy.org/dev/index.html#module-sympy" title="(in SymPy v1.13.dev)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sympy</span></code></a> for modeling dynamical systems.</p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<div class="docutils container" id="id10">
+<div class="citation" id="id15" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">KL85</a><span class="fn-bracket">]</span></span>
+<p>Thomas R. Kane and David A. Levinson. <em>Dynamics, Theory and Applications</em>. McGraw Hill, 1985. ISBN 978-0-07-037846-9. URL: <a class="reference external" href="https://ecommons.cornell.edu/handle/1813/638">https://ecommons.cornell.edu/handle/1813/638</a> (visited on 2023-01-26).</p>
+</div>
+<div class="citation" id="id12" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">MSP+17</a><span class="fn-bracket">]</span></span>
+<p>Aaron Meurer, Christopher P. Smith, Mateusz Paprocki, Ondřej Čertík, Sergey B. Kirpichev, Matthew Rocklin, Amit Kumar, Sergiu Ivanov, Jason K. Moore, Sartaj Singh, Thilina Rathnayake, Sean Vig, Brian E. Granger, Richard P. Muller, Francesco Bonazzi, Shivam Gupta, Harsh andVats, Fredrik Johansson, Fabian Pedregosa, Matthew J. Curry, Andy R. Terrel, Štěpán Roučka, Ashutosh Saboo, Isuru Fernando, Sumith Kulal, Robert Cimrman, and Anthony Scopatz. SymPy: symbolic computing in python. <em>PeerJ Computer Science</em>, 3:e103, January 2017. URL: <a class="reference external" href="https://doi.org/10.7717/peerj-cs.103">https://doi.org/10.7717/peerj-cs.103</a>, <a class="reference external" href="https://doi.org/10.7717/peerj-cs.103">doi:10.7717/peerj-cs.103</a>.</p>
+</div>
+<div class="citation" id="id16" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>Moo22<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id9">2</a>)</span>
+<p>Jason K. Moore. Learn multibody dynamics. 2022. URL: <a class="reference external" href="https://moorepants.github.io/learn-multibody-dynamics/index.html">https://moorepants.github.io/learn-multibody-dynamics/index.html</a>.</p>
+</div>
+<div class="citation" id="id11" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SBM23<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id5">2</a>,<a role="doc-backlink" href="#id8">3</a>)</span>
+<p>Timótheüs J. Stienstra, Samuel G. Brockie, and Jason K. Moore. Brim: a modular bicycle-rider modeling framework. In <em>The Evolving Scholar - BMD 2023, 5th Edition</em>. 2023. <a class="reference external" href="https://doi.org/10.59490/6504c5a765e8118fc7b106c3">doi:10.59490/6504c5a765e8118fc7b106c3</a>.</p>
+</div>
+<div class="citation" id="id13" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">Whi99</a><span class="fn-bracket">]</span></span>
+<p>Francis JW Whipple. The stability of the motion of a bicycle. <em>Quarterly Journal of Pure and Applied Mathematics</em>, 30(120):312–348, 1899.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="component_implementation.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Guidelines on Implementing Components</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="installation.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Installation</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Timo Stienstra
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Introduction to BRiM</a><ul>
+<li><a class="reference internal" href="#defining-a-model-using-sympy">Defining a Model Using SymPy</a></li>
+<li><a class="reference internal" href="#composing-a-model">Composing a Model</a></li>
+<li><a class="reference internal" href="#core-components">Core Components</a></li>
+<li><a class="reference internal" href="#defining-a-model-using-brim">Defining a Model Using BRiM</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>

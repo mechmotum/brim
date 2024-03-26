@@ -1,0 +1,35 @@
+..
+  module.rst
+
+brim.bicycle.stationary\_bicycle
+================================
+
+.. automodule:: brim.bicycle.stationary_bicycle
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    StationaryBicycle
+        
+    
+
+    
+        
+    
+
+
+    

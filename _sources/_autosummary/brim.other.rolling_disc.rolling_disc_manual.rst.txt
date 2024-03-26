@@ -1,0 +1,9 @@
+..
+  base.rst
+
+brim.other.rolling\_disc.rolling\_disc\_manual
+==============================================
+
+.. currentmodule:: brim.other.rolling_disc
+
+.. autofunction:: rolling_disc_manual

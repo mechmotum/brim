@@ -1,0 +1,9 @@
+..
+  base.rst
+
+brim.utilities.testing.create\_model\_of\_connection
+====================================================
+
+.. currentmodule:: brim.utilities.testing
+
+.. autofunction:: create_model_of_connection

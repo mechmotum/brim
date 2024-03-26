@@ -1,0 +1,50 @@
+..
+  class.rst
+
+brim.bicycle.tires.NonHolonomicTire
+===================================
+
+.. currentmodule:: brim.bicycle.tires
+
+.. autoclass:: NonHolonomicTire
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~NonHolonomicTire.contact_point
+                    ~NonHolonomicTire.descriptions
+                    ~NonHolonomicTire.ground
+                    ~NonHolonomicTire.load_groups
+                    ~NonHolonomicTire.name
+                    ~NonHolonomicTire.on_ground
+                    ~NonHolonomicTire.required_models
+                    ~NonHolonomicTire.submodels
+                    ~NonHolonomicTire.system
+                    ~NonHolonomicTire.upward_radial_axis
+                    ~NonHolonomicTire.wheel
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~NonHolonomicTire.__init__
+                    ~NonHolonomicTire.add_load_groups
+                    ~NonHolonomicTire.define_constraints
+                    ~NonHolonomicTire.define_kinematics
+                    ~NonHolonomicTire.define_loads
+                    ~NonHolonomicTire.define_objects
+                    ~NonHolonomicTire.get_all_symbols
+                    ~NonHolonomicTire.get_description
+                    ~NonHolonomicTire.get_param_values
+                    ~NonHolonomicTire.set_plot_objects
+        
+    

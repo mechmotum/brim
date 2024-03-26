@@ -1,0 +1,43 @@
+﻿..
+  module.rst
+
+brim.bicycle
+============
+
+.. automodule:: brim.bicycle
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                brim.bicycle.bicycle_base
+                brim.bicycle.cranks
+                brim.bicycle.front_frames
+                brim.bicycle.grounds
+                brim.bicycle.rear_frames
+                brim.bicycle.stationary_bicycle
+                brim.bicycle.tires
+                brim.bicycle.wheels
+                brim.bicycle.whipple_bicycle
+    

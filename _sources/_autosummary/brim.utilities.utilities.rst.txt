@@ -1,0 +1,36 @@
+..
+  module.rst
+
+brim.utilities.utilities
+========================
+
+.. automodule:: brim.utilities.utilities
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Functions
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/base.rst
+                
+                    check_zero
+                    random_eval
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    

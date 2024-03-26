@@ -1,0 +1,35 @@
+..
+  module.rst
+
+brim.utilities.testing
+======================
+
+.. automodule:: brim.utilities.testing
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Functions
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/base.rst
+                
+                    create_model_of_connection
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    

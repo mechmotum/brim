@@ -1,0 +1,39 @@
+﻿..
+  module.rst
+
+brim.brim
+=========
+
+.. automodule:: brim.brim
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                brim.brim.base_connections
+                brim.brim.bicycle_rider
+                brim.brim.hand_grips
+                brim.brim.pedals
+                brim.brim.seats
+    

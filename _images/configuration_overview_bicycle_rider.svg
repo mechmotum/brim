@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="159.3306mm" height="86.065704mm" version="1.1" viewBox="0 0 159.3306 86.06571" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="EmptyDiamondLend" overflow="visible" orient="auto">
+   <path transform="matrix(.8 0 0 .8 -5.6 0)" d="M 0,-7.0710768 -7.0710894,0 0,7.0710589 7.0710462,0 Z" fill="#ffffff" stroke="currentColor" stroke-width="1pt"/>
+  </marker>
+  <marker id="EmptyTriangleLend" overflow="visible" orient="auto">
+   <path transform="matrix(.8 0 0 .8 -4.8 0)" d="m5.77 0-8.65 5v-10z" fill="#ffffff" stroke="currentColor" stroke-width="1pt"/>
+  </marker>
+ </defs>
+ <g transform="translate(-55.529932,-104.46082)" fill="none" stroke-width=".5">
+  <path d="m100.73634 171.0848a15.417147 15.417147 0 0 1-18.434441 11.6418 15.417147 15.417147 0 0 1-11.64245-18.43403 15.417147 15.417147 0 0 1 18.433615-11.6431 15.417147 15.417147 0 0 1 11.643756 18.43321" stroke="currentColor"/>
+  <path d="m166.48281 171.0848a15.417147 15.417147 0 0 1-18.43444 11.6418 15.417147 15.417147 0 0 1-11.64245-18.43403 15.417147 15.417147 0 0 1 18.43362-11.6431 15.417147 15.417147 0 0 1 11.64375 18.43321" stroke="currentColor"/>
+  <path d="m85.698002 167.68815 29.484358 3.15315 20.8571-26.0302h-35.78888z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="paint-order:stroke fill markers"/>
+  <path d="m115.18236 170.8413-14.93178-26.0302-4.55065-8.33662" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="paint-order:stroke fill markers"/>
+  <path d="m91.718129 136.35653 11.755821 0.0705" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="paint-order:stroke fill markers"/>
+  <path d="m124.33105 134.86455h6.96817l4.74024 9.94655c4.27897 8.97862 9.63773 18.02412 15.40502 22.87705" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="paint-order:stroke fill markers"/>
+  <path d="m115.182 170.841 2-8" stroke="currentColor"/>
+  <path d="m115.182 170.841-2 8" stroke="currentColor"/>
+  <path d="m115.182 162.841h4" stroke="currentColor"/>
+  <path d="m111.182 178.841h4" stroke="currentColor"/>
+  <g transform="translate(0,-1.0583333)" stroke="currentColor">
+   <path d="m64.517038 184.46082h109.999982"/>
+   <path d="m68.517038 184.46082-4 7"/>
+   <path d="m71.936391 184.46082-4 7"/>
+   <path d="m75.355748 184.46082-4 7"/>
+   <path d="m78.7751 184.46082-4 7"/>
+   <path d="m82.194457 184.46082-4 7"/>
+   <path d="m85.61381 184.46082-4 7"/>
+   <path d="m89.033167 184.46082-4 7"/>
+   <path d="m92.45252 184.46082-4 7"/>
+   <path d="m95.871873 184.46082-4 7"/>
+   <path d="m99.291216 184.46082-3.999986 7"/>
+   <path d="m102.71056 184.46082-3.999991 7"/>
+   <path d="m106.12993 184.46082-4 7"/>
+   <path d="m109.54927 184.46082-4 7"/>
+   <path d="m112.96863 184.46082-4 7"/>
+   <path d="m116.38799 184.46082-4 7"/>
+   <path d="m119.80734 184.46082-4 7"/>
+   <path d="m123.22669 184.46082-4 7"/>
+   <path d="m126.64605 184.46082-4 7"/>
+   <path d="m130.0654 184.46082-4 7"/>
+   <path d="m133.48476 184.46082-4 7"/>
+   <path d="m136.90411 184.46082-4 7"/>
+   <path d="m140.32346 184.46082-4 7"/>
+   <path d="m143.74282 184.46082-4 7"/>
+   <path d="m147.16217 184.46082-4 7"/>
+   <path d="m150.58152 184.46082-4 7"/>
+   <path d="m154.00088 184.46082-4 7"/>
+   <path d="m157.42023 184.46082-4 7"/>
+   <path d="m160.83958 184.46082-4 7"/>
+   <path d="m164.25895 184.46082-4 7"/>
+   <path d="m167.6783 184.46082-4 7"/>
+   <path d="m171.09766 184.46082-4 7"/>
+   <path d="m174.51702 184.46082-4 7"/>
+  </g>
+  <path d="m117.182 162.841 2.144-22.56165-23.626072-3.80487 19.563722-20.5461 3.52305 14.29162 9.05594 4.71102" stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m125.81337 111.42346a5.5 5.5 0 0 1-6.5764 4.15316 5.5 5.5 0 0 1-4.1534-6.57626 5.5 5.5 0 0 1 6.57612-4.15362 5.5 5.5 0 0 1 4.15386 6.57596" stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" style="paint-order:stroke fill markers"/>
+  <path d="m115.26365 115.92838 1.46943-1.53103" stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round"/>
+ </g>
+ <g transform="translate(-27.837892)" fill="#0000ff">
+  <path transform="translate(-27.69204,-104.46082)" d="m118.56419 163.20529a1.5 1.5 0 0 1-1.79357 1.13268 1.5 1.5 0 0 1-1.13274-1.79352 1.5 1.5 0 0 1 1.79348-1.13281 1.5 1.5 0 0 1 1.13287 1.79344" style="paint-order:markers stroke fill"/>
+  <path transform="translate(-27.69204,-104.46082)" d="m97.233185 136.76729a1.5 1.5 0 0 1-1.793565 1.13268 1.5 1.5 0 0 1-1.132744-1.79353 1.5 1.5 0 0 1 1.793485-1.1328 1.5 1.5 0 0 1 1.132871 1.79344" style="paint-order:markers stroke fill"/>
+  <path transform="translate(-27.69204,-104.46082)" d="m129.32518 135.27629a1.5 1.5 0 0 1-1.79356 1.13268 1.5 1.5 0 0 1-1.13275-1.79352 1.5 1.5 0 0 1 1.79349-1.13281 1.5 1.5 0 0 1 1.13287 1.79344" style="paint-order:markers stroke fill"/>
+ </g>
+ <g transform="translate(-55.529932,-104.46082)">
+  <g transform="translate(14.196646,-60.971787)">
+   <g transform="translate(29.925157,31.79548)">
+    <text x="45.707638" y="142.16032" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="45.707638" y="142.16032" stroke-width=".264583" text-align="center" text-anchor="middle">Rider</tspan></text>
+    <rect x="38.336506" y="136.21553" width="15" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <text x="164.50803" y="144.24495" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="164.50803" y="144.24495" stroke-width=".264583" text-align="center" text-anchor="middle">WhippleBicycle</tspan></text>
+  <rect x="148.50044" y="138.67154" width="32" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  <g transform="translate(111.44527,-14.057248)">
+   <g transform="translate(-2.6458334,2.1166667)">
+    <text x="48.165203" y="141.78894" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.165203" y="141.78894" stroke-width=".264583" text-align="center" text-anchor="middle">HolonomicHandGrip</tspan></text>
+    <rect x="27.752363" y="135.84415" width="41" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(105.0855,-13.668162)">
+   <text x="51.871559" y="127.4791" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="51.871559" y="127.4791" stroke-width=".264583" text-align="center" text-anchor="middle">HandGripBase</tspan></text>
+   <rect x="36.966301" y="121.57221" width="30" height="9" fill="none" stroke="currentColor" stroke-dasharray="2, 1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" style="paint-order:stroke fill markers"/>
+  </g>
+  <path d="m157.0518 123.75546v-6.60218" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m180.75093 143.13937h6.60218" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m136.48778 128.40356-7.39457 5.4103" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <g transform="translate(146.38275,33.416083)">
+   <g transform="translate(-2.6458334,2.1166667)">
+    <text x="45.642464" y="141.78894" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="45.642464" y="141.78894" stroke-width=".264583" text-align="center" text-anchor="middle">HolonomicPedals</tspan></text>
+    <rect x="27.752363" y="135.84415" width="36" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(140.02298,33.805169)">
+   <text x="49.371559" y="127.4791" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="49.371559" y="127.4791" stroke-width=".264583" text-align="center" text-anchor="middle">PedalsBase</tspan></text>
+   <rect x="35.966301" y="121.57221" width="27" height="9" fill="none" stroke="currentColor" stroke-dasharray="2, 1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" style="paint-order:stroke fill markers"/>
+  </g>
+  <path d="m189.48928 171.22879v-6.60218" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m171.42526 175.87689-52.86107-12.6716" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <g transform="translate(109.63343,-13.414199)">
+   <g transform="translate(46.648803,15.870211)">
+    <text x="44.733547" y="142.09685" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="44.733547" y="142.09685" stroke-width=".264583" text-align="center" text-anchor="middle">BicycleBase</tspan></text>
+    <rect x="31.328289" y="136.21553" width="27" height="9" fill="none" stroke="currentColor" stroke-dasharray="2, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(25.231733,4.092425)">
+   <g transform="translate(-3.7041668)">
+    <text x="48.165203" y="141.78894" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.165203" y="141.78894" stroke-width=".264583" text-align="center" text-anchor="middle">SideLeanSeat</tspan></text>
+    <rect x="34.252365" y="135.84415" width="28" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(22.31363,2.3648432)">
+   <text x="47.43409" y="127.4791" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="47.43409" y="127.4791" stroke-width=".264583" text-align="center" text-anchor="middle">SeatBase</tspan></text>
+   <rect x="36.966301" y="121.57221" width="21" height="9" fill="none" stroke="currentColor" stroke-dasharray="2, 1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" style="paint-order:stroke fill markers"/>
+  </g>
+  <path d="m69.779931 139.78846v-6.60218" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m83.938324 144.43657 10.459418-7.0935" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m97.449692 111.64145 12.462338 9.37891" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m148.36494 142.96337-10.14069 5.25398" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+ </g>
+</svg>

@@ -1,0 +1,32 @@
+..
+  class.rst
+
+brim.core.singleton.Singleton
+=============================
+
+.. currentmodule:: brim.core.singleton
+
+.. autoclass:: Singleton
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~Singleton.__init__
+                    ~Singleton.activate
+                    ~Singleton.deactivate
+        
+    

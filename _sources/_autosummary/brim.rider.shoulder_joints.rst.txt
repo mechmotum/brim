@@ -1,0 +1,45 @@
+..
+  module.rst
+
+brim.rider.shoulder\_joints
+===========================
+
+.. automodule:: brim.rider.shoulder_joints
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    FlexAddLeftShoulder
+                    FlexAddRightShoulder
+                    FlexAddShoulderMixin
+                    FlexRotLeftShoulder
+                    FlexRotRightShoulder
+                    FlexRotShoulderMixin
+                    SphericalLeftShoulder
+                    SphericalRightShoulder
+                    SphericalShoulderMixin
+                    SphericalShoulderSpringDamper
+                    SphericalShoulderTorque
+        
+    
+
+    
+        
+    
+
+
+    

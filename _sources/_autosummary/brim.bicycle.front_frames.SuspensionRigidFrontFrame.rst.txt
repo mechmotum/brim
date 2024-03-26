@@ -1,0 +1,56 @@
+..
+  class.rst
+
+brim.bicycle.front\_frames.SuspensionRigidFrontFrame
+====================================================
+
+.. currentmodule:: brim.bicycle.front_frames
+
+.. autoclass:: SuspensionRigidFrontFrame
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SuspensionRigidFrontFrame.connections
+                    ~SuspensionRigidFrontFrame.convention
+                    ~SuspensionRigidFrontFrame.descriptions
+                    ~SuspensionRigidFrontFrame.left_hand_grip
+                    ~SuspensionRigidFrontFrame.load_groups
+                    ~SuspensionRigidFrontFrame.name
+                    ~SuspensionRigidFrontFrame.required_connections
+                    ~SuspensionRigidFrontFrame.required_models
+                    ~SuspensionRigidFrontFrame.right_hand_grip
+                    ~SuspensionRigidFrontFrame.steer_hub
+                    ~SuspensionRigidFrontFrame.submodels
+                    ~SuspensionRigidFrontFrame.system
+                    ~SuspensionRigidFrontFrame.wheel_hub
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SuspensionRigidFrontFrame.__init__
+                    ~SuspensionRigidFrontFrame.add_load_groups
+                    ~SuspensionRigidFrontFrame.define_all
+                    ~SuspensionRigidFrontFrame.define_connections
+                    ~SuspensionRigidFrontFrame.define_constraints
+                    ~SuspensionRigidFrontFrame.define_kinematics
+                    ~SuspensionRigidFrontFrame.define_loads
+                    ~SuspensionRigidFrontFrame.define_objects
+                    ~SuspensionRigidFrontFrame.from_convention
+                    ~SuspensionRigidFrontFrame.get_all_symbols
+                    ~SuspensionRigidFrontFrame.get_description
+                    ~SuspensionRigidFrontFrame.get_param_values
+                    ~SuspensionRigidFrontFrame.set_plot_objects
+                    ~SuspensionRigidFrontFrame.to_system
+        
+    

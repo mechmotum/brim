@@ -1,0 +1,36 @@
+..
+  module.rst
+
+brim.rider.pelvis
+=================
+
+.. automodule:: brim.rider.pelvis
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    PelvisBase
+                    PlanarPelvis
+        
+    
+
+    
+        
+    
+
+
+    
