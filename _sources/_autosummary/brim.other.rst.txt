@@ -1,0 +1,35 @@
+﻿..
+  module.rst
+
+brim.other
+==========
+
+.. automodule:: brim.other
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                brim.other.rolling_disc
+    

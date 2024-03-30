@@ -1,0 +1,39 @@
+..
+  module.rst
+
+brim.brim.seats
+===============
+
+.. automodule:: brim.brim.seats
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    FixedSeat
+                    PelvisInterPointMixin
+                    SideLeanSeat
+                    SideLeanSeatSpringDamper
+                    SideLeanSeatTorque
+        
+    
+
+    
+        
+    
+
+
+    

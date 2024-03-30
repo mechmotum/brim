@@ -1,0 +1,9 @@
+..
+  base.rst
+
+brim.utilities.utilities.check\_zero
+====================================
+
+.. currentmodule:: brim.utilities.utilities
+
+.. autofunction:: check_zero

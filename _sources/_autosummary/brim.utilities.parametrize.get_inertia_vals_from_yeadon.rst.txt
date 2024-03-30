@@ -1,0 +1,9 @@
+..
+  base.rst
+
+brim.utilities.parametrize.get\_inertia\_vals\_from\_yeadon
+===========================================================
+
+.. currentmodule:: brim.utilities.parametrize
+
+.. autofunction:: get_inertia_vals_from_yeadon

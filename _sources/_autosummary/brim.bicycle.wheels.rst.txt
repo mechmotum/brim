@@ -1,0 +1,37 @@
+..
+  module.rst
+
+brim.bicycle.wheels
+===================
+
+.. automodule:: brim.bicycle.wheels
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    KnifeEdgeWheel
+                    ToroidalWheel
+                    WheelBase
+        
+    
+
+    
+        
+    
+
+
+    

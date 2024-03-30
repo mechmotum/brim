@@ -1,0 +1,35 @@
+..
+  module.rst
+
+brim.core.mixins
+================
+
+.. automodule:: brim.core.mixins
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    NewtonianBodyMixin
+        
+    
+
+    
+        
+    
+
+
+    

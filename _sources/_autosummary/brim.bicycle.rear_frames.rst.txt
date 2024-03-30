@@ -1,0 +1,37 @@
+..
+  module.rst
+
+brim.bicycle.rear\_frames
+=========================
+
+.. automodule:: brim.bicycle.rear_frames
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    RearFrameBase
+                    RigidRearFrame
+                    RigidRearFrameMoore
+        
+    
+
+    
+        
+    
+
+
+    

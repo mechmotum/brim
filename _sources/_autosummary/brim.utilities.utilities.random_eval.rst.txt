@@ -1,0 +1,9 @@
+..
+  base.rst
+
+brim.utilities.utilities.random\_eval
+=====================================
+
+.. currentmodule:: brim.utilities.utilities
+
+.. autofunction:: random_eval

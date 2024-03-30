@@ -1,0 +1,9 @@
+..
+  base.rst
+
+brim.utilities.benchmarking.benchmark
+=====================================
+
+.. currentmodule:: brim.utilities.benchmarking
+
+.. autofunction:: benchmark

@@ -1,0 +1,9 @@
+..
+  base.rst
+
+brim.utilities.testing.ignore\_point\_warnings
+==============================================
+
+.. currentmodule:: brim.utilities.testing
+
+.. autofunction:: ignore_point_warnings

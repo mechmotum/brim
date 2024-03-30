@@ -1,0 +1,36 @@
+..
+  module.rst
+
+brim.core.auxiliary
+===================
+
+.. automodule:: brim.core.auxiliary
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    AuxiliaryData
+                    AuxiliaryDataHandler
+        
+    
+
+    
+        
+    
+
+
+    

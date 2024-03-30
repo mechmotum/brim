@@ -1,0 +1,44 @@
+﻿..
+  module.rst
+
+brim.rider
+==========
+
+.. automodule:: brim.rider
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                brim.rider.arms
+                brim.rider.base_connections
+                brim.rider.hip_joints
+                brim.rider.legs
+                brim.rider.pelvis
+                brim.rider.rider
+                brim.rider.rider_lean
+                brim.rider.sacrums
+                brim.rider.shoulder_joints
+                brim.rider.torso
+    

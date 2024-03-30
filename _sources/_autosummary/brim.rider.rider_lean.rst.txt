@@ -1,0 +1,36 @@
+..
+  module.rst
+
+brim.rider.rider\_lean
+======================
+
+.. automodule:: brim.rider.rider_lean
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    RiderLean
+                    RiderLeanConnection
+        
+    
+
+    
+        
+    
+
+
+    

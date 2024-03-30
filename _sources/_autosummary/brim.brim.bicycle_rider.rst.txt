@@ -1,0 +1,35 @@
+..
+  module.rst
+
+brim.brim.bicycle\_rider
+========================
+
+.. automodule:: brim.brim.bicycle_rider
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    BicycleRider
+        
+    
+
+    
+        
+    
+
+
+    

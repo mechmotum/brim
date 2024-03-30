@@ -1,0 +1,33 @@
+..
+  class.rst
+
+brim.core.singleton.SingletonMeta
+=================================
+
+.. currentmodule:: brim.core.singleton
+
+.. autoclass:: SingletonMeta
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SingletonMeta.__init__
+                    ~SingletonMeta.activate
+                    ~SingletonMeta.deactivate
+                    ~SingletonMeta.mro
+        
+    

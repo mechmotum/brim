@@ -1,0 +1,41 @@
+..
+  module.rst
+
+brim.rider.base\_connections
+============================
+
+.. automodule:: brim.rider.base_connections
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    HipBase
+                    LeftHipBase
+                    LeftShoulderBase
+                    RightHipBase
+                    RightShoulderBase
+                    SacrumBase
+                    ShoulderBase
+        
+    
+
+    
+        
+    
+
+
+    
