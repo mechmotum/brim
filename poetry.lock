@@ -2913,4 +2913,4 @@ plotting = ["symmeplot"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "1aa22cc316ad698f197cc6794bcbf1e33b134b6b3b481bdd994d981ef60ff0d9"
+content-hash = "e49b255e2b2ff841c1417033777b35e73f1dc78f570cbe9b6cfeb324d27dfa3d"

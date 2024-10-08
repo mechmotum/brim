@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "symbrim"
-version = "0.0.1"
+version = "0.1.0"
 description = "A Modular and Extensible Open-Source Framework for Symbolic Creating Bicycle-Rider Models"
 authors = ["tjstienstra <T.J.Stienstra@tudelft.nl>"]
 license = "CC0-1.0"
@@ -13,6 +13,7 @@ typing-extensions = "^4.12.2"
 sympy = "^1.13"
 symmeplot = {version = "^0.2.0", optional = true}
 bicycleparameters = {git = "https://github.com/moorepants/BicycleParameters.git", optional = true}
+importlib-metadata = {version = "^8.5.0", python = "<3.8"}
 
 [tool.poetry.group.lint.dependencies]
 ruff = "^0.6.9"
