@@ -1,0 +1,57 @@
+..
+  class.rst
+
+symbrim.bicycle.front\_frames.FrontFrameBase
+============================================
+
+.. currentmodule:: symbrim.bicycle.front_frames
+
+.. autoclass:: FrontFrameBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~FrontFrameBase.auxiliary_handler
+                    ~FrontFrameBase.connections
+                    ~FrontFrameBase.convention
+                    ~FrontFrameBase.descriptions
+                    ~FrontFrameBase.left_hand_grip
+                    ~FrontFrameBase.load_groups
+                    ~FrontFrameBase.name
+                    ~FrontFrameBase.required_connections
+                    ~FrontFrameBase.required_models
+                    ~FrontFrameBase.right_hand_grip
+                    ~FrontFrameBase.steer_hub
+                    ~FrontFrameBase.submodels
+                    ~FrontFrameBase.system
+                    ~FrontFrameBase.wheel_hub
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~FrontFrameBase.__init__
+                    ~FrontFrameBase.add_load_groups
+                    ~FrontFrameBase.define_all
+                    ~FrontFrameBase.define_connections
+                    ~FrontFrameBase.define_constraints
+                    ~FrontFrameBase.define_kinematics
+                    ~FrontFrameBase.define_loads
+                    ~FrontFrameBase.define_objects
+                    ~FrontFrameBase.from_convention
+                    ~FrontFrameBase.get_all_symbols
+                    ~FrontFrameBase.get_description
+                    ~FrontFrameBase.get_param_values
+                    ~FrontFrameBase.set_plot_objects
+                    ~FrontFrameBase.to_system
+        
+    

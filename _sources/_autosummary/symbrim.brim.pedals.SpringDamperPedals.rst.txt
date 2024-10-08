@@ -1,0 +1,49 @@
+..
+  class.rst
+
+symbrim.brim.pedals.SpringDamperPedals
+======================================
+
+.. currentmodule:: symbrim.brim.pedals
+
+.. autoclass:: SpringDamperPedals
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SpringDamperPedals.auxiliary_handler
+                    ~SpringDamperPedals.cranks
+                    ~SpringDamperPedals.descriptions
+                    ~SpringDamperPedals.left_leg
+                    ~SpringDamperPedals.load_groups
+                    ~SpringDamperPedals.name
+                    ~SpringDamperPedals.required_models
+                    ~SpringDamperPedals.right_leg
+                    ~SpringDamperPedals.submodels
+                    ~SpringDamperPedals.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SpringDamperPedals.__init__
+                    ~SpringDamperPedals.add_load_groups
+                    ~SpringDamperPedals.define_constraints
+                    ~SpringDamperPedals.define_kinematics
+                    ~SpringDamperPedals.define_loads
+                    ~SpringDamperPedals.define_objects
+                    ~SpringDamperPedals.get_all_symbols
+                    ~SpringDamperPedals.get_description
+                    ~SpringDamperPedals.get_param_values
+                    ~SpringDamperPedals.set_plot_objects
+        
+    

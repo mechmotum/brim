@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.shoulder\_joints.FlexAddLeftShoulder
+==================================================
+
+.. currentmodule:: symbrim.rider.shoulder_joints
+
+.. autoclass:: FlexAddLeftShoulder
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~FlexAddLeftShoulder.arm
+                    ~FlexAddLeftShoulder.auxiliary_handler
+                    ~FlexAddLeftShoulder.descriptions
+                    ~FlexAddLeftShoulder.load_groups
+                    ~FlexAddLeftShoulder.name
+                    ~FlexAddLeftShoulder.required_models
+                    ~FlexAddLeftShoulder.submodels
+                    ~FlexAddLeftShoulder.system
+                    ~FlexAddLeftShoulder.torso
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~FlexAddLeftShoulder.__init__
+                    ~FlexAddLeftShoulder.add_load_groups
+                    ~FlexAddLeftShoulder.define_constraints
+                    ~FlexAddLeftShoulder.define_kinematics
+                    ~FlexAddLeftShoulder.define_loads
+                    ~FlexAddLeftShoulder.define_objects
+                    ~FlexAddLeftShoulder.get_all_symbols
+                    ~FlexAddLeftShoulder.get_description
+                    ~FlexAddLeftShoulder.get_param_values
+                    ~FlexAddLeftShoulder.set_plot_objects
+        
+    

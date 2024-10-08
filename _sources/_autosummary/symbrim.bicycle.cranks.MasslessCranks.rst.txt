@@ -1,0 +1,58 @@
+..
+  class.rst
+
+symbrim.bicycle.cranks.MasslessCranks
+=====================================
+
+.. currentmodule:: symbrim.bicycle.cranks
+
+.. autoclass:: MasslessCranks
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~MasslessCranks.auxiliary_handler
+                    ~MasslessCranks.center_point
+                    ~MasslessCranks.connections
+                    ~MasslessCranks.convention
+                    ~MasslessCranks.descriptions
+                    ~MasslessCranks.frame
+                    ~MasslessCranks.left_pedal_point
+                    ~MasslessCranks.load_groups
+                    ~MasslessCranks.name
+                    ~MasslessCranks.required_connections
+                    ~MasslessCranks.required_models
+                    ~MasslessCranks.right_pedal_point
+                    ~MasslessCranks.rotation_axis
+                    ~MasslessCranks.submodels
+                    ~MasslessCranks.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~MasslessCranks.__init__
+                    ~MasslessCranks.add_load_groups
+                    ~MasslessCranks.define_all
+                    ~MasslessCranks.define_connections
+                    ~MasslessCranks.define_constraints
+                    ~MasslessCranks.define_kinematics
+                    ~MasslessCranks.define_loads
+                    ~MasslessCranks.define_objects
+                    ~MasslessCranks.from_convention
+                    ~MasslessCranks.get_all_symbols
+                    ~MasslessCranks.get_description
+                    ~MasslessCranks.get_param_values
+                    ~MasslessCranks.set_plot_objects
+                    ~MasslessCranks.to_system
+        
+    

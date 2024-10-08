@@ -1,0 +1,44 @@
+..
+  class.rst
+
+symbrim.rider.arms.PinElbowTorque
+=================================
+
+.. currentmodule:: symbrim.rider.arms
+
+.. autoclass:: PinElbowTorque
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PinElbowTorque.auxiliary_handler
+                    ~PinElbowTorque.descriptions
+                    ~PinElbowTorque.name
+                    ~PinElbowTorque.parent
+                    ~PinElbowTorque.required_parent_type
+                    ~PinElbowTorque.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PinElbowTorque.__init__
+                    ~PinElbowTorque.define_constraints
+                    ~PinElbowTorque.define_kinematics
+                    ~PinElbowTorque.define_loads
+                    ~PinElbowTorque.define_objects
+                    ~PinElbowTorque.get_all_symbols
+                    ~PinElbowTorque.get_description
+                    ~PinElbowTorque.get_param_values
+                    ~PinElbowTorque.set_plot_objects
+        
+    

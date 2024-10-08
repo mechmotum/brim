@@ -1,0 +1,39 @@
+﻿..
+  module.rst
+
+symbrim.utilities
+=================
+
+.. automodule:: symbrim.utilities
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                benchmarking
+                parametrize
+                plotting
+                testing
+                utilities
+    

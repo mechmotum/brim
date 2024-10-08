@@ -1,0 +1,38 @@
+..
+  class.rst
+
+symbrim.core.auxiliary.AuxiliaryData
+====================================
+
+.. currentmodule:: symbrim.core.auxiliary
+
+.. autoclass:: AuxiliaryData
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~AuxiliaryData.auxiliary_velocity
+                    ~AuxiliaryData.is_force
+                    ~AuxiliaryData.is_torque
+                    ~AuxiliaryData.location
+                    ~AuxiliaryData.direction
+                    ~AuxiliaryData.speed_symbol
+                    ~AuxiliaryData.load_symbol
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~AuxiliaryData.__init__
+                    ~AuxiliaryData.get_load
+        
+    

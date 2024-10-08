@@ -1,0 +1,61 @@
+..
+  class.rst
+
+symbrim.rider.arms.PinElbowStickRightArm
+========================================
+
+.. currentmodule:: symbrim.rider.arms
+
+.. autoclass:: PinElbowStickRightArm
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PinElbowStickRightArm.auxiliary_handler
+                    ~PinElbowStickRightArm.connections
+                    ~PinElbowStickRightArm.convention
+                    ~PinElbowStickRightArm.descriptions
+                    ~PinElbowStickRightArm.forearm
+                    ~PinElbowStickRightArm.hand
+                    ~PinElbowStickRightArm.hand_interframe
+                    ~PinElbowStickRightArm.hand_interpoint
+                    ~PinElbowStickRightArm.load_groups
+                    ~PinElbowStickRightArm.name
+                    ~PinElbowStickRightArm.required_connections
+                    ~PinElbowStickRightArm.required_models
+                    ~PinElbowStickRightArm.shoulder
+                    ~PinElbowStickRightArm.shoulder_interframe
+                    ~PinElbowStickRightArm.shoulder_interpoint
+                    ~PinElbowStickRightArm.submodels
+                    ~PinElbowStickRightArm.system
+                    ~PinElbowStickRightArm.upper_arm
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PinElbowStickRightArm.__init__
+                    ~PinElbowStickRightArm.add_load_groups
+                    ~PinElbowStickRightArm.define_all
+                    ~PinElbowStickRightArm.define_connections
+                    ~PinElbowStickRightArm.define_constraints
+                    ~PinElbowStickRightArm.define_kinematics
+                    ~PinElbowStickRightArm.define_loads
+                    ~PinElbowStickRightArm.define_objects
+                    ~PinElbowStickRightArm.from_convention
+                    ~PinElbowStickRightArm.get_all_symbols
+                    ~PinElbowStickRightArm.get_description
+                    ~PinElbowStickRightArm.get_param_values
+                    ~PinElbowStickRightArm.set_plot_objects
+                    ~PinElbowStickRightArm.to_system
+        
+    

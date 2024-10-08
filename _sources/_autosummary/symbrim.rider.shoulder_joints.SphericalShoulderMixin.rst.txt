@@ -1,0 +1,31 @@
+..
+  class.rst
+
+symbrim.rider.shoulder\_joints.SphericalShoulderMixin
+=====================================================
+
+.. currentmodule:: symbrim.rider.shoulder_joints
+
+.. autoclass:: SphericalShoulderMixin
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SphericalShoulderMixin.descriptions
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SphericalShoulderMixin.__init__
+        
+    

@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.brim.base\_connections.SeatBase
+=======================================
+
+.. currentmodule:: symbrim.brim.base_connections
+
+.. autoclass:: SeatBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SeatBase.auxiliary_handler
+                    ~SeatBase.descriptions
+                    ~SeatBase.load_groups
+                    ~SeatBase.name
+                    ~SeatBase.pelvis
+                    ~SeatBase.rear_frame
+                    ~SeatBase.required_models
+                    ~SeatBase.submodels
+                    ~SeatBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SeatBase.__init__
+                    ~SeatBase.add_load_groups
+                    ~SeatBase.define_constraints
+                    ~SeatBase.define_kinematics
+                    ~SeatBase.define_loads
+                    ~SeatBase.define_objects
+                    ~SeatBase.get_all_symbols
+                    ~SeatBase.get_description
+                    ~SeatBase.get_param_values
+                    ~SeatBase.set_plot_objects
+        
+    

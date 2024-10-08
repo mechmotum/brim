@@ -1,0 +1,42 @@
+..
+  class.rst
+
+symbrim.core.base\_classes.BrimBase
+===================================
+
+.. currentmodule:: symbrim.core.base_classes
+
+.. autoclass:: BrimBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~BrimBase.auxiliary_handler
+                    ~BrimBase.descriptions
+                    ~BrimBase.name
+                    ~BrimBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~BrimBase.__init__
+                    ~BrimBase.define_constraints
+                    ~BrimBase.define_kinematics
+                    ~BrimBase.define_loads
+                    ~BrimBase.define_objects
+                    ~BrimBase.get_all_symbols
+                    ~BrimBase.get_description
+                    ~BrimBase.get_param_values
+                    ~BrimBase.set_plot_objects
+        
+    

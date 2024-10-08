@@ -1,0 +1,61 @@
+..
+  class.rst
+
+symbrim.bicycle.whipple\_bicycle.WhippleBicycle
+===============================================
+
+.. currentmodule:: symbrim.bicycle.whipple_bicycle
+
+.. autoclass:: WhippleBicycle
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~WhippleBicycle.auxiliary_handler
+                    ~WhippleBicycle.connections
+                    ~WhippleBicycle.convention
+                    ~WhippleBicycle.cranks
+                    ~WhippleBicycle.descriptions
+                    ~WhippleBicycle.front_frame
+                    ~WhippleBicycle.front_tire
+                    ~WhippleBicycle.front_wheel
+                    ~WhippleBicycle.ground
+                    ~WhippleBicycle.load_groups
+                    ~WhippleBicycle.name
+                    ~WhippleBicycle.rear_frame
+                    ~WhippleBicycle.rear_tire
+                    ~WhippleBicycle.rear_wheel
+                    ~WhippleBicycle.required_connections
+                    ~WhippleBicycle.required_models
+                    ~WhippleBicycle.submodels
+                    ~WhippleBicycle.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~WhippleBicycle.__init__
+                    ~WhippleBicycle.add_load_groups
+                    ~WhippleBicycle.define_all
+                    ~WhippleBicycle.define_connections
+                    ~WhippleBicycle.define_constraints
+                    ~WhippleBicycle.define_kinematics
+                    ~WhippleBicycle.define_loads
+                    ~WhippleBicycle.define_objects
+                    ~WhippleBicycle.from_convention
+                    ~WhippleBicycle.get_all_symbols
+                    ~WhippleBicycle.get_description
+                    ~WhippleBicycle.get_param_values
+                    ~WhippleBicycle.set_plot_objects
+                    ~WhippleBicycle.to_system
+        
+    

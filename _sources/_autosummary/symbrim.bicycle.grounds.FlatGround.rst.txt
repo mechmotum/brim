@@ -1,0 +1,59 @@
+..
+  class.rst
+
+symbrim.bicycle.grounds.FlatGround
+==================================
+
+.. currentmodule:: symbrim.bicycle.grounds
+
+.. autoclass:: FlatGround
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~FlatGround.auxiliary_handler
+                    ~FlatGround.body
+                    ~FlatGround.connections
+                    ~FlatGround.convention
+                    ~FlatGround.descriptions
+                    ~FlatGround.frame
+                    ~FlatGround.load_groups
+                    ~FlatGround.name
+                    ~FlatGround.origin
+                    ~FlatGround.required_connections
+                    ~FlatGround.required_models
+                    ~FlatGround.submodels
+                    ~FlatGround.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~FlatGround.__init__
+                    ~FlatGround.add_load_groups
+                    ~FlatGround.define_all
+                    ~FlatGround.define_connections
+                    ~FlatGround.define_constraints
+                    ~FlatGround.define_kinematics
+                    ~FlatGround.define_loads
+                    ~FlatGround.define_objects
+                    ~FlatGround.from_convention
+                    ~FlatGround.get_all_symbols
+                    ~FlatGround.get_description
+                    ~FlatGround.get_normal
+                    ~FlatGround.get_param_values
+                    ~FlatGround.get_tangent_vectors
+                    ~FlatGround.set_plot_objects
+                    ~FlatGround.set_pos_point
+                    ~FlatGround.to_system
+        
+    

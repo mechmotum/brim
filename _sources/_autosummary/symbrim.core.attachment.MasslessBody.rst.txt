@@ -1,0 +1,45 @@
+..
+  class.rst
+
+symbrim.core.attachment.MasslessBody
+====================================
+
+.. currentmodule:: symbrim.core.attachment
+
+.. autoclass:: MasslessBody
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~MasslessBody.central_inertia
+                    ~MasslessBody.frame
+                    ~MasslessBody.inertia
+                    ~MasslessBody.mass
+                    ~MasslessBody.masscenter
+                    ~MasslessBody.name
+                    ~MasslessBody.potential_energy
+                    ~MasslessBody.x
+                    ~MasslessBody.y
+                    ~MasslessBody.z
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~MasslessBody.__init__
+                    ~MasslessBody.angular_momentum
+                    ~MasslessBody.kinetic_energy
+                    ~MasslessBody.linear_momentum
+                    ~MasslessBody.parallel_axis
+                    ~MasslessBody.set_potential_energy
+        
+    

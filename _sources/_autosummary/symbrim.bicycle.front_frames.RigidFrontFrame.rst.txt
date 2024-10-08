@@ -1,0 +1,58 @@
+..
+  class.rst
+
+symbrim.bicycle.front\_frames.RigidFrontFrame
+=============================================
+
+.. currentmodule:: symbrim.bicycle.front_frames
+
+.. autoclass:: RigidFrontFrame
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~RigidFrontFrame.auxiliary_handler
+                    ~RigidFrontFrame.body
+                    ~RigidFrontFrame.connections
+                    ~RigidFrontFrame.convention
+                    ~RigidFrontFrame.descriptions
+                    ~RigidFrontFrame.left_hand_grip
+                    ~RigidFrontFrame.load_groups
+                    ~RigidFrontFrame.name
+                    ~RigidFrontFrame.required_connections
+                    ~RigidFrontFrame.required_models
+                    ~RigidFrontFrame.right_hand_grip
+                    ~RigidFrontFrame.steer_hub
+                    ~RigidFrontFrame.submodels
+                    ~RigidFrontFrame.system
+                    ~RigidFrontFrame.wheel_hub
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~RigidFrontFrame.__init__
+                    ~RigidFrontFrame.add_load_groups
+                    ~RigidFrontFrame.define_all
+                    ~RigidFrontFrame.define_connections
+                    ~RigidFrontFrame.define_constraints
+                    ~RigidFrontFrame.define_kinematics
+                    ~RigidFrontFrame.define_loads
+                    ~RigidFrontFrame.define_objects
+                    ~RigidFrontFrame.from_convention
+                    ~RigidFrontFrame.get_all_symbols
+                    ~RigidFrontFrame.get_description
+                    ~RigidFrontFrame.get_param_values
+                    ~RigidFrontFrame.set_plot_objects
+                    ~RigidFrontFrame.to_system
+        
+    

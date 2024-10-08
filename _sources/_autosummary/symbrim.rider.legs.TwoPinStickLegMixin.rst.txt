@@ -1,0 +1,37 @@
+..
+  class.rst
+
+symbrim.rider.legs.TwoPinStickLegMixin
+======================================
+
+.. currentmodule:: symbrim.rider.legs
+
+.. autoclass:: TwoPinStickLegMixin
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~TwoPinStickLegMixin.descriptions
+                    ~TwoPinStickLegMixin.foot
+                    ~TwoPinStickLegMixin.foot_interframe
+                    ~TwoPinStickLegMixin.hip
+                    ~TwoPinStickLegMixin.hip_interframe
+                    ~TwoPinStickLegMixin.shank
+                    ~TwoPinStickLegMixin.thigh
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~TwoPinStickLegMixin.__init__
+        
+    

@@ -1,0 +1,9 @@
+..
+  base.rst
+
+symbrim.utilities.benchmarking.benchmark
+========================================
+
+.. currentmodule:: symbrim.utilities.benchmarking
+
+.. autofunction:: benchmark

@@ -1,0 +1,60 @@
+..
+  class.rst
+
+symbrim.bicycle.wheels.WheelBase
+================================
+
+.. currentmodule:: symbrim.bicycle.wheels
+
+.. autoclass:: WheelBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~WheelBase.auxiliary_handler
+                    ~WheelBase.body
+                    ~WheelBase.center
+                    ~WheelBase.connections
+                    ~WheelBase.convention
+                    ~WheelBase.descriptions
+                    ~WheelBase.frame
+                    ~WheelBase.load_groups
+                    ~WheelBase.name
+                    ~WheelBase.required_connections
+                    ~WheelBase.required_models
+                    ~WheelBase.rotation_axis
+                    ~WheelBase.submodels
+                    ~WheelBase.system
+                    ~WheelBase.x
+                    ~WheelBase.y
+                    ~WheelBase.z
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~WheelBase.__init__
+                    ~WheelBase.add_load_groups
+                    ~WheelBase.define_all
+                    ~WheelBase.define_connections
+                    ~WheelBase.define_constraints
+                    ~WheelBase.define_kinematics
+                    ~WheelBase.define_loads
+                    ~WheelBase.define_objects
+                    ~WheelBase.from_convention
+                    ~WheelBase.get_all_symbols
+                    ~WheelBase.get_description
+                    ~WheelBase.get_param_values
+                    ~WheelBase.set_plot_objects
+                    ~WheelBase.to_system
+        
+    

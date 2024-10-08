@@ -1,0 +1,9 @@
+..
+  base.rst
+
+symbrim.utilities.parametrize.get\_inertia\_vals\_from\_yeadon
+==============================================================
+
+.. currentmodule:: symbrim.utilities.parametrize
+
+.. autofunction:: get_inertia_vals_from_yeadon

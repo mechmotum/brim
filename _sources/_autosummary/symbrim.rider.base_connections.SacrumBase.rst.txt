@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.base\_connections.SacrumBase
+==========================================
+
+.. currentmodule:: symbrim.rider.base_connections
+
+.. autoclass:: SacrumBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SacrumBase.auxiliary_handler
+                    ~SacrumBase.descriptions
+                    ~SacrumBase.load_groups
+                    ~SacrumBase.name
+                    ~SacrumBase.pelvis
+                    ~SacrumBase.required_models
+                    ~SacrumBase.submodels
+                    ~SacrumBase.system
+                    ~SacrumBase.torso
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SacrumBase.__init__
+                    ~SacrumBase.add_load_groups
+                    ~SacrumBase.define_constraints
+                    ~SacrumBase.define_kinematics
+                    ~SacrumBase.define_loads
+                    ~SacrumBase.define_objects
+                    ~SacrumBase.get_all_symbols
+                    ~SacrumBase.get_description
+                    ~SacrumBase.get_param_values
+                    ~SacrumBase.set_plot_objects
+        
+    

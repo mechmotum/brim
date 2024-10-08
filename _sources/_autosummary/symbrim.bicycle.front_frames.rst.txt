@@ -1,0 +1,39 @@
+..
+  module.rst
+
+symbrim.bicycle.front\_frames
+=============================
+
+.. automodule:: symbrim.bicycle.front_frames
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    FrontFrameBase
+                    RigidFrontFrame
+                    RigidFrontFrameMoore
+                    SuspensionRigidFrontFrame
+                    SuspensionRigidFrontFrameMoore
+        
+    
+
+    
+        
+    
+
+
+    

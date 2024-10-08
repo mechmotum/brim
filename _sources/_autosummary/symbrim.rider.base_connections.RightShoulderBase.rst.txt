@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.base\_connections.RightShoulderBase
+=================================================
+
+.. currentmodule:: symbrim.rider.base_connections
+
+.. autoclass:: RightShoulderBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~RightShoulderBase.arm
+                    ~RightShoulderBase.auxiliary_handler
+                    ~RightShoulderBase.descriptions
+                    ~RightShoulderBase.load_groups
+                    ~RightShoulderBase.name
+                    ~RightShoulderBase.required_models
+                    ~RightShoulderBase.submodels
+                    ~RightShoulderBase.system
+                    ~RightShoulderBase.torso
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~RightShoulderBase.__init__
+                    ~RightShoulderBase.add_load_groups
+                    ~RightShoulderBase.define_constraints
+                    ~RightShoulderBase.define_kinematics
+                    ~RightShoulderBase.define_loads
+                    ~RightShoulderBase.define_objects
+                    ~RightShoulderBase.get_all_symbols
+                    ~RightShoulderBase.get_description
+                    ~RightShoulderBase.get_param_values
+                    ~RightShoulderBase.set_plot_objects
+        
+    

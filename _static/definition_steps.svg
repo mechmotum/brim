@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="definitionSteps" version="1.1" viewBox="0 0 180.37601 43.00629" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="Arrow1Mend" overflow="visible" orient="auto">
+   <path transform="matrix(-.5 0 0 -.5 -5 0)" d="m0 0 1-5-13.5 5 13.5 5z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+ </defs>
+ <g transform="translate(-19.881675,-79.299032)">
+  <circle cx="35" cy="96.573425" r="10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width=".265" style="paint-order:markers stroke fill"/>
+  <g fill="none" stroke="currentColor" stroke-width=".264583px">
+   <path d="m20 110h30"/>
+   <path d="m22 110-2 4"/>
+   <path d="m24.153845 110-2 4"/>
+   <path d="m26.307693 110-2 4"/>
+   <path d="m28.461538 110-2 4"/>
+   <path d="m30.615384 110-2 4"/>
+   <path d="m32.769231 110-2 4"/>
+   <path d="m34.923075 110-2 4"/>
+   <path d="m37.076924 110-2 4"/>
+   <path d="m39.23077 110-2 4"/>
+   <path d="m41.384615 110-2 4"/>
+   <path d="m43.538464 110-2 4"/>
+   <path d="m45.692306 110-2 4"/>
+   <path d="m47.846155 110-2 4"/>
+   <path d="m50 110-2 4"/>
+  </g>
+  <circle cx="183.17792" cy="100.0155" r="10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width=".265" style="paint-order:markers stroke fill"/>
+  <g transform="translate(148.17791)" fill="none" stroke="currentColor" stroke-width=".264583px">
+   <path d="m20 110h30"/>
+   <path d="m22 110-2 4"/>
+   <path d="m24.153845 110-2 4"/>
+   <path d="m26.307693 110-2 4"/>
+   <path d="m28.461538 110-2 4"/>
+   <path d="m30.615384 110-2 4"/>
+   <path d="m32.769231 110-2 4"/>
+   <path d="m34.923075 110-2 4"/>
+   <path d="m37.076924 110-2 4"/>
+   <path d="m39.23077 110-2 4"/>
+   <path d="m41.384615 110-2 4"/>
+   <path d="m43.538464 110-2 4"/>
+   <path d="m45.692306 110-2 4"/>
+   <path d="m47.846155 110-2 4"/>
+   <path d="m50 110-2 4"/>
+  </g>
+  <circle cx="133.78528" cy="96.573425" r="10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width=".265" style="paint-order:markers stroke fill"/>
+  <g transform="translate(98.785273)" fill="none" stroke="currentColor" stroke-width=".264583px">
+   <path d="m20 110h30"/>
+   <path d="m22 110-2 4"/>
+   <path d="m24.153845 110-2 4"/>
+   <path d="m26.307693 110-2 4"/>
+   <path d="m28.461538 110-2 4"/>
+   <path d="m30.615384 110-2 4"/>
+   <path d="m32.769231 110-2 4"/>
+   <path d="m34.923075 110-2 4"/>
+   <path d="m37.076924 110-2 4"/>
+   <path d="m39.23077 110-2 4"/>
+   <path d="m41.384615 110-2 4"/>
+   <path d="m43.538464 110-2 4"/>
+   <path d="m45.692306 110-2 4"/>
+   <path d="m47.846155 110-2 4"/>
+   <path d="m50 110-2 4"/>
+  </g>
+  <circle cx="84.392639" cy="96.573425" r="10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width=".265" style="paint-order:markers stroke fill"/>
+  <g transform="translate(49.392638)" fill="none" stroke="currentColor" stroke-width=".264583px">
+   <path d="m20 110h30"/>
+   <path d="m22 110-2 4"/>
+   <path d="m24.153845 110-2 4"/>
+   <path d="m26.307693 110-2 4"/>
+   <path d="m28.461538 110-2 4"/>
+   <path d="m30.615384 110-2 4"/>
+   <path d="m32.769231 110-2 4"/>
+   <path d="m34.923075 110-2 4"/>
+   <path d="m37.076924 110-2 4"/>
+   <path d="m39.23077 110-2 4"/>
+   <path d="m41.384615 110-2 4"/>
+   <path d="m43.538464 110-2 4"/>
+   <path d="m45.692306 110-2 4"/>
+   <path d="m47.846155 110-2 4"/>
+   <path d="m50 110-2 4"/>
+  </g>
+  <text x="34.62104" y="82.266296" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="34.62104" y="82.266296" stroke-width=".264583" text-align="center" text-anchor="middle">Define objects</tspan></text>
+  <text x="84.01368" y="82.63768" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="84.01368" y="82.63768" stroke-width=".264583" text-align="center" text-anchor="middle">Define kinematics</tspan></text>
+  <path d="m53.174538 92.573426v7.999994h6v4l7-7.999992-7-8.000002v4z" fill="none" stroke="currentColor" stroke-width=".265"/>
+  <path d="m102.56719 92.573427v7.999993h6v4l7-7.999987-7-8.000006v4z" fill="none" stroke="currentColor" stroke-width=".265"/>
+  <path d="m151.95983 92.573417v8.000013h6v4l7-8-7-8.000013v4z" fill="none" stroke="currentColor" stroke-width=".265"/>
+  <path d="m84.462 96.578093h14" fill="none" marker-end="url(#Arrow1Mend)" stroke="#ff0000" stroke-width=".265"/>
+  <path d="m76.716676 116.66962h15" fill="none" marker-end="url(#Arrow1Mend)" stroke="#ff0000" stroke-width=".265"/>
+  <text x="84.098946" y="121.6213" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="84.098946" y="121.6213" stroke-width=".264583" text-align="center" text-anchor="middle">v = 0</tspan></text>
+  <text x="97.748146" y="94.459221" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="97.748146" y="94.459221" stroke-width=".264583" text-align="center" text-anchor="middle">v</tspan></text>
+  <text x="138.00624" y="92.432846" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="138.00624" y="92.432846" stroke-width=".264583" text-align="center" text-anchor="middle">T</tspan></text>
+  <path d="m138.11541 99.073425a5 5 0 0 1-6.57413 1.968165 5 5 0 0 1-2.34708-6.448563 5 5 0 0 1 6.30118-2.718065" fill="none" marker-end="url(#Arrow1Mend)" stroke="#ff0000" stroke-linecap="round" stroke-width=".264999" style="paint-order:markers stroke fill"/>
+  <text x="133.40631" y="82.63768" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="133.40631" y="82.63768" stroke-width=".264583" text-align="center" text-anchor="middle">Define loads</tspan></text>
+  <text x="182.79895" y="82.63768" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="182.79895" y="82.63768" stroke-width=".264583" text-align="center" text-anchor="middle">Define constraints</tspan></text>
+  <circle cx="183.17792" cy="110" r="1" fill="#ff0000" style="paint-order:markers stroke fill"/>
+  <text x="182.82736" y="107.20412" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="182.82736" y="107.20412" stroke-width=".264583" text-align="center" text-anchor="middle">no slip</tspan></text>
+ </g>
+</svg>

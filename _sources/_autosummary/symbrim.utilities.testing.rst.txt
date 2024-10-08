@@ -1,0 +1,36 @@
+..
+  module.rst
+
+symbrim.utilities.testing
+=========================
+
+.. automodule:: symbrim.utilities.testing
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Functions
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/base.rst
+                
+                    create_model_of_connection
+                    ignore_point_warnings
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    

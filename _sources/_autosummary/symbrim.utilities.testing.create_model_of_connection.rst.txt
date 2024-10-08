@@ -1,0 +1,9 @@
+..
+  base.rst
+
+symbrim.utilities.testing.create\_model\_of\_connection
+=======================================================
+
+.. currentmodule:: symbrim.utilities.testing
+
+.. autofunction:: create_model_of_connection

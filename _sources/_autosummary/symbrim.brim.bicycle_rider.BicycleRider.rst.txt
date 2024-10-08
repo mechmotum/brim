@@ -1,0 +1,58 @@
+..
+  class.rst
+
+symbrim.brim.bicycle\_rider.BicycleRider
+========================================
+
+.. currentmodule:: symbrim.brim.bicycle_rider
+
+.. autoclass:: BicycleRider
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~BicycleRider.auxiliary_handler
+                    ~BicycleRider.bicycle
+                    ~BicycleRider.connections
+                    ~BicycleRider.convention
+                    ~BicycleRider.descriptions
+                    ~BicycleRider.hand_grips
+                    ~BicycleRider.load_groups
+                    ~BicycleRider.name
+                    ~BicycleRider.pedals
+                    ~BicycleRider.required_connections
+                    ~BicycleRider.required_models
+                    ~BicycleRider.rider
+                    ~BicycleRider.seat
+                    ~BicycleRider.submodels
+                    ~BicycleRider.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~BicycleRider.__init__
+                    ~BicycleRider.add_load_groups
+                    ~BicycleRider.define_all
+                    ~BicycleRider.define_connections
+                    ~BicycleRider.define_constraints
+                    ~BicycleRider.define_kinematics
+                    ~BicycleRider.define_loads
+                    ~BicycleRider.define_objects
+                    ~BicycleRider.from_convention
+                    ~BicycleRider.get_all_symbols
+                    ~BicycleRider.get_description
+                    ~BicycleRider.get_param_values
+                    ~BicycleRider.set_plot_objects
+                    ~BicycleRider.to_system
+        
+    

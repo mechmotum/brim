@@ -1,0 +1,62 @@
+..
+  class.rst
+
+symbrim.rider.torso.TorsoBase
+=============================
+
+.. currentmodule:: symbrim.rider.torso
+
+.. autoclass:: TorsoBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~TorsoBase.auxiliary_handler
+                    ~TorsoBase.body
+                    ~TorsoBase.connections
+                    ~TorsoBase.convention
+                    ~TorsoBase.descriptions
+                    ~TorsoBase.frame
+                    ~TorsoBase.left_shoulder_frame
+                    ~TorsoBase.left_shoulder_point
+                    ~TorsoBase.load_groups
+                    ~TorsoBase.name
+                    ~TorsoBase.required_connections
+                    ~TorsoBase.required_models
+                    ~TorsoBase.right_shoulder_frame
+                    ~TorsoBase.right_shoulder_point
+                    ~TorsoBase.submodels
+                    ~TorsoBase.system
+                    ~TorsoBase.x
+                    ~TorsoBase.y
+                    ~TorsoBase.z
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~TorsoBase.__init__
+                    ~TorsoBase.add_load_groups
+                    ~TorsoBase.define_all
+                    ~TorsoBase.define_connections
+                    ~TorsoBase.define_constraints
+                    ~TorsoBase.define_kinematics
+                    ~TorsoBase.define_loads
+                    ~TorsoBase.define_objects
+                    ~TorsoBase.from_convention
+                    ~TorsoBase.get_all_symbols
+                    ~TorsoBase.get_description
+                    ~TorsoBase.get_param_values
+                    ~TorsoBase.set_plot_objects
+                    ~TorsoBase.to_system
+        
+    

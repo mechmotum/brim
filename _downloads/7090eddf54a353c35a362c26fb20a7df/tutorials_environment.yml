@@ -1,0 +1,14 @@
+name: symbrim-tutorials
+channels:
+  - conda-forge
+dependencies:
+  - python >=3.9,<3.12
+  - pip
+  - notebook
+  - requests
+  - scikits.odes
+  - matplotlib
+  - symmeplot
+  - pip:
+      - git+https://github.com/moorepants/BicycleParameters.git
+      - git+https://github.com/mechmotum/symbrim.git

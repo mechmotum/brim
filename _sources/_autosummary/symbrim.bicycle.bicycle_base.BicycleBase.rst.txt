@@ -1,0 +1,58 @@
+..
+  class.rst
+
+symbrim.bicycle.bicycle\_base.BicycleBase
+=========================================
+
+.. currentmodule:: symbrim.bicycle.bicycle_base
+
+.. autoclass:: BicycleBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~BicycleBase.auxiliary_handler
+                    ~BicycleBase.connections
+                    ~BicycleBase.convention
+                    ~BicycleBase.cranks
+                    ~BicycleBase.descriptions
+                    ~BicycleBase.front_frame
+                    ~BicycleBase.front_wheel
+                    ~BicycleBase.load_groups
+                    ~BicycleBase.name
+                    ~BicycleBase.rear_frame
+                    ~BicycleBase.rear_wheel
+                    ~BicycleBase.required_connections
+                    ~BicycleBase.required_models
+                    ~BicycleBase.submodels
+                    ~BicycleBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~BicycleBase.__init__
+                    ~BicycleBase.add_load_groups
+                    ~BicycleBase.define_all
+                    ~BicycleBase.define_connections
+                    ~BicycleBase.define_constraints
+                    ~BicycleBase.define_kinematics
+                    ~BicycleBase.define_loads
+                    ~BicycleBase.define_objects
+                    ~BicycleBase.from_convention
+                    ~BicycleBase.get_all_symbols
+                    ~BicycleBase.get_description
+                    ~BicycleBase.get_param_values
+                    ~BicycleBase.set_plot_objects
+                    ~BicycleBase.to_system
+        
+    

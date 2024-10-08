@@ -1,0 +1,64 @@
+..
+  class.rst
+
+symbrim.rider.rider.Rider
+=========================
+
+.. currentmodule:: symbrim.rider.rider
+
+.. autoclass:: Rider
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~Rider.auxiliary_handler
+                    ~Rider.connections
+                    ~Rider.convention
+                    ~Rider.descriptions
+                    ~Rider.left_arm
+                    ~Rider.left_hip
+                    ~Rider.left_leg
+                    ~Rider.left_shoulder
+                    ~Rider.load_groups
+                    ~Rider.name
+                    ~Rider.pelvis
+                    ~Rider.required_connections
+                    ~Rider.required_models
+                    ~Rider.right_arm
+                    ~Rider.right_hip
+                    ~Rider.right_leg
+                    ~Rider.right_shoulder
+                    ~Rider.sacrum
+                    ~Rider.submodels
+                    ~Rider.system
+                    ~Rider.torso
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~Rider.__init__
+                    ~Rider.add_load_groups
+                    ~Rider.define_all
+                    ~Rider.define_connections
+                    ~Rider.define_constraints
+                    ~Rider.define_kinematics
+                    ~Rider.define_loads
+                    ~Rider.define_objects
+                    ~Rider.from_convention
+                    ~Rider.get_all_symbols
+                    ~Rider.get_description
+                    ~Rider.get_param_values
+                    ~Rider.set_plot_objects
+                    ~Rider.to_system
+        
+    

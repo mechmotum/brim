@@ -1,0 +1,9 @@
+..
+  base.rst
+
+symbrim.core.base\_classes.set\_default\_convention
+===================================================
+
+.. currentmodule:: symbrim.core.base_classes
+
+.. autofunction:: set_default_convention

@@ -1,0 +1,44 @@
+..
+  class.rst
+
+symbrim.rider.shoulder\_joints.SphericalShoulderTorque
+======================================================
+
+.. currentmodule:: symbrim.rider.shoulder_joints
+
+.. autoclass:: SphericalShoulderTorque
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SphericalShoulderTorque.auxiliary_handler
+                    ~SphericalShoulderTorque.descriptions
+                    ~SphericalShoulderTorque.name
+                    ~SphericalShoulderTorque.parent
+                    ~SphericalShoulderTorque.required_parent_type
+                    ~SphericalShoulderTorque.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SphericalShoulderTorque.__init__
+                    ~SphericalShoulderTorque.define_constraints
+                    ~SphericalShoulderTorque.define_kinematics
+                    ~SphericalShoulderTorque.define_loads
+                    ~SphericalShoulderTorque.define_objects
+                    ~SphericalShoulderTorque.get_all_symbols
+                    ~SphericalShoulderTorque.get_description
+                    ~SphericalShoulderTorque.get_param_values
+                    ~SphericalShoulderTorque.set_plot_objects
+        
+    

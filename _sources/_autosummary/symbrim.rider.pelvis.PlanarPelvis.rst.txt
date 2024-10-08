@@ -1,0 +1,60 @@
+..
+  class.rst
+
+symbrim.rider.pelvis.PlanarPelvis
+=================================
+
+.. currentmodule:: symbrim.rider.pelvis
+
+.. autoclass:: PlanarPelvis
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PlanarPelvis.auxiliary_handler
+                    ~PlanarPelvis.body
+                    ~PlanarPelvis.connections
+                    ~PlanarPelvis.convention
+                    ~PlanarPelvis.descriptions
+                    ~PlanarPelvis.frame
+                    ~PlanarPelvis.left_hip_point
+                    ~PlanarPelvis.load_groups
+                    ~PlanarPelvis.name
+                    ~PlanarPelvis.required_connections
+                    ~PlanarPelvis.required_models
+                    ~PlanarPelvis.right_hip_point
+                    ~PlanarPelvis.submodels
+                    ~PlanarPelvis.system
+                    ~PlanarPelvis.x
+                    ~PlanarPelvis.y
+                    ~PlanarPelvis.z
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PlanarPelvis.__init__
+                    ~PlanarPelvis.add_load_groups
+                    ~PlanarPelvis.define_all
+                    ~PlanarPelvis.define_connections
+                    ~PlanarPelvis.define_constraints
+                    ~PlanarPelvis.define_kinematics
+                    ~PlanarPelvis.define_loads
+                    ~PlanarPelvis.define_objects
+                    ~PlanarPelvis.from_convention
+                    ~PlanarPelvis.get_all_symbols
+                    ~PlanarPelvis.get_description
+                    ~PlanarPelvis.get_param_values
+                    ~PlanarPelvis.set_plot_objects
+                    ~PlanarPelvis.to_system
+        
+    

@@ -1,0 +1,44 @@
+..
+  module.rst
+
+symbrim.other.rolling\_disc
+===========================
+
+.. automodule:: symbrim.other.rolling_disc
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Functions
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/base.rst
+                
+                    rolling_disc_manual
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    RollingDisc
+        
+    
+
+    
+        
+    
+
+
+    

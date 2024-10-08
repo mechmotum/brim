@@ -1,0 +1,31 @@
+..
+  class.rst
+
+symbrim.brim.seats.PelvisInterPointMixin
+========================================
+
+.. currentmodule:: symbrim.brim.seats
+
+.. autoclass:: PelvisInterPointMixin
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PelvisInterPointMixin.pelvis_interpoint
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PelvisInterPointMixin.__init__
+        
+    

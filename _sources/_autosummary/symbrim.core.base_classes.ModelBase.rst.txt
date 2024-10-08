@@ -1,0 +1,53 @@
+..
+  class.rst
+
+symbrim.core.base\_classes.ModelBase
+====================================
+
+.. currentmodule:: symbrim.core.base_classes
+
+.. autoclass:: ModelBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~ModelBase.auxiliary_handler
+                    ~ModelBase.connections
+                    ~ModelBase.convention
+                    ~ModelBase.descriptions
+                    ~ModelBase.load_groups
+                    ~ModelBase.name
+                    ~ModelBase.required_connections
+                    ~ModelBase.required_models
+                    ~ModelBase.submodels
+                    ~ModelBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~ModelBase.__init__
+                    ~ModelBase.add_load_groups
+                    ~ModelBase.define_all
+                    ~ModelBase.define_connections
+                    ~ModelBase.define_constraints
+                    ~ModelBase.define_kinematics
+                    ~ModelBase.define_loads
+                    ~ModelBase.define_objects
+                    ~ModelBase.from_convention
+                    ~ModelBase.get_all_symbols
+                    ~ModelBase.get_description
+                    ~ModelBase.get_param_values
+                    ~ModelBase.set_plot_objects
+                    ~ModelBase.to_system
+        
+    

@@ -1,0 +1,59 @@
+..
+  class.rst
+
+symbrim.rider.legs.LeftLegBase
+==============================
+
+.. currentmodule:: symbrim.rider.legs
+
+.. autoclass:: LeftLegBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~LeftLegBase.auxiliary_handler
+                    ~LeftLegBase.connections
+                    ~LeftLegBase.convention
+                    ~LeftLegBase.descriptions
+                    ~LeftLegBase.foot
+                    ~LeftLegBase.foot_interframe
+                    ~LeftLegBase.foot_interpoint
+                    ~LeftLegBase.hip
+                    ~LeftLegBase.hip_interframe
+                    ~LeftLegBase.hip_interpoint
+                    ~LeftLegBase.load_groups
+                    ~LeftLegBase.name
+                    ~LeftLegBase.required_connections
+                    ~LeftLegBase.required_models
+                    ~LeftLegBase.submodels
+                    ~LeftLegBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~LeftLegBase.__init__
+                    ~LeftLegBase.add_load_groups
+                    ~LeftLegBase.define_all
+                    ~LeftLegBase.define_connections
+                    ~LeftLegBase.define_constraints
+                    ~LeftLegBase.define_kinematics
+                    ~LeftLegBase.define_loads
+                    ~LeftLegBase.define_objects
+                    ~LeftLegBase.from_convention
+                    ~LeftLegBase.get_all_symbols
+                    ~LeftLegBase.get_description
+                    ~LeftLegBase.get_param_values
+                    ~LeftLegBase.set_plot_objects
+                    ~LeftLegBase.to_system
+        
+    

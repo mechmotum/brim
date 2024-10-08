@@ -1,0 +1,58 @@
+..
+  class.rst
+
+symbrim.bicycle.stationary\_bicycle.StationaryBicycle
+=====================================================
+
+.. currentmodule:: symbrim.bicycle.stationary_bicycle
+
+.. autoclass:: StationaryBicycle
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~StationaryBicycle.auxiliary_handler
+                    ~StationaryBicycle.connections
+                    ~StationaryBicycle.convention
+                    ~StationaryBicycle.cranks
+                    ~StationaryBicycle.descriptions
+                    ~StationaryBicycle.front_frame
+                    ~StationaryBicycle.front_wheel
+                    ~StationaryBicycle.load_groups
+                    ~StationaryBicycle.name
+                    ~StationaryBicycle.rear_frame
+                    ~StationaryBicycle.rear_wheel
+                    ~StationaryBicycle.required_connections
+                    ~StationaryBicycle.required_models
+                    ~StationaryBicycle.submodels
+                    ~StationaryBicycle.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~StationaryBicycle.__init__
+                    ~StationaryBicycle.add_load_groups
+                    ~StationaryBicycle.define_all
+                    ~StationaryBicycle.define_connections
+                    ~StationaryBicycle.define_constraints
+                    ~StationaryBicycle.define_kinematics
+                    ~StationaryBicycle.define_loads
+                    ~StationaryBicycle.define_objects
+                    ~StationaryBicycle.from_convention
+                    ~StationaryBicycle.get_all_symbols
+                    ~StationaryBicycle.get_description
+                    ~StationaryBicycle.get_param_values
+                    ~StationaryBicycle.set_plot_objects
+                    ~StationaryBicycle.to_system
+        
+    

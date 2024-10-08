@@ -1,0 +1,59 @@
+..
+  class.rst
+
+symbrim.rider.arms.ArmBase
+==========================
+
+.. currentmodule:: symbrim.rider.arms
+
+.. autoclass:: ArmBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~ArmBase.auxiliary_handler
+                    ~ArmBase.connections
+                    ~ArmBase.convention
+                    ~ArmBase.descriptions
+                    ~ArmBase.hand
+                    ~ArmBase.hand_interframe
+                    ~ArmBase.hand_interpoint
+                    ~ArmBase.load_groups
+                    ~ArmBase.name
+                    ~ArmBase.required_connections
+                    ~ArmBase.required_models
+                    ~ArmBase.shoulder
+                    ~ArmBase.shoulder_interframe
+                    ~ArmBase.shoulder_interpoint
+                    ~ArmBase.submodels
+                    ~ArmBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~ArmBase.__init__
+                    ~ArmBase.add_load_groups
+                    ~ArmBase.define_all
+                    ~ArmBase.define_connections
+                    ~ArmBase.define_constraints
+                    ~ArmBase.define_kinematics
+                    ~ArmBase.define_loads
+                    ~ArmBase.define_objects
+                    ~ArmBase.from_convention
+                    ~ArmBase.get_all_symbols
+                    ~ArmBase.get_description
+                    ~ArmBase.get_param_values
+                    ~ArmBase.set_plot_objects
+                    ~ArmBase.to_system
+        
+    

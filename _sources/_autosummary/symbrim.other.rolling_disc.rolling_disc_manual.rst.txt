@@ -1,0 +1,9 @@
+..
+  base.rst
+
+symbrim.other.rolling\_disc.rolling\_disc\_manual
+=================================================
+
+.. currentmodule:: symbrim.other.rolling_disc
+
+.. autofunction:: rolling_disc_manual

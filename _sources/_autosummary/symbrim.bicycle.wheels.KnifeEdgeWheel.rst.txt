@@ -1,0 +1,61 @@
+..
+  class.rst
+
+symbrim.bicycle.wheels.KnifeEdgeWheel
+=====================================
+
+.. currentmodule:: symbrim.bicycle.wheels
+
+.. autoclass:: KnifeEdgeWheel
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~KnifeEdgeWheel.auxiliary_handler
+                    ~KnifeEdgeWheel.body
+                    ~KnifeEdgeWheel.center
+                    ~KnifeEdgeWheel.connections
+                    ~KnifeEdgeWheel.convention
+                    ~KnifeEdgeWheel.descriptions
+                    ~KnifeEdgeWheel.frame
+                    ~KnifeEdgeWheel.load_groups
+                    ~KnifeEdgeWheel.name
+                    ~KnifeEdgeWheel.radius
+                    ~KnifeEdgeWheel.required_connections
+                    ~KnifeEdgeWheel.required_models
+                    ~KnifeEdgeWheel.rotation_axis
+                    ~KnifeEdgeWheel.submodels
+                    ~KnifeEdgeWheel.system
+                    ~KnifeEdgeWheel.x
+                    ~KnifeEdgeWheel.y
+                    ~KnifeEdgeWheel.z
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~KnifeEdgeWheel.__init__
+                    ~KnifeEdgeWheel.add_load_groups
+                    ~KnifeEdgeWheel.define_all
+                    ~KnifeEdgeWheel.define_connections
+                    ~KnifeEdgeWheel.define_constraints
+                    ~KnifeEdgeWheel.define_kinematics
+                    ~KnifeEdgeWheel.define_loads
+                    ~KnifeEdgeWheel.define_objects
+                    ~KnifeEdgeWheel.from_convention
+                    ~KnifeEdgeWheel.get_all_symbols
+                    ~KnifeEdgeWheel.get_description
+                    ~KnifeEdgeWheel.get_param_values
+                    ~KnifeEdgeWheel.set_plot_objects
+                    ~KnifeEdgeWheel.to_system
+        
+    

@@ -1,0 +1,49 @@
+..
+  class.rst
+
+symbrim.rider.sacrums.FixedSacrum
+=================================
+
+.. currentmodule:: symbrim.rider.sacrums
+
+.. autoclass:: FixedSacrum
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~FixedSacrum.auxiliary_handler
+                    ~FixedSacrum.descriptions
+                    ~FixedSacrum.load_groups
+                    ~FixedSacrum.name
+                    ~FixedSacrum.pelvis
+                    ~FixedSacrum.required_models
+                    ~FixedSacrum.submodels
+                    ~FixedSacrum.system
+                    ~FixedSacrum.torso
+                    ~FixedSacrum.torso_wrt_pelvis
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~FixedSacrum.__init__
+                    ~FixedSacrum.add_load_groups
+                    ~FixedSacrum.define_constraints
+                    ~FixedSacrum.define_kinematics
+                    ~FixedSacrum.define_loads
+                    ~FixedSacrum.define_objects
+                    ~FixedSacrum.get_all_symbols
+                    ~FixedSacrum.get_description
+                    ~FixedSacrum.get_param_values
+                    ~FixedSacrum.set_plot_objects
+        
+    

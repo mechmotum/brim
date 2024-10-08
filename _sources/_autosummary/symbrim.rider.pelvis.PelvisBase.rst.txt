@@ -1,0 +1,60 @@
+..
+  class.rst
+
+symbrim.rider.pelvis.PelvisBase
+===============================
+
+.. currentmodule:: symbrim.rider.pelvis
+
+.. autoclass:: PelvisBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PelvisBase.auxiliary_handler
+                    ~PelvisBase.body
+                    ~PelvisBase.connections
+                    ~PelvisBase.convention
+                    ~PelvisBase.descriptions
+                    ~PelvisBase.frame
+                    ~PelvisBase.left_hip_point
+                    ~PelvisBase.load_groups
+                    ~PelvisBase.name
+                    ~PelvisBase.required_connections
+                    ~PelvisBase.required_models
+                    ~PelvisBase.right_hip_point
+                    ~PelvisBase.submodels
+                    ~PelvisBase.system
+                    ~PelvisBase.x
+                    ~PelvisBase.y
+                    ~PelvisBase.z
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PelvisBase.__init__
+                    ~PelvisBase.add_load_groups
+                    ~PelvisBase.define_all
+                    ~PelvisBase.define_connections
+                    ~PelvisBase.define_constraints
+                    ~PelvisBase.define_kinematics
+                    ~PelvisBase.define_loads
+                    ~PelvisBase.define_objects
+                    ~PelvisBase.from_convention
+                    ~PelvisBase.get_all_symbols
+                    ~PelvisBase.get_description
+                    ~PelvisBase.get_param_values
+                    ~PelvisBase.set_plot_objects
+                    ~PelvisBase.to_system
+        
+    

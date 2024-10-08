@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="200.55299mm" height="88.047005mm" version="1.1" viewBox="0 0 200.55299 88.047005" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="EmptyDiamondLend" overflow="visible" orient="auto">
+   <path transform="matrix(.8 0 0 .8 -5.6 0)" d="M 0,-7.0710768 -7.0710894,0 0,7.0710589 7.0710462,0 Z" fill="#FFFFFF" stroke="currentColor" stroke-width="1pt"/>
+  </marker>
+  <marker id="EmptyTriangleLend" overflow="visible" orient="auto">
+   <path transform="matrix(.8 0 0 .8 -4.8 0)" d="m5.77 0-8.65 5v-10z" fill="#FFFFFF" stroke="currentColor" stroke-width="1pt"/>
+  </marker>
+ </defs>
+ <g transform="translate(-8.0150003,7.0470036)">
+  <g transform="translate(95.795321,-72.193589)">
+   <text x="48.870167" y="141.42947" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42947" stroke-width=".264583" text-align="center" text-anchor="middle">TwoPinStickLeftLeg</tspan></text>
+   <rect x="27.884378" y="135.84659" width="42" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(-2.331588,-84.194201)">
+   <g transform="translate(25.43608,12.000612)">
+    <text x="48.870167" y="141.42" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42" stroke-width=".264583" text-align="center" text-anchor="middle">TwoPinStickRightLeg</tspan></text>
+    <rect x="27.884378" y="135.84659" width="42" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(-.80438954 -139.40991)">
+   <g transform="translate(25.566521,12.000612)">
+    <g transform="translate(-5.1652174,-1.7524845)">
+     <text x="49.870167" y="141.03914" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="49.870167" y="141.03914" stroke-width=".264583" text-align="center" text-anchor="middle">PinElbowStickRightArm</tspan></text>
+     <rect x="26.391956" y="135.46573" width="47" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+    </g>
+   </g>
+  </g>
+  <g transform="translate(76.887125,-139.38721)">
+   <g transform="translate(25.566521,12.000612)">
+    <g transform="translate(-5.1652174,-1.7524845)">
+     <text x="49.870167" y="141.03914" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="49.870167" y="141.03914" stroke-width=".264583" text-align="center" text-anchor="middle">PinElbowStickLeftArm</tspan></text>
+     <rect x="26.391956" y="135.46573" width="47" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+    </g>
+   </g>
+  </g>
+  <g transform="translate(11.860545,-152.51086)">
+   <g transform="translate(25.43608,12.000612)">
+    <g transform="translate(-5.1652174,-1.7524845)">
+     <text x="49.870167" y="141.03914" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="49.870167" y="141.03914" stroke-width=".264583" text-align="center" text-anchor="middle">SphericalRightShoulder</tspan></text>
+     <rect x="26.504698" y="135.46573" width="47" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+    </g>
+   </g>
+  </g>
+  <g transform="translate(-20.942269,-140.95832)">
+   <text x="52.43203" y="139.73473" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="52.43203" y="139.73473" stroke-width=".264583" text-align="center" text-anchor="middle">RightShoulderBase</tspan></text>
+   <rect x="33.026772" y="134.16132" width="39" height="9" fill="none" stroke="currentColor" stroke-dasharray="2.00000006,1.00000003" stroke-linecap="round" stroke-linejoin="round" stroke-width=".50000001" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(132.97423,-140.94405)">
+   <text x="52.43203" y="139.73473" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="52.43203" y="139.73473" stroke-width=".264583" text-align="center" text-anchor="middle">LeftShoulderBase</tspan></text>
+   <rect x="33.026772" y="134.16132" width="39" height="9" fill="none" stroke="currentColor" stroke-dasharray="1.99999589,0.99999795" stroke-linecap="round" stroke-linejoin="round" stroke-width=".49999897" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(64.521211,-152.49659)">
+   <g transform="translate(25.43608,12.000612)">
+    <g transform="translate(-5.1652174,-1.7524845)">
+     <text x="49.870167" y="141.03914" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="49.870167" y="141.03914" stroke-width=".264583" text-align="center" text-anchor="middle">SphericalLeftShoulder</tspan></text>
+     <rect x="26.504698" y="135.46573" width="47" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+    </g>
+   </g>
+  </g>
+  <g transform="translate(-41.138423,-100.50678)">
+   <g transform="translate(20.479306,28.313193)">
+    <text x="48.870167" y="141.42" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42" stroke-width=".264583" text-align="center" text-anchor="middle">RightLegBase</tspan></text>
+    <rect x="33.964909" y="135.84659" width="30" height="9" fill="none" stroke="currentColor" stroke-dasharray="1.99999589,0.99999795" stroke-linecap="round" stroke-linejoin="round" stroke-width=".49999897" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(-14.885909,-85.294589)">
+   <text x="48.870167" y="141.42" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42" stroke-width=".264583" text-align="center" text-anchor="middle">RightHipBase</tspan></text>
+   <rect x="33.964909" y="135.84659" width="30" height="9" fill="none" stroke="currentColor" stroke-dasharray="1.99999589,0.99999795" stroke-linecap="round" stroke-linejoin="round" stroke-width=".49999897" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(133.27909,-85.294589)">
+   <text x="48.870167" y="141.42" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42" stroke-width=".264583" text-align="center" text-anchor="middle">LeftHipBase</tspan></text>
+   <rect x="33.964909" y="135.84659" width="30" height="9" fill="none" stroke="currentColor" stroke-dasharray="1.99999589,0.99999795" stroke-linecap="round" stroke-linejoin="round" stroke-width=".49999897" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(-22.563884,-124.00848)">
+   <g transform="translate(-3.1360248,-5.5341615)">
+    <text x="48.870167" y="141.42" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42" stroke-width=".264583" text-align="center" text-anchor="middle">RightArmBase</tspan></text>
+    <rect x="33.964909" y="135.84659" width="30" height="9" fill="none" stroke="currentColor" stroke-dasharray="1.99999589,0.99999795" stroke-linecap="round" stroke-linejoin="round" stroke-width=".49999897" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(147.44612,-123.98578)">
+   <g transform="translate(-3.1360248,-5.5341615)">
+    <text x="48.870167" y="141.42" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42" stroke-width=".264583" text-align="center" text-anchor="middle">LeftArmBase</tspan></text>
+    <rect x="33.964909" y="135.84659" width="30" height="9" fill="none" stroke="currentColor" stroke-dasharray="1.99999589,0.99999795" stroke-linecap="round" stroke-linejoin="round" stroke-width=".49999897" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(2.1950909,-98.395786)">
+   <text x="45.370167" y="141.79138" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="45.370167" y="141.79138" stroke-width=".264583" text-align="center" text-anchor="middle">PelvisBase</tspan></text>
+   <rect x="33.964909" y="135.84659" width="23" height="9" fill="none" stroke="currentColor" stroke-dasharray="2, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(-3.5443323,-111.25648)">
+   <g transform="translate(5.7394232 -.13044144)">
+    <text x="45.370167" y="141.79138" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="45.370167" y="141.79138" stroke-width=".264583" text-align="center" text-anchor="middle">TorsoBase</tspan></text>
+    <rect x="33.964909" y="135.84659" width="23" height="9" fill="none" stroke="currentColor" stroke-dasharray="1.99999589,0.99999795" stroke-linecap="round" stroke-linejoin="round" stroke-width=".49999897" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(32.052338,-97.111313)">
+   <g transform="translate(-1.0435315 -.91309006)">
+    <text x="48.870167" y="141.42" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42" stroke-width=".264583" text-align="center" text-anchor="middle">PlanarPelvis</tspan></text>
+    <rect x="35.980064" y="135.4752" width="26" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+   </g>
+  </g>
+  <g transform="translate(95.070386,-109.82574)">
+   <g transform="translate(-1.0435315 -.91309006)">
+    <g transform="translate(-62.997205 -.27670807)">
+     <text x="48.870167" y="141.42" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42" stroke-width=".264583" text-align="center" text-anchor="middle">PlanarTorso</tspan></text>
+     <rect x="35.959221" y="135.4752" width="26" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+    </g>
+   </g>
+  </g>
+  <g transform="translate(26.09407,-85.294589)">
+   <text x="48.870167" y="141.42" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="48.870167" y="141.42" stroke-width=".264583" text-align="center" text-anchor="middle">SphericalRightHip</tspan></text>
+   <rect x="30.8948" y="135.84659" width="36" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(16.418171,-79.3716)">
+   <text x="125.23689" y="135.51691" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="125.23689" y="135.51691" stroke-width=".264583" text-align="center" text-anchor="middle">SphericalLeftHip</tspan></text>
+   <rect x="107.26153" y="129.9236" width="36" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <text x="137.73502" y="38.457333" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="137.73502" y="38.457333" stroke-width=".264583" text-align="center" text-anchor="middle">FixedSacrum</tspan></text>
+  <rect x="122.75681" y="32.512539" width="30" height="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  <g transform="translate(53.060632,-97.411062)">
+   <text x="122.22932" y="135.86839" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="122.22932" y="135.86839" stroke-width=".264583" text-align="center" text-anchor="middle">SacrumBase</tspan></text>
+   <rect x="107.26153" y="129.9236" width="30" height="9" fill="none" stroke="currentColor" stroke-dasharray="2, 0.999998" stroke-linecap="round" stroke-linejoin="round" stroke-width=".499999" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(67.665737,-72.314561)">
+   <text x="120.48252" y="141.55045" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="120.48252" y="141.55045" stroke-width=".264583" text-align="center" text-anchor="middle">LeftLegBase</tspan></text>
+   <rect x="105.57726" y="135.96756" width="30" height="9" fill="none" stroke="currentColor" stroke-dasharray="1.99999589,0.99999795" stroke-linecap="round" stroke-linejoin="round" stroke-width=".49999897" style="paint-order:stroke fill markers"/>
+  </g>
+  <g transform="translate(1.3342855)">
+   <path d="m100 47h14l-7-10z" fill="none" stroke="currentColor" stroke-width=".264583px"/>
+   <path d="m98 21.5 9 15.5 9-15.5z" fill="none" stroke="currentColor" stroke-width=".264583px"/>
+   <path d="m115.99971 21.5h32.334" fill="none" stroke="currentColor" stroke-width=".264583px"/>
+   <path d="m97.999715 21.5h-32.334" fill="none" stroke="currentColor" stroke-width=".264583px"/>
+   <path d="M 100,47.000001 V 81" fill="none" stroke="currentColor" stroke-width=".264583px"/>
+   <path d="M 114,47.000001 V 81" fill="none" stroke="currentColor" stroke-width=".264583px"/>
+   <path d="m108.46314 37.330474a1.5 1.5 0 0 1-1.79356 1.13268 1.5 1.5 0 0 1-1.13275-1.793525 1.5 1.5 0 0 1 1.79349-1.132807 1.5 1.5 0 0 1 1.13287 1.793445" fill="#0000ff" style="paint-order:markers stroke fill"/>
+   <path d="m101.46314 47.330474a1.5 1.5 0 0 1-1.793562 1.13268 1.5 1.5 0 0 1-1.132744-1.793525 1.5 1.5 0 0 1 1.793486-1.132807 1.5 1.5 0 0 1 1.13287 1.793445" fill="#0000ff" style="paint-order:markers stroke fill"/>
+   <path d="m117.46314 21.830474a1.5 1.5 0 0 1-1.79356 1.13268 1.5 1.5 0 0 1-1.13275-1.793525 1.5 1.5 0 0 1 1.79349-1.132807 1.5 1.5 0 0 1 1.13287 1.793445" fill="#0000ff" style="paint-order:markers stroke fill"/>
+   <path d="m99.463143 21.830474a1.5 1.5 0 0 1-1.793565 1.13268 1.5 1.5 0 0 1-1.132744-1.793525 1.5 1.5 0 0 1 1.793485-1.132807 1.5 1.5 0 0 1 1.13287 1.793445" fill="#0000ff" style="paint-order:markers stroke fill"/>
+   <path d="m115.46314 47.330474a1.5 1.5 0 0 1-1.79356 1.13268 1.5 1.5 0 0 1-1.13275-1.793525 1.5 1.5 0 0 1 1.79349-1.132807 1.5 1.5 0 0 1 1.13287 1.793445" fill="#0000ff" style="paint-order:markers stroke fill"/>
+  </g>
+  <path d="m123.51494 68.152997h-8.02917" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m93.060521 68.152997h8.029169" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m93.084 55.052001 7.11606-6.894643" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m123.75551 55.052001-7.17144-6.894643" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m92.994063 41.950799h11.237747" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m83.465127 15.444711-1.32e-4 5.737289" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m133.5011 15.444714-1.4e-4 5.737289" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m99.334037 2.1271667-1.3e-4 17.7081253" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m117.3344 2.1271745-1.3e-4 17.7081245" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m122.83381 37.0305h-12.83781" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m93.113 28.959664h10.03806" fill="none" marker-end="url(#EmptyDiamondLend)" stroke="currentColor" stroke-width=".265"/>
+  <path d="m66.839288 41.950801h-7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m56.810122 55.051999h-7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m50.999253 68.152999h-7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m66.839288 28.959667h-7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m45.95052 10.803946h-7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m158.26954-2.2827337h7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m170.53743 10.826646h7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m152.5599 37.012537h7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m159.43123 55.051999h7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m165.46855 68.152999h7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+  <path d="m58.849101-2.2970038h-7.5" fill="none" marker-end="url(#EmptyTriangleLend)" stroke="currentColor" stroke-width=".264583px"/>
+ </g>
+</svg>

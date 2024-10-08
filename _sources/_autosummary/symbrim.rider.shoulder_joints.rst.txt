@@ -1,0 +1,45 @@
+..
+  module.rst
+
+symbrim.rider.shoulder\_joints
+==============================
+
+.. automodule:: symbrim.rider.shoulder_joints
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    FlexAddLeftShoulder
+                    FlexAddRightShoulder
+                    FlexAddShoulderMixin
+                    FlexRotLeftShoulder
+                    FlexRotRightShoulder
+                    FlexRotShoulderMixin
+                    SphericalLeftShoulder
+                    SphericalRightShoulder
+                    SphericalShoulderMixin
+                    SphericalShoulderSpringDamper
+                    SphericalShoulderTorque
+        
+    
+
+    
+        
+    
+
+
+    

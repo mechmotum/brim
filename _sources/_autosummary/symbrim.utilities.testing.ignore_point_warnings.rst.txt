@@ -1,0 +1,9 @@
+..
+  base.rst
+
+symbrim.utilities.testing.ignore\_point\_warnings
+=================================================
+
+.. currentmodule:: symbrim.utilities.testing
+
+.. autofunction:: ignore_point_warnings

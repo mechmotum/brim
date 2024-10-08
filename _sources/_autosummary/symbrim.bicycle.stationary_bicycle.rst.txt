@@ -1,0 +1,35 @@
+..
+  module.rst
+
+symbrim.bicycle.stationary\_bicycle
+===================================
+
+.. automodule:: symbrim.bicycle.stationary_bicycle
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    StationaryBicycle
+        
+    
+
+    
+        
+    
+
+
+    

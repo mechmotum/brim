@@ -1,0 +1,57 @@
+..
+  class.rst
+
+symbrim.bicycle.rear\_frames.RearFrameBase
+==========================================
+
+.. currentmodule:: symbrim.bicycle.rear_frames
+
+.. autoclass:: RearFrameBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~RearFrameBase.auxiliary_handler
+                    ~RearFrameBase.bottom_bracket
+                    ~RearFrameBase.connections
+                    ~RearFrameBase.convention
+                    ~RearFrameBase.descriptions
+                    ~RearFrameBase.load_groups
+                    ~RearFrameBase.name
+                    ~RearFrameBase.required_connections
+                    ~RearFrameBase.required_models
+                    ~RearFrameBase.saddle
+                    ~RearFrameBase.steer_hub
+                    ~RearFrameBase.submodels
+                    ~RearFrameBase.system
+                    ~RearFrameBase.wheel_hub
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~RearFrameBase.__init__
+                    ~RearFrameBase.add_load_groups
+                    ~RearFrameBase.define_all
+                    ~RearFrameBase.define_connections
+                    ~RearFrameBase.define_constraints
+                    ~RearFrameBase.define_kinematics
+                    ~RearFrameBase.define_loads
+                    ~RearFrameBase.define_objects
+                    ~RearFrameBase.from_convention
+                    ~RearFrameBase.get_all_symbols
+                    ~RearFrameBase.get_description
+                    ~RearFrameBase.get_param_values
+                    ~RearFrameBase.set_plot_objects
+                    ~RearFrameBase.to_system
+        
+    

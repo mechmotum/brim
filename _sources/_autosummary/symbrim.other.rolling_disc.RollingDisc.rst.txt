@@ -1,0 +1,57 @@
+..
+  class.rst
+
+symbrim.other.rolling\_disc.RollingDisc
+=======================================
+
+.. currentmodule:: symbrim.other.rolling_disc
+
+.. autoclass:: RollingDisc
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~RollingDisc.auxiliary_handler
+                    ~RollingDisc.connections
+                    ~RollingDisc.convention
+                    ~RollingDisc.descriptions
+                    ~RollingDisc.disc
+                    ~RollingDisc.ground
+                    ~RollingDisc.load_groups
+                    ~RollingDisc.name
+                    ~RollingDisc.required_connections
+                    ~RollingDisc.required_models
+                    ~RollingDisc.submodels
+                    ~RollingDisc.system
+                    ~RollingDisc.tire
+                    ~RollingDisc.wheel
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~RollingDisc.__init__
+                    ~RollingDisc.add_load_groups
+                    ~RollingDisc.define_all
+                    ~RollingDisc.define_connections
+                    ~RollingDisc.define_constraints
+                    ~RollingDisc.define_kinematics
+                    ~RollingDisc.define_loads
+                    ~RollingDisc.define_objects
+                    ~RollingDisc.from_convention
+                    ~RollingDisc.get_all_symbols
+                    ~RollingDisc.get_description
+                    ~RollingDisc.get_param_values
+                    ~RollingDisc.set_plot_objects
+                    ~RollingDisc.to_system
+        
+    

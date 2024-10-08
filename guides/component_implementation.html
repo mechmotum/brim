@@ -1,0 +1,939 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Tutorials" href="../tutorials/index.html" /><link rel="prev" title="Introduction to SymBRiM" href="introduction.html" />
+
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 -->
+        <title>Guidelines on Implementing Components - SymBRiM documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SymBRiM  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">SymBRiM  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">User Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of User Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction to SymBRiM</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Guidelines on Implementing Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/four_bar_linkage.html">Four-bar Linkage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/my_first_bicycle.html">Building Bicycle-Rider Models with SymBRiM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/rolling_disc_from_scratch.html">Rolling Disc From Scratch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_reference.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.html">symbrim.brim</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of symbrim.brim</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.base_connections.html">symbrim.brim.base_connections</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of symbrim.brim.base_connections</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.base_connections.HandGripsBase.html">symbrim.brim.base_connections.HandGripsBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.base_connections.PedalsBase.html">symbrim.brim.base_connections.PedalsBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.base_connections.SeatBase.html">symbrim.brim.base_connections.SeatBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.bicycle_rider.html">symbrim.brim.bicycle_rider</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of symbrim.brim.bicycle_rider</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.bicycle_rider.BicycleRider.html">symbrim.brim.bicycle_rider.BicycleRider</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.hand_grips.html">symbrim.brim.hand_grips</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of symbrim.brim.hand_grips</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.hand_grips.HolonomicHandGrips.html">symbrim.brim.hand_grips.HolonomicHandGrips</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.hand_grips.SpringDamperHandGrips.html">symbrim.brim.hand_grips.SpringDamperHandGrips</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.pedals.html">symbrim.brim.pedals</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of symbrim.brim.pedals</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.pedals.HolonomicPedals.html">symbrim.brim.pedals.HolonomicPedals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.pedals.SpringDamperPedals.html">symbrim.brim.pedals.SpringDamperPedals</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.html">symbrim.brim.seats</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of symbrim.brim.seats</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.FixedSeat.html">symbrim.brim.seats.FixedSeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.PelvisInterPointMixin.html">symbrim.brim.seats.PelvisInterPointMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.SideLeanSeat.html">symbrim.brim.seats.SideLeanSeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.SideLeanSeatSpringDamper.html">symbrim.brim.seats.SideLeanSeatSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.SideLeanSeatTorque.html">symbrim.brim.seats.SideLeanSeatTorque</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.html">symbrim.bicycle</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of symbrim.bicycle</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.bicycle_base.html">symbrim.bicycle.bicycle_base</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of symbrim.bicycle.bicycle_base</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.bicycle_base.BicycleBase.html">symbrim.bicycle.bicycle_base.BicycleBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.cranks.html">symbrim.bicycle.cranks</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of symbrim.bicycle.cranks</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.cranks.CranksBase.html">symbrim.bicycle.cranks.CranksBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.cranks.MasslessCranks.html">symbrim.bicycle.cranks.MasslessCranks</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.html">symbrim.bicycle.front_frames</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of symbrim.bicycle.front_frames</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.FrontFrameBase.html">symbrim.bicycle.front_frames.FrontFrameBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.RigidFrontFrame.html">symbrim.bicycle.front_frames.RigidFrontFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.RigidFrontFrameMoore.html">symbrim.bicycle.front_frames.RigidFrontFrameMoore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.SuspensionRigidFrontFrame.html">symbrim.bicycle.front_frames.SuspensionRigidFrontFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.SuspensionRigidFrontFrameMoore.html">symbrim.bicycle.front_frames.SuspensionRigidFrontFrameMoore</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.html">symbrim.bicycle.grounds</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of symbrim.bicycle.grounds</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.FlatGround.html">symbrim.bicycle.grounds.FlatGround</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.GroundBase.html">symbrim.bicycle.grounds.GroundBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.rear_frames.html">symbrim.bicycle.rear_frames</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of symbrim.bicycle.rear_frames</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.rear_frames.RearFrameBase.html">symbrim.bicycle.rear_frames.RearFrameBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.rear_frames.RigidRearFrame.html">symbrim.bicycle.rear_frames.RigidRearFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.rear_frames.RigidRearFrameMoore.html">symbrim.bicycle.rear_frames.RigidRearFrameMoore</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.stationary_bicycle.html">symbrim.bicycle.stationary_bicycle</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of symbrim.bicycle.stationary_bicycle</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.stationary_bicycle.StationaryBicycle.html">symbrim.bicycle.stationary_bicycle.StationaryBicycle</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.tires.html">symbrim.bicycle.tires</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of symbrim.bicycle.tires</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.tires.InContactTire.html">symbrim.bicycle.tires.InContactTire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.tires.NonHolonomicTire.html">symbrim.bicycle.tires.NonHolonomicTire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.tires.TireBase.html">symbrim.bicycle.tires.TireBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.wheels.html">symbrim.bicycle.wheels</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of symbrim.bicycle.wheels</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.wheels.KnifeEdgeWheel.html">symbrim.bicycle.wheels.KnifeEdgeWheel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.wheels.ToroidalWheel.html">symbrim.bicycle.wheels.ToroidalWheel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.wheels.WheelBase.html">symbrim.bicycle.wheels.WheelBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.whipple_bicycle.html">symbrim.bicycle.whipple_bicycle</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of symbrim.bicycle.whipple_bicycle</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.whipple_bicycle.WhippleBicycle.html">symbrim.bicycle.whipple_bicycle.WhippleBicycle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.whipple_bicycle.WhippleBicycleMoore.html">symbrim.bicycle.whipple_bicycle.WhippleBicycleMoore</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.html">symbrim.rider</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of symbrim.rider</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.html">symbrim.rider.arms</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of symbrim.rider.arms</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.ArmBase.html">symbrim.rider.arms.ArmBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.LeftArmBase.html">symbrim.rider.arms.LeftArmBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowSpringDamper.html">symbrim.rider.arms.PinElbowSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowStickArmMixin.html">symbrim.rider.arms.PinElbowStickArmMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowStickLeftArm.html">symbrim.rider.arms.PinElbowStickLeftArm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowStickRightArm.html">symbrim.rider.arms.PinElbowStickRightArm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowTorque.html">symbrim.rider.arms.PinElbowTorque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.RightArmBase.html">symbrim.rider.arms.RightArmBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.html">symbrim.rider.base_connections</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of symbrim.rider.base_connections</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.HipBase.html">symbrim.rider.base_connections.HipBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.LeftHipBase.html">symbrim.rider.base_connections.LeftHipBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.LeftShoulderBase.html">symbrim.rider.base_connections.LeftShoulderBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.RightHipBase.html">symbrim.rider.base_connections.RightHipBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.RightShoulderBase.html">symbrim.rider.base_connections.RightShoulderBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.SacrumBase.html">symbrim.rider.base_connections.SacrumBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.ShoulderBase.html">symbrim.rider.base_connections.ShoulderBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.html">symbrim.rider.hip_joints</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of symbrim.rider.hip_joints</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.PinHipMixin.html">symbrim.rider.hip_joints.PinHipMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.PinLeftHip.html">symbrim.rider.hip_joints.PinLeftHip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.PinRightHip.html">symbrim.rider.hip_joints.PinRightHip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalHipMixin.html">symbrim.rider.hip_joints.SphericalHipMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalHipSpringDamper.html">symbrim.rider.hip_joints.SphericalHipSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalHipTorque.html">symbrim.rider.hip_joints.SphericalHipTorque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalLeftHip.html">symbrim.rider.hip_joints.SphericalLeftHip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalRightHip.html">symbrim.rider.hip_joints.SphericalRightHip</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.html">symbrim.rider.legs</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><div class="visually-hidden">Toggle navigation of symbrim.rider.legs</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.LeftLegBase.html">symbrim.rider.legs.LeftLegBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.LegBase.html">symbrim.rider.legs.LegBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.RightLegBase.html">symbrim.rider.legs.RightLegBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinLegSpringDamper.html">symbrim.rider.legs.TwoPinLegSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinLegTorque.html">symbrim.rider.legs.TwoPinLegTorque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinStickLeftLeg.html">symbrim.rider.legs.TwoPinStickLeftLeg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinStickLegMixin.html">symbrim.rider.legs.TwoPinStickLegMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinStickRightLeg.html">symbrim.rider.legs.TwoPinStickRightLeg</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.pelvis.html">symbrim.rider.pelvis</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><div class="visually-hidden">Toggle navigation of symbrim.rider.pelvis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.pelvis.PelvisBase.html">symbrim.rider.pelvis.PelvisBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.pelvis.PlanarPelvis.html">symbrim.rider.pelvis.PlanarPelvis</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.rider.html">symbrim.rider.rider</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><div class="visually-hidden">Toggle navigation of symbrim.rider.rider</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.rider.Rider.html">symbrim.rider.rider.Rider</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.rider_lean.html">symbrim.rider.rider_lean</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><div class="visually-hidden">Toggle navigation of symbrim.rider.rider_lean</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.rider_lean.RiderLean.html">symbrim.rider.rider_lean.RiderLean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.rider_lean.RiderLeanConnection.html">symbrim.rider.rider_lean.RiderLeanConnection</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.sacrums.html">symbrim.rider.sacrums</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><div class="visually-hidden">Toggle navigation of symbrim.rider.sacrums</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.sacrums.FixedSacrum.html">symbrim.rider.sacrums.FixedSacrum</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.html">symbrim.rider.shoulder_joints</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><div class="visually-hidden">Toggle navigation of symbrim.rider.shoulder_joints</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexAddLeftShoulder.html">symbrim.rider.shoulder_joints.FlexAddLeftShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexAddRightShoulder.html">symbrim.rider.shoulder_joints.FlexAddRightShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexAddShoulderMixin.html">symbrim.rider.shoulder_joints.FlexAddShoulderMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexRotLeftShoulder.html">symbrim.rider.shoulder_joints.FlexRotLeftShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexRotRightShoulder.html">symbrim.rider.shoulder_joints.FlexRotRightShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexRotShoulderMixin.html">symbrim.rider.shoulder_joints.FlexRotShoulderMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalLeftShoulder.html">symbrim.rider.shoulder_joints.SphericalLeftShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalRightShoulder.html">symbrim.rider.shoulder_joints.SphericalRightShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalShoulderMixin.html">symbrim.rider.shoulder_joints.SphericalShoulderMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalShoulderSpringDamper.html">symbrim.rider.shoulder_joints.SphericalShoulderSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalShoulderTorque.html">symbrim.rider.shoulder_joints.SphericalShoulderTorque</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.torso.html">symbrim.rider.torso</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><div class="visually-hidden">Toggle navigation of symbrim.rider.torso</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.torso.PlanarTorso.html">symbrim.rider.torso.PlanarTorso</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.torso.TorsoBase.html">symbrim.rider.torso.TorsoBase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.html">symbrim.core</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><div class="visually-hidden">Toggle navigation of symbrim.core</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.attachment.html">symbrim.core.attachment</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><div class="visually-hidden">Toggle navigation of symbrim.core.attachment</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.attachment.Attachment.html">symbrim.core.attachment.Attachment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.attachment.Hub.html">symbrim.core.attachment.Hub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.attachment.MasslessBody.html">symbrim.core.attachment.MasslessBody</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.auxiliary.html">symbrim.core.auxiliary</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><div class="visually-hidden">Toggle navigation of symbrim.core.auxiliary</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.auxiliary.AuxiliaryData.html">symbrim.core.auxiliary.AuxiliaryData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.auxiliary.AuxiliaryDataHandler.html">symbrim.core.auxiliary.AuxiliaryDataHandler</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.html">symbrim.core.base_classes</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><div class="visually-hidden">Toggle navigation of symbrim.core.base_classes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.set_default_convention.html">symbrim.core.base_classes.set_default_convention</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.BrimBase.html">symbrim.core.base_classes.BrimBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ConnectionBase.html">symbrim.core.base_classes.ConnectionBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ConnectionMeta.html">symbrim.core.base_classes.ConnectionMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.LoadGroupBase.html">symbrim.core.base_classes.LoadGroupBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.LoadGroupMeta.html">symbrim.core.base_classes.LoadGroupMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ModelBase.html">symbrim.core.base_classes.ModelBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ModelMeta.html">symbrim.core.base_classes.ModelMeta</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.mixins.html">symbrim.core.mixins</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><div class="visually-hidden">Toggle navigation of symbrim.core.mixins</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.mixins.NewtonianBodyMixin.html">symbrim.core.mixins.NewtonianBodyMixin</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.registry.html">symbrim.core.registry</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><div class="visually-hidden">Toggle navigation of symbrim.core.registry</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.registry.Registry.html">symbrim.core.registry.Registry</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.requirement.html">symbrim.core.requirement</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><div class="visually-hidden">Toggle navigation of symbrim.core.requirement</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.requirement.ConnectionRequirement.html">symbrim.core.requirement.ConnectionRequirement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.requirement.ModelRequirement.html">symbrim.core.requirement.ModelRequirement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.requirement.RequirementBase.html">symbrim.core.requirement.RequirementBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.singleton.html">symbrim.core.singleton</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><div class="visually-hidden">Toggle navigation of symbrim.core.singleton</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.singleton.Singleton.html">symbrim.core.singleton.Singleton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.singleton.SingletonMeta.html">symbrim.core.singleton.SingletonMeta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.other.html">symbrim.other</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><div class="visually-hidden">Toggle navigation of symbrim.other</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.other.rolling_disc.html">symbrim.other.rolling_disc</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><div class="visually-hidden">Toggle navigation of symbrim.other.rolling_disc</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.other.rolling_disc.rolling_disc_manual.html">symbrim.other.rolling_disc.rolling_disc_manual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.other.rolling_disc.RollingDisc.html">symbrim.other.rolling_disc.RollingDisc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.html">symbrim.utilities</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><div class="visually-hidden">Toggle navigation of symbrim.utilities</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.benchmarking.html">symbrim.utilities.benchmarking</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" role="switch" type="checkbox"/><label for="toctree-checkbox-42"><div class="visually-hidden">Toggle navigation of symbrim.utilities.benchmarking</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.benchmarking.benchmark.html">symbrim.utilities.benchmarking.benchmark</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.parametrize.html">symbrim.utilities.parametrize</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" role="switch" type="checkbox"/><label for="toctree-checkbox-43"><div class="visually-hidden">Toggle navigation of symbrim.utilities.parametrize</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.parametrize.get_inertia_vals.html">symbrim.utilities.parametrize.get_inertia_vals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.parametrize.get_inertia_vals_from_yeadon.html">symbrim.utilities.parametrize.get_inertia_vals_from_yeadon</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.html">symbrim.utilities.plotting</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" role="switch" type="checkbox"/><label for="toctree-checkbox-44"><div class="visually-hidden">Toggle navigation of symbrim.utilities.plotting</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.PlotBrimMixin.html">symbrim.utilities.plotting.PlotBrimMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.PlotConnection.html">symbrim.utilities.plotting.PlotConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.PlotLoadGroup.html">symbrim.utilities.plotting.PlotLoadGroup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.PlotModel.html">symbrim.utilities.plotting.PlotModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.Plotter.html">symbrim.utilities.plotting.Plotter</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.testing.html">symbrim.utilities.testing</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" role="switch" type="checkbox"/><label for="toctree-checkbox-45"><div class="visually-hidden">Toggle navigation of symbrim.utilities.testing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.testing.create_model_of_connection.html">symbrim.utilities.testing.create_model_of_connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.testing.ignore_point_warnings.html">symbrim.utilities.testing.ignore_point_warnings</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.utilities.html">symbrim.utilities.utilities</a><input class="toctree-checkbox" id="toctree-checkbox-46" name="toctree-checkbox-46" role="switch" type="checkbox"/><label for="toctree-checkbox-46"><div class="visually-hidden">Toggle navigation of symbrim.utilities.utilities</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.utilities.check_zero.html">symbrim.utilities.utilities.check_zero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.utilities.random_eval.html">symbrim.utilities.utilities.random_eval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/guides/component_implementation.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="guidelines-on-implementing-components">
+<span id="component-implementation-guide"></span><h1>Guidelines on Implementing Components<a class="headerlink" href="#guidelines-on-implementing-components" title="Link to this heading">¶</a></h1>
+<p>This document describes the guidelines on implementing components. It assumes
+familiarity with the component structure used in SymBRiM <span id="id1">[<a class="reference internal" href="introduction.html#id10" title="Timótheüs J. Stienstra, Samuel G. Brockie, and Jason K. Moore. Brim: a modular bicycle-rider modeling framework. In The Evolving Scholar - BMD 2023, 5th Edition. 2023. doi:10.59490/6504c5a765e8118fc7b106c3.">SBM23</a>]</span> and
+the usage of SymPy mechanics and SymBRiM, as explained in the first two tutorials
+<a class="reference internal" href="../tutorials/index.html#tutorials"><span class="std std-ref">Tutorials</span></a>.</p>
+<section id="symbrim-components">
+<h2>SymBRiM Components<a class="headerlink" href="#symbrim-components" title="Link to this heading">¶</a></h2>
+<svg class="align-center" viewBox="0 0 114.1879 81.337509" width="550px">
+    <use xlink:href="../_static/core_uml.svg#coreUML"></use>
+</svg><p>The above figure shows the UML diagram of the core components of SymBRiM. The three core
+components all inherit from <a class="reference internal" href="../_autosummary/symbrim.core.base_classes.BrimBase.html#symbrim.core.base_classes.BrimBase" title="symbrim.core.base_classes.BrimBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.core.base_classes.BrimBase</span></code></a>, as they share a
+similar define structure. The three core components are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ModelBase.html#symbrim.core.base_classes.ModelBase" title="symbrim.core.base_classes.ModelBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">Models</span></code></a> - a system with its own
+respective system boundaries, which can be made up of other models.</p></li>
+<li><p><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ConnectionBase.html#symbrim.core.base_classes.ConnectionBase" title="symbrim.core.base_classes.ConnectionBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a> - a utility of models
+in describing the interaction between submodels.</p></li>
+<li><p><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.LoadGroupBase.html#symbrim.core.base_classes.LoadGroupBase" title="symbrim.core.base_classes.LoadGroupBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">Load</span> <span class="pre">groups</span></code></a> - a collection of forces
+and torques associated with a model or connection.</p></li>
+</ul>
+<p>A large part of what is being shared between these components are the definition steps.
+The definition steps are decoupled steps that are used to define the component. The
+definition steps are:</p>
+<ol class="arabic simple" start="0">
+<li><p><strong>Define connections</strong> (only in
+<a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ModelBase.html#symbrim.core.base_classes.ModelBase" title="symbrim.core.base_classes.ModelBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">models</span></code></a>): Associate the submodels with
+the connections, such that the connections know the submodels they will operate on.</p></li>
+<li><p><strong>Define objects</strong>: Create the objects, such as symbols reference frames, without
+defining any relationships between them.</p></li>
+<li><p><strong>Define kinematics</strong>: Establish relationships between the objects’
+orientations/positions, velocities, and accelerations.</p></li>
+<li><p><strong>Define loads</strong>: Specifies the forces and torques acting upon the system.</p></li>
+<li><p><strong>Define constraints</strong>: Computes the holonomic and nonholonomic constraints to which
+the system is subject.</p></li>
+</ol>
+<p>The image below shows a schematic visualization of these steps for a rolling disc.</p>
+<svg class="align-center" viewBox="0 0 180.37601 43.00629" width="800px">
+    <use xlink:href="../_static/definition_steps.svg#definitionSteps"></use>
+</svg></section>
+<section id="usage-of-base-classes">
+<h2>Usage of Base Classes<a class="headerlink" href="#usage-of-base-classes" title="Link to this heading">¶</a></h2>
+<p>SymBRiM uses base classes for components to specify a common structure of a component.
+<a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.GroundBase.html#symbrim.bicycle.grounds.GroundBase" title="symbrim.bicycle.grounds.GroundBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.bicycle.grounds.GroundBase</span></code></a> is an example of a base class. The advantage
+of using base classes is that it allows for a common interface between components, which
+makes it possible to swap out components without having to change the code. For example,
+one can swap out the ground model for a different ground model without having to change
+the code of the bicycle model.</p>
+<p>In case of <a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.GroundBase.html#symbrim.bicycle.grounds.GroundBase" title="symbrim.bicycle.grounds.GroundBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.bicycle.grounds.GroundBase</span></code></a> some of the commonly shared
+properties are defined in the base class, such as a rigid body to represent the ground.
+Apart from those it also prescribes several properties using <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABCMeta" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABCMeta</span></code></a> and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">abc.abstractmethod</span></code>. An example is the
+<a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.GroundBase.html#symbrim.bicycle.grounds.GroundBase.get_normal" title="symbrim.bicycle.grounds.GroundBase.get_normal"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symbrim.bicycle.grounds.GroundBase.get_normal()</span></code></a> method. These kind of abstract
+methods have to be implemented by subclasses, such as
+<a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.FlatGround.html#symbrim.bicycle.grounds.FlatGround" title="symbrim.bicycle.grounds.FlatGround"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.bicycle.grounds.FlatGround</span></code></a>.</p>
+</section>
+<section id="setting-submodels-and-connections">
+<h2>Setting Submodels and Connections<a class="headerlink" href="#setting-submodels-and-connections" title="Link to this heading">¶</a></h2>
+<p>To specify the submodels a model or connection requires, one should specify the class
+property <code class="docutils literal notranslate"><span class="pre">required_models</span></code>. This property should be a tuple of
+<a class="reference internal" href="../_autosummary/symbrim.core.requirement.ModelRequirement.html#symbrim.core.requirement.ModelRequirement" title="symbrim.core.requirement.ModelRequirement"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.core.requirement.ModelRequirement</span></code></a>. Based on these requirements, the
+metaclass automatically creates properties for each of the required submodels on
+runtime. The following simple class shows how to specify the required submodels.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">ModelBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;My model.&quot;&quot;&quot;</span>
+
+    <span class="n">required_models</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ModelRequirement</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ModelRequirement</span><span class="p">(</span><span class="s2">&quot;ground&quot;</span><span class="p">,</span> <span class="n">GroundBase</span><span class="p">,</span> <span class="s2">&quot;Submodel of the ground.&quot;</span><span class="p">),</span>
+        <span class="n">ModelRequirement</span><span class="p">(</span><span class="s2">&quot;other_submodel&quot;</span><span class="p">,</span> <span class="n">OtherSubModel</span><span class="p">,</span> <span class="s2">&quot;Other submodel.&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="c1"># These type hints are useful for some IDEs.</span>
+    <span class="n">ground</span><span class="p">:</span> <span class="n">GroundBase</span>
+    <span class="n">other_submodel</span><span class="p">:</span> <span class="n">OtherSubModel</span>
+</pre></div>
+</div>
+<p>The property created for <code class="docutils literal notranslate"><span class="pre">&quot;ground&quot;</span></code> will be like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@property</span>
+<span class="k">def</span> <span class="nf">ground</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GroundBase</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Submodel of the ground.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ground</span>
+
+<span class="nd">@ground</span><span class="o">.</span><span class="n">setter</span>
+<span class="k">def</span> <span class="nf">ground</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">GroundBase</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Submodel of the ground.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">GroundBase</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Ground should be an instance of an subclass of GroundBase, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;but </span><span class="si">{</span><span class="n">model</span><span class="si">!r}</span><span class="s2"> is an instance of </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_ground</span> <span class="o">=</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p>Connections should be specified similarly with the class property
+<code class="docutils literal notranslate"><span class="pre">required_connections</span></code>, using
+<a class="reference internal" href="../_autosummary/symbrim.core.requirement.ConnectionRequirement.html#symbrim.core.requirement.ConnectionRequirement" title="symbrim.core.requirement.ConnectionRequirement"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.core.requirement.ConnectionRequirement</span></code></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">ModelBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;My model.&quot;&quot;&quot;</span>
+
+    <span class="n">required_connections</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ConnectionRequirement</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ConnectionRequirement</span><span class="p">(</span><span class="s2">&quot;connection&quot;</span><span class="p">,</span> <span class="n">MyConnection</span><span class="p">,</span> <span class="s2">&quot;Connection.&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="c1"># These type hints are useful for some IDEs.</span>
+    <span class="n">connection</span><span class="p">:</span> <span class="n">MyConnection</span>
+</pre></div>
+</div>
+</section>
+<section id="specify-a-load-group-parent">
+<h2>Specify a Load Group Parent<a class="headerlink" href="#specify-a-load-group-parent" title="Link to this heading">¶</a></h2>
+<p>Load groups are associated with a certain model or connection. To specify this
+association, one should specify the class property <code class="docutils literal notranslate"><span class="pre">required_parent_type</span></code>. This
+property is utilized in a <code class="docutils literal notranslate"><span class="pre">isinstance(parent,</span> <span class="pre">self.required_parent_type)</span></code> check when
+adding a load group to a component. An example is shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyLoadGroup</span><span class="p">(</span><span class="n">LoadGroupBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;My load group.&quot;&quot;&quot;</span>
+
+    <span class="n">required_parent_type</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ModelBase</span><span class="p">,</span> <span class="n">ConnectionBase</span><span class="p">]]</span> <span class="o">=</span> <span class="n">MyModel</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">(</span><span class="s2">&quot;my_model&quot;</span><span class="p">)</span>
+<span class="n">load_group</span> <span class="o">=</span> <span class="n">MyLoadGroup</span><span class="p">(</span><span class="s2">&quot;my_load_group&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add_load_group</span><span class="p">(</span><span class="n">load_group</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">load_group</span><span class="o">.</span><span class="n">parent</span> <span class="ow">is</span> <span class="n">model</span>
+
+<span class="k">class</span> <span class="nc">MyModel2</span><span class="p">(</span><span class="n">ModelBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Some other model.&quot;&quot;&quot;</span>
+
+<span class="n">model2</span> <span class="o">=</span> <span class="n">MyModel2</span><span class="p">(</span><span class="s2">&quot;my_model2&quot;</span><span class="p">)</span>
+<span class="n">load_group</span> <span class="o">=</span> <span class="n">MyLoadGroup</span><span class="p">(</span><span class="s2">&quot;my_load_group&quot;</span><span class="p">)</span>
+<span class="n">model2</span><span class="o">.</span><span class="n">add_load_group</span><span class="p">(</span><span class="n">load_group</span><span class="p">)</span>  <span class="c1"># Raises an error.</span>
+</pre></div>
+</div>
+</section>
+<section id="implementation-define-steps">
+<h2>Implementation Define Steps<a class="headerlink" href="#implementation-define-steps" title="Link to this heading">¶</a></h2>
+<p>To implement the “define” steps in a model, connection, or load group, a leading
+underscore is added to the method name. For example, <code class="docutils literal notranslate"><span class="pre">_define_&lt;step&gt;</span></code>. These methods
+solely implement the “define” step for the component itself without traversing the
+submodels and load groups. The base classes, like
+<a class="reference internal" href="../_autosummary/symbrim.core.base_classes.BrimBase.html#symbrim.core.base_classes.BrimBase" title="symbrim.core.base_classes.BrimBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.core.base_classes.BrimBase</span></code></a>, contain the implementation of the “define”
+methods, including traversal, which should be called by the user. These methods follow
+the format <code class="docutils literal notranslate"><span class="pre">define_&lt;step&gt;</span></code>.</p>
+<p>We have established several helping guidelines for each of the define steps. The
+subsections below discuss each of these per define step, and provide general coding
+examples of the expected implementation.</p>
+<section id="define-connections">
+<h3>Define Connections<a class="headerlink" href="#define-connections" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>If a connection is used, then the submodels of the connection are defined in the
+<code class="docutils literal notranslate"><span class="pre">_define_connections</span></code> method.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_define_connections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Define the connections between the submodels.&quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_connections</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">submodel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">submodel</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="define-objects">
+<h3>Define Objects<a class="headerlink" href="#define-objects" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>Each model and connection must instantiate its own
+<a class="reference external" href="https://docs.sympy.org/dev/modules/physics/mechanics/api/system.html#sympy.physics.mechanics.system.System" title="(in SymPy v1.14.dev)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sympy.physics.mechanics.system.System</span></code></a> instance and assign it to
+<code class="docutils literal notranslate"><span class="pre">self._system</span></code>. Load groups automatically inherit the system from their parent.</p></li>
+<li><p>Symbols, such as masses and lengths, must be added to the <code class="docutils literal notranslate"><span class="pre">self.symbols</span></code> dictionary
+with a string as key and the (dynamic)symbol as value.</p></li>
+<li><p>Generalized coordinates must be set/added to the mutable <code class="docutils literal notranslate"><span class="pre">self.q</span></code> matrix.</p></li>
+<li><p>Generalized speeds must be set/added to the mutable <code class="docutils literal notranslate"><span class="pre">self.u</span></code> matrix.</p></li>
+<li><p>Auxiliary speeds must be set/added to the mutable <code class="docutils literal notranslate"><span class="pre">self.uaux</span></code> matrix.</p></li>
+<li><p>The name of each symbol, generalized coordinate, and generalized speed must be created
+using <code class="xref py py-meth docutils literal notranslate"><span class="pre">symbrim.core.base_classes.BrimBase._add_prefix()</span></code>. This method puts the
+name of the component in front of the symbol name, such that the symbol name is
+unique.</p></li>
+<li><p>Each symbol, generalized coordinate, and generalized speed must have a description in
+the <a class="reference internal" href="../_autosummary/symbrim.core.base_classes.BrimBase.html#symbrim.core.base_classes.BrimBase.descriptions" title="symbrim.core.base_classes.BrimBase.descriptions"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symbrim.core.base_classes.BrimBase.descriptions()</span></code></a> property.</p></li>
+<li><p>The define objects step for each connection should be called manually because there
+could be dependencies between the define step of a connection and its parent model,
+it is utility after all.</p></li>
+<li><p>Other component specific objects, such as bodies and reference frames, must be defined
+in this stage, but they should not be oriented or positioned yet.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@property</span>
+<span class="k">def</span> <span class="nf">descriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Descriptions of the attributes of the object.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="o">**</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">descriptions</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;symbol_name&quot;</span><span class="p">]:</span> <span class="s2">&quot;Description of the symbol.&quot;</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;f_noncontrib&quot;</span><span class="p">]:</span> <span class="s2">&quot;Description of the noncontributing force.&quot;</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="sa">f</span><span class="s2">&quot;First generalized coordinate of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="sa">f</span><span class="s2">&quot;Second generalized coordinate of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="sa">f</span><span class="s2">&quot;First generalized speed of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="sa">f</span><span class="s2">&quot;Second generalized speed of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uaux</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="sa">f</span><span class="s2">&quot;Auxiliary speed of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">_define_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Define the objects of the system.&quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_objects</span><span class="p">()</span>
+    <span class="c1"># Create symbols and generalized coordinates and speeds.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;symbol_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;symbol&quot;</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;f_noncontrib&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;f_noncontrib&quot;</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">MutableMatrix</span><span class="p">([</span><span class="n">dynamicsymbols</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;q1:3&quot;</span><span class="p">))])</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">MutableMatrix</span><span class="p">([</span><span class="n">dynamicsymbols</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;u1:3&quot;</span><span class="p">))])</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">uaux</span> <span class="o">=</span> <span class="n">MutableMatrix</span><span class="p">([</span><span class="n">dynamicsymbols</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;uaux&quot;</span><span class="p">))])</span>
+    <span class="c1"># Instantiate system.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_system</span> <span class="o">=</span> <span class="n">System</span><span class="p">()</span>
+    <span class="c1"># Call define objects of connections.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">define_objects</span><span class="p">()</span>  <span class="c1"># Without leading underscore!</span>
+    <span class="c1"># Define other objects such as reference frames and bodies.</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="define-kinematics">
+<h3>Define Kinematics<a class="headerlink" href="#define-kinematics" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>It is generally best to first orient the reference frames in this step, and the
+position of the points. Next, one can optimize the definition of the velocities. With
+the introduction of the auxiliary data handler it is best practise to define the
+velocity of a point based on the point w.r.t. which it has been positioned.
+Parent models have to orient and define the submodels w.r.t. each other.</p></li>
+<li><p>The kinematical differential equations, generalized coordinates, and generalized
+speeds must be added to <code class="docutils literal notranslate"><span class="pre">self.system</span></code>.</p></li>
+<li><p>Possibly one can also use joints for the above.</p></li>
+<li><p>Again the define kinematics step of each connection should be called manually.</p></li>
+<li><p>Generally, make sure to define the velocity of at least one point in the model’s or
+connection’s system.</p></li>
+<li><p>Noncontributing forces can be added to the auxiliary data handler.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_define_kinematics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Define the kinematics of the system.&quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_kinematics</span><span class="p">()</span>
+    <span class="c1"># Orient frames.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">orient_axis</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="c1"># Position points and set their velocities.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">set_pos</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">set_vel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="c1"># Add generalized coordinates, speeds, and kdes to the system.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_coordinates</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_speed</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_kdes</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">))</span>
+    <span class="c1"># Create and add joints.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_joints</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="c1"># Call define kinematics of connections.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">define_kinematics</span><span class="p">()</span>  <span class="c1"># Without leading underscore!</span>
+    <span class="c1"># Add noncontributing force to the auxiliary data handler.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_data_handler</span><span class="o">.</span><span class="n">add_noncontributing_force</span><span class="p">(</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">point</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">uaux</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;f_noncontrib&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="define-loads">
+<h3>Define Loads<a class="headerlink" href="#define-loads" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>As all points and reference frames have already been defined and positioned, this step
+only requires computation of the forces and torques and adding the to the
+<code class="docutils literal notranslate"><span class="pre">self.system</span></code>.</p></li>
+<li><p>Noncontributing forces are fully handled by the auxiliary data handler.</p></li>
+<li><p>Again the define loads step of each connection should be called manually.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_define_loads</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Define the loads of the system.&quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_loads</span><span class="p">()</span>
+    <span class="c1"># Add forces, torques and actuators</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_loads</span><span class="p">(</span>
+        <span class="n">Force</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point</span><span class="p">,</span> <span class="o">...</span><span class="p">),</span>
+        <span class="n">Torque</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="o">...</span><span class="p">),</span>
+        <span class="o">...</span>
+    <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_actuators</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="c1"># Call define loads of connections.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">define_loads</span><span class="p">()</span>  <span class="c1"># Without leading underscore!</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="define-constraints">
+<h3>Define Constraints<a class="headerlink" href="#define-constraints" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>For holonomic constraints a loop is being closed most of the time using a dot product.
+Just make sure to have some method to prevent the creation of constraint which are
+already satisfied. Optionally, you can use
+<a class="reference internal" href="../_autosummary/symbrim.utilities.utilities.check_zero.html#symbrim.utilities.utilities.check_zero" title="symbrim.utilities.utilities.check_zero"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.utilities.utilities.check_zero</span></code></a>.</p></li>
+<li><p>For nonholonomic constraints the major difficulty is in the fact that one cannot
+assume anything about the already defined velocities. Especially points are
+susceptible to have multiple possible velocity definitions. Therefore, it is advised
+to compute the velocity based on the position graph of the points and the orientation
+and angular velocity graph of the reference frames. A good example of this is in the
+<a class="reference internal" href="../_autosummary/symbrim.bicycle.tires.NonHolonomicTire.html#symbrim.bicycle.tires.NonHolonomicTire" title="symbrim.bicycle.tires.NonHolonomicTire"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.bicycle.tires.NonHolonomicTire</span></code></a> class.</p></li>
+<li><p>To support usage of the object in a system with noncontributing forces it is also
+necessary to account for the auxiliary speeds. This can be done by specifically
+requesting the auxiliary velocity of a point and adding that to the constraint. Do
+also note that the <code class="docutils literal notranslate"><span class="pre">velocity_constraints</span></code> attribute is set to modify the velocity
+constraint resulting from the holonomic constraint.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_define_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Define the constraints of the system.&quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_constraints</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_holonomic_constraints</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_nonholonomic_constraints</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="c1"># Overwrite the velocity constraints to include the auxiliary velocity.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">velocity_constraints</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">holonomic_constraints</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">dynamicsymbols</span><span class="o">.</span><span class="n">_t</span><span class="p">)</span> <span class="o">+</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">auxiliary_handler</span><span class="o">.</span><span class="n">get_auxiliary_velocity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+      <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">nonholonomic_constraints</span>
+    <span class="p">]</span>
+    <span class="c1"># Call define constraints of connections.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">define_constraints</span><span class="p">()</span>  <span class="c1"># Without leading underscore!</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="auxiliary-data-handler">
+<h2>Auxiliary Data Handler<a class="headerlink" href="#auxiliary-data-handler" title="Link to this heading">¶</a></h2>
+<p>The <a class="reference internal" href="../_autosummary/symbrim.core.auxiliary.AuxiliaryDataHandler.html#symbrim.core.auxiliary.AuxiliaryDataHandler" title="symbrim.core.auxiliary.AuxiliaryDataHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">symbrim.core.auxiliary.AuxiliaryDataHandler</span></code></a> is a utility class that is used
+to compute noncontributing forces and optimize the computation of the velocity of
+points. An instance of the auxiliary data handler is automatically created at the end of
+the <code class="docutils literal notranslate"><span class="pre">define_objects</span></code> step. This instance is shared by the root model, i.e. the
+uppermost parent model, with all submodels, connections, and load groups. This makes the
+auxiliary data handler accessible from all components through the
+<code class="docutils literal notranslate"><span class="pre">self.auxiliary_handler</span></code> attribute.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">define_kinematics</span></code> step modelers can register noncontributing forces that
+should be computed using the
+<a class="reference internal" href="../_autosummary/symbrim.core.auxiliary.AuxiliaryDataHandler.html#symbrim.core.auxiliary.AuxiliaryDataHandler.add_noncontributing_force" title="symbrim.core.auxiliary.AuxiliaryDataHandler.add_noncontributing_force"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symbrim.core.auxiliary.AuxiliaryDataHandler.add_noncontributing_force()</span></code></a> method.
+This method requires the point, the axis of the force, the auxiliary speed, and the
+force symbol as arguments. From this information the auxiliary data handler can do the
+rest. When defining the other kinematics it is best practise to define the velocity of a
+point based on the point w.r.t. which it has been positioned. This is because the
+auxiliary data handler propagates the auxiliary velocities of points to other points
+based on how points are defined w.r.t. to each other.</p>
+<p>At the end of the <code class="docutils literal notranslate"><span class="pre">define_kinematics</span></code> step the auxiliary data handler automatically
+computes the velocity of each point in the inertial frame, while adding the auxiliary
+velocity. The auxiliary speed is also automatically added to the root model’s system
+instance.
+At the end of the <code class="docutils literal notranslate"><span class="pre">define_loads</span></code> step the noncontributing forces are automatically
+added to the root model’s system instance.</p>
+<p>When computing the constraints in the <code class="docutils literal notranslate"><span class="pre">define_constraints</span></code> step it is important to
+take the auxiliary speeds into account, even if you didn’t define any in you component.
+In many cases it is possible that other components may have defined auxiliary speeds
+that do affect your constraints. To get the auxiliary velocity of a point of intereset
+you can use the
+<a class="reference internal" href="../_autosummary/symbrim.core.auxiliary.AuxiliaryDataHandler.html#symbrim.core.auxiliary.AuxiliaryDataHandler.get_auxiliary_velocity" title="symbrim.core.auxiliary.AuxiliaryDataHandler.get_auxiliary_velocity"><code class="xref py py-meth docutils literal notranslate"><span class="pre">symbrim.core.auxiliary.AuxiliaryDataHandler.get_auxiliary_velocity()</span></code></a> method.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../tutorials/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Tutorials</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="introduction.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Introduction to SymBRiM</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Timo Stienstra
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Guidelines on Implementing Components</a><ul>
+<li><a class="reference internal" href="#symbrim-components">SymBRiM Components</a></li>
+<li><a class="reference internal" href="#usage-of-base-classes">Usage of Base Classes</a></li>
+<li><a class="reference internal" href="#setting-submodels-and-connections">Setting Submodels and Connections</a></li>
+<li><a class="reference internal" href="#specify-a-load-group-parent">Specify a Load Group Parent</a></li>
+<li><a class="reference internal" href="#implementation-define-steps">Implementation Define Steps</a><ul>
+<li><a class="reference internal" href="#define-connections">Define Connections</a></li>
+<li><a class="reference internal" href="#define-objects">Define Objects</a></li>
+<li><a class="reference internal" href="#define-kinematics">Define Kinematics</a></li>
+<li><a class="reference internal" href="#define-loads">Define Loads</a></li>
+<li><a class="reference internal" href="#define-constraints">Define Constraints</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#auxiliary-data-handler">Auxiliary Data Handler</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>

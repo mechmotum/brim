@@ -1,0 +1,61 @@
+..
+  class.rst
+
+symbrim.rider.legs.TwoPinStickLeftLeg
+=====================================
+
+.. currentmodule:: symbrim.rider.legs
+
+.. autoclass:: TwoPinStickLeftLeg
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~TwoPinStickLeftLeg.auxiliary_handler
+                    ~TwoPinStickLeftLeg.connections
+                    ~TwoPinStickLeftLeg.convention
+                    ~TwoPinStickLeftLeg.descriptions
+                    ~TwoPinStickLeftLeg.foot
+                    ~TwoPinStickLeftLeg.foot_interframe
+                    ~TwoPinStickLeftLeg.foot_interpoint
+                    ~TwoPinStickLeftLeg.hip
+                    ~TwoPinStickLeftLeg.hip_interframe
+                    ~TwoPinStickLeftLeg.hip_interpoint
+                    ~TwoPinStickLeftLeg.load_groups
+                    ~TwoPinStickLeftLeg.name
+                    ~TwoPinStickLeftLeg.required_connections
+                    ~TwoPinStickLeftLeg.required_models
+                    ~TwoPinStickLeftLeg.shank
+                    ~TwoPinStickLeftLeg.submodels
+                    ~TwoPinStickLeftLeg.system
+                    ~TwoPinStickLeftLeg.thigh
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~TwoPinStickLeftLeg.__init__
+                    ~TwoPinStickLeftLeg.add_load_groups
+                    ~TwoPinStickLeftLeg.define_all
+                    ~TwoPinStickLeftLeg.define_connections
+                    ~TwoPinStickLeftLeg.define_constraints
+                    ~TwoPinStickLeftLeg.define_kinematics
+                    ~TwoPinStickLeftLeg.define_loads
+                    ~TwoPinStickLeftLeg.define_objects
+                    ~TwoPinStickLeftLeg.from_convention
+                    ~TwoPinStickLeftLeg.get_all_symbols
+                    ~TwoPinStickLeftLeg.get_description
+                    ~TwoPinStickLeftLeg.get_param_values
+                    ~TwoPinStickLeftLeg.set_plot_objects
+                    ~TwoPinStickLeftLeg.to_system
+        
+    

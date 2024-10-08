@@ -1,0 +1,32 @@
+..
+  class.rst
+
+symbrim.core.base\_classes.LoadGroupMeta
+========================================
+
+.. currentmodule:: symbrim.core.base_classes
+
+.. autoclass:: LoadGroupMeta
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~LoadGroupMeta.__init__
+                    ~LoadGroupMeta.mro
+                    ~LoadGroupMeta.register
+        
+    

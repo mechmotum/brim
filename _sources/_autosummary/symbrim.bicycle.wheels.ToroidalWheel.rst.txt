@@ -1,0 +1,62 @@
+..
+  class.rst
+
+symbrim.bicycle.wheels.ToroidalWheel
+====================================
+
+.. currentmodule:: symbrim.bicycle.wheels
+
+.. autoclass:: ToroidalWheel
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~ToroidalWheel.auxiliary_handler
+                    ~ToroidalWheel.body
+                    ~ToroidalWheel.center
+                    ~ToroidalWheel.connections
+                    ~ToroidalWheel.convention
+                    ~ToroidalWheel.descriptions
+                    ~ToroidalWheel.frame
+                    ~ToroidalWheel.load_groups
+                    ~ToroidalWheel.name
+                    ~ToroidalWheel.radius
+                    ~ToroidalWheel.required_connections
+                    ~ToroidalWheel.required_models
+                    ~ToroidalWheel.rotation_axis
+                    ~ToroidalWheel.submodels
+                    ~ToroidalWheel.system
+                    ~ToroidalWheel.transverse_radius
+                    ~ToroidalWheel.x
+                    ~ToroidalWheel.y
+                    ~ToroidalWheel.z
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~ToroidalWheel.__init__
+                    ~ToroidalWheel.add_load_groups
+                    ~ToroidalWheel.define_all
+                    ~ToroidalWheel.define_connections
+                    ~ToroidalWheel.define_constraints
+                    ~ToroidalWheel.define_kinematics
+                    ~ToroidalWheel.define_loads
+                    ~ToroidalWheel.define_objects
+                    ~ToroidalWheel.from_convention
+                    ~ToroidalWheel.get_all_symbols
+                    ~ToroidalWheel.get_description
+                    ~ToroidalWheel.get_param_values
+                    ~ToroidalWheel.set_plot_objects
+                    ~ToroidalWheel.to_system
+        
+    

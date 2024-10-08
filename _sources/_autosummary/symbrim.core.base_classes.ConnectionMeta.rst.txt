@@ -1,0 +1,32 @@
+..
+  class.rst
+
+symbrim.core.base\_classes.ConnectionMeta
+=========================================
+
+.. currentmodule:: symbrim.core.base_classes
+
+.. autoclass:: ConnectionMeta
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~ConnectionMeta.__init__
+                    ~ConnectionMeta.mro
+                    ~ConnectionMeta.register
+        
+    

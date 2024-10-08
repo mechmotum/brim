@@ -1,0 +1,58 @@
+..
+  class.rst
+
+symbrim.bicycle.front\_frames.RigidFrontFrameMoore
+==================================================
+
+.. currentmodule:: symbrim.bicycle.front_frames
+
+.. autoclass:: RigidFrontFrameMoore
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~RigidFrontFrameMoore.auxiliary_handler
+                    ~RigidFrontFrameMoore.body
+                    ~RigidFrontFrameMoore.connections
+                    ~RigidFrontFrameMoore.convention
+                    ~RigidFrontFrameMoore.descriptions
+                    ~RigidFrontFrameMoore.left_hand_grip
+                    ~RigidFrontFrameMoore.load_groups
+                    ~RigidFrontFrameMoore.name
+                    ~RigidFrontFrameMoore.required_connections
+                    ~RigidFrontFrameMoore.required_models
+                    ~RigidFrontFrameMoore.right_hand_grip
+                    ~RigidFrontFrameMoore.steer_hub
+                    ~RigidFrontFrameMoore.submodels
+                    ~RigidFrontFrameMoore.system
+                    ~RigidFrontFrameMoore.wheel_hub
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~RigidFrontFrameMoore.__init__
+                    ~RigidFrontFrameMoore.add_load_groups
+                    ~RigidFrontFrameMoore.define_all
+                    ~RigidFrontFrameMoore.define_connections
+                    ~RigidFrontFrameMoore.define_constraints
+                    ~RigidFrontFrameMoore.define_kinematics
+                    ~RigidFrontFrameMoore.define_loads
+                    ~RigidFrontFrameMoore.define_objects
+                    ~RigidFrontFrameMoore.from_convention
+                    ~RigidFrontFrameMoore.get_all_symbols
+                    ~RigidFrontFrameMoore.get_description
+                    ~RigidFrontFrameMoore.get_param_values
+                    ~RigidFrontFrameMoore.set_plot_objects
+                    ~RigidFrontFrameMoore.to_system
+        
+    

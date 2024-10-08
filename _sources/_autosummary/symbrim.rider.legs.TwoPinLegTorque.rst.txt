@@ -1,0 +1,44 @@
+..
+  class.rst
+
+symbrim.rider.legs.TwoPinLegTorque
+==================================
+
+.. currentmodule:: symbrim.rider.legs
+
+.. autoclass:: TwoPinLegTorque
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~TwoPinLegTorque.auxiliary_handler
+                    ~TwoPinLegTorque.descriptions
+                    ~TwoPinLegTorque.name
+                    ~TwoPinLegTorque.parent
+                    ~TwoPinLegTorque.required_parent_type
+                    ~TwoPinLegTorque.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~TwoPinLegTorque.__init__
+                    ~TwoPinLegTorque.define_constraints
+                    ~TwoPinLegTorque.define_kinematics
+                    ~TwoPinLegTorque.define_loads
+                    ~TwoPinLegTorque.define_objects
+                    ~TwoPinLegTorque.get_all_symbols
+                    ~TwoPinLegTorque.get_description
+                    ~TwoPinLegTorque.get_param_values
+                    ~TwoPinLegTorque.set_plot_objects
+        
+    

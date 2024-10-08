@@ -1,0 +1,37 @@
+..
+  module.rst
+
+symbrim.core.attachment
+=======================
+
+.. automodule:: symbrim.core.attachment
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    Attachment
+                    Hub
+                    MasslessBody
+        
+    
+
+    
+        
+    
+
+
+    

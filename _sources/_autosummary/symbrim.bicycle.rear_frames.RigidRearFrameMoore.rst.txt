@@ -1,0 +1,58 @@
+..
+  class.rst
+
+symbrim.bicycle.rear\_frames.RigidRearFrameMoore
+================================================
+
+.. currentmodule:: symbrim.bicycle.rear_frames
+
+.. autoclass:: RigidRearFrameMoore
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~RigidRearFrameMoore.auxiliary_handler
+                    ~RigidRearFrameMoore.body
+                    ~RigidRearFrameMoore.bottom_bracket
+                    ~RigidRearFrameMoore.connections
+                    ~RigidRearFrameMoore.convention
+                    ~RigidRearFrameMoore.descriptions
+                    ~RigidRearFrameMoore.load_groups
+                    ~RigidRearFrameMoore.name
+                    ~RigidRearFrameMoore.required_connections
+                    ~RigidRearFrameMoore.required_models
+                    ~RigidRearFrameMoore.saddle
+                    ~RigidRearFrameMoore.steer_hub
+                    ~RigidRearFrameMoore.submodels
+                    ~RigidRearFrameMoore.system
+                    ~RigidRearFrameMoore.wheel_hub
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~RigidRearFrameMoore.__init__
+                    ~RigidRearFrameMoore.add_load_groups
+                    ~RigidRearFrameMoore.define_all
+                    ~RigidRearFrameMoore.define_connections
+                    ~RigidRearFrameMoore.define_constraints
+                    ~RigidRearFrameMoore.define_kinematics
+                    ~RigidRearFrameMoore.define_loads
+                    ~RigidRearFrameMoore.define_objects
+                    ~RigidRearFrameMoore.from_convention
+                    ~RigidRearFrameMoore.get_all_symbols
+                    ~RigidRearFrameMoore.get_description
+                    ~RigidRearFrameMoore.get_param_values
+                    ~RigidRearFrameMoore.set_plot_objects
+                    ~RigidRearFrameMoore.to_system
+        
+    

@@ -1,0 +1,62 @@
+..
+  class.rst
+
+symbrim.rider.torso.PlanarTorso
+===============================
+
+.. currentmodule:: symbrim.rider.torso
+
+.. autoclass:: PlanarTorso
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PlanarTorso.auxiliary_handler
+                    ~PlanarTorso.body
+                    ~PlanarTorso.connections
+                    ~PlanarTorso.convention
+                    ~PlanarTorso.descriptions
+                    ~PlanarTorso.frame
+                    ~PlanarTorso.left_shoulder_frame
+                    ~PlanarTorso.left_shoulder_point
+                    ~PlanarTorso.load_groups
+                    ~PlanarTorso.name
+                    ~PlanarTorso.required_connections
+                    ~PlanarTorso.required_models
+                    ~PlanarTorso.right_shoulder_frame
+                    ~PlanarTorso.right_shoulder_point
+                    ~PlanarTorso.submodels
+                    ~PlanarTorso.system
+                    ~PlanarTorso.x
+                    ~PlanarTorso.y
+                    ~PlanarTorso.z
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PlanarTorso.__init__
+                    ~PlanarTorso.add_load_groups
+                    ~PlanarTorso.define_all
+                    ~PlanarTorso.define_connections
+                    ~PlanarTorso.define_constraints
+                    ~PlanarTorso.define_kinematics
+                    ~PlanarTorso.define_loads
+                    ~PlanarTorso.define_objects
+                    ~PlanarTorso.from_convention
+                    ~PlanarTorso.get_all_symbols
+                    ~PlanarTorso.get_description
+                    ~PlanarTorso.get_param_values
+                    ~PlanarTorso.set_plot_objects
+                    ~PlanarTorso.to_system
+        
+    

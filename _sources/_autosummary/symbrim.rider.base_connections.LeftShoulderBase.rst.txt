@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.base\_connections.LeftShoulderBase
+================================================
+
+.. currentmodule:: symbrim.rider.base_connections
+
+.. autoclass:: LeftShoulderBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~LeftShoulderBase.arm
+                    ~LeftShoulderBase.auxiliary_handler
+                    ~LeftShoulderBase.descriptions
+                    ~LeftShoulderBase.load_groups
+                    ~LeftShoulderBase.name
+                    ~LeftShoulderBase.required_models
+                    ~LeftShoulderBase.submodels
+                    ~LeftShoulderBase.system
+                    ~LeftShoulderBase.torso
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~LeftShoulderBase.__init__
+                    ~LeftShoulderBase.add_load_groups
+                    ~LeftShoulderBase.define_constraints
+                    ~LeftShoulderBase.define_kinematics
+                    ~LeftShoulderBase.define_loads
+                    ~LeftShoulderBase.define_objects
+                    ~LeftShoulderBase.get_all_symbols
+                    ~LeftShoulderBase.get_description
+                    ~LeftShoulderBase.get_param_values
+                    ~LeftShoulderBase.set_plot_objects
+        
+    

@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.shoulder\_joints.SphericalLeftShoulder
+====================================================
+
+.. currentmodule:: symbrim.rider.shoulder_joints
+
+.. autoclass:: SphericalLeftShoulder
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SphericalLeftShoulder.arm
+                    ~SphericalLeftShoulder.auxiliary_handler
+                    ~SphericalLeftShoulder.descriptions
+                    ~SphericalLeftShoulder.load_groups
+                    ~SphericalLeftShoulder.name
+                    ~SphericalLeftShoulder.required_models
+                    ~SphericalLeftShoulder.submodels
+                    ~SphericalLeftShoulder.system
+                    ~SphericalLeftShoulder.torso
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SphericalLeftShoulder.__init__
+                    ~SphericalLeftShoulder.add_load_groups
+                    ~SphericalLeftShoulder.define_constraints
+                    ~SphericalLeftShoulder.define_kinematics
+                    ~SphericalLeftShoulder.define_loads
+                    ~SphericalLeftShoulder.define_objects
+                    ~SphericalLeftShoulder.get_all_symbols
+                    ~SphericalLeftShoulder.get_description
+                    ~SphericalLeftShoulder.get_param_values
+                    ~SphericalLeftShoulder.set_plot_objects
+        
+    

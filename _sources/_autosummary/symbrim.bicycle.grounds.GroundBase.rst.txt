@@ -1,0 +1,59 @@
+..
+  class.rst
+
+symbrim.bicycle.grounds.GroundBase
+==================================
+
+.. currentmodule:: symbrim.bicycle.grounds
+
+.. autoclass:: GroundBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~GroundBase.auxiliary_handler
+                    ~GroundBase.body
+                    ~GroundBase.connections
+                    ~GroundBase.convention
+                    ~GroundBase.descriptions
+                    ~GroundBase.frame
+                    ~GroundBase.load_groups
+                    ~GroundBase.name
+                    ~GroundBase.origin
+                    ~GroundBase.required_connections
+                    ~GroundBase.required_models
+                    ~GroundBase.submodels
+                    ~GroundBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~GroundBase.__init__
+                    ~GroundBase.add_load_groups
+                    ~GroundBase.define_all
+                    ~GroundBase.define_connections
+                    ~GroundBase.define_constraints
+                    ~GroundBase.define_kinematics
+                    ~GroundBase.define_loads
+                    ~GroundBase.define_objects
+                    ~GroundBase.from_convention
+                    ~GroundBase.get_all_symbols
+                    ~GroundBase.get_description
+                    ~GroundBase.get_normal
+                    ~GroundBase.get_param_values
+                    ~GroundBase.get_tangent_vectors
+                    ~GroundBase.set_plot_objects
+                    ~GroundBase.set_pos_point
+                    ~GroundBase.to_system
+        
+    

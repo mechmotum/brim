@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.hip\_joints.SphericalLeftHip
+==========================================
+
+.. currentmodule:: symbrim.rider.hip_joints
+
+.. autoclass:: SphericalLeftHip
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SphericalLeftHip.auxiliary_handler
+                    ~SphericalLeftHip.descriptions
+                    ~SphericalLeftHip.leg
+                    ~SphericalLeftHip.load_groups
+                    ~SphericalLeftHip.name
+                    ~SphericalLeftHip.pelvis
+                    ~SphericalLeftHip.required_models
+                    ~SphericalLeftHip.submodels
+                    ~SphericalLeftHip.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SphericalLeftHip.__init__
+                    ~SphericalLeftHip.add_load_groups
+                    ~SphericalLeftHip.define_constraints
+                    ~SphericalLeftHip.define_kinematics
+                    ~SphericalLeftHip.define_loads
+                    ~SphericalLeftHip.define_objects
+                    ~SphericalLeftHip.get_all_symbols
+                    ~SphericalLeftHip.get_description
+                    ~SphericalLeftHip.get_param_values
+                    ~SphericalLeftHip.set_plot_objects
+        
+    

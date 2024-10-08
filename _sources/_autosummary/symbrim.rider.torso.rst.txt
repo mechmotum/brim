@@ -1,0 +1,36 @@
+..
+  module.rst
+
+symbrim.rider.torso
+===================
+
+.. automodule:: symbrim.rider.torso
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    PlanarTorso
+                    TorsoBase
+        
+    
+
+    
+        
+    
+
+
+    

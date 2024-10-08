@@ -1,0 +1,60 @@
+..
+  class.rst
+
+symbrim.bicycle.front\_frames.SuspensionRigidFrontFrameMoore
+============================================================
+
+.. currentmodule:: symbrim.bicycle.front_frames
+
+.. autoclass:: SuspensionRigidFrontFrameMoore
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SuspensionRigidFrontFrameMoore.auxiliary_handler
+                    ~SuspensionRigidFrontFrameMoore.body
+                    ~SuspensionRigidFrontFrameMoore.connections
+                    ~SuspensionRigidFrontFrameMoore.convention
+                    ~SuspensionRigidFrontFrameMoore.descriptions
+                    ~SuspensionRigidFrontFrameMoore.left_hand_grip
+                    ~SuspensionRigidFrontFrameMoore.load_groups
+                    ~SuspensionRigidFrontFrameMoore.name
+                    ~SuspensionRigidFrontFrameMoore.required_connections
+                    ~SuspensionRigidFrontFrameMoore.required_models
+                    ~SuspensionRigidFrontFrameMoore.right_hand_grip
+                    ~SuspensionRigidFrontFrameMoore.steer_hub
+                    ~SuspensionRigidFrontFrameMoore.submodels
+                    ~SuspensionRigidFrontFrameMoore.suspension_lowers
+                    ~SuspensionRigidFrontFrameMoore.suspension_stanchions
+                    ~SuspensionRigidFrontFrameMoore.system
+                    ~SuspensionRigidFrontFrameMoore.wheel_hub
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SuspensionRigidFrontFrameMoore.__init__
+                    ~SuspensionRigidFrontFrameMoore.add_load_groups
+                    ~SuspensionRigidFrontFrameMoore.define_all
+                    ~SuspensionRigidFrontFrameMoore.define_connections
+                    ~SuspensionRigidFrontFrameMoore.define_constraints
+                    ~SuspensionRigidFrontFrameMoore.define_kinematics
+                    ~SuspensionRigidFrontFrameMoore.define_loads
+                    ~SuspensionRigidFrontFrameMoore.define_objects
+                    ~SuspensionRigidFrontFrameMoore.from_convention
+                    ~SuspensionRigidFrontFrameMoore.get_all_symbols
+                    ~SuspensionRigidFrontFrameMoore.get_description
+                    ~SuspensionRigidFrontFrameMoore.get_param_values
+                    ~SuspensionRigidFrontFrameMoore.set_plot_objects
+                    ~SuspensionRigidFrontFrameMoore.to_system
+        
+    

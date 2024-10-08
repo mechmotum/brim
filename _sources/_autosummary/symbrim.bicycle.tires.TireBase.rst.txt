@@ -1,0 +1,53 @@
+..
+  class.rst
+
+symbrim.bicycle.tires.TireBase
+==============================
+
+.. currentmodule:: symbrim.bicycle.tires
+
+.. autoclass:: TireBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~TireBase.auxiliary_handler
+                    ~TireBase.contact_point
+                    ~TireBase.descriptions
+                    ~TireBase.ground
+                    ~TireBase.lateral_axis
+                    ~TireBase.load_groups
+                    ~TireBase.longitudinal_axis
+                    ~TireBase.name
+                    ~TireBase.on_ground
+                    ~TireBase.required_models
+                    ~TireBase.submodels
+                    ~TireBase.system
+                    ~TireBase.upward_radial_axis
+                    ~TireBase.wheel
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~TireBase.__init__
+                    ~TireBase.add_load_groups
+                    ~TireBase.define_constraints
+                    ~TireBase.define_kinematics
+                    ~TireBase.define_loads
+                    ~TireBase.define_objects
+                    ~TireBase.get_all_symbols
+                    ~TireBase.get_description
+                    ~TireBase.get_param_values
+                    ~TireBase.set_plot_objects
+        
+    

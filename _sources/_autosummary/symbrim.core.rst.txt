@@ -1,0 +1,41 @@
+﻿..
+  module.rst
+
+symbrim.core
+============
+
+.. automodule:: symbrim.core
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                attachment
+                auxiliary
+                base_classes
+                mixins
+                registry
+                requirement
+                singleton
+    

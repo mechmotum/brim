@@ -1,0 +1,59 @@
+..
+  class.rst
+
+symbrim.utilities.plotting.Plotter
+==================================
+
+.. currentmodule:: symbrim.utilities.plotting
+
+.. autoclass:: Plotter
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~Plotter.annot_coords
+                    ~Plotter.annot_location
+                    ~Plotter.artists
+                    ~Plotter.axes
+                    ~Plotter.children
+                    ~Plotter.inertial_frame
+                    ~Plotter.plot_objects
+                    ~Plotter.values
+                    ~Plotter.zero_point
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~Plotter.__init__
+                    ~Plotter.add_body
+                    ~Plotter.add_connection
+                    ~Plotter.add_frame
+                    ~Plotter.add_line
+                    ~Plotter.add_load_group
+                    ~Plotter.add_model
+                    ~Plotter.add_plot_object
+                    ~Plotter.add_point
+                    ~Plotter.add_vector
+                    ~Plotter.animate
+                    ~Plotter.auto_zoom
+                    ~Plotter.clear
+                    ~Plotter.evaluate_system
+                    ~Plotter.from_model
+                    ~Plotter.get_expressions_to_evaluate
+                    ~Plotter.get_plot_object
+                    ~Plotter.lambdify_system
+                    ~Plotter.plot
+                    ~Plotter.set_visibility
+                    ~Plotter.update
+        
+    

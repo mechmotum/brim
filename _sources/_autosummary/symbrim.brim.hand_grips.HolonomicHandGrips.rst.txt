@@ -1,0 +1,49 @@
+..
+  class.rst
+
+symbrim.brim.hand\_grips.HolonomicHandGrips
+===========================================
+
+.. currentmodule:: symbrim.brim.hand_grips
+
+.. autoclass:: HolonomicHandGrips
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~HolonomicHandGrips.auxiliary_handler
+                    ~HolonomicHandGrips.descriptions
+                    ~HolonomicHandGrips.front_frame
+                    ~HolonomicHandGrips.left_arm
+                    ~HolonomicHandGrips.load_groups
+                    ~HolonomicHandGrips.name
+                    ~HolonomicHandGrips.required_models
+                    ~HolonomicHandGrips.right_arm
+                    ~HolonomicHandGrips.submodels
+                    ~HolonomicHandGrips.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~HolonomicHandGrips.__init__
+                    ~HolonomicHandGrips.add_load_groups
+                    ~HolonomicHandGrips.define_constraints
+                    ~HolonomicHandGrips.define_kinematics
+                    ~HolonomicHandGrips.define_loads
+                    ~HolonomicHandGrips.define_objects
+                    ~HolonomicHandGrips.get_all_symbols
+                    ~HolonomicHandGrips.get_description
+                    ~HolonomicHandGrips.get_param_values
+                    ~HolonomicHandGrips.set_plot_objects
+        
+    

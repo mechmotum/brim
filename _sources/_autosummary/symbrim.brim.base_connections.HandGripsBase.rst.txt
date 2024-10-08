@@ -1,0 +1,49 @@
+..
+  class.rst
+
+symbrim.brim.base\_connections.HandGripsBase
+============================================
+
+.. currentmodule:: symbrim.brim.base_connections
+
+.. autoclass:: HandGripsBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~HandGripsBase.auxiliary_handler
+                    ~HandGripsBase.descriptions
+                    ~HandGripsBase.front_frame
+                    ~HandGripsBase.left_arm
+                    ~HandGripsBase.load_groups
+                    ~HandGripsBase.name
+                    ~HandGripsBase.required_models
+                    ~HandGripsBase.right_arm
+                    ~HandGripsBase.submodels
+                    ~HandGripsBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~HandGripsBase.__init__
+                    ~HandGripsBase.add_load_groups
+                    ~HandGripsBase.define_constraints
+                    ~HandGripsBase.define_kinematics
+                    ~HandGripsBase.define_loads
+                    ~HandGripsBase.define_objects
+                    ~HandGripsBase.get_all_symbols
+                    ~HandGripsBase.get_description
+                    ~HandGripsBase.get_param_values
+                    ~HandGripsBase.set_plot_objects
+        
+    

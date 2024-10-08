@@ -1,0 +1,58 @@
+..
+  class.rst
+
+symbrim.bicycle.cranks.CranksBase
+=================================
+
+.. currentmodule:: symbrim.bicycle.cranks
+
+.. autoclass:: CranksBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~CranksBase.auxiliary_handler
+                    ~CranksBase.center_point
+                    ~CranksBase.connections
+                    ~CranksBase.convention
+                    ~CranksBase.descriptions
+                    ~CranksBase.frame
+                    ~CranksBase.left_pedal_point
+                    ~CranksBase.load_groups
+                    ~CranksBase.name
+                    ~CranksBase.required_connections
+                    ~CranksBase.required_models
+                    ~CranksBase.right_pedal_point
+                    ~CranksBase.rotation_axis
+                    ~CranksBase.submodels
+                    ~CranksBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~CranksBase.__init__
+                    ~CranksBase.add_load_groups
+                    ~CranksBase.define_all
+                    ~CranksBase.define_connections
+                    ~CranksBase.define_constraints
+                    ~CranksBase.define_kinematics
+                    ~CranksBase.define_loads
+                    ~CranksBase.define_objects
+                    ~CranksBase.from_convention
+                    ~CranksBase.get_all_symbols
+                    ~CranksBase.get_description
+                    ~CranksBase.get_param_values
+                    ~CranksBase.set_plot_objects
+                    ~CranksBase.to_system
+        
+    

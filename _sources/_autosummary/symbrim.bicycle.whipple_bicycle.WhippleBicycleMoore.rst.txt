@@ -1,0 +1,61 @@
+..
+  class.rst
+
+symbrim.bicycle.whipple\_bicycle.WhippleBicycleMoore
+====================================================
+
+.. currentmodule:: symbrim.bicycle.whipple_bicycle
+
+.. autoclass:: WhippleBicycleMoore
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~WhippleBicycleMoore.auxiliary_handler
+                    ~WhippleBicycleMoore.connections
+                    ~WhippleBicycleMoore.convention
+                    ~WhippleBicycleMoore.cranks
+                    ~WhippleBicycleMoore.descriptions
+                    ~WhippleBicycleMoore.front_frame
+                    ~WhippleBicycleMoore.front_tire
+                    ~WhippleBicycleMoore.front_wheel
+                    ~WhippleBicycleMoore.ground
+                    ~WhippleBicycleMoore.load_groups
+                    ~WhippleBicycleMoore.name
+                    ~WhippleBicycleMoore.rear_frame
+                    ~WhippleBicycleMoore.rear_tire
+                    ~WhippleBicycleMoore.rear_wheel
+                    ~WhippleBicycleMoore.required_connections
+                    ~WhippleBicycleMoore.required_models
+                    ~WhippleBicycleMoore.submodels
+                    ~WhippleBicycleMoore.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~WhippleBicycleMoore.__init__
+                    ~WhippleBicycleMoore.add_load_groups
+                    ~WhippleBicycleMoore.define_all
+                    ~WhippleBicycleMoore.define_connections
+                    ~WhippleBicycleMoore.define_constraints
+                    ~WhippleBicycleMoore.define_kinematics
+                    ~WhippleBicycleMoore.define_loads
+                    ~WhippleBicycleMoore.define_objects
+                    ~WhippleBicycleMoore.from_convention
+                    ~WhippleBicycleMoore.get_all_symbols
+                    ~WhippleBicycleMoore.get_description
+                    ~WhippleBicycleMoore.get_param_values
+                    ~WhippleBicycleMoore.set_plot_objects
+                    ~WhippleBicycleMoore.to_system
+        
+    

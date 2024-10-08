@@ -1,0 +1,43 @@
+﻿..
+  module.rst
+
+symbrim.bicycle
+===============
+
+.. automodule:: symbrim.bicycle
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                bicycle_base
+                cranks
+                front_frames
+                grounds
+                rear_frames
+                stationary_bicycle
+                tires
+                wheels
+                whipple_bicycle
+    

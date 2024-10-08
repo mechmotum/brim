@@ -1,0 +1,42 @@
+..
+  module.rst
+
+symbrim.rider.arms
+==================
+
+.. automodule:: symbrim.rider.arms
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    ArmBase
+                    LeftArmBase
+                    PinElbowSpringDamper
+                    PinElbowStickArmMixin
+                    PinElbowStickLeftArm
+                    PinElbowStickRightArm
+                    PinElbowTorque
+                    RightArmBase
+        
+    
+
+    
+        
+    
+
+
+    

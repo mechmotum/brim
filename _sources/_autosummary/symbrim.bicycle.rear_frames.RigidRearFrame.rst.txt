@@ -1,0 +1,58 @@
+..
+  class.rst
+
+symbrim.bicycle.rear\_frames.RigidRearFrame
+===========================================
+
+.. currentmodule:: symbrim.bicycle.rear_frames
+
+.. autoclass:: RigidRearFrame
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~RigidRearFrame.auxiliary_handler
+                    ~RigidRearFrame.body
+                    ~RigidRearFrame.bottom_bracket
+                    ~RigidRearFrame.connections
+                    ~RigidRearFrame.convention
+                    ~RigidRearFrame.descriptions
+                    ~RigidRearFrame.load_groups
+                    ~RigidRearFrame.name
+                    ~RigidRearFrame.required_connections
+                    ~RigidRearFrame.required_models
+                    ~RigidRearFrame.saddle
+                    ~RigidRearFrame.steer_hub
+                    ~RigidRearFrame.submodels
+                    ~RigidRearFrame.system
+                    ~RigidRearFrame.wheel_hub
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~RigidRearFrame.__init__
+                    ~RigidRearFrame.add_load_groups
+                    ~RigidRearFrame.define_all
+                    ~RigidRearFrame.define_connections
+                    ~RigidRearFrame.define_constraints
+                    ~RigidRearFrame.define_kinematics
+                    ~RigidRearFrame.define_loads
+                    ~RigidRearFrame.define_objects
+                    ~RigidRearFrame.from_convention
+                    ~RigidRearFrame.get_all_symbols
+                    ~RigidRearFrame.get_description
+                    ~RigidRearFrame.get_param_values
+                    ~RigidRearFrame.set_plot_objects
+                    ~RigidRearFrame.to_system
+        
+    

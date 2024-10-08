@@ -1,0 +1,36 @@
+..
+  module.rst
+
+symbrim.brim.hand\_grips
+========================
+
+.. automodule:: symbrim.brim.hand_grips
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    HolonomicHandGrips
+                    SpringDamperHandGrips
+        
+    
+
+    
+        
+    
+
+
+    

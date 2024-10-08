@@ -1,0 +1,35 @@
+..
+  module.rst
+
+symbrim.utilities.benchmarking
+==============================
+
+.. automodule:: symbrim.utilities.benchmarking
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Functions
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/base.rst
+                
+                    benchmark
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    

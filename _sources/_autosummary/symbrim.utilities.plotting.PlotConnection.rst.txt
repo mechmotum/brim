@@ -1,0 +1,56 @@
+..
+  class.rst
+
+symbrim.utilities.plotting.PlotConnection
+=========================================
+
+.. currentmodule:: symbrim.utilities.plotting
+
+.. autoclass:: PlotConnection
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PlotConnection.annot_coords
+                    ~PlotConnection.artists
+                    ~PlotConnection.children
+                    ~PlotConnection.connection
+                    ~PlotConnection.inertial_frame
+                    ~PlotConnection.load_groups
+                    ~PlotConnection.name
+                    ~PlotConnection.plot_objects
+                    ~PlotConnection.submodels
+                    ~PlotConnection.sympy_object
+                    ~PlotConnection.values
+                    ~PlotConnection.visible
+                    ~PlotConnection.zero_point
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PlotConnection.__init__
+                    ~PlotConnection.add_artist
+                    ~PlotConnection.add_body
+                    ~PlotConnection.add_frame
+                    ~PlotConnection.add_line
+                    ~PlotConnection.add_plot_object
+                    ~PlotConnection.add_point
+                    ~PlotConnection.add_vector
+                    ~PlotConnection.contains
+                    ~PlotConnection.get_expressions_to_evaluate
+                    ~PlotConnection.get_plot_object
+                    ~PlotConnection.get_sympy_object_exprs
+                    ~PlotConnection.plot
+                    ~PlotConnection.update
+        
+    

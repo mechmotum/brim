@@ -1,0 +1,59 @@
+..
+  class.rst
+
+symbrim.rider.legs.LegBase
+==========================
+
+.. currentmodule:: symbrim.rider.legs
+
+.. autoclass:: LegBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~LegBase.auxiliary_handler
+                    ~LegBase.connections
+                    ~LegBase.convention
+                    ~LegBase.descriptions
+                    ~LegBase.foot
+                    ~LegBase.foot_interframe
+                    ~LegBase.foot_interpoint
+                    ~LegBase.hip
+                    ~LegBase.hip_interframe
+                    ~LegBase.hip_interpoint
+                    ~LegBase.load_groups
+                    ~LegBase.name
+                    ~LegBase.required_connections
+                    ~LegBase.required_models
+                    ~LegBase.submodels
+                    ~LegBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~LegBase.__init__
+                    ~LegBase.add_load_groups
+                    ~LegBase.define_all
+                    ~LegBase.define_connections
+                    ~LegBase.define_constraints
+                    ~LegBase.define_kinematics
+                    ~LegBase.define_loads
+                    ~LegBase.define_objects
+                    ~LegBase.from_convention
+                    ~LegBase.get_all_symbols
+                    ~LegBase.get_description
+                    ~LegBase.get_param_values
+                    ~LegBase.set_plot_objects
+                    ~LegBase.to_system
+        
+    
