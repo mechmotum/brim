@@ -37,10 +37,6 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "tutorials/exercises/*.i
 napoleon_numpy_docstring = True
 napoleon_custom_sections = [("Explanation", "notes_style")]
 
-# Nitpicky mode to find broken references
-nitpicky = True
-nitpick_ignore = []
-
 intersphinx_mapping = {
     "sympy": ("https://docs.sympy.org/dev/", None),
     "numpy": ("https://numpy.org/doc/stable/", None),
