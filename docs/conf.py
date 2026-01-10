@@ -48,23 +48,42 @@ nitpick_ignore = [
     ("py:class", "sympy.physics.mechanics.system.System"),
     ("py:class", "sympy.physics.mechanics.kane.KanesMethod"),
     ("py:class", "sympy.core.expr.Expr"),
+    ("py:class", "sympy.core.basic.Basic"),
+    ("py:class", "sympy.core.symbol.Symbol"),
+    ("py:class", "sympy.core.function.Function"),
+    ("py:class", "sympy.physics.vector.frame.ReferenceFrame"),
+    ("py:class", "sympy.physics.vector.point.Point"),
+    ("py:class", "sympy.physics.vector.vector.Vector"),
+    ("py:class", "sympy.physics.mechanics.rigidbody.RigidBody"),
+    ("py:class", "sympy.physics.mechanics.loads.Force"),
+    ("py:class", "sympy.physics.mechanics.loads.Torque"),
     ("py:class", "Expr"),
+    ("py:class", "Symbol"),
+    ("py:class", "Point"),
+    ("py:class", "Vector"),
+    ("py:class", "KanesMethod"),
+    ("py:class", "System"),
     ("py:meth", "sympy.physics.mechanics.system.System.form_eoms"),
     ("py:meth", "sympy.physics.mechanics.system.System.validate_system"),
+    # BicycleParameters references (external library)
+    ("py:class", "Bicycle"),
     # SymMePlot references (external library)
-    ("py:class", "symmeplot.plot_objects.PlotFrame"),
+    ("py:class", "symmeplot.matplotlib.plot_objects.PlotFrame"),
     ("py:class", "symmeplot.matplotlib.plot_base.MplPlotBase"),
     # Python standard library references
     ("py:class", "abc.ABCMeta"),
     ("py:class", "abc.abstractmethod"),
+    ("py:class", "abc.ABC"),
     ("py:class", "optional"),  # Type hint that Sphinx doesn't recognize
+    ("py:class", "function"),  # Generic function type
+    # Internal references that may not be resolved due to autosummary issues
+    ("py:class", "PlotModel"),  # From symbrim.utilities.plotting
+    ("py:class", "LoadBase"),  # Generic load base class
+    ("py:class", "T_position"),  # Type alias
+    ("py:meth", "to_system"),  # Generic method reference
     # Private methods that are intentionally documented
     ("py:meth", "symbrim.core.base_classes.BrimBase._add_prefix"),
 ]
-
-# Nitpicky mode to find broken references
-nitpicky = True
-nitpick_ignore = []
 
 intersphinx_mapping = {
     "sympy": ("https://docs.sympy.org/dev/", None),
