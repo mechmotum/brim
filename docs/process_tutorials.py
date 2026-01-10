@@ -136,13 +136,18 @@ def main() -> None:
     # Create a zip file with exercise notebooks.
     create_zip(required_files)
 
-    # Execute notebooks.
+    # Execute notebooks only if conda environment is available.
     notebooks = notebooks_to_execute()
     if notebooks:
-        command = get_command_environment()
-        install_local_brim_version(command)
-        for notebook in notebooks:
-            execute_notebook(notebook, command)
+        try:
+            command = get_command_environment()
+            install_local_brim_version(command)
+            for notebook in notebooks:
+                execute_notebook(notebook, command)
+        except RuntimeError as e:
+            # Skip notebook execution if conda environment is not available
+            print(f"Skipping notebook execution: {e}")
+            pass
 
 
 def create_zip(required_files: dict[str, str]) -> None:
