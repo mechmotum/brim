@@ -37,6 +37,31 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "tutorials/exercises/*.i
 napoleon_numpy_docstring = True
 napoleon_custom_sections = [("Explanation", "notes_style")]
 
+# Enable nitpicky mode to find broken references
+nitpicky = True
+
+# Ignore external references that cannot be resolved without intersphinx
+nitpick_ignore = [
+    # SymPy references (external library)
+    ("py:mod", "sympy"),
+    ("py:mod", "sympy.physics.mechanics"),
+    ("py:class", "sympy.physics.mechanics.system.System"),
+    ("py:class", "sympy.physics.mechanics.kane.KanesMethod"),
+    ("py:class", "sympy.core.expr.Expr"),
+    ("py:class", "Expr"),
+    ("py:meth", "sympy.physics.mechanics.system.System.form_eoms"),
+    ("py:meth", "sympy.physics.mechanics.system.System.validate_system"),
+    # SymMePlot references (external library)
+    ("py:class", "symmeplot.plot_objects.PlotFrame"),
+    ("py:class", "symmeplot.matplotlib.plot_base.MplPlotBase"),
+    # Python standard library references
+    ("py:class", "abc.ABCMeta"),
+    ("py:class", "abc.abstractmethod"),
+    ("py:class", "optional"),  # Type hint that Sphinx doesn't recognize
+    # Private methods that are intentionally documented
+    ("py:meth", "symbrim.core.base_classes.BrimBase._add_prefix"),
+]
+
 # Nitpicky mode to find broken references
 nitpicky = True
 nitpick_ignore = []
@@ -50,8 +75,12 @@ intersphinx_mapping = {
 
 bibtex_bibfiles = ["references.bib"]
 
+# Allow errors in notebooks (some tutorials require scipy which may not be installed)
+nbsphinx_allow_errors = True
+
 # Run process_tutorials.py to convert notebooks to create a zip file with exercises.
-# process_tutorials()  # Temporarily disabled for linkcheck
+# Note: Disabled during build as it requires conda environment
+# process_tutorials()
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

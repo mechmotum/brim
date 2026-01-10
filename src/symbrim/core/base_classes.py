@@ -81,7 +81,7 @@ def _create_connection_property(requirement: ConnectionRequirement) -> property:
 
 
 class ModelMeta(ABCMeta):
-    """Metaclass for the :class:`symbrim.core.model_base.ModelBase`."""
+    """Metaclass for the :class:`symbrim.core.base_classes.ModelBase`."""
 
     def __new__(mcs, name, bases, namespace, **kwargs):  # noqa: ANN001, ANN003, ANN204, N804
         """Create a new class."""
@@ -101,7 +101,7 @@ class ModelMeta(ABCMeta):
 
 
 class ConnectionMeta(ABCMeta):
-    """Metaclass for the :class:`symbrim.core.model_base.ConnectionBase`."""
+    """Metaclass for the :class:`symbrim.core.base_classes.ConnectionBase`."""
 
     def __new__(mcs, name, bases, namespace, **kwargs):  # noqa: ANN001, ANN003, ANN204, N804
         """Create a new class."""
@@ -116,7 +116,7 @@ class ConnectionMeta(ABCMeta):
 
 
 class LoadGroupMeta(ABCMeta):
-    """Metaclass for the :class:`symbrim.core.model_base.LoadGroupBase`."""
+    """Metaclass for the :class:`symbrim.core.base_classes.LoadGroupBase`."""
 
     def __new__(mcs, name, bases, namespace, **kwargs):  # noqa: ANN001, ANN003, ANN204, N804
         """Create a new class."""
