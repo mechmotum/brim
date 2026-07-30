@@ -23,8 +23,6 @@ except ImportError:  # pragma: no cover
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from sympy.physics.mechanics.body_base import BodyBase
-
     from symbrim.core.requirement import (
         ConnectionRequirement,
         ModelRequirement,
@@ -214,25 +212,7 @@ class BrimBase:
         # Get local symbols.
         for sym in self.symbols.values():
             syms.update(_get_symbols_from_exprs(sym))
-        if hasattr(self, "bodies"):
-            for body in self.bodies:
-                syms.update(_get_symbols_from_exprs(body.mass))
-                central_inertia = getattr(body, "central_inertia", None)
-                if central_inertia is not None:
-                    syms.update(
-                        _get_symbols_from_exprs(*central_inertia.to_matrix(body.frame))
-                    )
         syms.discard(dynamicsymbols._t)
-        # Traverse children.
-        if hasattr(self, "submodels"):
-            for submodel in self.submodels:
-                syms.update(submodel.get_all_symbols())
-        if hasattr(self, "connections"):
-            for conn in self.connections:
-                syms.update(conn.get_all_symbols())
-        if hasattr(self, "load_groups"):
-            for load_group in self.load_groups:
-                syms.update(load_group.get_all_symbols())
         return syms
 
     @property
@@ -312,7 +292,6 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
         super().__init__(name)
         self.is_root: bool | None = None  # None means that it is not defined.
         self._load_groups = []
-        self._bodies = set()
         for req in self.required_models:
             setattr(self, f"_{req.attribute_name}", None)
         for req in self.required_connections:
@@ -338,15 +317,6 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
     def load_groups(self) -> tuple[LoadGroupBase]:
         """Load groups of the connection."""
         return tuple(self._load_groups)
-
-    @property
-    def bodies(self) -> tuple[BodyBase]:
-        """Bodies defined by the model."""
-        return tuple(sorted(self._bodies, key=lambda body: body.name))
-
-    def add_bodies(self, *bodies: BodyBase) -> None:
-        """Add bodies to the model."""
-        self._bodies.update(bodies)
 
     def add_load_groups(self, *load_groups: LoadGroupBase) -> None:
         """Add load groups to the connection."""
@@ -408,6 +378,25 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
         if detailed:
             return unspecified
         return tuple(req.attribute_name for req in unspecified)
+
+    def get_all_symbols(self) -> set[Basic]:
+        """Get all declared symbols of a model."""
+        syms = super().get_all_symbols()
+        for submodel in self.submodels:
+            syms.update(submodel.get_all_symbols())
+        for conn in self.connections:
+            syms.update(conn.get_all_symbols())
+        for load_group in self.load_groups:
+            syms.update(load_group.get_all_symbols())
+        for body in self.system.bodies:
+            syms.update(_get_symbols_from_exprs(body.mass))
+            central_inertia = getattr(body, "central_inertia", None)
+            if central_inertia is not None:
+                syms.update(
+                    _get_symbols_from_exprs(*central_inertia.to_matrix(body.frame))
+                )
+        syms.discard(dynamicsymbols._t)
+        return syms
 
     def _set_auxiliary_handler(self, auxiliary_handler: AuxiliaryDataHandler) -> None:
         """Set the auxiliary data handler of the model."""
@@ -530,6 +519,14 @@ class ConnectionBase(BrimBase, metaclass=ConnectionMeta):
     def load_groups(self) -> tuple[LoadGroupBase]:
         """Load groups of the connection."""
         return tuple(self._load_groups)
+
+    def get_all_symbols(self) -> set[Basic]:
+        """Get all declared symbols of a model."""
+        syms = super().get_all_symbols()
+        for load_group in self.load_groups:
+            syms.update(load_group.get_all_symbols())
+        syms.discard(dynamicsymbols._t)
+        return syms
 
     def add_load_groups(self, *load_groups: LoadGroupBase) -> None:
         """Add load groups to the connection."""

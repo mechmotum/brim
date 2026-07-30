@@ -19,7 +19,6 @@ class NewtonianBodyMixin:
         super()._define_objects()
         body = RigidBody(self.name)
         self._system = System.from_newtonian(body)
-        self.add_bodies(body)
 
     @property
     def descriptions(self) -> dict[object, str]:

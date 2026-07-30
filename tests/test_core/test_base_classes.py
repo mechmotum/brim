@@ -160,14 +160,11 @@ class TestModelBase:
             self.disc.tire.symbols["my_sym2"], self.load_group.symbols["T"],
             *wheel_body_symbols,
         }
-        assert self.disc.wheel.bodies == (self.disc.wheel.body,)
         assert self.disc.wheel.get_all_symbols() == {
             self.disc.wheel.symbols["r"], self.load_group.symbols["T"],
             *wheel_body_symbols}
         assert self.disc.tire.get_all_symbols() == {
-            self.disc.wheel.symbols["r"], self.disc.tire.symbols["my_sym1"],
-            self.disc.tire.symbols["my_sym2"], self.load_group.symbols["T"],
-            *wheel_body_symbols}
+            self.disc.tire.symbols["my_sym1"], self.disc.tire.symbols["my_sym2"]}
         assert self.disc.wheel.load_groups[0].get_all_symbols() == {
             self.load_group.symbols["T"]}
 
@@ -206,7 +203,6 @@ class TestModelBase:
             def _define_objects(self) -> None:
                 super()._define_objects()
                 self._body = Particle("particle", Point("P"))
-                self.add_bodies(self._body)
                 self.symbols["m"] = Symbol(self._add_prefix("m"))
                 self.body.mass = self.symbols["m"]
                 self._system = System(ReferenceFrame("N"), Point("O"))

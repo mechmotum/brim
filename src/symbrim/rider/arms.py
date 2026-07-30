@@ -120,8 +120,8 @@ class PinElbowStickArmMixin:
         self.u = Matrix([dynamicsymbols(self._add_prefix("u_elbow_flexion"))])
         self._upper_arm = RigidBody(self._add_prefix("upper_arm"))
         self._forearm = RigidBody(self._add_prefix("forearm"))
-        self.add_bodies(self._upper_arm, self._forearm)
         self._system = System.from_newtonian(self.upper_arm)
+        self._system.add_bodies(self._forearm)
 
     def _define_kinematics(self) -> None:
         """Define the kinematics."""
