@@ -206,7 +206,7 @@ class TestModelBase:
             def _define_objects(self) -> None:
                 super()._define_objects()
                 self._body = Particle("particle", Point("P"))
-                self._bodies.append(self._body)
+                self.add_bodies(self._body)
                 self.symbols["m"] = Symbol(self._add_prefix("m"))
                 self.body.mass = self.symbols["m"]
                 self._system = System(ReferenceFrame("N"), Point("O"))

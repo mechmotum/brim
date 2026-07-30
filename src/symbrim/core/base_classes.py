@@ -312,7 +312,7 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
         super().__init__(name)
         self.is_root: bool | None = None  # None means that it is not defined.
         self._load_groups = []
-        self._bodies = []
+        self._bodies = set()
         for req in self.required_models:
             setattr(self, f"_{req.attribute_name}", None)
         for req in self.required_connections:
@@ -342,11 +342,11 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
     @property
     def bodies(self) -> tuple[BodyBase]:
         """Bodies defined by the model."""
-        return tuple(self._bodies)
+        return tuple(sorted(self._bodies, key=lambda body: body.name))
 
     def add_bodies(self, *bodies: BodyBase) -> None:
         """Add bodies to the model."""
-        self._bodies.extend(bodies)
+        self._bodies.update(bodies)
 
     def add_load_groups(self, *load_groups: LoadGroupBase) -> None:
         """Add load groups to the connection."""
