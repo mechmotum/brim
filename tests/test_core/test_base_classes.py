@@ -2,7 +2,14 @@ from __future__ import annotations
 
 import pytest
 from sympy import S, Symbol
-from sympy.physics.mechanics import System, Torque, dynamicsymbols
+from sympy.physics.mechanics import (
+    Particle,
+    Point,
+    ReferenceFrame,
+    System,
+    Torque,
+    dynamicsymbols,
+)
 
 from symbrim.bicycle import FlatGround, KnifeEdgeWheel, NonHolonomicTire, WhippleBicycle
 from symbrim.core import (
@@ -138,15 +145,29 @@ class TestModelBase:
     @pytest.mark.usefixtures("_create_model")
     def test_traversal_get_all_symbols(self) -> None:
         self.disc.define_all()
+        wheel_body_symbols = {
+            self.disc.wheel.body.mass,
+            *{
+                symbol
+                for entry in self.disc.wheel.body.central_inertia.to_matrix(
+                    self.disc.wheel.body.frame
+                )
+                for symbol in entry.free_symbols
+            },
+        }
         assert self.disc.get_all_symbols() == {
             self.disc.wheel.symbols["r"], self.disc.tire.symbols["my_sym1"],
-            self.disc.tire.symbols["my_sym2"], self.load_group.symbols["T"]
+            self.disc.tire.symbols["my_sym2"], self.load_group.symbols["T"],
+            *wheel_body_symbols,
         }
+        assert self.disc.wheel.bodies == (self.disc.wheel.body,)
         assert self.disc.wheel.get_all_symbols() == {
-            self.disc.wheel.symbols["r"], self.load_group.symbols["T"]}
+            self.disc.wheel.symbols["r"], self.load_group.symbols["T"],
+            *wheel_body_symbols}
         assert self.disc.tire.get_all_symbols() == {
             self.disc.wheel.symbols["r"], self.disc.tire.symbols["my_sym1"],
-            self.disc.tire.symbols["my_sym2"], self.load_group.symbols["T"]}
+            self.disc.tire.symbols["my_sym2"], self.load_group.symbols["T"],
+            *wheel_body_symbols}
         assert self.disc.wheel.load_groups[0].get_all_symbols() == {
             self.load_group.symbols["T"]}
 
@@ -166,9 +187,38 @@ class TestModelBase:
         self.disc.define_connections()
         self.disc.define_objects()
         self.disc.wheel.symbols["r"] = sym
+        wheel_body_symbols = {
+            self.disc.wheel.body.mass,
+            *{
+                symbol
+                for entry in self.disc.wheel.body.central_inertia.to_matrix(
+                    self.disc.wheel.body.frame
+                )
+                for symbol in entry.free_symbols
+            },
+        }
         assert self.disc.get_all_symbols() == {
             self.disc.tire.symbols["my_sym1"], self.disc.tire.symbols["my_sym2"],
-            self.load_group.symbols["T"], *expected}
+            self.load_group.symbols["T"], *wheel_body_symbols, *expected}
+
+    def test_particle_body_get_all_symbols(self) -> None:
+        class ParticleModel(ModelBase):
+            def _define_objects(self) -> None:
+                super()._define_objects()
+                self._body = Particle("particle", Point("P"))
+                self._bodies.append(self._body)
+                self.symbols["m"] = Symbol(self._add_prefix("m"))
+                self.body.mass = self.symbols["m"]
+                self._system = System(ReferenceFrame("N"), Point("O"))
+                self._system.add_bodies(self.body)
+
+            @property
+            def body(self) -> Particle:
+                return self._body
+
+        model = ParticleModel("particle_model")
+        model.define_objects()
+        assert model.get_all_symbols() == {model.symbols["m"]}
 
     @pytest.mark.usefixtures("_create_model")
     def test_call_system(self) -> None:

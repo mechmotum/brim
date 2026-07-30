@@ -88,6 +88,7 @@ class RigidFrontFrame(FrontFrameBase):
         """Define the objects of the front frame."""
         super()._define_objects()
         self._body = RigidBody(self._add_prefix("body"))
+        self.add_bodies(self._body)
         self.body.central_inertia = inertia(self.body.frame,
                                             *symbols(self._add_prefix("ixx iyy izz")),
                                             izx=Symbol(self._add_prefix("izx")))

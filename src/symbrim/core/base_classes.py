@@ -23,6 +23,8 @@ except ImportError:  # pragma: no cover
 if TYPE_CHECKING:
     from collections.abc import Callable
 
+    from sympy.physics.mechanics.body_base import BodyBase
+
     from symbrim.core.requirement import (
         ConnectionRequirement,
         ModelRequirement,
@@ -31,6 +33,16 @@ if TYPE_CHECKING:
 
 __all__ = ["ConnectionBase", "ConnectionMeta", "LoadGroupBase", "LoadGroupMeta",
            "ModelBase", "ModelMeta", "set_default_convention"]
+
+def _get_symbols_from_exprs(*exprs: Basic) -> set[Basic]:
+    """Get all symbols from an expression."""
+    syms = set()
+    for expr in exprs:
+        if isinstance(expr, Basic):
+            syms.update(expr.free_symbols)
+            syms.update(find_dynamicsymbols(expr))
+    syms.discard(dynamicsymbols._t)
+    return syms
 
 
 def _get_requirements(bases, namespace, req_attr_name):  # noqa: ANN001, ANN202
@@ -201,12 +213,16 @@ class BrimBase:
         syms = set()
         # Get local symbols.
         for sym in self.symbols.values():
-            # Extract symbols if an expression is set as symbol.
-            if isinstance(sym, Basic):
-                syms.update(sym.free_symbols)
-                syms.update(find_dynamicsymbols(sym))
-        if dynamicsymbols._t in syms:  # Remove t.
-            syms.remove(dynamicsymbols._t)
+            syms.update(_get_symbols_from_exprs(sym))
+        if hasattr(self, "bodies"):
+            for body in self.bodies:
+                syms.update(_get_symbols_from_exprs(body.mass))
+                central_inertia = getattr(body, "central_inertia", None)
+                if central_inertia is not None:
+                    syms.update(
+                        _get_symbols_from_exprs(*central_inertia.to_matrix(body.frame))
+                    )
+        syms.discard(dynamicsymbols._t)
         # Traverse children.
         if hasattr(self, "submodels"):
             for submodel in self.submodels:
@@ -296,6 +312,7 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
         super().__init__(name)
         self.is_root: bool | None = None  # None means that it is not defined.
         self._load_groups = []
+        self._bodies = []
         for req in self.required_models:
             setattr(self, f"_{req.attribute_name}", None)
         for req in self.required_connections:
@@ -321,6 +338,15 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
     def load_groups(self) -> tuple[LoadGroupBase]:
         """Load groups of the connection."""
         return tuple(self._load_groups)
+
+    @property
+    def bodies(self) -> tuple[BodyBase]:
+        """Bodies defined by the model."""
+        return tuple(self._bodies)
+
+    def add_bodies(self, *bodies: BodyBase) -> None:
+        """Add bodies to the model."""
+        self._bodies.extend(bodies)
 
     def add_load_groups(self, *load_groups: LoadGroupBase) -> None:
         """Add load groups to the connection."""
