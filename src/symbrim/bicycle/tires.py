@@ -56,7 +56,7 @@ class TireBase(ConnectionBase):
     def _define_objects(self) -> None:
         """Define the objects of the tire model."""
         super()._define_objects()
-        self._system = System.from_newtonian(self.ground.body)
+        self._system = System(self.ground.frame, self.ground.origin)
         self._contact_point = Point(self._add_prefix("contact_point"))
         self._upward_radial_axis = None
         self._longitudinal_axis = None

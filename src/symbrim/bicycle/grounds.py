@@ -1,6 +1,7 @@
 """Module containing the models of the ground."""
 from __future__ import annotations
 
+import warnings
 from abc import abstractmethod
 from typing import TYPE_CHECKING
 
@@ -63,9 +64,11 @@ class GroundBase(ModelBase):
     def _define_objects(self) -> None:
         """Define the objects of the ground."""
         super()._define_objects()
-        self._body = RigidBody(self.name)
-        self._body.masscenter = Point(self._add_prefix("origin"))
-        self._system = System.from_newtonian(self.body)
+        self._system = System(
+            ReferenceFrame(self._add_prefix("frame")),
+            Point(self._add_prefix("origin")),
+        )
+        self._body = RigidBody(self.name, self.origin, self.frame)
 
     def _define_kinematics(self) -> None:
         """Define the kinematics of the ground."""
@@ -75,17 +78,23 @@ class GroundBase(ModelBase):
     @property
     def body(self) -> RigidBody:
         """The body representing the ground."""
+        warnings.warn(
+            "The 'body' property is deprecated and will be removed in a future version."
+            " Use 'system.frame' and 'system.fixed_point' instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
         return self._body
 
     @property
     def frame(self) -> ReferenceFrame:
         """Frame fixed to the ground."""
-        return self.body.frame
+        return self.system.frame
 
     @property
     def origin(self) -> Point:
         """Origin of the ground."""
-        return self.body.masscenter
+        return self.system.fixed_point
 
     @abstractmethod
     def get_normal(self, position: T_position) -> Vector:
