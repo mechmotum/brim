@@ -4,9 +4,9 @@ from __future__ import annotations
 import numpy as np
 from sympy import Basic, Derivative, Dummy, Expr, lambdify
 from sympy.core.random import random
-from sympy.physics.mechanics import find_dynamicsymbols, msubs
+from sympy.physics.mechanics import ReferenceFrame, Vector, find_dynamicsymbols, msubs
 
-__all__ = ["random_eval", "check_zero"]
+__all__ = ["random_eval", "check_zero", "express_basis_vector_towards"]
 
 
 def random_eval(expr: Expr, prec: int = 7, method: str = "lambdify") -> float:
@@ -64,3 +64,32 @@ def check_zero(expr: Expr, n_evaluations: int = 10, atol: float = 1e-8) -> bool:
     return np.allclose(
         np.fromfunction(lambda _: f(*rng.random(len(free))), (n_evaluations,)),
         np.zeros(n_evaluations), 0, atol)
+
+
+def express_basis_vector_towards(vector: Vector, frame: ReferenceFrame) -> Vector:
+    """Express a basis vector closer to the frame of interest.
+
+    This function can be used to simplify computations by expressing a basis vector
+    closer to the frame of interest, while keeping it a basis vector.
+
+    Parameters
+    ----------
+    vector : Vector
+        The basis vector to express in a different frame.
+    frame : ReferenceFrame
+        The frame towards which to express the basis vector.
+    """
+    if len(vector.args) != 1:
+        return vector  # Not a basis vector
+    flist = vector.args[0][1]._dict_list(frame, 0)
+    out = vector
+    for f in flist:
+        new_out = out.express(f)
+        n_zeros = 0
+        for elem in new_out.args[0][0]:
+            if elem == 0:
+                n_zeros += 1
+        if n_zeros < 2:
+            break   # Not a basis vector anymore, so stop expressing
+        out = new_out
+    return out
