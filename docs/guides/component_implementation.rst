@@ -65,7 +65,7 @@ the code of the bicycle model.
 In case of :class:`symbrim.bicycle.grounds.GroundBase` some of the commonly shared
 properties are defined in the base class, such as a rigid body to represent the ground.
 Apart from those it also prescribes several properties using :class:`abc.ABCMeta` and
-:class:`abc.abstractmethod`. An example is the
+:func:`abc.abstractmethod`. An example is the
 :meth:`symbrim.bicycle.grounds.GroundBase.get_normal` method. These kind of abstract
 methods have to be implemented by subclasses, such as
 :class:`symbrim.bicycle.grounds.FlatGround`.

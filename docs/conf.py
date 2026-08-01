@@ -42,23 +42,20 @@ nitpicky = True
 
 # Intersphinx configuration to resolve external references
 intersphinx_mapping = {
+    "bicycleparameters": ("https://bicycleparameters.readthedocs.io/stable/", None),
     "sympy": ("https://docs.sympy.org/dev/", None),
     "numpy": ("https://numpy.org/doc/stable/", None),
+    "matplotlib": ("https://matplotlib.org/stable/", None),
     "symmeplot": ("https://tjstienstra.github.io/symmeplot/", None),
     "py3": ("https://docs.python.org/3", None),
 }
 
-# Only ignore references that cannot be resolved by intersphinx
-# External library references (SymPy, NumPy, etc.) are resolved by intersphinx when available
+# Only ignore references that cannot be resolved by intersphinx.
+# External library references are resolved when inventories are available.
 nitpick_ignore = [
     # Type hints that Sphinx doesn't recognize
     ("py:class", "optional"),
     ("py:class", "function"),
-    # Internal references that may not be resolved due to autosummary issues
-    ("py:class", "PlotModel"),
-    ("py:class", "LoadBase"),
-    ("py:class", "T_position"),
-    ("py:meth", "to_system"),
     # Private methods that are intentionally documented
     ("py:meth", "symbrim.core.base_classes.BrimBase._add_prefix"),
 ]
