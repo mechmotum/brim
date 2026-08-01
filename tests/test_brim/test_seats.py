@@ -180,6 +180,7 @@ class TestSideLeanConnection:
         load_group = SideLeanSeatTorque("seat_torque")
         self.conn.add_load_groups(load_group)
         self.model.define_all()
+        assert load_group.symbols["T"] in self.conn.get_all_symbols()
         assert len(load_group.system.actuators) == 1
         torque = load_group.symbols["T"]
         loads = load_group.system.actuators[0].to_loads()
