@@ -35,6 +35,11 @@ or functions can be ignored using ``# pragma: no cover``. To run the tests use: 
 
     pytest .
 
+With ``pytest-xdist`` you can run tests in parallel to save time.
+To run the tests across all available CPU cores use: ::
+
+    pytest -n auto
+
 Some tests are marked as slow (e.g., tests that form equations of motion). These tests
 are **skipped by default** for faster test runs. To run all tests including slow tests: ::
 
