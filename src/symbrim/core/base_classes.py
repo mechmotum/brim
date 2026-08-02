@@ -207,12 +207,11 @@ class BrimBase:
         return None
 
     def get_all_symbols(self) -> set[Basic]:
-        """Get all declared symbols of a model."""
+        """Get all declared non-state symbols the object."""
         syms = set()
         # Get local symbols.
         for sym in self.symbols.values():
             syms.update(_get_symbols_from_exprs(sym))
-        syms.discard(dynamicsymbols._t)
         return syms
 
     @property
@@ -380,7 +379,14 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
         return tuple(req.attribute_name for req in unspecified)
 
     def get_all_symbols(self) -> set[Basic]:
-        """Get all declared symbols of a model."""
+        """Get all declared non-state symbols of a model.
+
+        This method returns all symbols that are declared in the model, including those
+        from submodels, connections, load groups, and bodies in the system. This
+        includes This includes by example lengths, masses, inertias, and time-varying
+        loads, but excludes generalized coordinates, generalized speeds, auxiliary
+        speeds, and the time symbol.
+        """
         syms = super().get_all_symbols()
         for submodel in self.submodels:
             syms.update(submodel.get_all_symbols())
@@ -395,7 +401,6 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
                 syms.update(
                     _get_symbols_from_exprs(*central_inertia.to_matrix(body.frame))
                 )
-        syms.discard(dynamicsymbols._t)
         return syms
 
     def _set_auxiliary_handler(self, auxiliary_handler: AuxiliaryDataHandler) -> None:
@@ -521,11 +526,14 @@ class ConnectionBase(BrimBase, metaclass=ConnectionMeta):
         return tuple(self._load_groups)
 
     def get_all_symbols(self) -> set[Basic]:
-        """Get all declared symbols of a model."""
+        """Get all declared symbols of a connection.
+
+        This method returns all symbols that are declared in the connection, including
+        those from the load groups, but excluding those from the submodels.
+        """
         syms = super().get_all_symbols()
         for load_group in self.load_groups:
             syms.update(load_group.get_all_symbols())
-        syms.discard(dynamicsymbols._t)
         return syms
 
     def add_load_groups(self, *load_groups: LoadGroupBase) -> None:
