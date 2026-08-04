@@ -1,0 +1,37 @@
+..
+  module.rst
+
+symbrim.bicycle.tires
+=====================
+
+.. automodule:: symbrim.bicycle.tires
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    InContactTire
+                    NonHolonomicTire
+                    TireBase
+        
+    
+
+    
+        
+    
+
+
+    

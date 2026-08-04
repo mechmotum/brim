@@ -1,0 +1,44 @@
+..
+  class.rst
+
+symbrim.rider.arms.PinElbowSpringDamper
+=======================================
+
+.. currentmodule:: symbrim.rider.arms
+
+.. autoclass:: PinElbowSpringDamper
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PinElbowSpringDamper.auxiliary_handler
+                    ~PinElbowSpringDamper.descriptions
+                    ~PinElbowSpringDamper.name
+                    ~PinElbowSpringDamper.parent
+                    ~PinElbowSpringDamper.required_parent_type
+                    ~PinElbowSpringDamper.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PinElbowSpringDamper.__init__
+                    ~PinElbowSpringDamper.define_constraints
+                    ~PinElbowSpringDamper.define_kinematics
+                    ~PinElbowSpringDamper.define_loads
+                    ~PinElbowSpringDamper.define_objects
+                    ~PinElbowSpringDamper.get_all_symbols
+                    ~PinElbowSpringDamper.get_description
+                    ~PinElbowSpringDamper.get_param_values
+                    ~PinElbowSpringDamper.set_plot_objects
+        
+    

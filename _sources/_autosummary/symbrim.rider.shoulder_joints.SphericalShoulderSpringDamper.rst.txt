@@ -1,0 +1,44 @@
+..
+  class.rst
+
+symbrim.rider.shoulder\_joints.SphericalShoulderSpringDamper
+============================================================
+
+.. currentmodule:: symbrim.rider.shoulder_joints
+
+.. autoclass:: SphericalShoulderSpringDamper
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SphericalShoulderSpringDamper.auxiliary_handler
+                    ~SphericalShoulderSpringDamper.descriptions
+                    ~SphericalShoulderSpringDamper.name
+                    ~SphericalShoulderSpringDamper.parent
+                    ~SphericalShoulderSpringDamper.required_parent_type
+                    ~SphericalShoulderSpringDamper.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SphericalShoulderSpringDamper.__init__
+                    ~SphericalShoulderSpringDamper.define_constraints
+                    ~SphericalShoulderSpringDamper.define_kinematics
+                    ~SphericalShoulderSpringDamper.define_loads
+                    ~SphericalShoulderSpringDamper.define_objects
+                    ~SphericalShoulderSpringDamper.get_all_symbols
+                    ~SphericalShoulderSpringDamper.get_description
+                    ~SphericalShoulderSpringDamper.get_param_values
+                    ~SphericalShoulderSpringDamper.set_plot_objects
+        
+    

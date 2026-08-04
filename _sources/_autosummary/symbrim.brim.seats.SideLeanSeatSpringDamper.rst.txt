@@ -1,0 +1,43 @@
+..
+  class.rst
+
+symbrim.brim.seats.SideLeanSeatSpringDamper
+===========================================
+
+.. currentmodule:: symbrim.brim.seats
+
+.. autoclass:: SideLeanSeatSpringDamper
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SideLeanSeatSpringDamper.auxiliary_handler
+                    ~SideLeanSeatSpringDamper.descriptions
+                    ~SideLeanSeatSpringDamper.name
+                    ~SideLeanSeatSpringDamper.parent
+                    ~SideLeanSeatSpringDamper.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SideLeanSeatSpringDamper.__init__
+                    ~SideLeanSeatSpringDamper.define_constraints
+                    ~SideLeanSeatSpringDamper.define_kinematics
+                    ~SideLeanSeatSpringDamper.define_loads
+                    ~SideLeanSeatSpringDamper.define_objects
+                    ~SideLeanSeatSpringDamper.get_all_symbols
+                    ~SideLeanSeatSpringDamper.get_description
+                    ~SideLeanSeatSpringDamper.get_param_values
+                    ~SideLeanSeatSpringDamper.set_plot_objects
+        
+    

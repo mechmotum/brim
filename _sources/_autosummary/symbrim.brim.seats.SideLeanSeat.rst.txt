@@ -1,0 +1,51 @@
+..
+  class.rst
+
+symbrim.brim.seats.SideLeanSeat
+===============================
+
+.. currentmodule:: symbrim.brim.seats
+
+.. autoclass:: SideLeanSeat
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SideLeanSeat.auxiliary_handler
+                    ~SideLeanSeat.descriptions
+                    ~SideLeanSeat.frame_lean_axis
+                    ~SideLeanSeat.load_groups
+                    ~SideLeanSeat.name
+                    ~SideLeanSeat.pelvis
+                    ~SideLeanSeat.pelvis_interpoint
+                    ~SideLeanSeat.pelvis_lean_axis
+                    ~SideLeanSeat.rear_frame
+                    ~SideLeanSeat.required_models
+                    ~SideLeanSeat.submodels
+                    ~SideLeanSeat.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SideLeanSeat.__init__
+                    ~SideLeanSeat.add_load_groups
+                    ~SideLeanSeat.define_constraints
+                    ~SideLeanSeat.define_kinematics
+                    ~SideLeanSeat.define_loads
+                    ~SideLeanSeat.define_objects
+                    ~SideLeanSeat.get_all_symbols
+                    ~SideLeanSeat.get_description
+                    ~SideLeanSeat.get_param_values
+                    ~SideLeanSeat.set_plot_objects
+        
+    

@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.hip\_joints.PinLeftHip
+====================================
+
+.. currentmodule:: symbrim.rider.hip_joints
+
+.. autoclass:: PinLeftHip
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PinLeftHip.auxiliary_handler
+                    ~PinLeftHip.descriptions
+                    ~PinLeftHip.leg
+                    ~PinLeftHip.load_groups
+                    ~PinLeftHip.name
+                    ~PinLeftHip.pelvis
+                    ~PinLeftHip.required_models
+                    ~PinLeftHip.submodels
+                    ~PinLeftHip.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PinLeftHip.__init__
+                    ~PinLeftHip.add_load_groups
+                    ~PinLeftHip.define_constraints
+                    ~PinLeftHip.define_kinematics
+                    ~PinLeftHip.define_loads
+                    ~PinLeftHip.define_objects
+                    ~PinLeftHip.get_all_symbols
+                    ~PinLeftHip.get_description
+                    ~PinLeftHip.get_param_values
+                    ~PinLeftHip.set_plot_objects
+        
+    

@@ -1,0 +1,37 @@
+..
+  class.rst
+
+symbrim.rider.arms.PinElbowStickArmMixin
+========================================
+
+.. currentmodule:: symbrim.rider.arms
+
+.. autoclass:: PinElbowStickArmMixin
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PinElbowStickArmMixin.descriptions
+                    ~PinElbowStickArmMixin.forearm
+                    ~PinElbowStickArmMixin.hand
+                    ~PinElbowStickArmMixin.hand_interframe
+                    ~PinElbowStickArmMixin.shoulder
+                    ~PinElbowStickArmMixin.shoulder_interframe
+                    ~PinElbowStickArmMixin.upper_arm
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PinElbowStickArmMixin.__init__
+        
+    

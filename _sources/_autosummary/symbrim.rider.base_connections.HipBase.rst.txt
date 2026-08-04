@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.base\_connections.HipBase
+=======================================
+
+.. currentmodule:: symbrim.rider.base_connections
+
+.. autoclass:: HipBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~HipBase.auxiliary_handler
+                    ~HipBase.descriptions
+                    ~HipBase.leg
+                    ~HipBase.load_groups
+                    ~HipBase.name
+                    ~HipBase.pelvis
+                    ~HipBase.required_models
+                    ~HipBase.submodels
+                    ~HipBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~HipBase.__init__
+                    ~HipBase.add_load_groups
+                    ~HipBase.define_constraints
+                    ~HipBase.define_kinematics
+                    ~HipBase.define_loads
+                    ~HipBase.define_objects
+                    ~HipBase.get_all_symbols
+                    ~HipBase.get_description
+                    ~HipBase.get_param_values
+                    ~HipBase.set_plot_objects
+        
+    

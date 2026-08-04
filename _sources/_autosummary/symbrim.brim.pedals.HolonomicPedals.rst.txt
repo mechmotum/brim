@@ -1,0 +1,49 @@
+..
+  class.rst
+
+symbrim.brim.pedals.HolonomicPedals
+===================================
+
+.. currentmodule:: symbrim.brim.pedals
+
+.. autoclass:: HolonomicPedals
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~HolonomicPedals.auxiliary_handler
+                    ~HolonomicPedals.cranks
+                    ~HolonomicPedals.descriptions
+                    ~HolonomicPedals.left_leg
+                    ~HolonomicPedals.load_groups
+                    ~HolonomicPedals.name
+                    ~HolonomicPedals.required_models
+                    ~HolonomicPedals.right_leg
+                    ~HolonomicPedals.submodels
+                    ~HolonomicPedals.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~HolonomicPedals.__init__
+                    ~HolonomicPedals.add_load_groups
+                    ~HolonomicPedals.define_constraints
+                    ~HolonomicPedals.define_kinematics
+                    ~HolonomicPedals.define_loads
+                    ~HolonomicPedals.define_objects
+                    ~HolonomicPedals.get_all_symbols
+                    ~HolonomicPedals.get_description
+                    ~HolonomicPedals.get_param_values
+                    ~HolonomicPedals.set_plot_objects
+        
+    

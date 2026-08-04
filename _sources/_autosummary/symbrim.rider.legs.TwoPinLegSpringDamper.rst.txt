@@ -1,0 +1,44 @@
+..
+  class.rst
+
+symbrim.rider.legs.TwoPinLegSpringDamper
+========================================
+
+.. currentmodule:: symbrim.rider.legs
+
+.. autoclass:: TwoPinLegSpringDamper
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~TwoPinLegSpringDamper.auxiliary_handler
+                    ~TwoPinLegSpringDamper.descriptions
+                    ~TwoPinLegSpringDamper.name
+                    ~TwoPinLegSpringDamper.parent
+                    ~TwoPinLegSpringDamper.required_parent_type
+                    ~TwoPinLegSpringDamper.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~TwoPinLegSpringDamper.__init__
+                    ~TwoPinLegSpringDamper.define_constraints
+                    ~TwoPinLegSpringDamper.define_kinematics
+                    ~TwoPinLegSpringDamper.define_loads
+                    ~TwoPinLegSpringDamper.define_objects
+                    ~TwoPinLegSpringDamper.get_all_symbols
+                    ~TwoPinLegSpringDamper.get_description
+                    ~TwoPinLegSpringDamper.get_param_values
+                    ~TwoPinLegSpringDamper.set_plot_objects
+        
+    

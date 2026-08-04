@@ -1,0 +1,36 @@
+..
+  module.rst
+
+symbrim.bicycle.whipple\_bicycle
+================================
+
+.. automodule:: symbrim.bicycle.whipple_bicycle
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    WhippleBicycle
+                    WhippleBicycleMoore
+        
+    
+
+    
+        
+    
+
+
+    

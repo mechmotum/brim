@@ -1,0 +1,31 @@
+..
+  class.rst
+
+symbrim.rider.shoulder\_joints.FlexAddShoulderMixin
+===================================================
+
+.. currentmodule:: symbrim.rider.shoulder_joints
+
+.. autoclass:: FlexAddShoulderMixin
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~FlexAddShoulderMixin.descriptions
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~FlexAddShoulderMixin.__init__
+        
+    

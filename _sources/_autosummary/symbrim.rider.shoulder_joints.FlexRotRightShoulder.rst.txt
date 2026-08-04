@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.shoulder\_joints.FlexRotRightShoulder
+===================================================
+
+.. currentmodule:: symbrim.rider.shoulder_joints
+
+.. autoclass:: FlexRotRightShoulder
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~FlexRotRightShoulder.arm
+                    ~FlexRotRightShoulder.auxiliary_handler
+                    ~FlexRotRightShoulder.descriptions
+                    ~FlexRotRightShoulder.load_groups
+                    ~FlexRotRightShoulder.name
+                    ~FlexRotRightShoulder.required_models
+                    ~FlexRotRightShoulder.submodels
+                    ~FlexRotRightShoulder.system
+                    ~FlexRotRightShoulder.torso
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~FlexRotRightShoulder.__init__
+                    ~FlexRotRightShoulder.add_load_groups
+                    ~FlexRotRightShoulder.define_constraints
+                    ~FlexRotRightShoulder.define_kinematics
+                    ~FlexRotRightShoulder.define_loads
+                    ~FlexRotRightShoulder.define_objects
+                    ~FlexRotRightShoulder.get_all_symbols
+                    ~FlexRotRightShoulder.get_description
+                    ~FlexRotRightShoulder.get_param_values
+                    ~FlexRotRightShoulder.set_plot_objects
+        
+    

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="coreUML" version="1.1"  viewBox="0 0 114.1879 81.337509" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="EmptyTriangleOutM" overflow="visible" orient="auto">
+   <path transform="matrix(.4 0 0 .4 -1.8 0)" d="m5.77 0-8.65 5v-10z" fill="#FFFFFF" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="Arrow2Mend" overflow="visible" orient="auto">
+   <path transform="scale(-.6)" d="m8.7185878 4.0337352-10.9258773-4.01772194 10.9258779-4.01772106c-1.7454984 2.3720609-1.7354408 5.6174519-6e-7 8.035443z" fill="context-stroke" fill-rule="evenodd" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+ </defs>
+ <g transform="translate(-33.988767,-15.039477)">
+  <g transform="translate(-.6037699 .74748043)">
+   <rect x="74.686485" y="14.556581" width="34" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529167" style="paint-order:markers stroke fill"/>
+   <text x="78.932556" y="22.001369" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="78.932556" y="22.001369" stroke-width=".264583">abc.ABCMeta</tspan></text>
+  </g>
+  <g transform="translate(-6.0763185e-7 -.17638216)">
+   <rect x="113.91207" y="38.416561" width="34" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529167" style="paint-order:markers stroke fill"/>
+   <text x="115.59068" y="45.500389" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="115.59068" y="45.500389" stroke-width=".264583">LoadGroupMeta</tspan></text>
+  </g>
+  <g transform="translate(-3.7444184 -.17638216)">
+   <rect x="77.827133" y="38.416561" width="34" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529167" style="paint-order:markers stroke fill"/>
+   <text x="79.307739" y="45.823452" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="79.307739" y="45.823452" stroke-width=".264583">ConnectionMeta</tspan></text>
+  </g>
+  <g transform="translate(-6.0763185e-7 -.17638216)">
+   <rect x="34.253361" y="38.416561" width="34" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529167" style="paint-order:markers stroke fill"/>
+   <text x="40.800671" y="45.861351" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="40.800671" y="45.861351" stroke-width=".264583">ModelMeta</tspan></text>
+  </g>
+  <g transform="translate(3.5718931,-1.0688998)">
+   <rect x="110.34019" y="62.24519" width="34" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529167" style="paint-order:markers stroke fill"/>
+   <text x="112.00459" y="69.329018" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="112.00459" y="69.329018" stroke-width=".264583">LoadGroupBase</tspan></text>
+  </g>
+  <g transform="translate(-3.1867546,-2.5778224)">
+   <rect x="77.269463" y="63.754112" width="34" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529167" style="paint-order:markers stroke fill"/>
+   <text x="78.735855" y="71.161003" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="78.735855" y="71.161003" stroke-width=".264583">ConnectionBase</tspan></text>
+  </g>
+  <g transform="translate(.55766427 -3.3024394)">
+   <rect x="33.695686" y="64.478729" width="34" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529167" style="paint-order:markers stroke fill"/>
+   <text x="40.228786" y="71.923515" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="40.228786" y="71.923515" stroke-width=".264583">ModelBase</tspan></text>
+  </g>
+  <g transform="translate(5.1090368,-6.5365101)">
+   <rect x="68.973679" y="90.648911" width="34" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".529167" style="paint-order:markers stroke fill"/>
+   <text x="76.638924" y="98.039696" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="76.638924" y="98.039696" stroke-width=".264583">BrimBase</tspan></text>
+  </g>
+  <path d="m51.258444 61.058645-4.44e-4 -10" fill="none" marker-end="url(#Arrow2Mend)" stroke="currentColor" stroke-dasharray="1.5875, 0.529167" stroke-width=".529167"/>
+  <path d="m91.088 61.058645v-10" fill="none" marker-end="url(#Arrow2Mend)" stroke="currentColor" stroke-dasharray="1.5875, 0.529167" stroke-width=".529167"/>
+  <path d="m130.917 61.058645v-10" fill="none" marker-end="url(#Arrow2Mend)" stroke="currentColor" stroke-dasharray="1.5875, 0.529167" stroke-width=".529167"/>
+  <path d="m51.258 38.393v-5.3455h79.659v5.3455" fill="none" stroke="currentColor" stroke-width=".529167"/>
+  <path d="m91.088 38.393v-10.691" fill="none" marker-end="url(#EmptyTriangleOutM)" stroke="currentColor" stroke-width=".529167"/>
+  <path d="m51.258 73.023v5.3455h79.659v-5.3455" fill="none" stroke="currentColor" stroke-width=".529167"/>
+  <path d="m91.088 73.023v10.691" fill="none" marker-end="url(#EmptyTriangleOutM)" stroke="currentColor" stroke-width=".529167"/>
+  <g transform="translate(-3.7041668 .52916667)">
+   <path d="m116.13942 23.290652 9.99988-3.76e-4" fill="none" marker-end="url(#Arrow2Mend)" stroke="currentColor" stroke-dasharray="1.5875, 0.529167" stroke-width=".529167"/>
+   <path d="m116.21437 18.07382h10" fill="none" marker-end="url(#EmptyTriangleOutM)" stroke="currentColor" stroke-width=".529167"/>
+   <text x="128.5002" y="24.739559" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="128.5002" y="24.739559" stroke-width=".264583">instance of</tspan></text>
+   <text x="128.46609" y="19.518608" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="128.46609" y="19.518608" stroke-width=".264583">inheritance</tspan></text>
+  </g>
+ </g>
+</svg>

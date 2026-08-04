@@ -1,0 +1,41 @@
+..
+  class.rst
+
+symbrim.core.registry.Registry
+==============================
+
+.. currentmodule:: symbrim.core.registry
+
+.. autoclass:: Registry
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~Registry.connections
+                    ~Registry.load_groups
+                    ~Registry.models
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~Registry.__init__
+                    ~Registry.activate
+                    ~Registry.deactivate
+                    ~Registry.get_from_property
+                    ~Registry.get_from_requirement
+                    ~Registry.get_matching_load_groups
+                    ~Registry.register_connection
+                    ~Registry.register_load_group
+                    ~Registry.register_model
+        
+    

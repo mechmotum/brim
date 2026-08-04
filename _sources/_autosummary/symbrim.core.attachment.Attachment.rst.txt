@@ -1,0 +1,34 @@
+..
+  class.rst
+
+symbrim.core.attachment.Attachment
+==================================
+
+.. currentmodule:: symbrim.core.attachment
+
+.. autoclass:: Attachment
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~Attachment.frame
+                    ~Attachment.point
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~Attachment.__init__
+                    ~Attachment.from_name
+                    ~Attachment.to_valid_joint_arg
+        
+    

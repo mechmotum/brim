@@ -1,0 +1,31 @@
+..
+  class.rst
+
+symbrim.rider.hip\_joints.PinHipMixin
+=====================================
+
+.. currentmodule:: symbrim.rider.hip_joints
+
+.. autoclass:: PinHipMixin
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PinHipMixin.descriptions
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PinHipMixin.__init__
+        
+    

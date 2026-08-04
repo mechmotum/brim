@@ -1,0 +1,38 @@
+..
+  class.rst
+
+symbrim.core.requirement.RequirementBase
+========================================
+
+.. currentmodule:: symbrim.core.requirement
+
+.. autoclass:: RequirementBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~RequirementBase.attribute_name
+                    ~RequirementBase.description
+                    ~RequirementBase.full_name
+                    ~RequirementBase.hard
+                    ~RequirementBase.type_hint
+                    ~RequirementBase.type_name
+                    ~RequirementBase.types
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~RequirementBase.__init__
+                    ~RequirementBase.is_satisfied_by
+        
+    

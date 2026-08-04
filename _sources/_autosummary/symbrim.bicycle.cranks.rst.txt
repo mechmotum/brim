@@ -1,0 +1,36 @@
+..
+  module.rst
+
+symbrim.bicycle.cranks
+======================
+
+.. automodule:: symbrim.bicycle.cranks
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    CranksBase
+                    MasslessCranks
+        
+    
+
+    
+        
+    
+
+
+    

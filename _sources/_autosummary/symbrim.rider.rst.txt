@@ -1,0 +1,44 @@
+﻿..
+  module.rst
+
+symbrim.rider
+=============
+
+.. automodule:: symbrim.rider
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                arms
+                base_connections
+                hip_joints
+                legs
+                pelvis
+                rider
+                rider_lean
+                sacrums
+                shoulder_joints
+                torso
+    

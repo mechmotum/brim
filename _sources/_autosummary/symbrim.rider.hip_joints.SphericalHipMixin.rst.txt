@@ -1,0 +1,31 @@
+..
+  class.rst
+
+symbrim.rider.hip\_joints.SphericalHipMixin
+===========================================
+
+.. currentmodule:: symbrim.rider.hip_joints
+
+.. autoclass:: SphericalHipMixin
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SphericalHipMixin.descriptions
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SphericalHipMixin.__init__
+        
+    

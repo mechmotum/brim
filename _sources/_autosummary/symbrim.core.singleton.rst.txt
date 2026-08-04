@@ -1,0 +1,36 @@
+..
+  module.rst
+
+symbrim.core.singleton
+======================
+
+.. automodule:: symbrim.core.singleton
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    Singleton
+                    SingletonMeta
+        
+    
+
+    
+        
+    
+
+
+    

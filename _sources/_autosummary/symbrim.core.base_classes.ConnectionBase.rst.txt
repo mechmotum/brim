@@ -1,0 +1,46 @@
+..
+  class.rst
+
+symbrim.core.base\_classes.ConnectionBase
+=========================================
+
+.. currentmodule:: symbrim.core.base_classes
+
+.. autoclass:: ConnectionBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~ConnectionBase.auxiliary_handler
+                    ~ConnectionBase.descriptions
+                    ~ConnectionBase.load_groups
+                    ~ConnectionBase.name
+                    ~ConnectionBase.required_models
+                    ~ConnectionBase.submodels
+                    ~ConnectionBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~ConnectionBase.__init__
+                    ~ConnectionBase.add_load_groups
+                    ~ConnectionBase.define_constraints
+                    ~ConnectionBase.define_kinematics
+                    ~ConnectionBase.define_loads
+                    ~ConnectionBase.define_objects
+                    ~ConnectionBase.get_all_symbols
+                    ~ConnectionBase.get_description
+                    ~ConnectionBase.get_param_values
+                    ~ConnectionBase.set_plot_objects
+        
+    

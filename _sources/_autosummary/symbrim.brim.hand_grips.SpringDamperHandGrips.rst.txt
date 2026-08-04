@@ -1,0 +1,49 @@
+..
+  class.rst
+
+symbrim.brim.hand\_grips.SpringDamperHandGrips
+==============================================
+
+.. currentmodule:: symbrim.brim.hand_grips
+
+.. autoclass:: SpringDamperHandGrips
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SpringDamperHandGrips.auxiliary_handler
+                    ~SpringDamperHandGrips.descriptions
+                    ~SpringDamperHandGrips.front_frame
+                    ~SpringDamperHandGrips.left_arm
+                    ~SpringDamperHandGrips.load_groups
+                    ~SpringDamperHandGrips.name
+                    ~SpringDamperHandGrips.required_models
+                    ~SpringDamperHandGrips.right_arm
+                    ~SpringDamperHandGrips.submodels
+                    ~SpringDamperHandGrips.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SpringDamperHandGrips.__init__
+                    ~SpringDamperHandGrips.add_load_groups
+                    ~SpringDamperHandGrips.define_constraints
+                    ~SpringDamperHandGrips.define_kinematics
+                    ~SpringDamperHandGrips.define_loads
+                    ~SpringDamperHandGrips.define_objects
+                    ~SpringDamperHandGrips.get_all_symbols
+                    ~SpringDamperHandGrips.get_description
+                    ~SpringDamperHandGrips.get_param_values
+                    ~SpringDamperHandGrips.set_plot_objects
+        
+    

@@ -1,0 +1,40 @@
+..
+  class.rst
+
+symbrim.utilities.plotting.PlotBrimMixin
+========================================
+
+.. currentmodule:: symbrim.utilities.plotting
+
+.. autoclass:: PlotBrimMixin
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PlotBrimMixin.annot_coords
+                    ~PlotBrimMixin.plot_objects
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PlotBrimMixin.__init__
+                    ~PlotBrimMixin.add_body
+                    ~PlotBrimMixin.add_frame
+                    ~PlotBrimMixin.add_line
+                    ~PlotBrimMixin.add_plot_object
+                    ~PlotBrimMixin.add_point
+                    ~PlotBrimMixin.add_vector
+                    ~PlotBrimMixin.get_plot_object
+                    ~PlotBrimMixin.get_sympy_object_exprs
+        
+    

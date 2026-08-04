@@ -1,0 +1,44 @@
+..
+  class.rst
+
+symbrim.rider.hip\_joints.SphericalHipTorque
+============================================
+
+.. currentmodule:: symbrim.rider.hip_joints
+
+.. autoclass:: SphericalHipTorque
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SphericalHipTorque.auxiliary_handler
+                    ~SphericalHipTorque.descriptions
+                    ~SphericalHipTorque.name
+                    ~SphericalHipTorque.parent
+                    ~SphericalHipTorque.required_parent_type
+                    ~SphericalHipTorque.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SphericalHipTorque.__init__
+                    ~SphericalHipTorque.define_constraints
+                    ~SphericalHipTorque.define_kinematics
+                    ~SphericalHipTorque.define_loads
+                    ~SphericalHipTorque.define_objects
+                    ~SphericalHipTorque.get_all_symbols
+                    ~SphericalHipTorque.get_description
+                    ~SphericalHipTorque.get_param_values
+                    ~SphericalHipTorque.set_plot_objects
+        
+    

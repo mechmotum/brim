@@ -1,0 +1,41 @@
+..
+  class.rst
+
+symbrim.core.auxiliary.AuxiliaryDataHandler
+===========================================
+
+.. currentmodule:: symbrim.core.auxiliary
+
+.. autoclass:: AuxiliaryDataHandler
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~AuxiliaryDataHandler.auxiliary_forces_data
+                    ~AuxiliaryDataHandler.auxiliary_speeds
+                    ~AuxiliaryDataHandler.auxiliary_torques_data
+                    ~AuxiliaryDataHandler.inertial_frame
+                    ~AuxiliaryDataHandler.inertial_point
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~AuxiliaryDataHandler.__init__
+                    ~AuxiliaryDataHandler.add_noncontributing_force
+                    ~AuxiliaryDataHandler.apply_speeds
+                    ~AuxiliaryDataHandler.create_loads
+                    ~AuxiliaryDataHandler.from_system
+                    ~AuxiliaryDataHandler.get_auxiliary_velocity
+                    ~AuxiliaryDataHandler.retrieve_graphs
+        
+    

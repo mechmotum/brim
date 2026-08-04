@@ -1,0 +1,42 @@
+..
+  module.rst
+
+symbrim.rider.legs
+==================
+
+.. automodule:: symbrim.rider.legs
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    LeftLegBase
+                    LegBase
+                    RightLegBase
+                    TwoPinLegSpringDamper
+                    TwoPinLegTorque
+                    TwoPinStickLeftLeg
+                    TwoPinStickLegMixin
+                    TwoPinStickRightLeg
+        
+    
+
+    
+        
+    
+
+
+    

@@ -1,0 +1,50 @@
+..
+  class.rst
+
+symbrim.brim.seats.FixedSeat
+============================
+
+.. currentmodule:: symbrim.brim.seats
+
+.. autoclass:: FixedSeat
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~FixedSeat.auxiliary_handler
+                    ~FixedSeat.descriptions
+                    ~FixedSeat.load_groups
+                    ~FixedSeat.name
+                    ~FixedSeat.pelvis
+                    ~FixedSeat.pelvis_interpoint
+                    ~FixedSeat.rear_frame
+                    ~FixedSeat.rear_interframe
+                    ~FixedSeat.required_models
+                    ~FixedSeat.submodels
+                    ~FixedSeat.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~FixedSeat.__init__
+                    ~FixedSeat.add_load_groups
+                    ~FixedSeat.define_constraints
+                    ~FixedSeat.define_kinematics
+                    ~FixedSeat.define_loads
+                    ~FixedSeat.define_objects
+                    ~FixedSeat.get_all_symbols
+                    ~FixedSeat.get_description
+                    ~FixedSeat.get_param_values
+                    ~FixedSeat.set_plot_objects
+        
+    

@@ -1,0 +1,44 @@
+..
+  class.rst
+
+symbrim.core.base\_classes.LoadGroupBase
+========================================
+
+.. currentmodule:: symbrim.core.base_classes
+
+.. autoclass:: LoadGroupBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~LoadGroupBase.auxiliary_handler
+                    ~LoadGroupBase.descriptions
+                    ~LoadGroupBase.name
+                    ~LoadGroupBase.parent
+                    ~LoadGroupBase.required_parent_type
+                    ~LoadGroupBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~LoadGroupBase.__init__
+                    ~LoadGroupBase.define_constraints
+                    ~LoadGroupBase.define_kinematics
+                    ~LoadGroupBase.define_loads
+                    ~LoadGroupBase.define_objects
+                    ~LoadGroupBase.get_all_symbols
+                    ~LoadGroupBase.get_description
+                    ~LoadGroupBase.get_param_values
+                    ~LoadGroupBase.set_plot_objects
+        
+    

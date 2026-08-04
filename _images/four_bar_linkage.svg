@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="160.47786mm" height="82.573067mm" version="1.1" viewBox="0 0 160.47786 82.573065" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="ArrowStart" overflow="visible" orient="auto">
+   <path transform="scale(.4)" d="m7 4-11-4 11-4c-2 2-2 6 0 8z" fill="context-stroke" fill-rule="evenodd" stroke-linejoin="round" stroke-width=".625"/>
+  </marker>
+ </defs>
+ <path d="M 6.6146002,16.599937 H 71.615" fill="none" stroke="#00b050" stroke-linecap="round" stroke-width="13.2292"/>
+ <path d="m71.615 16.599937 33.67454 36.519821" fill="none" stroke="#0070c0" stroke-linecap="round" stroke-width="13.2292"/>
+ <path d="m6.6146002 16.599937 25.0476508 53.369204" fill="none" stroke="#0070c0" stroke-linecap="round" stroke-width="13.2292"/>
+ <text x="34.469688" y="18.074095" fill="#ffffff" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="34.469688" y="18.074095" fill="#ffffff" stroke-width=".264583">link1</tspan></text>
+ <text transform="rotate(46.23338)" x="81.65033" y="-38.30727" fill="#ffffff" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="81.65033" y="-38.30727" fill="#ffffff" stroke-width=".264583">link2</tspan></text>
+ <path d="m31.662251 69.969141 73.627289-16.849383" fill="none" stroke="#2f5597" stroke-linecap="round" stroke-width="13.2292"/>
+ <text transform="rotate(-11.914166)" x="49.590382" y="75.795494" fill="#ffffff" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="49.590382" y="75.795494" fill="#ffffff" stroke-width=".264583">link3</tspan></text>
+ <text transform="rotate(63.746987)" x="42.552654" y="3.405118" fill="#ffffff" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="42.552654" y="3.405118" fill="#ffffff" stroke-width=".264583">link4</tspan></text>
+ <path d="m9.6649074 17.260885a3 3 0 0 1-3.5871304 2.265361 3 3 0 0 1-2.2654874-3.58705 3 3 0 0 1 3.5869703-2.265615 3 3 0 0 1 2.265741 3.586891" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" style="paint-order:markers stroke fill"/>
+ <circle cx="72.05777" cy="16.599937" r="3" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" style="paint-order:markers stroke fill"/>
+ <path d="m108.43945 53.919069a3 3 0 0 1-3.58713 2.265361 3 3 0 0 1-2.26549-3.58705 3 3 0 0 1 3.58697-2.265615 3 3 0 0 1 2.26574 3.586891" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" style="paint-order:markers stroke fill"/>
+ <path d="m35.237901 70.694426a3 3 0 0 1-3.58713 2.26536 3 3 0 0 1-2.265488-3.58705 3 3 0 0 1 3.586971-2.265614 3 3 0 0 1 2.265741 3.58689" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" style="paint-order:markers stroke fill"/>
+ <path d="m64.831528 9.6876807a10 10 0 0 1 10.601108-2.5009658 10 10 0 0 1 6.597286 8.6668421" fill="none" stroke="#92d050" stroke-linecap="round" stroke-linejoin="round" style="paint-order:markers stroke fill"/>
+ <path d="m71.59931 26.58952a10 10 0 0 1-6.627226-2.933117" fill="none" stroke="#ff0000" stroke-linecap="round" stroke-linejoin="round" style="paint-order:markers stroke fill"/>
+ <path d="m81.768944 17.229374 0.133156-0.827151" fill="none" marker-start="url(#ArrowStart)" stroke="#92d050"/>
+ <path d="m64.972084 23.656403 1.27341 1.17995" fill="none" marker-start="url(#ArrowStart)" stroke="#f60000"/>
+ <path d="m71.59931 26.58952-0.784899-0.02566" fill="none" marker-start="url(#ArrowStart)" stroke="#f60000"/>
+ <path d="m105.68768 43.259644a10 10 0 0 1 9.27687 6.731796 10 10 0 0 1-3.14012 11.023475 10 10 0 0 1-11.4317 0.832805" fill="none" stroke="#00b0f0" stroke-linecap="round" stroke-linejoin="round" style="paint-order:markers stroke fill"/>
+ <path d="m100.14475 61.423378 0.95904 0.730053" fill="none" marker-start="url(#ArrowStart)" stroke="#00b0f0"/>
+ <path d="m41.032308 74.927302a10 10 0 0 1-12.328801 4.432565 10 10 0 0 1-6.135592-11.575901" fill="none" stroke="#00b0f0" stroke-linecap="round" stroke-linejoin="round" style="paint-order:markers stroke fill"/>
+ <path d="m22.567915 67.783966-0.292574 1.277001" fill="none" marker-start="url(#ArrowStart)" stroke="#00b0f0"/>
+ <text x="78.31723" y="6.2026696" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="78.31723" y="6.2026696" stroke-width=".264583">q1, u1</tspan></text>
+ <text x="114.72845" y="62.825115" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="114.72845" y="62.825115" stroke-width=".264583">q2, u2</tspan></text>
+ <text x="13.399681" y="81.792404" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="13.399681" y="81.792404" stroke-width=".264583">q3, u3</tspan></text>
+ <path d="m21.6146 16.6h-14.9999998" fill="none" marker-start="url(#ArrowStart)" stroke="#6600a1"/>
+ <path d="m6.615 1.599937v15" fill="none" marker-start="url(#ArrowStart)" stroke="#6600a1"/>
+ <text x="61.905746" y="31.523289" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="61.905746" y="31.523289" font-size="3.88056px" stroke-width=".264583">k, c</tspan></text>
+ <g transform="translate(-92.917187,56.408513)">
+  <path d="m99.21319 7.2227804v-15" fill="none" marker-start="url(#ArrowStart)" stroke="#ff0000"/>
+  <text x="94.834373" y="0.76408625" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="94.834373" y="0.76408625" font-size="3.88056px" stroke-width=".264583">g</tspan></text>
+ </g>
+ <path d="m123.01555 18.597566h-10" fill="none" marker-start="url(#ArrowStart)" stroke="#92d050"/>
+ <path d="m123.01555 24.787694h-10" fill="none" marker-start="url(#ArrowStart)" stroke="#00b0f0"/>
+ <path d="m123.01555 30.97782h-10" fill="none" marker-start="url(#ArrowStart)" stroke="#ff0000"/>
+ <path d="m46.662 69.969141h-15" fill="none" marker-start="url(#ArrowStart)" stroke="#ff0000"/>
+ <path d="m123.01555 37.167947h-10" fill="none" marker-start="url(#ArrowStart)" stroke="#6600a1"/>
+ <path d="m123.81555 6.217312h-10" fill="none" stroke="#00b050" stroke-linecap="round" stroke-width="4"/>
+ <path d="m123.81555 12.407439h-10" fill="none" stroke="#0070c0" stroke-linecap="round" stroke-width="4"/>
+ <text x="128.1866" y="7.3011403" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="128.1866" y="7.3011403" stroke-width=".264583">Fixed body</tspan></text>
+ <text x="128.1866" y="13.480845" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="128.1866" y="13.480845" stroke-width=".264583">Moving body</tspan></text>
+ <text x="128.1866" y="19.978878" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="128.1866" y="19.978878" stroke-width=".264583">DoF</tspan></text>
+ <text x="128.34766" y="26.232483" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="128.34766" y="26.232483" stroke-width=".264583">Constrained DoF</tspan></text>
+ <text x="128.1866" y="32.422607" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="128.1866" y="32.422607" stroke-width=".264583">Load</tspan></text>
+ <text x="128.5163" y="38.558735" fill="currentColor" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="128.5163" y="38.558735" stroke-width=".264583">Active constraint</tspan></text>
+ <text x="36.302185" y="67.537308" font-family="sans-serif" font-size="3.88056px" stroke-width=".264583" style="line-height:1.25" xml:space="preserve"><tspan x="36.302185" y="67.537308" fill="#ffffff" stroke-width=".264583">F(t)</tspan></text>
+</svg>

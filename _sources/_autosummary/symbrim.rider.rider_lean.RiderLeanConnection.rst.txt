@@ -1,0 +1,50 @@
+..
+  class.rst
+
+symbrim.rider.rider\_lean.RiderLeanConnection
+=============================================
+
+.. currentmodule:: symbrim.rider.rider_lean
+
+.. autoclass:: RiderLeanConnection
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~RiderLeanConnection.auxiliary_handler
+                    ~RiderLeanConnection.descriptions
+                    ~RiderLeanConnection.lean_axis
+                    ~RiderLeanConnection.lean_point
+                    ~RiderLeanConnection.load_groups
+                    ~RiderLeanConnection.name
+                    ~RiderLeanConnection.rear_frame
+                    ~RiderLeanConnection.required_models
+                    ~RiderLeanConnection.rider
+                    ~RiderLeanConnection.submodels
+                    ~RiderLeanConnection.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~RiderLeanConnection.__init__
+                    ~RiderLeanConnection.add_load_groups
+                    ~RiderLeanConnection.define_constraints
+                    ~RiderLeanConnection.define_kinematics
+                    ~RiderLeanConnection.define_loads
+                    ~RiderLeanConnection.define_objects
+                    ~RiderLeanConnection.get_all_symbols
+                    ~RiderLeanConnection.get_description
+                    ~RiderLeanConnection.get_param_values
+                    ~RiderLeanConnection.set_plot_objects
+        
+    

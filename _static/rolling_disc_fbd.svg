@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="550" height="345.45782" overflow="hidden" version="1.1" xml:space="preserve"
+     class="align-center" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <marker id="MyArrowMarker" overflow="visible" orient="auto">
+            <path transform="matrix(-.28 0 0 -.28 -2.8 0)" d="m0 0 1-5-13.5 5 13.5 5z"
+                  fill="currentColor" fill-rule="evenodd" stroke="context-stroke"
+                  stroke-width="1pt"/>
+        </marker>
+    </defs>
+    <text x="128.23372" y="141.28596" fill="currentColor" font-family="Calibri"
+          font-size="14.8561px" font-weight="400" letter-spacing="0px"
+          stroke-width=".278553" word-spacing="0px" style="line-height:125%"
+          xml:space="preserve"><tspan x="-0.0345571" y="-895.48138" font-size="14.8561px" stroke-width=".278553"><tspan fill="currentColor" font-family="Calibri" font-size="14.8561px" font-weight="400" stroke-width=".278553"/></tspan></text>
+    <g font-family="sans-serif" font-size="14.6667px" stroke-width=".278553"><text x="234.10776" y="184.8448" style="line-height:1.25" xml:space="preserve"><tspan x="234.10776" y="184.8448" font-size="14.6667px" stroke-width=".278553">q<tspan
+            font-size="9.33333px">2</tspan></tspan></text>
+        <text x="207.64432" y="141.36836" style="line-height:1.25" xml:space="preserve"><tspan x="207.64432" y="141.36836" font-size="14.6667px" stroke-width=".278553">n<tspan
+                font-size="9.33333px">x</tspan></tspan></text>
+        <text x="117.82155" y="155.62263" style="line-height:1.25" xml:space="preserve"><tspan x="117.82155" y="155.62263" font-size="14.6667px" stroke-width=".278553">n<tspan
+                font-size="9.33333px">x</tspan></tspan></text>
+        <text x="137.87837" y="191.12715" style="line-height:1.25" xml:space="preserve"><tspan x="137.87837" y="191.12715" font-size="14.6667px" stroke-width=".278553">n<tspan
+                font-size="9.33333px">z</tspan></tspan></text>
+        <text x="381.41968" y="334.03534" style="line-height:1.25" xml:space="preserve"><tspan x="381.41968" y="334.03534" font-size="14.6667px" stroke-width=".278553">q<tspan
+                font-size="9.33333px">4</tspan></tspan></text>
+        <text x="160.58281" y="247.40742" style="line-height:1.25" xml:space="preserve"><tspan x="160.58281" y="247.40742" font-size="14.6667px" stroke-width=".278553">q<tspan
+                font-size="9.33333px">1</tspan></tspan></text>
+        <text x="534.02344" y="224.78658" style="line-height:1.25" xml:space="preserve"><tspan x="534.02344" y="224.78658" font-size="14.6667px" stroke-width=".278553">q<tspan
+                font-size="9.33333px">3</tspan></tspan></text>
+        <text x="405.2041" y="96.781326" style="line-height:1.25" xml:space="preserve"><tspan x="405.2041" y="96.781326" font-size="14.6667px" stroke-width=".278553">q<tspan
+                font-size="9.33333px">5</tspan></tspan></text>
+        <text x="321.12473" y="151.0135" style="line-height:1.25" xml:space="preserve"><tspan x="321.12473" y="151.0135" font-size="14.6667px" stroke-width=".278553">a<tspan
+                font-size="9.33333px">y</tspan></tspan></text>
+        <text x="360.32672" y="62.12532" style="line-height:1.25" xml:space="preserve"><tspan x="360.32672" y="62.12532" font-size="14.6667px" stroke-width=".278553">a<tspan
+                font-size="9.33333px">x</tspan></tspan></text>
+        <text x="435.97354" y="16.463207" style="line-height:1.25" xml:space="preserve"><tspan x="435.97354" y="16.463207" stroke-width=".278553">m, I<tspan
+                font-size="9.33333px">xx</tspan>, I<tspan
+                font-size="9.33333px">yy</tspan>, r</tspan></text></g>
+    <path d="m9.0094049 227.07293 317.2670551 2.3761" fill="none"
+          marker-end="url(#MyArrowMarker)" stroke="currentColor" stroke-width="3"/>
+    <g transform="translate(-.0345571 -895.48137)" fill="none" stroke="currentColor"
+       stroke-width="3"><path d="m168.09588 1045.1195-45.8836 21.9491" marker-end="url(#MyArrowMarker)"/>
+        <path d="m168.09588 1045.1195 54.61861 0.2674"
+              marker-end="url(#MyArrowMarker)"/>
+        <path d="m168.09588 1045.1195-0.27577 43.4458"
+              marker-end="url(#MyArrowMarker)"/></g>
+    <path d="m272.24002 150.75233-105.03107 52.4626" fill="none"
+          marker-end="url(#MyArrowMarker)" stroke="currentColor" stroke-width="3"/>
+    <g transform="translate(-.0345571 -895.48137)" fill="none" stroke="currentColor"
+       stroke-width="3"><path d="m353.05208 1000.551-30.60737 28.2481" marker-end="url(#MyArrowMarker)"/>
+        <path d="m353.9713 1000.2725 46.67279-50.09367"
+              marker-end="url(#MyArrowMarker)"/></g>
+    <path d="m394.86621 33.610238c0.89463-11.07016 9.32141-21.51436 37.35659-21.42232"
+          fill="none" stroke="currentColor" stroke-width="3"/>
+    <g transform="translate(-.0345571 -895.48137)" fill="none" stroke="currentColor"
+       stroke-width="3"><path d="m524.63137 1127.5476c2.03302-6.3301 2.72789-16.2805 2.45068-22.9679" marker-end="url(#MyArrowMarker)"/>
+        <path d="m379.23603 1210.8527c9.21686 0.097 16.23642-2.4183 21.53491-4.1977"
+              marker-end="url(#MyArrowMarker)"/>
+        <path d="m401.82699 1009.2596c2.04352-18.22736-2.47767-27.76572-16.2589-37.85397"
+              marker-end="url(#MyArrowMarker)"/></g>
+    <g transform="translate(-.0345571 -895.48137)" fill="none" stroke="currentColor"
+       stroke-dasharray="3, 3" stroke-width="3"><path d="m201.37576 1028.86-200.6867074 97.3183"/>
+        <path d="m278.68129 1045.9551-110.58541-0.8356"/>
+        <path d="m156.71817 1099.9943 393.3164 2.7828"/>
+        <path d="m407.6484 1232.0255-53.6771-231.753"/>
+        <path d="m378.40037 1240.9392v-139.2763"/>
+        <path d="m314.0547 1132.3037 123.39884-61.5602"/>
+        <path d="m544.9721 1130.6324-167.40739-28.691"/>
+        <path d="m434.42027 1014.5412-81.36819-13.9902"/></g>
+    <path d="m426.75289 72.496468a118.68554 78.050339 47.988159 0 1-9.35907 129.050922 118.68554 78.050339 47.988159 0 1-138.77165-65.99223 118.68554 78.050339 47.988159 0 1 9.34922-129.0556272 118.68554 78.050339 47.988159 0 1 138.77233 65.9831242"
+          fill="none" stroke="currentColor" stroke-dasharray="0.3, 0.3"
+          stroke-linecap="round" stroke-width="3"
+          style="paint-order:markers stroke fill"/>
+    <path d="m359.27368 106.01823a5.571054 5.571054 0 0 1-6.66138 4.2068 5.571054 5.571054 0 0 1-4.20702-6.66121 5.571054 5.571054 0 0 1 6.66107-4.207272 5.571054 5.571054 0 0 1 4.20751 6.660882"
+          fill="currentColor" style="paint-order:markers stroke fill"/>
+    <path d="m382.77377 206.52593a5.571054 5.571054 0 0 1-6.66138 4.2068 5.571054 5.571054 0 0 1-4.20702-6.6612 5.571054 5.571054 0 0 1 6.66107-4.2073 5.571054 5.571054 0 0 1 4.20751 6.6609"
+          fill="currentColor" style="paint-order:markers stroke fill"/>
+    <path d="m172.91998 150.87913a5.571054 5.571054 0 0 1-6.66138 4.2068 5.571054 5.571054 0 0 1-4.20702-6.6613 5.571054 5.571054 0 0 1 6.66107-4.2072 5.571054 5.571054 0 0 1 4.20751 6.6609"
+          fill="currentColor" style="paint-order:markers stroke fill"/>
+</svg>

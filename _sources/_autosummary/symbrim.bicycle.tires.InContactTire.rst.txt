@@ -1,0 +1,56 @@
+..
+  class.rst
+
+symbrim.bicycle.tires.InContactTire
+===================================
+
+.. currentmodule:: symbrim.bicycle.tires
+
+.. autoclass:: InContactTire
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~InContactTire.auxiliary_handler
+                    ~InContactTire.camber_angle
+                    ~InContactTire.contact_point
+                    ~InContactTire.descriptions
+                    ~InContactTire.ground
+                    ~InContactTire.lateral_axis
+                    ~InContactTire.load_equations
+                    ~InContactTire.load_groups
+                    ~InContactTire.longitudinal_axis
+                    ~InContactTire.name
+                    ~InContactTire.on_ground
+                    ~InContactTire.required_models
+                    ~InContactTire.slip_angle
+                    ~InContactTire.submodels
+                    ~InContactTire.system
+                    ~InContactTire.upward_radial_axis
+                    ~InContactTire.wheel
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~InContactTire.__init__
+                    ~InContactTire.add_load_groups
+                    ~InContactTire.define_constraints
+                    ~InContactTire.define_kinematics
+                    ~InContactTire.define_loads
+                    ~InContactTire.define_objects
+                    ~InContactTire.get_all_symbols
+                    ~InContactTire.get_description
+                    ~InContactTire.get_param_values
+                    ~InContactTire.set_plot_objects
+        
+    

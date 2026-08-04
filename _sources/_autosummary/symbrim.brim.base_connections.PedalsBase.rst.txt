@@ -1,0 +1,49 @@
+..
+  class.rst
+
+symbrim.brim.base\_connections.PedalsBase
+=========================================
+
+.. currentmodule:: symbrim.brim.base_connections
+
+.. autoclass:: PedalsBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PedalsBase.auxiliary_handler
+                    ~PedalsBase.cranks
+                    ~PedalsBase.descriptions
+                    ~PedalsBase.left_leg
+                    ~PedalsBase.load_groups
+                    ~PedalsBase.name
+                    ~PedalsBase.required_models
+                    ~PedalsBase.right_leg
+                    ~PedalsBase.submodels
+                    ~PedalsBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PedalsBase.__init__
+                    ~PedalsBase.add_load_groups
+                    ~PedalsBase.define_constraints
+                    ~PedalsBase.define_kinematics
+                    ~PedalsBase.define_loads
+                    ~PedalsBase.define_objects
+                    ~PedalsBase.get_all_symbols
+                    ~PedalsBase.get_description
+                    ~PedalsBase.get_param_values
+                    ~PedalsBase.set_plot_objects
+        
+    

@@ -1,0 +1,38 @@
+..
+  class.rst
+
+symbrim.core.requirement.ConnectionRequirement
+==============================================
+
+.. currentmodule:: symbrim.core.requirement
+
+.. autoclass:: ConnectionRequirement
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~ConnectionRequirement.attribute_name
+                    ~ConnectionRequirement.description
+                    ~ConnectionRequirement.full_name
+                    ~ConnectionRequirement.hard
+                    ~ConnectionRequirement.type_hint
+                    ~ConnectionRequirement.type_name
+                    ~ConnectionRequirement.types
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~ConnectionRequirement.__init__
+                    ~ConnectionRequirement.is_satisfied_by
+        
+    

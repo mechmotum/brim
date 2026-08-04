@@ -1,0 +1,57 @@
+..
+  class.rst
+
+symbrim.utilities.plotting.PlotModel
+====================================
+
+.. currentmodule:: symbrim.utilities.plotting
+
+.. autoclass:: PlotModel
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PlotModel.annot_coords
+                    ~PlotModel.artists
+                    ~PlotModel.children
+                    ~PlotModel.connections
+                    ~PlotModel.inertial_frame
+                    ~PlotModel.load_groups
+                    ~PlotModel.model
+                    ~PlotModel.name
+                    ~PlotModel.plot_objects
+                    ~PlotModel.submodels
+                    ~PlotModel.sympy_object
+                    ~PlotModel.values
+                    ~PlotModel.visible
+                    ~PlotModel.zero_point
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PlotModel.__init__
+                    ~PlotModel.add_artist
+                    ~PlotModel.add_body
+                    ~PlotModel.add_frame
+                    ~PlotModel.add_line
+                    ~PlotModel.add_plot_object
+                    ~PlotModel.add_point
+                    ~PlotModel.add_vector
+                    ~PlotModel.contains
+                    ~PlotModel.get_expressions_to_evaluate
+                    ~PlotModel.get_plot_object
+                    ~PlotModel.get_sympy_object_exprs
+                    ~PlotModel.plot
+                    ~PlotModel.update
+        
+    

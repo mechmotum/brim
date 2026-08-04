@@ -1,0 +1,35 @@
+﻿..
+  module.rst
+
+symbrim.other
+=============
+
+.. automodule:: symbrim.other
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+    
+
+
+    
+        .. rubric:: Modules
+
+        .. autosummary::
+            :toctree:
+            :template: autosummary/module.rst
+            :recursive:
+            
+                rolling_disc
+    

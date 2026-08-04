@@ -1,0 +1,37 @@
+..
+  class.rst
+
+symbrim.core.mixins.NewtonianBodyMixin
+======================================
+
+.. currentmodule:: symbrim.core.mixins
+
+.. autoclass:: NewtonianBodyMixin
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~NewtonianBodyMixin.body
+                    ~NewtonianBodyMixin.descriptions
+                    ~NewtonianBodyMixin.frame
+                    ~NewtonianBodyMixin.x
+                    ~NewtonianBodyMixin.y
+                    ~NewtonianBodyMixin.z
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~NewtonianBodyMixin.__init__
+                    ~NewtonianBodyMixin.set_plot_objects
+        
+    

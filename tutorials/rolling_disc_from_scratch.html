@@ -1,0 +1,1258 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Contributing" href="../contributing/index.html"><link rel="prev" title="Building Bicycle-Rider Models with SymBRiM" href="my_first_bicycle.html">
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
+        <title>Rolling Disc From Scratch - SymBRiM documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SymBRiM  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">SymBRiM  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../guides/index.html">User Guide</a><input aria-label="Toggle navigation of User Guide" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guides/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/introduction.html">Introduction to SymBRiM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/component_implementation.html">Guidelines on Implementing Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="four_bar_linkage.html">Four-bar Linkage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="my_first_bicycle.html">Building Bicycle-Rider Models with SymBRiM</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Rolling Disc From Scratch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_reference.html">API Reference</a><input aria-label="Toggle navigation of API Reference" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.html">symbrim.brim</a><input aria-label="Toggle navigation of symbrim.brim" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.base_connections.html">symbrim.brim.base_connections</a><input aria-label="Toggle navigation of symbrim.brim.base_connections" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.base_connections.HandGripsBase.html">symbrim.brim.base_connections.HandGripsBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.base_connections.PedalsBase.html">symbrim.brim.base_connections.PedalsBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.base_connections.SeatBase.html">symbrim.brim.base_connections.SeatBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.bicycle_rider.html">symbrim.brim.bicycle_rider</a><input aria-label="Toggle navigation of symbrim.brim.bicycle_rider" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.bicycle_rider.BicycleRider.html">symbrim.brim.bicycle_rider.BicycleRider</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.hand_grips.html">symbrim.brim.hand_grips</a><input aria-label="Toggle navigation of symbrim.brim.hand_grips" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.hand_grips.HolonomicHandGrips.html">symbrim.brim.hand_grips.HolonomicHandGrips</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.hand_grips.SpringDamperHandGrips.html">symbrim.brim.hand_grips.SpringDamperHandGrips</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.pedals.html">symbrim.brim.pedals</a><input aria-label="Toggle navigation of symbrim.brim.pedals" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.pedals.HolonomicPedals.html">symbrim.brim.pedals.HolonomicPedals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.pedals.SpringDamperPedals.html">symbrim.brim.pedals.SpringDamperPedals</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.html">symbrim.brim.seats</a><input aria-label="Toggle navigation of symbrim.brim.seats" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.FixedSeat.html">symbrim.brim.seats.FixedSeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.PelvisInterPointMixin.html">symbrim.brim.seats.PelvisInterPointMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.SideLeanSeat.html">symbrim.brim.seats.SideLeanSeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.SideLeanSeatSpringDamper.html">symbrim.brim.seats.SideLeanSeatSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.brim.seats.SideLeanSeatTorque.html">symbrim.brim.seats.SideLeanSeatTorque</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.html">symbrim.bicycle</a><input aria-label="Toggle navigation of symbrim.bicycle" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.bicycle_base.html">symbrim.bicycle.bicycle_base</a><input aria-label="Toggle navigation of symbrim.bicycle.bicycle_base" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.bicycle_base.BicycleBase.html">symbrim.bicycle.bicycle_base.BicycleBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.cranks.html">symbrim.bicycle.cranks</a><input aria-label="Toggle navigation of symbrim.bicycle.cranks" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.cranks.CranksBase.html">symbrim.bicycle.cranks.CranksBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.cranks.MasslessCranks.html">symbrim.bicycle.cranks.MasslessCranks</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.html">symbrim.bicycle.front_frames</a><input aria-label="Toggle navigation of symbrim.bicycle.front_frames" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.FrontFrameBase.html">symbrim.bicycle.front_frames.FrontFrameBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.RigidFrontFrame.html">symbrim.bicycle.front_frames.RigidFrontFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.RigidFrontFrameMoore.html">symbrim.bicycle.front_frames.RigidFrontFrameMoore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.SuspensionRigidFrontFrame.html">symbrim.bicycle.front_frames.SuspensionRigidFrontFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.front_frames.SuspensionRigidFrontFrameMoore.html">symbrim.bicycle.front_frames.SuspensionRigidFrontFrameMoore</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.html">symbrim.bicycle.grounds</a><input aria-label="Toggle navigation of symbrim.bicycle.grounds" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.FlatGround.html">symbrim.bicycle.grounds.FlatGround</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.grounds.GroundBase.html">symbrim.bicycle.grounds.GroundBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.rear_frames.html">symbrim.bicycle.rear_frames</a><input aria-label="Toggle navigation of symbrim.bicycle.rear_frames" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.rear_frames.RearFrameBase.html">symbrim.bicycle.rear_frames.RearFrameBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.rear_frames.RigidRearFrame.html">symbrim.bicycle.rear_frames.RigidRearFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.rear_frames.RigidRearFrameMoore.html">symbrim.bicycle.rear_frames.RigidRearFrameMoore</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.stationary_bicycle.html">symbrim.bicycle.stationary_bicycle</a><input aria-label="Toggle navigation of symbrim.bicycle.stationary_bicycle" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.stationary_bicycle.StationaryBicycle.html">symbrim.bicycle.stationary_bicycle.StationaryBicycle</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.tires.html">symbrim.bicycle.tires</a><input aria-label="Toggle navigation of symbrim.bicycle.tires" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.tires.InContactTire.html">symbrim.bicycle.tires.InContactTire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.tires.NonHolonomicTire.html">symbrim.bicycle.tires.NonHolonomicTire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.tires.TireBase.html">symbrim.bicycle.tires.TireBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.wheels.html">symbrim.bicycle.wheels</a><input aria-label="Toggle navigation of symbrim.bicycle.wheels" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.wheels.KnifeEdgeWheel.html">symbrim.bicycle.wheels.KnifeEdgeWheel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.wheels.ToroidalWheel.html">symbrim.bicycle.wheels.ToroidalWheel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.wheels.WheelBase.html">symbrim.bicycle.wheels.WheelBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.bicycle.whipple_bicycle.html">symbrim.bicycle.whipple_bicycle</a><input aria-label="Toggle navigation of symbrim.bicycle.whipple_bicycle" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.whipple_bicycle.WhippleBicycle.html">symbrim.bicycle.whipple_bicycle.WhippleBicycle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.bicycle.whipple_bicycle.WhippleBicycleMoore.html">symbrim.bicycle.whipple_bicycle.WhippleBicycleMoore</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.html">symbrim.rider</a><input aria-label="Toggle navigation of symbrim.rider" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.html">symbrim.rider.arms</a><input aria-label="Toggle navigation of symbrim.rider.arms" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.ArmBase.html">symbrim.rider.arms.ArmBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.LeftArmBase.html">symbrim.rider.arms.LeftArmBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowSpringDamper.html">symbrim.rider.arms.PinElbowSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowStickArmMixin.html">symbrim.rider.arms.PinElbowStickArmMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowStickLeftArm.html">symbrim.rider.arms.PinElbowStickLeftArm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowStickRightArm.html">symbrim.rider.arms.PinElbowStickRightArm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.PinElbowTorque.html">symbrim.rider.arms.PinElbowTorque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.arms.RightArmBase.html">symbrim.rider.arms.RightArmBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.html">symbrim.rider.base_connections</a><input aria-label="Toggle navigation of symbrim.rider.base_connections" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.HipBase.html">symbrim.rider.base_connections.HipBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.LeftHipBase.html">symbrim.rider.base_connections.LeftHipBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.LeftShoulderBase.html">symbrim.rider.base_connections.LeftShoulderBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.RightHipBase.html">symbrim.rider.base_connections.RightHipBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.RightShoulderBase.html">symbrim.rider.base_connections.RightShoulderBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.SacrumBase.html">symbrim.rider.base_connections.SacrumBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.base_connections.ShoulderBase.html">symbrim.rider.base_connections.ShoulderBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.html">symbrim.rider.hip_joints</a><input aria-label="Toggle navigation of symbrim.rider.hip_joints" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.PinHipMixin.html">symbrim.rider.hip_joints.PinHipMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.PinLeftHip.html">symbrim.rider.hip_joints.PinLeftHip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.PinRightHip.html">symbrim.rider.hip_joints.PinRightHip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalHipMixin.html">symbrim.rider.hip_joints.SphericalHipMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalHipSpringDamper.html">symbrim.rider.hip_joints.SphericalHipSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalHipTorque.html">symbrim.rider.hip_joints.SphericalHipTorque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalLeftHip.html">symbrim.rider.hip_joints.SphericalLeftHip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.hip_joints.SphericalRightHip.html">symbrim.rider.hip_joints.SphericalRightHip</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.html">symbrim.rider.legs</a><input aria-label="Toggle navigation of symbrim.rider.legs" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.LeftLegBase.html">symbrim.rider.legs.LeftLegBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.LegBase.html">symbrim.rider.legs.LegBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.RightLegBase.html">symbrim.rider.legs.RightLegBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinLegSpringDamper.html">symbrim.rider.legs.TwoPinLegSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinLegTorque.html">symbrim.rider.legs.TwoPinLegTorque</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinStickLeftLeg.html">symbrim.rider.legs.TwoPinStickLeftLeg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinStickLegMixin.html">symbrim.rider.legs.TwoPinStickLegMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.legs.TwoPinStickRightLeg.html">symbrim.rider.legs.TwoPinStickRightLeg</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.pelvis.html">symbrim.rider.pelvis</a><input aria-label="Toggle navigation of symbrim.rider.pelvis" class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.pelvis.PelvisBase.html">symbrim.rider.pelvis.PelvisBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.pelvis.PlanarPelvis.html">symbrim.rider.pelvis.PlanarPelvis</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.rider.html">symbrim.rider.rider</a><input aria-label="Toggle navigation of symbrim.rider.rider" class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.rider.Rider.html">symbrim.rider.rider.Rider</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.rider_lean.html">symbrim.rider.rider_lean</a><input aria-label="Toggle navigation of symbrim.rider.rider_lean" class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.rider_lean.RiderLean.html">symbrim.rider.rider_lean.RiderLean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.rider_lean.RiderLeanConnection.html">symbrim.rider.rider_lean.RiderLeanConnection</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.sacrums.html">symbrim.rider.sacrums</a><input aria-label="Toggle navigation of symbrim.rider.sacrums" class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.sacrums.FixedSacrum.html">symbrim.rider.sacrums.FixedSacrum</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.html">symbrim.rider.shoulder_joints</a><input aria-label="Toggle navigation of symbrim.rider.shoulder_joints" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexAddLeftShoulder.html">symbrim.rider.shoulder_joints.FlexAddLeftShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexAddRightShoulder.html">symbrim.rider.shoulder_joints.FlexAddRightShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexAddShoulderMixin.html">symbrim.rider.shoulder_joints.FlexAddShoulderMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexRotLeftShoulder.html">symbrim.rider.shoulder_joints.FlexRotLeftShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexRotRightShoulder.html">symbrim.rider.shoulder_joints.FlexRotRightShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.FlexRotShoulderMixin.html">symbrim.rider.shoulder_joints.FlexRotShoulderMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalLeftShoulder.html">symbrim.rider.shoulder_joints.SphericalLeftShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalRightShoulder.html">symbrim.rider.shoulder_joints.SphericalRightShoulder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalShoulderMixin.html">symbrim.rider.shoulder_joints.SphericalShoulderMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalShoulderSpringDamper.html">symbrim.rider.shoulder_joints.SphericalShoulderSpringDamper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.shoulder_joints.SphericalShoulderTorque.html">symbrim.rider.shoulder_joints.SphericalShoulderTorque</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.rider.torso.html">symbrim.rider.torso</a><input aria-label="Toggle navigation of symbrim.rider.torso" class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.torso.PlanarTorso.html">symbrim.rider.torso.PlanarTorso</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.rider.torso.TorsoBase.html">symbrim.rider.torso.TorsoBase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.html">symbrim.core</a><input aria-label="Toggle navigation of symbrim.core" class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.attachment.html">symbrim.core.attachment</a><input aria-label="Toggle navigation of symbrim.core.attachment" class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.attachment.Attachment.html">symbrim.core.attachment.Attachment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.attachment.Hub.html">symbrim.core.attachment.Hub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.attachment.MasslessBody.html">symbrim.core.attachment.MasslessBody</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.auxiliary.html">symbrim.core.auxiliary</a><input aria-label="Toggle navigation of symbrim.core.auxiliary" class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.auxiliary.AuxiliaryData.html">symbrim.core.auxiliary.AuxiliaryData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.auxiliary.AuxiliaryDataHandler.html">symbrim.core.auxiliary.AuxiliaryDataHandler</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.html">symbrim.core.base_classes</a><input aria-label="Toggle navigation of symbrim.core.base_classes" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.set_default_convention.html">symbrim.core.base_classes.set_default_convention</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.BrimBase.html">symbrim.core.base_classes.BrimBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ConnectionBase.html">symbrim.core.base_classes.ConnectionBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ConnectionMeta.html">symbrim.core.base_classes.ConnectionMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.LoadGroupBase.html">symbrim.core.base_classes.LoadGroupBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.LoadGroupMeta.html">symbrim.core.base_classes.LoadGroupMeta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ModelBase.html">symbrim.core.base_classes.ModelBase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.base_classes.ModelMeta.html">symbrim.core.base_classes.ModelMeta</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.mixins.html">symbrim.core.mixins</a><input aria-label="Toggle navigation of symbrim.core.mixins" class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" role="switch" type="checkbox"/><label for="toctree-checkbox-35"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.mixins.NewtonianBodyMixin.html">symbrim.core.mixins.NewtonianBodyMixin</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.registry.html">symbrim.core.registry</a><input aria-label="Toggle navigation of symbrim.core.registry" class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" role="switch" type="checkbox"/><label for="toctree-checkbox-36"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.registry.Registry.html">symbrim.core.registry.Registry</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.requirement.html">symbrim.core.requirement</a><input aria-label="Toggle navigation of symbrim.core.requirement" class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" role="switch" type="checkbox"/><label for="toctree-checkbox-37"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.requirement.ConnectionRequirement.html">symbrim.core.requirement.ConnectionRequirement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.requirement.ModelRequirement.html">symbrim.core.requirement.ModelRequirement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.requirement.RequirementBase.html">symbrim.core.requirement.RequirementBase</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.core.singleton.html">symbrim.core.singleton</a><input aria-label="Toggle navigation of symbrim.core.singleton" class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" role="switch" type="checkbox"/><label for="toctree-checkbox-38"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.singleton.Singleton.html">symbrim.core.singleton.Singleton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.core.singleton.SingletonMeta.html">symbrim.core.singleton.SingletonMeta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.other.html">symbrim.other</a><input aria-label="Toggle navigation of symbrim.other" class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" role="switch" type="checkbox"/><label for="toctree-checkbox-39"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.other.rolling_disc.html">symbrim.other.rolling_disc</a><input aria-label="Toggle navigation of symbrim.other.rolling_disc" class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" role="switch" type="checkbox"/><label for="toctree-checkbox-40"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.other.rolling_disc.rolling_disc_manual.html">symbrim.other.rolling_disc.rolling_disc_manual</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.other.rolling_disc.RollingDisc.html">symbrim.other.rolling_disc.RollingDisc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.html">symbrim.utilities</a><input aria-label="Toggle navigation of symbrim.utilities" class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" role="switch" type="checkbox"/><label for="toctree-checkbox-41"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.benchmarking.html">symbrim.utilities.benchmarking</a><input aria-label="Toggle navigation of symbrim.utilities.benchmarking" class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" role="switch" type="checkbox"/><label for="toctree-checkbox-42"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.benchmarking.benchmark.html">symbrim.utilities.benchmarking.benchmark</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.parametrize.html">symbrim.utilities.parametrize</a><input aria-label="Toggle navigation of symbrim.utilities.parametrize" class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" role="switch" type="checkbox"/><label for="toctree-checkbox-43"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.parametrize.get_inertia_vals.html">symbrim.utilities.parametrize.get_inertia_vals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.parametrize.get_inertia_vals_from_yeadon.html">symbrim.utilities.parametrize.get_inertia_vals_from_yeadon</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.html">symbrim.utilities.plotting</a><input aria-label="Toggle navigation of symbrim.utilities.plotting" class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" role="switch" type="checkbox"/><label for="toctree-checkbox-44"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.PlotBrimMixin.html">symbrim.utilities.plotting.PlotBrimMixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.PlotConnection.html">symbrim.utilities.plotting.PlotConnection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.PlotLoadGroup.html">symbrim.utilities.plotting.PlotLoadGroup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.PlotModel.html">symbrim.utilities.plotting.PlotModel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.plotting.Plotter.html">symbrim.utilities.plotting.Plotter</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.testing.html">symbrim.utilities.testing</a><input aria-label="Toggle navigation of symbrim.utilities.testing" class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" role="switch" type="checkbox"/><label for="toctree-checkbox-45"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.testing.create_model_of_connection.html">symbrim.utilities.testing.create_model_of_connection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.testing.ignore_point_warnings.html">symbrim.utilities.testing.ignore_point_warnings</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../_autosummary/symbrim.utilities.utilities.html">symbrim.utilities.utilities</a><input aria-label="Toggle navigation of symbrim.utilities.utilities" class="toctree-checkbox" id="toctree-checkbox-46" name="toctree-checkbox-46" role="switch" type="checkbox"/><label for="toctree-checkbox-46"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.utilities.check_zero.html">symbrim.utilities.utilities.check_zero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../_autosummary/symbrim.utilities.utilities.random_eval.html">symbrim.utilities.utilities.random_eval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/tutorials/rolling_disc_from_scratch.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Rolling-Disc-From-Scratch">
+<h1>Rolling Disc From Scratch<a class="headerlink" href="#Rolling-Disc-From-Scratch" title="Link to this heading">¶</a></h1>
+<p>Welcome to this model developers tutorial on creating a rolling disc model from scratch using SymBRiM!</p>
+<p>This notebook is a hands-on tutorial on your own models, connections, and load groups in SymBRiM. By the end of this tutorial, you’ll have achieved the following learning goals:</p>
+<ul class="simple">
+<li><p>Create base classes for models and connections.</p></li>
+<li><p>Create a submodel.</p></li>
+<li><p>Create a parent model.</p></li>
+<li><p>Create a connection.</p></li>
+<li><p>Create a load group.</p></li>
+</ul>
+<p>The setup of this tutorial also aims to follow the style guide used in SymBRiM’s source code to acustom you with the style expected by SymBRiM developers. An example is the obligated usage of docstrings and type hints in function signatures.</p>
+<p>Before diving into this tutorial, it’s recommended that you familiarize yourself with Objected Oriented Programming (OOP), SymPy, the architecture of SymBRiM (refer to the sections on <em>Software Overview</em> to <em>BRiM Models</em> in <a class="reference external" href="https://doi.org/10.59490/6504c5a765e8118fc7b106c3">the SymBRiM paper</a>), and the <a class="reference external" href="https://mechmotum.github.io/symbrim/guides/component_implementation.html">guidelines on implementing components in SymBRiM</a>. This background information will provide valuable context for
+what we’ll cover here.</p>
+<section id="Rolling-Disc-Model">
+<h2>Rolling Disc Model<a class="headerlink" href="#Rolling-Disc-Model" title="Link to this heading">¶</a></h2>
+<p>Shown below is a freebody diagram of the rolling disc we will model in this tutorial. The rolling disc is defined as an infinitesimally thin disc, rolling on the ground without lateral and longitudinal slip. The disc itself is defined with respect to the ground with a subsequent yaw-roll-pitch body-fixed rotation. Its contact point is defined to be in the ground plane at <span class="math notranslate nohighlight">\(q_1 \hat{n}_x + q_2 \hat{n}_y\)</span> from the origin. As for the generalized speeds used in Kane’s method, those are defined
+as <span class="math notranslate nohighlight">\(u_i = \dot{q}_i\)</span> for <span class="math notranslate nohighlight">\(i=1,...,5\)</span>. The ground is treated as the Newtonian body, the disc as a rigid body with a specified mass, inertia, and radius. To control the disc three time-varying torques are used: <span class="math notranslate nohighlight">\(T_{drive}\)</span> acts about the rotation axis of the disc, <span class="math notranslate nohighlight">\(T_{steer}\)</span> acts about the axis going through the contact point and the center of the disc, and <span class="math notranslate nohighlight">\(T_{roll}\)</span> acts about the axis perpendicular to both the normal of the ground and the rotation axis.</p>
+<center><p><img alt="Freebody diagram of a rolling disc SVG" class="no-scaled-link" src="../_images/rolling_disc_fbd.svg" style="width: 550px;" /></p>
+</center></section>
+<section id="Components-Overview">
+<h2>Components Overview<a class="headerlink" href="#Components-Overview" title="Link to this heading">¶</a></h2>
+<p>As depicted in the figure below, the rolling disc model (<code class="docutils literal notranslate"><span class="pre">RollingDisc</span></code>) consists of two models, one connection and a set of load groups. Each body is represented by a separate model, as the bodies are expected to be modular. In this case, we will model the ground as a flat ground (<code class="docutils literal notranslate"><span class="pre">FlatGround</span></code>), but one can also use a ground with a slope. The description of a ground in general is defined in the ground base class (<code class="docutils literal notranslate"><span class="pre">GroundBase</span></code>). The wheel model describes the inertial properties and the
+shape of the disc, in this case a knife-edge wheel (<code class="docutils literal notranslate"><span class="pre">KnifeEgeWheel</span></code>). To describe the interaction between the wheel and the ground, a nonholonomic tire model (<code class="docutils literal notranslate"><span class="pre">NonHolonomicTire</span></code>) is utilized. Reasons for using a connection are that the relation is rather complex to define in the parent model, <code class="docutils literal notranslate"><span class="pre">RollingDisc</span></code>, and it should also be modular and reusable in other parent models. We will use a load group to apply a driving, rolling, and steering torque (<code class="docutils literal notranslate"><span class="pre">RollingDiscControl</span></code>), we will apply
+gravity after creating the final system instance.</p>
+<center><p><img alt="UML diagram of the rolling disc SVG" class="no-scaled-link" src="../_images/rolling_disc_uml.svg" style="width: 550px;" /></p>
+</center></section>
+<section id="Tutorial-Overview">
+<h2>Tutorial Overview<a class="headerlink" href="#Tutorial-Overview" title="Link to this heading">¶</a></h2>
+<p>This tutorial is structured as follows. We start with an explanation of the implementation of both the abstract base class of the ground model as well as the implementation of the flat ground. Next, we continue with the implementation of the knife-edge wheel, while inheriting the abstract base class, <code class="docutils literal notranslate"><span class="pre">WheelBase</span></code>, from SymBRiM. With both submodels implemented, we will implement the tire base class and tire model, which uses nonholonomic constraints to enforce pure-rolling. Next, we will
+implement the overarching rolling disc model class. After which we create a load group to control the rolling disc. Finally, we will use our code to form the equations of motion (EoMs) of the rolling disc model.</p>
+<p>Note that the classes implemented in this tutorial are simplified w.r.t. their implemention in the source code of SymBRiM. However, we will try to follow standards used in the development of SymBRiM, like type hinting.</p>
+</section>
+<section id="Imports">
+<h2>Imports<a class="headerlink" href="#Imports" title="Link to this heading">¶</a></h2>
+<p>Below we import the classes and functions we will require in this tutorial. Feel free to add any if your missing some.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">abstractmethod</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Expr</span><span class="p">,</span> <span class="n">MutableMatrix</span><span class="p">,</span> <span class="n">Symbol</span><span class="p">,</span> <span class="n">symbols</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sympy.physics.mechanics</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">check_documentation</span><span class="p">,</span>
+    <span class="n">verify_flat_ground</span><span class="p">,</span>
+    <span class="n">verify_ground_base</span><span class="p">,</span>
+    <span class="n">verify_knife_edge_wheel</span><span class="p">,</span>
+    <span class="n">verify_rolling_disc</span><span class="p">,</span>
+    <span class="n">verify_rolling_disc_control</span><span class="p">,</span>
+    <span class="n">verify_tire_base</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">symbrim.bicycle.wheels</span><span class="w"> </span><span class="kn">import</span> <span class="n">WheelBase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">symbrim.core</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ConnectionBase</span><span class="p">,</span>
+    <span class="n">ConnectionRequirement</span><span class="p">,</span>
+    <span class="n">LoadGroupBase</span><span class="p">,</span>
+    <span class="n">ModelBase</span><span class="p">,</span>
+    <span class="n">ModelRequirement</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="GroundBase-Implementation">
+<h2>GroundBase Implementation<a class="headerlink" href="#GroundBase-Implementation" title="Link to this heading">¶</a></h2>
+<p>In this section, we will delve into the implementation of the <code class="docutils literal notranslate"><span class="pre">GroundBase</span></code> class, which serves as the base class for defining the properties and methods shared by various ground models in SymBRiM.</p>
+<section id="What-is-a-Base-Class?">
+<h3>What is a Base Class?<a class="headerlink" href="#What-is-a-Base-Class?" title="Link to this heading">¶</a></h3>
+<p>A base class, such as <code class="docutils literal notranslate"><span class="pre">GroundBase</span></code>, plays a crucial role in SymBRiM by providing a common structure for related components. In the case of ground models, they share three essential properties and three methods.</p>
+<p>The three attributes defined in <code class="docutils literal notranslate"><span class="pre">GroundBase</span></code> are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">body</span></code>: Represents the rigid body associated with the ground.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frame</span></code>: A reference frame fixed to the ground.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">origin</span></code>: The point that denotes the center of mass of the ground model.</p></li>
+</ul>
+<p>The three methods prescribed in <code class="docutils literal notranslate"><span class="pre">GroundBase</span></code> are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">normal</span></code>: Property returning the normal vector of the ground.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tangent_vectors</span></code>: Property returning the tangent vectors of the ground plane.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_pos_point(point,</span> <span class="pre">position)</span></code>: Sets the positions of a point relative to the origin</p></li>
+</ul>
+<p>These common attributes streamline the creation of different ground models. Subclasses, like the flat ground model we’ll discuss, only need to implement specific methods.</p>
+<p><em>Note: The actual implementation of the</em> <a class="reference external" href="https://mechmotum.github.io/symbrim/_autosummary/symbrim.bicycle.grounds.GroundBase.html">GroundBase</a> <em>in SymBRiM is a bit different, as the normal vector and tangent vectors are positional dependent.</em></p>
+<p>Additionally, <code class="docutils literal notranslate"><span class="pre">GroundBase</span></code> creates a <a class="reference external" href="https://docs.sympy.org/dev/modules/physics/mechanics/api/system.html#sympy.physics.mechanics.system.System">System</a> instance in the define objects stage, as any model or connection in SymBRiM must do. This <a class="reference external" href="https://docs.sympy.org/dev/modules/physics/mechanics/api/system.html#sympy.physics.mechanics.system.System">System</a> instance is used to store all information, like bodies, joint, and generalized coordinates, such that these can later be retrieved
+in the <a class="reference external" href="https://mechmotum.github.io/symbrim/_autosummary/symbrim.core.base_classes.ModelBase.html#symbrim.core.base_classes.ModelBase.to_system">ModelBase.to_system()</a> method.</p>
+</section>
+<section id="Define-Steps">
+<h3>Define Steps<a class="headerlink" href="#Define-Steps" title="Link to this heading">¶</a></h3>
+<p>In SymBRiM, the definition of a model is divided into several stages, ensuring the proper decoupling between components. These steps are as follows:</p>
+<ol class="arabic simple">
+<li><p><strong>Define connections</strong>: This step enables parent models to associate submodels with their respective connections.</p></li>
+<li><p><strong>Define objects</strong>: In this step, we create objects, such as symbols and reference frames, without defining any relationships between them.</p></li>
+<li><p><strong>Define kinematics</strong>: We establish relationships between the objects, specifying their orientations, positions, velocities, and accelerations.</p></li>
+<li><p><strong>Define loads</strong>: Here, we specify the forces and torques acting upon the system.</p></li>
+<li><p><strong>Define constraints</strong>: The final step involves computing the holonomic and nonholonomic constraints to which the system is subject.</p></li>
+</ol>
+<p>To implement the “define” steps in a model, connection, or load group, a leading underscore is added to the method name. For example, <code class="docutils literal notranslate"><span class="pre">_define_&lt;step&gt;</span></code>. These methods solely implement the “define” step for the component itself without traversing the submodels and load groups.</p>
+<p><a class="reference external" href="https://mechmotum.github.io/symbrim/_autosummary/symbrim.core.base_classes.BrimBase.html">BrimBase</a> contains the implementation of the “define” methods, including traversal, which should be called by the user. These methods follow the format <code class="docutils literal notranslate"><span class="pre">define_&lt;step&gt;</span></code>.</p>
+<p>For more information refer to <a class="reference external" href="https://mechmotum.github.io/symbrim/guides/component_implementation.html#implementation-define-steps">the guidelines on implementing components</a>.</p>
+</section>
+<section id="Exercise">
+<h3>Exercise<a class="headerlink" href="#Exercise" title="Link to this heading">¶</a></h3>
+<p>As an exercise, complete the implementation of the <code class="docutils literal notranslate"><span class="pre">GroundBase</span></code> class, seen below, by implementing two specific properties: <code class="docutils literal notranslate"><span class="pre">origin</span></code> and <code class="docutils literal notranslate"><span class="pre">tangent_vectors</span></code>. The <code class="docutils literal notranslate"><span class="pre">origin</span></code> property should return the center of mass of the ground body, and the <code class="docutils literal notranslate"><span class="pre">tangent_vectors</span></code> property should be abstract.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">GroundBase</span><span class="p">(</span><span class="n">ModelBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for the ground.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the objects of the ground.&quot;&quot;&quot;</span>
+        <span class="c1"># When overwriting a method from a parent class, it is good practise to call</span>
+        <span class="c1"># the parent method first. In this case, the _define_objects method of the</span>
+        <span class="c1"># ModelBase class is called.</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_objects</span><span class="p">()</span>
+        <span class="c1"># Create a rigid body to represent the ground.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span> <span class="o">=</span> <span class="n">RigidBody</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body</span><span class="o">.</span><span class="n">masscenter</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;origin&quot;</span><span class="p">))</span>
+        <span class="c1"># Create the system object of the ground.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_system</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_newtonian</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_kinematics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the kinematics of the ground.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_kinematics</span><span class="p">()</span>
+        <span class="c1"># Fixate the origin in the ground frame.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">set_vel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">body</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RigidBody</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The body representing the ground.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_body</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReferenceFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Frame fixed to the ground.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">frame</span>
+
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">origin</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Point</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Origin of the ground.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">masscenter</span>
+    <span class="c1">### END SOLUTION</span>
+
+    <span class="c1"># The abstractmethod decorators make sure that subclasses have to implement these</span>
+    <span class="c1"># methods.</span>
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Normal vector of the ground.&quot;&quot;&quot;</span>
+
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tangent_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Vector</span><span class="p">,</span> <span class="n">Vector</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Tangent vectors of the ground plane.&quot;&quot;&quot;</span>
+    <span class="c1">### END SOLUTION</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_pos_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="n">Point</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Locate a point on the ground.&quot;&quot;&quot;</span>
+
+
+<span class="c1"># Verification code.</span>
+<span class="n">verify_ground_base</span><span class="p">(</span><span class="n">GroundBase</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="FlatGround-Implementation">
+<h2>FlatGround Implementation<a class="headerlink" href="#FlatGround-Implementation" title="Link to this heading">¶</a></h2>
+<p>In the context of SymBRiM, the flat ground model (<code class="docutils literal notranslate"><span class="pre">FlatGround</span></code>) needs to implement the abstract methods defined in the <code class="docutils literal notranslate"><span class="pre">GroundBase</span></code> class. Specifically, this involves defining the behavior of the ground in terms of the normal vector, tangent vectors, and the ability to set the position of points in the ground plane.</p>
+<ul class="simple">
+<li><p>The normal vector represents the unit vector in the negative Z-direction, defining the orientation of the ground plane.</p></li>
+<li><p>The tangent vectors returns the X- and Y-unit vectors as a tuple, providing a basis for relationships between objects.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">set_pos_point</span></code> method enables the positioning of a given point (<code class="docutils literal notranslate"><span class="pre">point</span></code>) in the ground plane with respect to the origin.</p></li>
+</ul>
+<section id="id1">
+<h3>Exercise<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>Complete the implementation of the <code class="docutils literal notranslate"><span class="pre">FlatGround</span></code> class below by implementing the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tangent_vectors</span></code>: Define this property to return the X- and Y-unit vectors as a tuple.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_pos_point</span></code>: Implement this method to set the location of a given point (<code class="docutils literal notranslate"><span class="pre">point</span></code>) in the ground plane using the provided position. You can use <code class="docutils literal notranslate"><span class="pre">Point.set_pos</span></code> to set the point’s position.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">FlatGround</span><span class="p">(</span><span class="n">GroundBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Flat ground.&quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normal</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Normal vector of the ground.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">z</span>
+
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tangent_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Vector</span><span class="p">,</span> <span class="n">Vector</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Tangent vectors of the ground plane.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_pos_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="n">Point</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Expr</span><span class="p">,</span> <span class="n">Expr</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the location of a point on the ground.&quot;&quot;&quot;</span>
+        <span class="n">point</span><span class="o">.</span><span class="n">set_pos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">origin</span><span class="p">,</span>
+                      <span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+
+
+<span class="c1"># Verification code.</span>
+<span class="n">verify_flat_ground</span><span class="p">(</span><span class="n">FlatGround</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="KnifeEdgeWheel-Implementation">
+<h2>KnifeEdgeWheel Implementation<a class="headerlink" href="#KnifeEdgeWheel-Implementation" title="Link to this heading">¶</a></h2>
+<p>In many cases, we don’t need to create our own base classes; instead, we can leverage the existing ones provided by SymBRiM. In this section, we will implement a knife-edge wheel, which builds upon the <a class="reference external" href="https://mechmotum.github.io/symbrim/_autosummary/symbrim.bicycle.wheels.WheelBase.html">WheelBase</a> class from SymBRiM.</p>
+<section id="Inheriting-from-WheelBase">
+<h3>Inheriting from WheelBase<a class="headerlink" href="#Inheriting-from-WheelBase" title="Link to this heading">¶</a></h3>
+<p>Similar to the flat ground, the knife-edge wheel inherits from an abstract class, <code class="docutils literal notranslate"><span class="pre">WheelBase</span></code>. This time we will just use the one defined already in SymBRiM. <code class="docutils literal notranslate"><span class="pre">WheelBase</span></code> already defines a rigid body (<code class="docutils literal notranslate"><span class="pre">body</span></code>) and a body-fixed frame (<code class="docutils literal notranslate"><span class="pre">frame</span></code>) to represent the wheel. Additionally, it prescribes the implementation of two properties:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rotation_axis</span></code>: A <code class="docutils literal notranslate"><span class="pre">Vector</span></code> representing the rotation axis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">center</span></code>: A <code class="docutils literal notranslate"><span class="pre">Point</span></code> representing the wheel’s center.</p></li>
+</ul>
+<p>In the code below, we will implement these two properties. The <code class="docutils literal notranslate"><span class="pre">center</span></code> property returns the center of mass as a <code class="docutils literal notranslate"><span class="pre">Point</span></code> to represent the center of the wheel, and the <code class="docutils literal notranslate"><span class="pre">rotation_axis</span></code> property returns the body-fixed Y-axis as a <code class="docutils literal notranslate"><span class="pre">Vector</span></code> to represent the rotation axis of the wheel.</p>
+</section>
+<section id="Symbol-Handling">
+<h3>Symbol Handling<a class="headerlink" href="#Symbol-Handling" title="Link to this heading">¶</a></h3>
+<p>Apart from defining these properties, we need to introduce a <code class="docutils literal notranslate"><span class="pre">radius</span></code> symbol to describe the shape of the wheel. In SymBRiM, we store symbols in the <code class="docutils literal notranslate"><span class="pre">symbols</span></code> dictionary created by <a class="reference external" href="https://mechmotum.github.io/symbrim/_autosummary/symbrim.core.base_classes.BrimBase.html">BrimBase</a>. This dictionary allows users to change a symbol after the “define object” stage, providing flexibility in symbol definitions. Here is a short example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wheel</span> <span class="o">=</span> <span class="n">KnifeEdgeWheel</span><span class="p">(</span><span class="s2">&quot;wheel&quot;</span><span class="p">)</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">define_objects</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">wheel</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]))</span>  <span class="c1"># Prints Symbol(&quot;wheel_r&quot;)</span>
+<span class="n">wheel</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;my_r&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">wheel</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]))</span>  <span class="c1"># Prints Symbol(&quot;my_r&quot;)</span>
+</pre></div>
+</div>
+<p>Additionally, descriptions for symbols are stored in the <code class="docutils literal notranslate"><span class="pre">descriptions</span></code> property, which can be used for documentation purposes. <code class="docutils literal notranslate"><span class="pre">BrimBase.get_description</span></code> uses these properties to allow a user to request the definition of a symbol, e.g. <code class="docutils literal notranslate"><span class="pre">bicycle.get_description(wheel.symbols[&quot;r&quot;])</span></code> should return something like <code class="docutils literal notranslate"><span class="pre">Radius</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">wheel.</span></code>.</p>
+<p>Within SymBRiM’s source code we use <code class="docutils literal notranslate"><span class="pre">BrimBase._add_prefix</span></code> to add the name of the instantiated model as a prefix to each symbol. This ensures that the symbols created among different models stay unique, assuming the user instantiates the models with unique names. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wheel_rear</span> <span class="o">=</span> <span class="n">KnifeEdgeWheel</span><span class="p">(</span><span class="s2">&quot;wheel_rear&quot;</span><span class="p">)</span>
+<span class="n">wheel_front</span> <span class="o">=</span> <span class="n">KnifeEdgeWheel</span><span class="p">(</span><span class="s2">&quot;wheel_front&quot;</span><span class="p">)</span>
+<span class="n">wheel_rear</span><span class="o">.</span><span class="n">define_all</span><span class="p">()</span>
+<span class="n">wheel_front</span><span class="o">.</span><span class="n">define_all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">wheel_rear</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">wheel_front</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For more information refer to <a class="reference external" href="https://mechmotum.github.io/symbrim/guides/component_implementation.html#define-objects">the guidelines on implementing components</a>.</p>
+</section>
+<section id="id2">
+<h3>Exercise<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>Complete the implementation of the <code class="docutils literal notranslate"><span class="pre">KnifeEdgeWheel</span></code> class by implementing the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">center</span></code>: Define this property, which returns the center of mass as a <code class="docutils literal notranslate"><span class="pre">Point</span></code> to represent the center of the wheel.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotation_axis</span></code>: Define this property, which returns the body-fixed Y-axis as a <code class="docutils literal notranslate"><span class="pre">Vector</span></code> to represent the rotation axis of the wheel.</p></li>
+<li><p>Define a symbol for the radius and use <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> as key in the <code class="docutils literal notranslate"><span class="pre">self.symbols</span></code> dictionary.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">KnifeEdgeWheel</span><span class="p">(</span><span class="n">WheelBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Knife-edge wheel.&quot;&quot;&quot;</span>
+
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">descriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Descriptions of the attributes of the wheel.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="o">**</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">descriptions</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]:</span> <span class="s2">&quot;&quot;&quot;Radius of the wheel.&quot;&quot;&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the objects of the wheel.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_objects</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">center</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Point</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Point representing the center of the wheel.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">masscenter</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rotation_axis</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rotation axis of the wheel.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">y</span>
+    <span class="c1">### END SOLUTION</span>
+
+
+<span class="c1"># Verification code.</span>
+<span class="n">verify_knife_edge_wheel</span><span class="p">(</span><span class="n">KnifeEdgeWheel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="TireBase-Implementation">
+<h2>TireBase Implementation<a class="headerlink" href="#TireBase-Implementation" title="Link to this heading">¶</a></h2>
+<p>In the context of the rolling disc model, the interaction between the wheel and the ground is complex and demands a modular design. To accommodate this, a new type of connection has been introduced to specify the tire model responsible for defining this interaction. This connection is facilitated by the abstract class <code class="docutils literal notranslate"><span class="pre">TireBase</span></code>.</p>
+<p><em>Note: The implementation of tire model connections can be challenging, so if you find the details daunting, you can continue reading and return later.</em></p>
+<section id="Functionality-Overview">
+<h3>Functionality Overview<a class="headerlink" href="#Functionality-Overview" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">TireBase</span></code> class provides several essential properties and methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ground</span></code>: A property that accepts any type of ground model, as long as it inherits from <code class="docutils literal notranslate"><span class="pre">GroundBase</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wheel</span></code>: A property that accepts any type of wheel model, as long as it inherits from <code class="docutils literal notranslate"><span class="pre">WheelBase</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contact_point</span></code>: A property that returns a <code class="docutils literal notranslate"><span class="pre">Point</span></code> to represent the contact point between the wheel and the ground.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_ground</span></code>: A boolean property that specifies whether the wheel is defined to always touch the ground or whether a holonomic constraint should be used. This boolean is by default <code class="docutils literal notranslate"><span class="pre">False</span></code>, but can be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> by the parent.</p></li>
+</ul>
+<p>All other functionalities, such as computing the constraints and tire forces, are meant to be implemented in the define steps. For instance, the nonholonomic constraints should be set in <code class="docutils literal notranslate"><span class="pre">define_constraints</span></code> when implementing <code class="docutils literal notranslate"><span class="pre">NonHolonomicTire</span></code>.</p>
+</section>
+<section id="Creation-of-Submodel-Properties">
+<h3>Creation of Submodel Properties<a class="headerlink" href="#Creation-of-Submodel-Properties" title="Link to this heading">¶</a></h3>
+<p>In SymBRiM, the class property <code class="docutils literal notranslate"><span class="pre">required_models</span></code> is used to specify submodel properties. <code class="docutils literal notranslate"><span class="pre">required_models</span></code> should be a tuple of <code class="docutils literal notranslate"><span class="pre">ModelRequirements</span></code>. Refer to <a class="reference external" href="https://mechmotum.github.io/symbrim/guides/component_implementation.html#setting-submodels-and-connections">the implementation guidelines</a> for more information.</p>
+</section>
+<section id="Contact-Point-Computation">
+<h3>Contact Point Computation<a class="headerlink" href="#Contact-Point-Computation" title="Link to this heading">¶</a></h3>
+<p>Since most tire models require computing the contact point between the wheel and the ground, <code class="docutils literal notranslate"><span class="pre">TireBase</span></code> also implements <code class="docutils literal notranslate"><span class="pre">_set_pos_contact_point</span></code>. This protected method computes the contact point based on the types and properties of the ground and wheel. Once computed, it saves the location w.r.t. the wheel. It’s important to note that this method should be called by the child class, e.g., <code class="docutils literal notranslate"><span class="pre">NonHolonomicTire</span></code>, as not every tire model may utilize this method.</p>
+</section>
+<section id="id3">
+<h3>Exercise<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>Implement the following methods/properties in the <code class="docutils literal notranslate"><span class="pre">TireBase</span></code> class. Refer above for details on each of the properties.</p>
+<ul class="simple">
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">ground</span></code> and <code class="docutils literal notranslate"><span class="pre">wheel</span></code> properties using the <code class="docutils literal notranslate"><span class="pre">required_models</span></code> class attribute.</p></li>
+<li><p>Do not forget to instantiate a <code class="docutils literal notranslate"><span class="pre">System</span></code> in <code class="docutils literal notranslate"><span class="pre">_define_objects</span></code>.</p></li>
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">on_ground</span></code> property, while setting it to <code class="docutils literal notranslate"><span class="pre">False</span></code> by default in <code class="docutils literal notranslate"><span class="pre">_define_objects</span></code>.</p></li>
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">contact_point</span></code> property, while instantiating the point in <code class="docutils literal notranslate"><span class="pre">_define_objects</span></code>.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TireBase</span><span class="p">(</span><span class="n">ConnectionBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for the tire model connectors.&quot;&quot;&quot;</span>
+
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">required_models</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ModelRequirement</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ModelRequirement</span><span class="p">(</span><span class="s2">&quot;ground&quot;</span><span class="p">,</span> <span class="n">GroundBase</span><span class="p">,</span> <span class="s2">&quot;Submodel of the ground.&quot;</span><span class="p">),</span>
+        <span class="n">ModelRequirement</span><span class="p">(</span><span class="s2">&quot;wheel&quot;</span><span class="p">,</span> <span class="n">WheelBase</span><span class="p">,</span> <span class="s2">&quot;Submodel of the wheel.&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="c1"># These type hints are useful for IDEs as the properties are created dynamically.</span>
+    <span class="n">ground</span><span class="p">:</span> <span class="n">GroundBase</span>
+    <span class="n">wheel</span><span class="p">:</span> <span class="n">WheelBase</span>
+    <span class="c1">### END SOLUTION</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_pos_contact_point</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute the contact point of the wheel with the ground.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="p">,</span> <span class="n">FlatGround</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="p">,</span> <span class="n">KnifeEdgeWheel</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">set_pos</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">contact_point</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">cross</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">rotation_axis</span><span class="p">,</span>
+                    <span class="n">cross</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">rotation_axis</span><span class="p">))</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Computation of the contact point has not been implemented for the &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;combination of </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="p">)</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the objects of the tire model.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_objects</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_system</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">from_newtonian</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_contact_point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;contact_point&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_on_ground</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">contact_point</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Point</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Point representing the contact point of the wheel with the ground.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contact_point</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_ground</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Boolean whether the wheel is already defined as touching the ground.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_ground</span>
+
+    <span class="nd">@on_ground</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_ground</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_on_ground</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+
+
+<span class="c1"># Verification code.</span>
+<span class="n">verify_tire_base</span><span class="p">(</span><span class="n">TireBase</span><span class="p">,</span> <span class="n">FlatGround</span><span class="p">,</span> <span class="n">KnifeEdgeWheel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="NonHolonomicTire-Implementation">
+<h2>NonHolonomicTire Implementation<a class="headerlink" href="#NonHolonomicTire-Implementation" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">NonHolonomicTire</span></code> is a tire connection that enforces pure-rolling using nonholonomic constraints. It inherits from <code class="docutils literal notranslate"><span class="pre">TireBase</span></code> and re-specifies the class attribute <code class="docutils literal notranslate"><span class="pre">required_models</span></code>, as it will only be working with the <code class="docutils literal notranslate"><span class="pre">KnifeEdgeWheel</span></code> and <code class="docutils literal notranslate"><span class="pre">FlatGround</span></code>.</p>
+<p>During the define kinematics step, the <code class="docutils literal notranslate"><span class="pre">_set_pos_contact_point</span></code> method is employed to determine the position of the contact point. The nonholonomic constraints are defined in the <code class="docutils literal notranslate"><span class="pre">_define_constraints</span></code> method. Two distinct constructs are employed to calculate the velocity of the wheel center. Both of these velocities should be the same. However, they use different mathematical equations. The constructs use are:</p>
+<ol class="arabic simple">
+<li><p>The velocity of the wheel center is calculated by taking the time derivative of its position.</p></li>
+<li><p>The contact point serves as the instantaneous center of rotation. By leveraging this fact, the velocity can be computed as the cross product of the angular velocity of the wheel and the distance from the contact point to the wheel’s center.</p></li>
+</ol>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">NonHolonomicTire</span><span class="p">(</span><span class="n">TireBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tire model connection based on nonholonomic constraints.&quot;&quot;&quot;</span>
+
+    <span class="n">required_models</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ModelRequirement</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ModelRequirement</span><span class="p">(</span><span class="s2">&quot;ground&quot;</span><span class="p">,</span> <span class="n">FlatGround</span><span class="p">,</span> <span class="s2">&quot;Submodel of the ground.&quot;</span><span class="p">),</span>
+        <span class="n">ModelRequirement</span><span class="p">(</span><span class="s2">&quot;wheel&quot;</span><span class="p">,</span> <span class="n">KnifeEdgeWheel</span><span class="p">,</span> <span class="s2">&quot;Submodel of the wheel.&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_kinematics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the kinematics of the tire model.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_kinematics</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_pos_contact_point</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the constraints of the tire model.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_constraints</span><span class="p">()</span>
+        <span class="c1"># Get the normal and tangent vectors of the ground at the contact point.</span>
+        <span class="n">normal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">normal</span>
+        <span class="n">tangent_vectors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">tangent_vectors</span>
+        <span class="c1"># Compute the velocity of wheel center using two different constructs.</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">pos_from</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">frame</span><span class="p">)</span>
+        <span class="n">v2</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">ang_vel_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">frame</span><span class="p">),</span>
+                      <span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">center</span><span class="o">.</span><span class="n">pos_from</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contact_point</span><span class="p">))</span>
+        <span class="c1"># Compute and add the nonholonomic constraints.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_nonholonomic_constraints</span><span class="p">(</span>
+            <span class="n">dot</span><span class="p">(</span><span class="n">v1</span> <span class="o">-</span> <span class="n">v2</span><span class="p">,</span> <span class="n">tangent_vectors</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">dot</span><span class="p">(</span><span class="n">v1</span> <span class="o">-</span> <span class="n">v2</span><span class="p">,</span> <span class="n">tangent_vectors</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="c1"># Add a holonomic constraint if the wheel is not defined to be on the ground.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_ground</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_holonomic_constraints</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">contact_point</span><span class="o">.</span><span class="n">pos_from</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">normal</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Rolling-Disc-Model-Implementation">
+<h2>Rolling Disc Model Implementation<a class="headerlink" href="#Rolling-Disc-Model-Implementation" title="Link to this heading">¶</a></h2>
+<p>Now that we have all are key components implemted, we can create the <code class="docutils literal notranslate"><span class="pre">RollingDisc</span></code> model. While each of the components defines its own system, the job of the <code class="docutils literal notranslate"><span class="pre">RollingDisc</span></code> as parent model is to connect them. It has two submodels, ground and wheel, which it needs to connect. In this definition it should use our newly created tire connection as utility.</p>
+<p>The first step of implementing the <code class="docutils literal notranslate"><span class="pre">RollingDisc</span></code> class is to specify its submodels. Like with the connections, we can do so by specifying the class property <code class="docutils literal notranslate"><span class="pre">required_models</span></code> with <code class="docutils literal notranslate"><span class="pre">ModelRequirement</span></code>s. Required connections can be specified similarly using the class property <code class="docutils literal notranslate"><span class="pre">required_connections</span></code> with <code class="docutils literal notranslate"><span class="pre">ConnectionRequirement</span></code>s.</p>
+<p>With the structure set up we need to implement each of the define steps according to <a class="reference external" href="https://mechmotum.github.io/brim/guides/component_implementation.html#implementation-define-steps">the guidelines</a>. In define connections we must associate the <code class="docutils literal notranslate"><span class="pre">wheel</span></code> and <code class="docutils literal notranslate"><span class="pre">ground</span></code> with the <code class="docutils literal notranslate"><span class="pre">tire</span></code> connection.</p>
+<p>The following objects should be defined in the define objects step:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">System</span></code> should be instantiated (as always).</p></li>
+<li><p>The define step for each connection should be called.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">on_ground</span></code> property of the tire should be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> because we will define the contact point to be in the ground plane by definition not with a holonomic constraint.</p></li>
+<li><p>Generalized coordinates and speeds must be created. The <code class="docutils literal notranslate"><span class="pre">RollingDisc</span></code> will use these to orient and position the wheel w.r.t. the ground. For each of these we should of course also make a description.</p></li>
+</ul>
+<p>In the define kinematics step <code class="docutils literal notranslate"><span class="pre">RollingDisc</span></code> has to define the wheel w.r.t. the ground. The orientation can be done using <a class="reference external" href="https://docs.sympy.org/dev/modules/physics/vector/api/classes.html#sympy.physics.vector.frame.ReferenceFrame.orient_body_fixed">ReferenceFrame.orient_body_fixed</a>, while setting the position of the contact point using <code class="docutils literal notranslate"><span class="pre">GroundBase._set_pos_point</span></code>. In this process it should also utilize the tire connection to establish some of the relationships. For details on the
+kinematics refer to the free body diagram at the top of this page. <em>Hint: do not forget to add the generalized coordinates, generalized speeds, and kinematical differential equations to the system.</em></p>
+<p>As for the define loads and define constraints step, the only necessity is to call the define step for the connections, in case those would define any loads or constraints.</p>
+<section id="id4">
+<h3>Exercise<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>Implement the <code class="docutils literal notranslate"><span class="pre">RollingDisc</span></code> model using the components you have just implemented.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RollingDisc</span><span class="p">(</span><span class="n">ModelBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Rolling disc model.&quot;&quot;&quot;</span>
+
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">required_models</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ModelRequirement</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ModelRequirement</span><span class="p">(</span><span class="s2">&quot;ground&quot;</span><span class="p">,</span> <span class="n">GroundBase</span><span class="p">,</span> <span class="s2">&quot;Ground model.&quot;</span><span class="p">),</span>
+        <span class="n">ModelRequirement</span><span class="p">(</span><span class="s2">&quot;wheel&quot;</span><span class="p">,</span> <span class="n">WheelBase</span><span class="p">,</span> <span class="s2">&quot;Wheel model.&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">required_connections</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ConnectionRequirement</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ConnectionRequirement</span><span class="p">(</span><span class="s2">&quot;tire&quot;</span><span class="p">,</span> <span class="n">TireBase</span><span class="p">,</span> <span class="s2">&quot;Tire model.&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">descriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Dictionary of descriptions of the rolling disc&#39;s attributes.&quot;&quot;&quot;</span>
+        <span class="n">desc</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="o">**</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">descriptions</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="s2">&quot;Perpendicular distance along ground.x to the contact point.&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="s2">&quot;Perpendicular distance along ground.y to the contact point.&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="s2">&quot;Yaw angle of the disc.&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="s2">&quot;Roll angle of the disc.&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="s2">&quot;Pitch angle of the disc.&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">desc</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">ui</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Generalized speed of the </span><span class="si">{</span><span class="n">desc</span><span class="p">[</span><span class="n">qi</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                     <span class="k">for</span> <span class="n">qi</span><span class="p">,</span> <span class="n">ui</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">)})</span>
+        <span class="k">return</span> <span class="n">desc</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_connections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the connections between the submodels.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_connections</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tire</span><span class="o">.</span><span class="n">ground</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tire</span><span class="o">.</span><span class="n">wheel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wheel</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the objects of the rolling disc.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_objects</span><span class="p">()</span>
+        <span class="c1"># Define the system instance with the same reference as the ground.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_system</span> <span class="o">=</span> <span class="n">System</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span>
+        <span class="c1"># Setup the tire model.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tire</span><span class="o">.</span><span class="n">define_objects</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tire</span><span class="o">.</span><span class="n">on_ground</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># Define the generalized coordinates and speeds.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">MutableMatrix</span><span class="p">([</span><span class="n">dynamicsymbols</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;q1:6&quot;</span><span class="p">))])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="o">=</span> <span class="n">MutableMatrix</span><span class="p">([</span><span class="n">dynamicsymbols</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="s2">&quot;u1:6&quot;</span><span class="p">))])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_kinematics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the kinematics of the rolling disc.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_kinematics</span><span class="p">()</span>
+        <span class="c1"># Define the yaw-roll-pitch orientation of the disc.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">orient_body_fixed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="s2">&quot;zxy&quot;</span><span class="p">)</span>
+        <span class="c1"># Define the position of the contact point in the ground plane.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">set_pos_point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tire</span><span class="o">.</span><span class="n">contact_point</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+        <span class="c1"># Define the kinematics of the tire model.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tire</span><span class="o">.</span><span class="n">define_kinematics</span><span class="p">()</span>
+        <span class="c1"># Add coordinates, speeds and kinematic differential equations to the system.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_coordinates</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_speeds</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_kdes</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">dynamicsymbols</span><span class="o">.</span><span class="n">_t</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_loads</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the loads of the rolling disc.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_loads</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tire</span><span class="o">.</span><span class="n">define_loads</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the constraints of the rolling disc.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_constraints</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tire</span><span class="o">.</span><span class="n">define_constraints</span><span class="p">()</span>
+    <span class="c1">### END SOLUTION</span>
+
+<span class="c1"># Verification code.</span>
+<span class="n">verify_rolling_disc</span><span class="p">(</span><span class="n">RollingDisc</span><span class="p">,</span> <span class="n">FlatGround</span><span class="p">,</span> <span class="n">KnifeEdgeWheel</span><span class="p">,</span> <span class="n">NonHolonomicTire</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Control-Load-Group-Implementation">
+<h2>Control Load Group Implementation<a class="headerlink" href="#Control-Load-Group-Implementation" title="Link to this heading">¶</a></h2>
+<p>We of course want to also control the disc using some loads, namely a drive, roll and steer torque at the wheel. To easily allow users to do so we can create a load group <code class="docutils literal notranslate"><span class="pre">RollingDiscControl</span></code>. When creating a load group the first step is to set the required type of the parent. In this case, the rolling disc is chosen as parent. This can be done by specifying the class property <code class="docutils literal notranslate"><span class="pre">required_parent_type</span></code>.</p>
+<section id="id5">
+<h3>Exercise<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p>Complete the implementation of <code class="docutils literal notranslate"><span class="pre">RollingDiscControl</span></code>, which applies a drive, roll and steer torque a the wheel. Each of the magnitudes should be defined as a dynamicsymbol and be stored in the <code class="docutils literal notranslate"><span class="pre">self.symbols</span></code> dictionary under the names <code class="docutils literal notranslate"><span class="pre">&quot;T_drive&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;T_roll&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;T_steer&quot;</span></code> respectively. You can compute the roll axis using <code class="docutils literal notranslate"><span class="pre">cross(self.parent.ground.normal,</span> <span class="pre">self.parent.wheel.rotation_axis)</span></code> and the upward radial axis using <code class="docutils literal notranslate"><span class="pre">cross(self.parent.wheel.rotation_axis,</span> <span class="pre">roll_axis)</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RollingDiscControl</span><span class="p">(</span><span class="n">LoadGroupBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Rolling disc control load group.&quot;&quot;&quot;</span>
+
+    <span class="c1">### BEGIN SOLUTION</span>
+    <span class="n">required_parent_type</span> <span class="o">=</span> <span class="n">RollingDisc</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">descriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">object</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Dictionary of descriptions of the rolling disc&#39;s controls.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="o">**</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">descriptions</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;T_drive&quot;</span><span class="p">]:</span> <span class="s2">&quot;Drive torque.&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;T_roll&quot;</span><span class="p">]:</span> <span class="s2">&quot;Roll torque.&quot;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;T_steer&quot;</span><span class="p">]:</span> <span class="s2">&quot;Steer torque.&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_objects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define objects.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_objects</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+            <span class="n">name</span><span class="p">:</span> <span class="n">dynamicsymbols</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_prefix</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span>
+                <span class="s2">&quot;T_drive&quot;</span><span class="p">,</span> <span class="s2">&quot;T_roll&quot;</span><span class="p">,</span> <span class="s2">&quot;T_steer&quot;</span><span class="p">)</span>
+        <span class="p">})</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_define_loads</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define loads.&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_define_loads</span><span class="p">()</span>
+        <span class="n">roll_axis</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">rotation_axis</span><span class="p">)</span>
+        <span class="n">upward_radial_axis</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">rotation_axis</span><span class="p">,</span> <span class="n">roll_axis</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">add_loads</span><span class="p">(</span>
+            <span class="n">Torque</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span>
+                   <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;T_drive&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">wheel</span><span class="o">.</span><span class="n">rotation_axis</span> <span class="o">+</span>
+                   <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;T_roll&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">roll_axis</span> <span class="o">+</span>
+                   <span class="bp">self</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="s2">&quot;T_steer&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">upward_radial_axis</span><span class="p">,</span>
+                   <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="c1">### END SOLUTION</span>
+
+<span class="c1"># Verification code.</span>
+<span class="n">verify_rolling_disc_control</span><span class="p">(</span><span class="n">RollingDiscControl</span><span class="p">,</span> <span class="n">RollingDisc</span><span class="p">,</span> <span class="n">FlatGround</span><span class="p">,</span> <span class="n">KnifeEdgeWheel</span><span class="p">,</span> <span class="n">NonHolonomicTire</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Build-Rolling-Disc">
+<h2>Build Rolling Disc<a class="headerlink" href="#Build-Rolling-Disc" title="Link to this heading">¶</a></h2>
+<p>With all components defined the rolling disc model we can form the EoMs of our rolling disc. We should start with configuring the model by describing out of which components the rolling disc is composed. Next, we have to run all define steps. After which we can export it to a single system instance and apply gravity. The last step before generating the EoMs is to specify which generalized speeds are independent and which are dependent.</p>
+<section id="id6">
+<h3>Exercise<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<p>Build the your rolling disc model and form the EoMs. You can use <code class="docutils literal notranslate"><span class="pre">System.validate_system()</span></code> to do some simple checks. Also, if you would like to use your equations, make sure to specify <code class="docutils literal notranslate"><span class="pre">&quot;CRAMER&quot;</span></code> as constraint solver.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### BEGIN SOLUTION</span>
+<span class="c1"># Configure the model by describing the components it consists out of.</span>
+<span class="n">rolling_disc</span> <span class="o">=</span> <span class="n">RollingDisc</span><span class="p">(</span><span class="s2">&quot;disc&quot;</span><span class="p">)</span>
+<span class="n">rolling_disc</span><span class="o">.</span><span class="n">wheel</span> <span class="o">=</span> <span class="n">KnifeEdgeWheel</span><span class="p">(</span><span class="s2">&quot;wheel&quot;</span><span class="p">)</span>
+<span class="n">rolling_disc</span><span class="o">.</span><span class="n">ground</span> <span class="o">=</span> <span class="n">FlatGround</span><span class="p">(</span><span class="s2">&quot;ground&quot;</span><span class="p">)</span>
+<span class="n">rolling_disc</span><span class="o">.</span><span class="n">tire</span> <span class="o">=</span> <span class="n">NonHolonomicTire</span><span class="p">(</span><span class="s2">&quot;tyre&quot;</span><span class="p">)</span>
+<span class="n">rolling_disc</span><span class="o">.</span><span class="n">add_load_groups</span><span class="p">(</span><span class="n">RollingDiscControl</span><span class="p">(</span><span class="s2">&quot;controls&quot;</span><span class="p">))</span>
+<span class="c1"># Run all define steps.</span>
+<span class="n">rolling_disc</span><span class="o">.</span><span class="n">define_all</span><span class="p">()</span>
+<span class="c1"># Export the model to a single instance of System.</span>
+<span class="n">system</span> <span class="o">=</span> <span class="n">rolling_disc</span><span class="o">.</span><span class="n">to_system</span><span class="p">()</span>
+<span class="c1"># Apply gravity.</span>
+<span class="n">system</span><span class="o">.</span><span class="n">apply_uniform_gravity</span><span class="p">(</span><span class="o">-</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="n">rolling_disc</span><span class="o">.</span><span class="n">ground</span><span class="o">.</span><span class="n">normal</span><span class="p">)</span>
+<span class="c1"># Define which generalized speeds are indepedent and dependent</span>
+<span class="n">system</span><span class="o">.</span><span class="n">u_ind</span> <span class="o">=</span> <span class="n">rolling_disc</span><span class="o">.</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="n">system</span><span class="o">.</span><span class="n">u_dep</span> <span class="o">=</span> <span class="n">rolling_disc</span><span class="o">.</span><span class="n">u</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1"># Run some basic validation of the system before forming the EoMs.</span>
+<span class="n">system</span><span class="o">.</span><span class="n">validate_system</span><span class="p">()</span>
+<span class="n">system</span><span class="o">.</span><span class="n">form_eoms</span><span class="p">();</span>
+<span class="c1">### END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="What's-Next?">
+<h2>What’s Next?<a class="headerlink" href="#What's-Next?" title="Link to this heading">¶</a></h2>
+<p>Congratulations! You have finished the developers tutorial. Now that you have completed this tutorial you can start developing your own models. If you would like to practise further, here are some ideas:</p>
+<ul class="simple">
+<li><p>Implement your own <code class="docutils literal notranslate"><span class="pre">UniCycle</span></code> model. Feel free to open a PR ;)</p></li>
+<li><p>Try to reduce the number of operations in the EoMs after CSE of your <code class="docutils literal notranslate"><span class="pre">RollingDisc</span></code>. You can compute the number of operations using <code class="docutils literal notranslate"><span class="pre">sympy.cse(system.form_eoms(constraint_solver=&quot;CRAMER&quot;))</span></code>.</p></li>
+<li><p>Read the implementation of the models you have implemented in BRiM’s source code. There will most probably be some subtle differences.</p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../contributing/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Contributing</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="my_first_bicycle.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Building Bicycle-Rider Models with SymBRiM</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, Timo Stienstra
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Rolling Disc From Scratch</a><ul>
+<li><a class="reference internal" href="#Rolling-Disc-Model">Rolling Disc Model</a></li>
+<li><a class="reference internal" href="#Components-Overview">Components Overview</a></li>
+<li><a class="reference internal" href="#Tutorial-Overview">Tutorial Overview</a></li>
+<li><a class="reference internal" href="#Imports">Imports</a></li>
+<li><a class="reference internal" href="#GroundBase-Implementation">GroundBase Implementation</a><ul>
+<li><a class="reference internal" href="#What-is-a-Base-Class?">What is a Base Class?</a></li>
+<li><a class="reference internal" href="#Define-Steps">Define Steps</a></li>
+<li><a class="reference internal" href="#Exercise">Exercise</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#FlatGround-Implementation">FlatGround Implementation</a><ul>
+<li><a class="reference internal" href="#id1">Exercise</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#KnifeEdgeWheel-Implementation">KnifeEdgeWheel Implementation</a><ul>
+<li><a class="reference internal" href="#Inheriting-from-WheelBase">Inheriting from WheelBase</a></li>
+<li><a class="reference internal" href="#Symbol-Handling">Symbol Handling</a></li>
+<li><a class="reference internal" href="#id2">Exercise</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#TireBase-Implementation">TireBase Implementation</a><ul>
+<li><a class="reference internal" href="#Functionality-Overview">Functionality Overview</a></li>
+<li><a class="reference internal" href="#Creation-of-Submodel-Properties">Creation of Submodel Properties</a></li>
+<li><a class="reference internal" href="#Contact-Point-Computation">Contact Point Computation</a></li>
+<li><a class="reference internal" href="#id3">Exercise</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#NonHolonomicTire-Implementation">NonHolonomicTire Implementation</a></li>
+<li><a class="reference internal" href="#Rolling-Disc-Model-Implementation">Rolling Disc Model Implementation</a><ul>
+<li><a class="reference internal" href="#id4">Exercise</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Control-Load-Group-Implementation">Control Load Group Implementation</a><ul>
+<li><a class="reference internal" href="#id5">Exercise</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Build-Rolling-Disc">Build Rolling Disc</a><ul>
+<li><a class="reference internal" href="#id6">Exercise</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#What's-Next?">What’s Next?</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

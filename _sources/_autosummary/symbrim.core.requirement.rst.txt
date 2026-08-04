@@ -1,0 +1,37 @@
+..
+  module.rst
+
+symbrim.core.requirement
+========================
+
+.. automodule:: symbrim.core.requirement
+
+    
+        
+    
+
+    
+        
+    
+
+    
+        
+            .. rubric:: Classes
+
+            .. autosummary::
+                :toctree:
+                :nosignatures:
+                :template: autosummary/class.rst
+                
+                    ConnectionRequirement
+                    ModelRequirement
+                    RequirementBase
+        
+    
+
+    
+        
+    
+
+
+    

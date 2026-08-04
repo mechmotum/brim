@@ -1,0 +1,54 @@
+..
+  class.rst
+
+symbrim.utilities.plotting.PlotLoadGroup
+========================================
+
+.. currentmodule:: symbrim.utilities.plotting
+
+.. autoclass:: PlotLoadGroup
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~PlotLoadGroup.annot_coords
+                    ~PlotLoadGroup.artists
+                    ~PlotLoadGroup.children
+                    ~PlotLoadGroup.inertial_frame
+                    ~PlotLoadGroup.load_group
+                    ~PlotLoadGroup.name
+                    ~PlotLoadGroup.plot_objects
+                    ~PlotLoadGroup.sympy_object
+                    ~PlotLoadGroup.values
+                    ~PlotLoadGroup.visible
+                    ~PlotLoadGroup.zero_point
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~PlotLoadGroup.__init__
+                    ~PlotLoadGroup.add_artist
+                    ~PlotLoadGroup.add_body
+                    ~PlotLoadGroup.add_frame
+                    ~PlotLoadGroup.add_line
+                    ~PlotLoadGroup.add_plot_object
+                    ~PlotLoadGroup.add_point
+                    ~PlotLoadGroup.add_vector
+                    ~PlotLoadGroup.contains
+                    ~PlotLoadGroup.get_expressions_to_evaluate
+                    ~PlotLoadGroup.get_plot_object
+                    ~PlotLoadGroup.get_sympy_object_exprs
+                    ~PlotLoadGroup.plot
+                    ~PlotLoadGroup.update
+        
+    

@@ -1,0 +1,38 @@
+..
+  class.rst
+
+symbrim.core.requirement.ModelRequirement
+=========================================
+
+.. currentmodule:: symbrim.core.requirement
+
+.. autoclass:: ModelRequirement
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~ModelRequirement.attribute_name
+                    ~ModelRequirement.description
+                    ~ModelRequirement.full_name
+                    ~ModelRequirement.hard
+                    ~ModelRequirement.type_hint
+                    ~ModelRequirement.type_name
+                    ~ModelRequirement.types
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~ModelRequirement.__init__
+                    ~ModelRequirement.is_satisfied_by
+        
+    

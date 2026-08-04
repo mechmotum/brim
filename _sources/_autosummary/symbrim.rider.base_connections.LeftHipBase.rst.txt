@@ -1,0 +1,48 @@
+..
+  class.rst
+
+symbrim.rider.base\_connections.LeftHipBase
+===========================================
+
+.. currentmodule:: symbrim.rider.base_connections
+
+.. autoclass:: LeftHipBase
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~LeftHipBase.auxiliary_handler
+                    ~LeftHipBase.descriptions
+                    ~LeftHipBase.leg
+                    ~LeftHipBase.load_groups
+                    ~LeftHipBase.name
+                    ~LeftHipBase.pelvis
+                    ~LeftHipBase.required_models
+                    ~LeftHipBase.submodels
+                    ~LeftHipBase.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~LeftHipBase.__init__
+                    ~LeftHipBase.add_load_groups
+                    ~LeftHipBase.define_constraints
+                    ~LeftHipBase.define_kinematics
+                    ~LeftHipBase.define_loads
+                    ~LeftHipBase.define_objects
+                    ~LeftHipBase.get_all_symbols
+                    ~LeftHipBase.get_description
+                    ~LeftHipBase.get_param_values
+                    ~LeftHipBase.set_plot_objects
+        
+    

@@ -1,0 +1,9 @@
+..
+  base.rst
+
+symbrim.utilities.utilities.check\_zero
+=======================================
+
+.. currentmodule:: symbrim.utilities.utilities
+
+.. autofunction:: check_zero

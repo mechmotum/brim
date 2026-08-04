@@ -1,0 +1,44 @@
+..
+  class.rst
+
+symbrim.rider.hip\_joints.SphericalHipSpringDamper
+==================================================
+
+.. currentmodule:: symbrim.rider.hip_joints
+
+.. autoclass:: SphericalHipSpringDamper
+    :members:
+    :show-inheritance:
+    :inherited-members:
+    :special-members:
+
+    
+        
+            .. rubric:: Attributes
+
+            .. autosummary::
+                
+                    ~SphericalHipSpringDamper.auxiliary_handler
+                    ~SphericalHipSpringDamper.descriptions
+                    ~SphericalHipSpringDamper.name
+                    ~SphericalHipSpringDamper.parent
+                    ~SphericalHipSpringDamper.required_parent_type
+                    ~SphericalHipSpringDamper.system
+        
+        
+            .. rubric:: Methods
+
+            .. autosummary::
+                :nosignatures:
+                
+                    ~SphericalHipSpringDamper.__init__
+                    ~SphericalHipSpringDamper.define_constraints
+                    ~SphericalHipSpringDamper.define_kinematics
+                    ~SphericalHipSpringDamper.define_loads
+                    ~SphericalHipSpringDamper.define_objects
+                    ~SphericalHipSpringDamper.get_all_symbols
+                    ~SphericalHipSpringDamper.get_description
+                    ~SphericalHipSpringDamper.get_param_values
+                    ~SphericalHipSpringDamper.set_plot_objects
+        
+    
