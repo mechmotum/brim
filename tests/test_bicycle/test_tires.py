@@ -65,7 +65,7 @@ class TestTireBase:
     def test_not_implemented_combinations(self) -> None:
         class NewGround(GroundBase):
             def get_normal(self, position):
-                return -self.body.z
+                return -self.frame.z
 
             def get_tangent_vectors(self, position):
                 return (self.frame.x, self.frame.y)

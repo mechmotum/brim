@@ -23,11 +23,9 @@ class TestFlatGround:
     @pytest.mark.usefixtures("_setup")
     def test_default(self) -> None:
         assert self.ground.name == "ground"
-        assert self.ground.frame == self.ground.body.frame
         assert self.ground.get_normal(self.ground.origin) == -self.ground.frame.z
         assert self.ground.get_tangent_vectors(self.ground.origin) == (
             self.ground.frame.x, self.ground.frame.y)
-        assert self.ground.origin == self.ground.body.masscenter
         assert self.ground.origin.vel(self.ground.frame) == 0
         assert isinstance(self.ground.system, System)
 
@@ -82,3 +80,9 @@ class TestFlatGround:
         plot_model = PlotModel(ground.system.frame, ground.system.fixed_point, ground)
         assert len(plot_model.children) == 1
         assert isinstance(plot_model.children[0], PlotFrame)
+
+    def test_body_property_deprecation_warning(self):
+        ground = FlatGround("ground")
+        ground.define_objects()
+        with pytest.warns(DeprecationWarning):
+            _ = ground.body

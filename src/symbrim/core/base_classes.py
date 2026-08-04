@@ -32,6 +32,16 @@ if TYPE_CHECKING:
 __all__ = ["ConnectionBase", "ConnectionMeta", "LoadGroupBase", "LoadGroupMeta",
            "ModelBase", "ModelMeta", "set_default_convention"]
 
+def _get_symbols_from_exprs(*exprs: Basic) -> set[Basic]:
+    """Get all symbols from an expression."""
+    syms = set()
+    for expr in exprs:
+        if isinstance(expr, Basic):
+            syms.update(expr.free_symbols)
+            syms.update(find_dynamicsymbols(expr))
+    syms.discard(dynamicsymbols._t)
+    return syms
+
 
 def _get_requirements(bases, namespace, req_attr_name):  # noqa: ANN001, ANN202
     requirements = {}
@@ -197,26 +207,11 @@ class BrimBase:
         return None
 
     def get_all_symbols(self) -> set[Basic]:
-        """Get all declared symbols of a model."""
+        """Get all declared non-state symbols the object."""
         syms = set()
         # Get local symbols.
         for sym in self.symbols.values():
-            # Extract symbols if an expression is set as symbol.
-            if isinstance(sym, Basic):
-                syms.update(sym.free_symbols)
-                syms.update(find_dynamicsymbols(sym))
-        if dynamicsymbols._t in syms:  # Remove t.
-            syms.remove(dynamicsymbols._t)
-        # Traverse children.
-        if hasattr(self, "submodels"):
-            for submodel in self.submodels:
-                syms.update(submodel.get_all_symbols())
-        if hasattr(self, "connections"):
-            for conn in self.connections:
-                syms.update(conn.get_all_symbols())
-        if hasattr(self, "load_groups"):
-            for load_group in self.load_groups:
-                syms.update(load_group.get_all_symbols())
+            syms.update(_get_symbols_from_exprs(sym))
         return syms
 
     @property
@@ -383,6 +378,31 @@ class ModelBase(BrimBase, metaclass=ModelMeta):
             return unspecified
         return tuple(req.attribute_name for req in unspecified)
 
+    def get_all_symbols(self) -> set[Basic]:
+        """Get all declared non-state symbols of a model.
+
+        This method returns all symbols that are declared in the model, including those
+        from submodels, connections, load groups, and bodies in the system. This
+        includes This includes by example lengths, masses, inertias, and time-varying
+        loads, but excludes generalized coordinates, generalized speeds, auxiliary
+        speeds, and the time symbol.
+        """
+        syms = super().get_all_symbols()
+        for submodel in self.submodels:
+            syms.update(submodel.get_all_symbols())
+        for conn in self.connections:
+            syms.update(conn.get_all_symbols())
+        for load_group in self.load_groups:
+            syms.update(load_group.get_all_symbols())
+        for body in self.system.bodies:
+            syms.update(_get_symbols_from_exprs(body.mass))
+            central_inertia = getattr(body, "central_inertia", None)
+            if central_inertia is not None:
+                syms.update(
+                    _get_symbols_from_exprs(*central_inertia.to_matrix(body.frame))
+                )
+        return syms
+
     def _set_auxiliary_handler(self, auxiliary_handler: AuxiliaryDataHandler) -> None:
         """Set the auxiliary data handler of the model."""
         self._auxiliary_handler = auxiliary_handler
@@ -504,6 +524,17 @@ class ConnectionBase(BrimBase, metaclass=ConnectionMeta):
     def load_groups(self) -> tuple[LoadGroupBase]:
         """Load groups of the connection."""
         return tuple(self._load_groups)
+
+    def get_all_symbols(self) -> set[Basic]:
+        """Get all declared symbols of a connection.
+
+        This method returns all symbols that are declared in the connection, including
+        those from the load groups, but excluding those from the submodels.
+        """
+        syms = super().get_all_symbols()
+        for load_group in self.load_groups:
+            syms.update(load_group.get_all_symbols())
+        return syms
 
     def add_load_groups(self, *load_groups: LoadGroupBase) -> None:
         """Add load groups to the connection."""

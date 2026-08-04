@@ -139,6 +139,7 @@ class TwoPinStickLegMixin:
         self._shank = RigidBody(self._add_prefix("shank"))
         self._foot = RigidBody(self._add_prefix("foot"))
         self._system = System.from_newtonian(self.hip)
+        self._system.add_bodies(self._shank, self._foot)
 
     def _define_kinematics(self) -> None:
         """Define the kinematics."""

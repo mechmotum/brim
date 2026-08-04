@@ -121,6 +121,7 @@ class PinElbowStickArmMixin:
         self._upper_arm = RigidBody(self._add_prefix("upper_arm"))
         self._forearm = RigidBody(self._add_prefix("forearm"))
         self._system = System.from_newtonian(self.upper_arm)
+        self._system.add_bodies(self._forearm)
 
     def _define_kinematics(self) -> None:
         """Define the kinematics."""
