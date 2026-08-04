@@ -6,7 +6,7 @@ from sympy import Basic, Derivative, Dummy, Expr, lambdify
 from sympy.core.random import random
 from sympy.physics.mechanics import ReferenceFrame, Vector, find_dynamicsymbols, msubs
 
-__all__ = ["random_eval", "check_zero", "express_basis_vector_towards"]
+__all__ = ["random_eval", "check_zero", "express_single_component_towards"]
 
 
 def random_eval(expr: Expr, prec: int = 7, method: str = "lambdify") -> float:
@@ -66,18 +66,22 @@ def check_zero(expr: Expr, n_evaluations: int = 10, atol: float = 1e-8) -> bool:
         np.zeros(n_evaluations), 0, atol)
 
 
-def express_basis_vector_towards(vector: Vector, frame: ReferenceFrame) -> Vector:
-    """Express a basis vector closer to the frame of interest.
+def express_single_component_towards(vector: Vector, frame: ReferenceFrame) -> Vector:
+    """Express a vector closer to the frame of interest.
 
-    This function can be used to simplify computations by expressing a basis vector
-    closer to the frame of interest, while keeping it a basis vector.
+    This function can be used to simplify computations by expressing a single-component
+    vector in a frame that is closer to the desired frame. A single-component vector is
+    defined as a vector that has only one non-zero component in its representation. The
+    function iteratively expresses the vector in intermediate frames until it reaches a
+    frame that is closer to the desired frame or until it is no longer a
+    single-component vector.
 
     Parameters
     ----------
     vector : Vector
-        The basis vector to express in a different frame.
+        The single-component vector to express in a different frame.
     frame : ReferenceFrame
-        The frame towards which to express the basis vector.
+        The frame towards which to express the single-component vector.
     """
     if len(vector.args) != 1:
         return vector  # Not a basis vector
