@@ -43,7 +43,7 @@ class Plotter(Scene3D):
             Axes to plot on. If None, a new figure is created.
         **inertial_frame_properties
             Keyword arguments are parsed to
-            :class:`symmeplot.plot_objects.PlotFrame` representing the inertial
+            :class:`symmeplot.matplotlib.plot_objects.PlotFrame` representing the inertial
             reference frame.
         """
         plotter = cls(model.system.frame, model.system.fixed_point, ax=ax,

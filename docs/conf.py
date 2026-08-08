@@ -37,14 +37,33 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "tutorials/exercises/*.i
 napoleon_numpy_docstring = True
 napoleon_custom_sections = [("Explanation", "notes_style")]
 
+# Enable nitpicky mode to find broken references
+nitpicky = True
+
+# Intersphinx configuration to resolve external references
 intersphinx_mapping = {
+    "bicycleparameters": ("https://bicycleparameters.readthedocs.io/stable/", None),
     "sympy": ("https://docs.sympy.org/dev/", None),
     "numpy": ("https://numpy.org/doc/stable/", None),
+    "matplotlib": ("https://matplotlib.org/stable/", None),
     "symmeplot": ("https://tjstienstra.github.io/symmeplot/", None),
     "py3": ("https://docs.python.org/3", None),
 }
 
+# Only ignore references that cannot be resolved by intersphinx.
+# External library references are resolved when inventories are available.
+nitpick_ignore = [
+    # Type hints that Sphinx doesn't recognize
+    ("py:class", "optional"),
+    ("py:class", "function"),
+    # Private methods that are intentionally documented
+    ("py:meth", "symbrim.core.base_classes.BrimBase._add_prefix"),
+]
+
 bibtex_bibfiles = ["references.bib"]
+
+# Allow errors in notebooks (some tutorials require scipy which may not be installed)
+nbsphinx_allow_errors = True
 
 # Run process_tutorials.py to convert notebooks to create a zip file with exercises.
 process_tutorials()
