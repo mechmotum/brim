@@ -4,9 +4,9 @@ from __future__ import annotations
 import numpy as np
 from sympy import Basic, Derivative, Dummy, Expr, lambdify
 from sympy.core.random import random
-from sympy.physics.mechanics import find_dynamicsymbols, msubs
+from sympy.physics.mechanics import ReferenceFrame, Vector, find_dynamicsymbols, msubs
 
-__all__ = ["random_eval", "check_zero"]
+__all__ = ["random_eval", "check_zero", "express_single_component_towards"]
 
 
 def random_eval(expr: Expr, prec: int = 7, method: str = "lambdify") -> float:
@@ -64,3 +64,36 @@ def check_zero(expr: Expr, n_evaluations: int = 10, atol: float = 1e-8) -> bool:
     return np.allclose(
         np.fromfunction(lambda _: f(*rng.random(len(free))), (n_evaluations,)),
         np.zeros(n_evaluations), 0, atol)
+
+
+def express_single_component_towards(vector: Vector, frame: ReferenceFrame) -> Vector:
+    """Express a vector closer to the frame of interest.
+
+    This function can be used to simplify computations by expressing a single-component
+    vector in a frame that is closer to the desired frame. A single-component vector is
+    defined as a vector that has only one non-zero component in its representation. The
+    function iteratively expresses the vector in intermediate frames until it reaches a
+    frame that is closer to the desired frame or until it is no longer a
+    single-component vector.
+
+    Parameters
+    ----------
+    vector : Vector
+        The single-component vector to express in a different frame.
+    frame : ReferenceFrame
+        The frame towards which to express the single-component vector.
+    """
+    if len(vector.args) != 1:
+        return vector  # Not a basis vector
+    flist = vector.args[0][1]._dict_list(frame, 0)
+    out = vector
+    for f in flist:
+        new_out = out.express(f)
+        n_zeros = 0
+        for elem in new_out.args[0][0]:
+            if elem == 0:
+                n_zeros += 1
+        if n_zeros < 2:
+            break   # Not a basis vector anymore, so stop expressing
+        out = new_out
+    return out

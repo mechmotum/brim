@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 import numpy as np
 import pytest
 from sympy import Matrix, Symbol, count_ops, lambdify, linear_eq_to_matrix
-from sympy.physics.mechanics import dynamicsymbols, msubs
+from sympy.physics.mechanics import dynamicsymbols, find_dynamicsymbols, msubs
 
 from symbrim import (
     FlatGround,
@@ -126,6 +126,15 @@ class TestWhippleBicycleMoore:
                 4.6198904039391895, -2.4548072904552343)))
         ud0_expected = [expected_state[udi] for udi in system.u.diff(t)]
         assert np.allclose(ud0, ud0_expected)
+
+    @pytest.mark.usefixtures("_setup_default")
+    def test_hol_constr_free_dynamicsymbols(self) -> None:
+        self.bike.define_all()
+        system = self.bike.to_system()
+        assert len(system.holonomic_constraints) == 1
+        assert find_dynamicsymbols(system.holonomic_constraints) == {
+            self.bike.q[3], self.bike.q[4], self.bike.q[6]
+        }
 
     @pytest.mark.usefixtures("_setup_default")
     def test_descriptions(self) -> None:

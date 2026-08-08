@@ -3,9 +3,13 @@ from __future__ import annotations
 import pytest
 from sympy import S, acos, cos, sqrt, symbols
 from sympy.abc import a, b, c
-from sympy.physics.mechanics import dynamicsymbols
+from sympy.physics.mechanics import ReferenceFrame, dynamicsymbols
 
-from symbrim.utilities.utilities import check_zero, random_eval
+from symbrim.utilities.utilities import (
+    check_zero,
+    express_single_component_towards,
+    random_eval,
+)
 
 
 class TestRandomEval:
@@ -65,3 +69,22 @@ class TestCheckZero:
     def test_non_expression(self) -> None:
         assert check_zero(0.0)
         assert not check_zero(3.3)
+
+class TestExpressSingleComponentTowards:
+    def test_express_single_component_towards(self) -> None:
+        f1 = ReferenceFrame("f1")
+        f2 = ReferenceFrame("f2")
+        f3 = ReferenceFrame("f3")
+        with pytest.raises(ValueError, match="No connecting orientation path found"):
+            express_single_component_towards(f1.x, f3)
+        f2.orient_axis(f1, f1.x, S.Pi / 2)
+        f3.orient_axis(f2, f2.y, 0.5)
+        assert express_single_component_towards(f1.x + f1.y, f2) == f1.x + f1.y
+        assert express_single_component_towards(f1.x + f2.x, f3) == f1.x + f2.x
+        assert express_single_component_towards(f1.x, f2) == f2.x
+        assert express_single_component_towards(f2.x, f1) == f1.x
+        assert express_single_component_towards(f1.y, f2) == -f2.z
+        assert express_single_component_towards(f1.z, f2) == f2.y
+        assert express_single_component_towards(f1.x, f3) == f2.x
+        assert express_single_component_towards(f1.y, f3) == -f2.z
+        assert express_single_component_towards(f1.z, f3) == f3.y

@@ -16,7 +16,7 @@ from sympy.physics.mechanics import (
 from symbrim.bicycle.grounds import FlatGround, GroundBase
 from symbrim.bicycle.wheels import KnifeEdgeWheel, ToroidalWheel, WheelBase
 from symbrim.core import ConnectionBase, ModelRequirement
-from symbrim.utilities.utilities import check_zero
+from symbrim.utilities.utilities import check_zero, express_single_component_towards
 
 __all__ = ["TireBase", "InContactTire", "NonHolonomicTire"]
 
@@ -75,11 +75,12 @@ class TireBase(ConnectionBase):
         ``wheel.radius * upward_radial_axis``.
         """
         if self._upward_radial_axis is None:
+            rot_axis = express_single_component_towards(
+                self.wheel.rotation_axis, self.ground.frame)
+            normal = express_single_component_towards(
+                self.ground.get_normal(self.contact_point), self.wheel.frame)
             self._upward_radial_axis = cross(
-                self.wheel.rotation_axis,
-                cross(self.ground.get_normal(self.contact_point),
-                      self.wheel.rotation_axis)
-            ).normalize()
+                rot_axis, cross(normal, rot_axis)).normalize()
         return self._upward_radial_axis
 
     @upward_radial_axis.setter
@@ -101,8 +102,11 @@ class TireBase(ConnectionBase):
     def longitudinal_axis(self) -> Vector:
         """Longitudinal axis of the wheel."""
         if self._longitudinal_axis is None:
-            self._longitudinal_axis = cross(self.ground.get_normal(self.contact_point),
-                                            self.wheel.rotation_axis).normalize()
+            rot_axis = express_single_component_towards(
+                self.wheel.rotation_axis, self.ground.frame)
+            normal = express_single_component_towards(
+                self.ground.get_normal(self.contact_point), self.wheel.frame)
+            self._longitudinal_axis = cross(normal, rot_axis).normalize()
         return self._longitudinal_axis
 
     @longitudinal_axis.setter
@@ -122,10 +126,11 @@ class TireBase(ConnectionBase):
     def lateral_axis(self) -> Vector:
         """Lateral axis of the wheel."""
         if self._lateral_axis is None:
-            self._lateral_axis = cross(
-                cross(self.ground.get_normal(self.contact_point),
-                      self.wheel.rotation_axis),
-                self.ground.get_normal(self.contact_point)).normalize()
+            rot_axis = express_single_component_towards(
+                self.wheel.rotation_axis, self.ground.frame)
+            normal = express_single_component_towards(
+                self.ground.get_normal(self.contact_point), self.wheel.frame)
+            self._lateral_axis = cross(cross(normal, rot_axis), normal).normalize()
         return self._lateral_axis
 
     @lateral_axis.setter
